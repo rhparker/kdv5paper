@@ -1,0 +1,40 @@
+\ProvidesPackage{style}
+
+%% theorem styles
+
+\def\th@plain{%
+  \let\thm@indent\noindent
+  \thm@headfont{\bfseries}%
+  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
+  \itshape
+}
+\def\th@definition{%
+  \let\thm@indent\noindent
+  \thm@headfont{\bfseries}%
+  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
+  \upshape
+}
+\def\th@remark{%
+  \let\thm@indent\noindent
+  \thm@headfont{\bfseries}% heading font small caps
+  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
+  \upshape
+}
+\@ifundefined{swappedhead@plain}{%
+  \let\swappedhead@plain=\swappedhead
+}{}
+\@ifundefined{pushQED}{%
+  \let\pushQED\@gobble
+  \def\popQED{\qed}%
+}{}
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}\relax
+  \normalfont \topsep6\p@\@plus6\p@ \relax
+  \trivlist
+  \itemindent\z@
+  \item[\hskip\labelsep
+        \bfseries
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}

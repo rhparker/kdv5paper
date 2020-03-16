@@ -1,0 +1,159 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[left=1in,right=1in,top=1in,bottom=1.25in]{geometry}%
+
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{mdwlist}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{subfiles}
+
+% my custom packages
+\usepackage{macros}
+\usepackage{packages}
+\usepackage{style}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{hypothesis}[theorem]{Hypothesis} 
+
+\begin{document}
+
+\section{Introduction}
+
+The Kawahara equation, also known as a fifth-order KdV-type equation, is used as a model for capillary-gravity water waves, magneto-acoustic waves, plasma waves, and other dispersive phenomena. This equation takes the general form
+\begin{equation}\label{kawahara}
+u_t + \alpha u_{xxx} + \beta u_{xxxxx} = \frac{\partial}{\partial x} f(u, u_x, u_{xxx}),
+\end{equation}
+where $u(x, t)$ is a real-valued function, the parameters $\alpha$ and $\beta$ are real with $\beta \neq 0$, and $f$ is a smooth function \cite{Bridges2002,Bridges2002a}. If $f$ is a variational derivative, then \cref{kawahara} is the Hamiltonian system
+\[
+\partial_t u = \calJ \calE'(u),
+\]
+where $\calJ = \partial_x$ is skew-Hermitian. The energy $\calE$ is given by
+\begin{equation}\label{kawaharaE}
+\calE(u) = -\frac{1}{2}\int_{-\infty}^\infty 
+\left( \frac{1}{2}u_{xx}^2 - \frac{1}{2}\alpha u_x^2 + h(u, u_x, u_{xx})\right)dx,
+\end{equation}
+and $f$ in \cref{kawahara} is the variational derivative of the term involving $h$ in \cref{kawaharaE} \cite{Bridges2002}.
+
+One specific example is the PDE
+\begin{equation}\label{capgrav}
+u_t + \frac{2}{15} \beta u_{xxxxx} - b u_{xxx}
++ 3 u u_x + 2 u_x u_{xx} + u u_{xxx} = 0,
+\end{equation}
+which is a weakly nonlinear long-wave approximation to the classical capillary-gravity water wave problem \cite{Sandstede2013,Champneys1997,Champneys1998}. Equation \cref{capgrav} is the Kawahara equation with $\alpha = -b$, $\beta = 2/15$, and $f(u, u_x, u_{xx}) = -(\frac{3}{2}u^2 + u u_{xx} + u_x^2)$. For simplicity, we will consider the form of the Kawahara equation from \cite{Pelinovsky2007}
+\begin{equation}\label{KdV5}
+u_t = u_{xxxxx} - u_{xxx} - 2 u u_x,
+\end{equation}
+which we will refer to as the 5th order KdV equation (KdV5). This is the Kawahara equation with $\alpha = 1$, $\beta = -1$, and $f(u, u_x, u_{xx}) = u^2$.
+
+We are interested in traveling wave solutions of the the form $u(x, t) = u(x - ct)$. Writing \cref{KdV5} in a co-moving frame with speed $c$ by letting $\xi = x - ct$, equation \cref{KdV5} becomes
+\begin{equation}\label{KdV5c}
+u_t = \partial_x(u_{xxxx} - u_{xx} - u^2 + cu) ,
+\end{equation}
+where we have renamed the independent variable back to $x$. Equation \cref{KdV5c} is Hamiltonian, and can be written as $u_t = \partial_x \calE'(u)$, where $\calE(u)$ is the energy
+\begin{equation}\label{KdV5energy}
+\calE(u) = -\int_{-\infty}^{\infty} \left( \frac{1}{2}u_{xx}^2 + \frac{1}{2}u_x^2 + \frac{1}{2}cu^2 - \frac{1}{3}u^3 \right) dx.
+\end{equation}
+For any solution $u(x, t)$ to \cref{KdV5c}, the energy $\calE(u)$ is conserved in $t$. In additin, the energy $\calE(u)$ is translation invariant and is reversible, i.e invariant under the transformation $x \mapsto -x$.
+
+An equilibrium solution to \cref{KdV5} satisfies the 5th order nonlinear ODE
+\begin{equation}\label{KdV5eq}
+u_{xxxxx} - u_{xxx} + c u_x - 2 u u_x = 0.
+\end{equation}
+The background state $u = 0$ is a solution to \cref{KdV5eq}. We are interested in pulses, localized solutions which decay exponentially to the background state at $\pm \infty$. Integrating \cref{KdV5eq} once, a pulse solution must also satisfy the 4th order ODE
+\begin{equation}\label{KdV5eq4}
+u_{xxxx} - u_{xx} + c u - u^2 = 0.
+\end{equation}
+Equation \cref{KdV5eq4} is Hamiltonian, with conserved quantity $H$ given by
+\begin{equation}\label{KdV5ham}
+H(u, u_x, u_{xx}, u_{xxx}) = u_x u_{xxx} - \frac{1}{2}u_{xx}^2 - \frac{1}{2}u_x^2 + \frac{c}{2}u^2 - \frac{1}{3}u^3,
+\end{equation}
+which is obtained by multiplying equation \cref{KdV5eq4} by $u_x$ and integrating once. We can also write \cref{KdV5eq4} in standard Hamiltonian form as the first order system in $\R^4$
+\begin{equation}\label{KdV5ham2}
+Q' = (J \nabla \tilde{H}) Q,
+\end{equation}
+where 
+\begin{equation}\label{KdV5Q}
+Q = (q_1, q_2, p_1, p_2) = (u, u_x, -u_{xxx} + u_x, u_{xx}),
+\end{equation}
+\begin{equation}
+\tilde{H}(q_1, q_2, p_1, p_2) = \frac{1}{3}q_1^3 - \frac{1}{2}c q_1^2 + p_1 q_2 - \frac{1}{2}q_2^2 + \frac{1}{2}p_2^2,
+\end{equation}
+and $J$ is the standard $4 \times 4$ symplectic matrix
+\[
+J = \begin{pmatrix}
+0 & I_2 \\ -I_2 & 0
+\end{pmatrix},
+\]
+where $I_2$ is the $2\times 2$ identity matrix. This form is particularly useful for numerical analysis.
+
+Linearization of the 4th order ODE \cref{KdV5eq4} about a solution $u^*(x)$ is the self-adjoint linear operator
+\begin{equation}\label{KdV5hessian}
+\calE''(u^*) = \partial_x^4 - \partial_x^2 + c - 2 u^* 
+\end{equation}
+where $\calE''(u^*)$ is the Hessian of the energy \cref{KdV5energy}. For the rest state $u^* = 0$, the eigenvalues of $\calE''(0)$ are the solutions to the fourth-order polynomial equation $\nu^4 - \nu^2 + c = 0$, which are
+\begin{align*}
+\nu = \pm \sqrt{ \frac{1 \pm \sqrt{1 - 4c} }{2}}.
+\end{align*}
+For $c > 0$, two eigenvalues have positive real part and two have negative real part, thus $u = 0$ is a hyperbolic equilibrium with a two-dimensional stable manifold and a two-dimensional unstable manifold. For $0 < c < 1/4$, all four eigenvalues are real. A bifurcation takes place at $c = 1/4$, and for $c > 1/4$, the eigenvalues of $\calE''(0)$ are a quartet $\pm \alpha_0 \pm \beta_0 i$, where $\alpha_0, \beta_0 > 0$. 
+
+For $c > 0$, a symmetric one-pulse solution exists to \cref{KdV5eq4}. We will refer to this as the primary pulse solution. This result is stated in the following theorem, which is adapted from \cite[Theorem 2.1]{Pelinovsky2007}.
+
+\begin{theorem}[Existence of Primary Pulse]\label{KdV1pulse}
+For $c > 0$, there exists a one-pulse solution $q(x)$ to \cref{KdV5eq4} which is an even function and decays exponentially to 0 at $\pm \infty$. For the linear operators $\calE''(q)$ and $\partial_x \calE''(q)$, we have the following:
+\begin{enumerate}[(i)]
+\item The linear operator $\calE''(q)$ has exactly one negative eigenvalue with an even eigenfunction and a simple eigenvalue at 0 with eigenfunction $q_x$.
+\item Assume that the map $c \mapsto q(x; c)$ is $C^1$ for $c > 0$. Then the linear operator $\partial_x \calE''(q)$ has an eigenvalue at 0 with algebraic multiplicity 2 and geometric multiplicity 1; the eigenfunction is $\partial_x q(x)$ and the generalized eigenfunction is $\partial_c q(x)$. 
+\item Assume that 
+\[
+\frac{\partial}{\partial c} \left( \frac{1}{2} \int_{-\infty}^\infty q(x)^2 dx \right) > 0
+\]
+Then $q(x)$ is orbitally stable. This implies that $\partial_x \calE''(q)$ has no eigenvalues with positive real part.
+\end{enumerate}
+\end{theorem}
+
+For $c > 1/4$, multi-pulse solutions exist to \cref{KdV5eq4}. These resemble multiple, well-separated copies of the primary pulse $q(x)$. For each $n \geq 2$, Buffoni, Champneys, and Toland \cite{Buffoni1996} show that a countable family of multi-pulse solutions exists; their proof uses the Smale horseshoe set. The result for 2-pulse solutions is also given in \cite[Theorem 2.2]{Pelinovsky2007}, which is based on the variational method used in \cite{Buffoni1996}. The method we will employ is due to Sandstede \cite{Sandstede1993, SandstedeStrut}, and uses spatial dynamics and Lin's method. The advantage of this method is that multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions. Estimates and bounds on these small remainder functions are crucial for the stability analysis. The distances between consecutive pulses are constrained to be (approximately) an integer multiple of a phase parameter which depends on $\beta_0$. Geometrically, these integers represent the number of half-twists made by the multi-pulse between consecutive peaks and represent a specific alignment of stable and unstable manifolds necessary for multi-pulses to exist.
+
+As a first step to studying the stability of an equilibrium solution $u^*$, we will study the spectrum of the linearization of the PDE \eqref{KdV5c} about $u^*$. Substituting the standard linearization ansatz $u(x, t) = u^*(x) + \epsilon e^{\lambda t} v(x)$ into \eqref{KdV5c} and keeping terms up to order $\epsilon$, we obtain the PDE eigenvalue problem
+\begin{equation}\label{KdV5PDEevp}
+\partial_x \calE''(u^*) v = \lambda v.
+\end{equation}
+where $\calE''(u^*): H^4(\R) \subset L^2(\R) \rightarrow L^2(\R)$ is given in \cref{KdV5hessian}. We are interested in the spectrum of the linear operator $\partial_x \calE''(u^*): H^5(\R) \subset L^2(\R) \rightarrow L^2(\R)$, which is the set of $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ does not have bounded inverse. The essential spectrum consists of the set of all $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ either is not Fredholm or is Fredholm with nonzero index. For KdV5, it follows from \cite[Theorem 3.1.11]{Kapitula2013} that $\partial_x \calE''(u^*) - \lambda \calI$ cannot be Fredholm with nonzero index. Thus the essential spectrum consists of all $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ is not Fredholm. Since $\partial_x \calE''(u^*)$ is exponentially asymptotic to the operator 
+\[
+\partial_x \calE''(0) = \partial_x(\partial_x^4 - \partial_x^2 + c - 2 u^*),
+\]
+by the Weyl essential spectrum theorem \cite[Theorem 2.2.6]{Kapitula2013} and \cite[Theorem 3.1.11]{Kapitula2013}, $\partial_x \calE''(u^*)$ and $\partial_x \calE''(0)$ have the same essential spectrum. By a straightforward calculation, the essential spectrum of $\partial_x \calE''(u^*)$ is the entire imaginary axis. In particular, the essential spectrum does not depend on the equilibrium solution $u^*(x)$.
+
+Spectral stability thus depends on the point spectrum, which is the set of all $\lambda \in \C$ for which $\dim \ker(\partial_x \calE''(u^*) - \lambda \calI) > 0$. Since \cref{KdV5c} is Hamiltonian, these eigenvalues must come in quartets $\{ \pm \lambda, \pm \overline{\lambda}\}$ \cite[Proposition 5.1.2]{Kapitula2013}, thus the best we can hope for is neutral stability. For an equilibrium solution $u^*(x)$, it straightforward to show that 
+\begin{align*}
+\partial_x \calE''(u^*) (\partial_x u^*) &= 0 \\
+\partial_x \calE''(u^*) (-\partial_c u^*) &= \partial_x u^*,
+\end{align*}
+where for now we assume that $\partial_c u^*$ exists. Thus there is an eigenvalue at 0 with at least algebraic multiplicity 2 and geometric multiplicity 1. The kernel eigenfunction $\partial_x u^*$ is a consequence of translation invariance. For the primary pulse solution $q(x)$, these are the only eigenvalues. For an $n$-pulse solution $q_n(x)$, there will be $n-1$ additional sets of eigenvalues near 0. Since these result from nonlinear interactions between the tails of neighboring pulses, we will refer to these as interaction eigenvalues. For double pulses, Chugunova and Pelinovsky prove that there is a pair of interaction eigenvalues which is either real or purely imaginary (to leading order) with negative Krein signature \cite[Theorem 2.3]{Pelinovsky2007}. 
+
+The presence of the essential spectrum along the entire imaginary axis makes any purely imaginary interaction eigenvalues difficult to locate. In order to do this, instead of multipulses on the real line, we will look at multi-pulses on a periodic domain. In this case, the essential spectrum becomes a discrete set of eigenvalues. For simplicity, we will refer to these as essential spectrum eigenvalues, even though they are elements of the point spectrum. This makes the analysis straightforward as long as the essential spectrum eigenvalues and the interaction eigenvalues do not interfere with each other.
+
+\bibliographystyle{amsalpha}
+\bibliography{kdv5.bib}
+
+\end{document}
