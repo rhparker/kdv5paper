@@ -735,6 +735,111 @@ In \cref{blockmatrixtheorem}, we restricted $|\lambda|$ to $|\lambda| < N/|\log 
 the restriction $\delta(r,N) < N/|\log r|$ in \cref{blockmatrixtheorem} will not hinder a search for the first $N$ essential spectrum eigenvalues.
 \end{remark}
 
+\section{Spectrum of periodic pulses}
+
+\subsection{Spectrum of periodic single pulse}\label{sec:per1peig}
+
+The simplest case is the periodic single pulse. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the next corollary.
+
+\begin{corollary}\label{corr:2blockmatrix}
+For a periodic single pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is 
+\begin{align}\label{1pblockmatrix}
+S(\lambda) &= 
+\begin{pmatrix}
+-2 \sinh(\nu(\lambda) X) - \tilde{M}\lambda \cosh(\nu(\lambda) X) & -\tilde{M}^c \lambda^2 \\
+-M^c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
+\end{pmatrix} +
+\begin{pmatrix}
+C_1 & D_1 \\ C_2 & D_2
+\end{pmatrix},
+\end{align}
+where
+\begin{align*}
+|C_1|, |C_2| &\leq C |\lambda|(|\lambda| + r^{1/2}) \\
+|D_1|, |D_2| &\leq C |\lambda|^2(|\lambda| + r^{1/2})
+\end{align*}
+In addition,
+\begin{equation}\label{1pblockmatrixdet}
+\det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda| + r^{1/2}) \right)
+\end{equation}
+\begin{proof}
+We use the same piecewise ansatz as in \cref{Vpiecewise}, and we note that that there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
+\begin{equation}\label{eigsystemper1p}
+\begin{aligned}
+(W^\pm)'(x) &= A(Q(x); \lambda) W^\pm(x) + G^\pm(x) W^\pm(x) + c e^{\mp\nu(\lambda)X} G^\pm(x)V^\pm(x; \lambda) + d \lambda^2 \tilde{H}^\pm(x) \\
+W^+(X) &- W^-(-X) = C_i c \\
+W^\pm(0) &\in \R \Psi(0) \oplus \R \Psi^c(0) \oplus Y^+ \oplus Y^- \\
+W^+(0) &- W_i^-(0) \in \R \Psi(0) \oplus \R \Psi^c(0) 
+\end{aligned}
+\end{equation}
+In particular, the second equation in \cref{eigsystemper1p} (the matching condition at the tail) no longer contains the term $D_i d$. Since the periodic single pulse is symmetric, $Q^-(x) = R Q^+(-x)$. Following the same procedure as in \cref{AQxsymmetrylemma}, it follows that $G^-(x) = -R G^+(-x)R$. Multiplying the first equation in \cref{eigsystemper1p} by $R$ on the right and using the symmetry relations,
+\begin{align*}
+(R W^\pm)'(x) &= R A(Q(x); \lambda) R R W^\pm(x) + R G^\pm(x) R R W^\pm(x) + c e^{\mp\nu(\lambda)X} R G^\pm(x)R R V^\pm(x; \lambda) + d \lambda^2 R \tilde{H}^\pm(x) \\
+&= -A(Q(-x); -\lambda) R W^\pm(x) - G^\mp(-x) R W^\pm(x) - c e^{\pm\nu(-\lambda)X} G^\mp(-x) V^\mp(-x; -\lambda) + d \lambda^2 \tilde{H}^\mp(-x)
+\end{align*}
+Making the change of variables $x \mapsto -x$, this becomes
+\begin{align*}
+[-R W^\mp(-x)]' &= A(Q(x); -\lambda)[ R W^\mp(-x)] + G^\pm(x) [-R W^\mp(-x)] - c e^{\mp\nu(-\lambda)X} G^\pm(x) R V^\pm(x; -\lambda) + d \lambda^2 \tilde{H}^\pm(x)
+\end{align*}
+Multiplying the second equation in \cref{eigsystemper1p} by $R$,
+\begin{align*}
+RW^+(X) - RW^-(-X) &= c \left( e^{\nu(\lambda) X_i} R V^-(-X_i; \lambda) - e^{-\nu(\lambda) X_i} R V^+(X_i; \lambda) \right) \\
+ [-RW^-(-X)] - [-RW^+(X)]&= -c \left( e^{\nu(-\lambda) X_i} V^-(-X_i; -\lambda) - e^{-\nu(-\lambda) X_i} V^+(X_i; -\lambda) \right)
+\end{align*}
+Since $Y^+ = R Y^-$, $R \Psi(0) = \Psi(0)$, and $R \Psi^c(0) = \Psi^c(0)$, the system of equations \cref{eigsystemper1p} is satisfied by $(-RW^-(-x), -RW^+(-x))$ when $(c, d, \lambda) \mapsto (-c, d, -\lambda)$. Since the solution $(W^+(x), W^-(x))$ is unique for a given $(c, d, \lambda)$, 
+\[
+\left(W^+(x; c, d, -\lambda), W^-(x; -c, d, -\lambda)\right)
+= -\left(RW^-(-x; c, d, \lambda), RW^+(-x; -c, d, \lambda)\right)
+\]
+
+
+
+
+Equation \cref{1pblockmatrix} then follows directly from \cref{blockmatrixtheorem}. For the remainder bounds, we first note that since $D_i d = 0$, the parameter $d$ only 
+
+\end{proof}
+\end{corollary}
+
+\begin{theorem}\label{theorem:1pess}
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref{H0transversehyp}, \ref{Melnikov2hyp}, and \ref{Hoverlaphyp}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. 
+
+Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
+\[
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^2} \right)
+\]
+is on the imaginary axis.
+\begin{proof}
+First, we make a change of variables to simplify the problem. Since $\nu'(0) = 1/c$ and $\nu(0) = 0$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in Taylor series about $\mu = 0$,
+\begin{equation}\label{2plambdamu}
+\lambda = \nu^{-1}(\mu) = c \mu + \mathcal{O}(\mu^3)
+\end{equation}
+Substituting this into \cref{1pblockmatrixdet} and simplifying, we obtain the equation
+\begin{equation}\label{1pdetmu}
+\det S(\mu, r) = c^2 \mu^2 \left( 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c \mu (M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2}) \right)
+\end{equation}
+For convenience, let $K = M \tilde{M} - M_c \tilde{M}_c$. Since we are looking for the nonzero essential spectrum eigenvalues, and we know there is an eigenvalue with algebraic multiplicity 2 at 0, we divide by $c \mu^2$ to get the equation
+\begin{equation}\label{1pdetmu2}
+E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2})
+\end{equation}
+Choose positive integer $m \leq N_1$. Then for our ansatz, we let
+\begin{equation}
+\mu = \frac{m \pi i}{X + c \frac{K}{2 M}} + \frac{h}{X^2}
+\end{equation}
+Factoring out an $X$ in the denominator, and expanding the denominator in a Taylor series, which we can do for sufficiently large $X$,
+\begin{align*}
+\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + \frac{h}{X^2}\\
+&= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + \frac{h}{X^2}
+\end{align*}
+Substituting this into \cref{1pdetmu2} and expanding the $\sinh$ and $\cosh$ terms in a Taylor series about $m \pi i$,
+\begin{align*}
+E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2})
+\end{align*}
+\end{proof}
+\end{theorem}
+
+
+
+
 \section{Spectrum of periodic 2-pulse}\label{sec:per2peig}
 
 We will apply \cref{blockmatrixtheorem} to the simplest case, which is the periodic 2-pulse. The block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next corollary, which follows immediately from \cref{blockmatrixtheorem}.
