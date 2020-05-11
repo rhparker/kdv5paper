@@ -760,8 +760,9 @@ where
 \end{align*}
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
-\det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right)
+\det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right),
 \end{equation}
+and $\det S(-\lambda) = -\det S(\lambda)$.
 \begin{proof}
 We use the same piecewise ansatz as in \cref{Vpiecewise}, and we note that that there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
 \begin{equation}\label{eigsystemper1p}
@@ -803,7 +804,7 @@ Since $R \Psi^c(0) = \Psi^c(0)$ and $R \Psi(0) = \Psi(0)$,
 \langle \Psi(0), W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) \rangle &= \langle \Psi(0), W^+(0; -c, d, \lambda) - W^-(0; c, d, \lambda) \rangle 
 \end{align*}
 Since $W(x; c, d; \lambda)$ is linear in $(c, d)$ by \cref{Zinv2}, 
-\begin{align*}
+\begin{align}\label{1pdetSneg}
 S(-\lambda) &= 
 \begin{pmatrix}
 2 \sinh(\nu(\lambda) X) + \tilde{M}\lambda \cosh(\nu(\lambda) X) & -\tilde{M}^c \lambda^2 \\
@@ -811,9 +812,10 @@ M^c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
 \end{pmatrix} +
 \begin{pmatrix}
 -C_1 & D_1 \\ -C_2 & D_2
-\end{pmatrix},
-\end{align*}
-Thus the $C_i$ are odd functions of $\lambda$ and the $D_i$ are even functions of $\lambda$. Using this together with the fact that since $D_i d = 0$, the parameter $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}, we obtain the bounds for $C_i$, $D_i$ in the statement of the theorem.
+\end{pmatrix}
+= S(\lambda)\begin{pmatrix}-1 & 0 \\ 0 & 1 \end{pmatrix}.
+\end{align}
+Thus the $C_i$ are odd functions of $\lambda$ and the $D_i$ are even functions of $\lambda$. Using this together with the fact that since $D_i d = 0$, the parameter $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}, we obtain the bounds for $C_i$, $D_i$ in the statement of the theorem. It follows from \cref{1pdetSneg} that $\det S(-\lambda) = -\det S(\lambda)$. To obtain \cref{1pblockmatrixdet}, we compute the determinant and use the fact that $S(\lambda)$ is odd in $\lambda$ together with the bounds on $C_i$ and $D_i$ to obtain the order of the remainder terms.
 \end{proof}
 \end{corollary}
 
