@@ -755,12 +755,12 @@ C_1 & D_1 \\ C_2 & D_2
 \end{align}
 where
 \begin{align*}
-|C_1|, |C_2| &\leq C |\lambda|(|\lambda| + r^{1/2}) \\
-|D_1|, |D_2| &\leq C |\lambda|^2(|\lambda| + r^{1/2})
+|C_1|, |C_2| &\leq C |\lambda|(|\lambda|^2 + r^{1/2}) \\
+|D_1|, |D_2| &\leq C |\lambda|^2(|\lambda|^2 + r^{1/2})
 \end{align*}
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
-\det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda| + r^{1/2}) \right)
+\det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right)
 \end{equation}
 \begin{proof}
 We use the same piecewise ansatz as in \cref{Vpiecewise}, and we note that that there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
@@ -772,7 +772,9 @@ W^\pm(0) &\in \R \Psi(0) \oplus \R \Psi^c(0) \oplus Y^+ \oplus Y^- \\
 W^+(0) &- W_i^-(0) \in \R \Psi(0) \oplus \R \Psi^c(0) 
 \end{aligned}
 \end{equation}
-In particular, the second equation in \cref{eigsystemper1p} (the matching condition at the tail) no longer contains the term $D_i d$. Since the periodic single pulse is symmetric, $Q^-(x) = R Q^+(-x)$. Following the same procedure as in \cref{AQxsymmetrylemma}, it follows that $G^-(x) = -R G^+(-x)R$. Multiplying the first equation in \cref{eigsystemper1p} by $R$ on the right and using the symmetry relations,
+In particular, the second equation in \cref{eigsystemper1p} (the matching condition at the tail) no longer contains the term $D_i d$. Equation \cref{1pblockmatrix} follows directly from \cref{blockmatrixtheorem}.
+
+We next turn to symmetry. Since the periodic single pulse is symmetric, $Q^-(x) = R Q^+(-x)$. Following the same procedure as in \cref{AQxsymmetrylemma}, it follows that $G^-(x) = -R G^+(-x)R$. Multiplying the first equation in \cref{eigsystemper1p} by $R$ on the right and using the symmetry relations,
 \begin{align*}
 (R W^\pm)'(x) &= R A(Q(x); \lambda) R R W^\pm(x) + R G^\pm(x) R R W^\pm(x) + c e^{\mp\nu(\lambda)X} R G^\pm(x)R R V^\pm(x; \lambda) + d \lambda^2 R \tilde{H}^\pm(x) \\
 &= -A(Q(-x); -\lambda) R W^\pm(x) - G^\mp(-x) R W^\pm(x) - c e^{\pm\nu(-\lambda)X} G^\mp(-x) V^\mp(-x; -\lambda) + d \lambda^2 \tilde{H}^\mp(-x)
@@ -789,14 +791,29 @@ RW^+(X) - RW^-(-X) &= c \left( e^{\nu(\lambda) X_i} R V^-(-X_i; \lambda) - e^{-\
 Since $Y^+ = R Y^-$, $R \Psi(0) = \Psi(0)$, and $R \Psi^c(0) = \Psi^c(0)$, the system of equations \cref{eigsystemper1p} is satisfied by $(-RW^-(-x), -RW^+(-x))$ when $(c, d, \lambda) \mapsto (-c, d, -\lambda)$. Since the solution $(W^+(x), W^-(x))$ is unique for a given $(c, d, \lambda)$, 
 \[
 \left(W^+(x; c, d, -\lambda), W^-(x; -c, d, -\lambda)\right)
-= -\left(RW^-(-x; c, d, \lambda), RW^+(-x; -c, d, \lambda)\right)
+= -\left(RW^-(-x; c, d, \lambda), RW^+(-x; -c, d, \lambda)\right).
 \]
-
-
-
-
-Equation \cref{1pblockmatrix} then follows directly from \cref{blockmatrixtheorem}. For the remainder bounds, we first note that since $D_i d = 0$, the parameter $d$ only 
-
+For the jump expressions at $x = 0$,
+\[
+W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) = RW^+(0; -c, d, \lambda) - RW^-(0; c, d, \lambda).
+\]
+Since $R \Psi^c(0) = \Psi^c(0)$ and $R \Psi(0) = \Psi(0)$,
+\begin{align*}
+\langle \Psi^c(0), W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) \rangle &= \langle \Psi^c(0), W^+(0; -c, d, \lambda) - W^-(0; c, d, \lambda) \rangle \\
+\langle \Psi(0), W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) \rangle &= \langle \Psi(0), W^+(0; -c, d, \lambda) - W^-(0; c, d, \lambda) \rangle 
+\end{align*}
+Since $W(x; c, d; \lambda)$ is linear in $(c, d)$ by \cref{Zinv2}, 
+\begin{align*}
+S(-\lambda) &= 
+\begin{pmatrix}
+2 \sinh(\nu(\lambda) X) + \tilde{M}\lambda \cosh(\nu(\lambda) X) & -\tilde{M}^c \lambda^2 \\
+M^c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
+\end{pmatrix} +
+\begin{pmatrix}
+-C_1 & D_1 \\ -C_2 & D_2
+\end{pmatrix},
+\end{align*}
+Thus the $C_i$ are odd functions of $\lambda$ and the $D_i$ are even functions of $\lambda$. Using this together with the fact that since $D_i d = 0$, the parameter $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}, we obtain the bounds for $C_i$, $D_i$ in the statement of the theorem.
 \end{proof}
 \end{corollary}
 
@@ -805,9 +822,12 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref
 
 Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
 \[
-\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^2} \right)
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
 \]
-is on the imaginary axis.
+is on the imaginary axis. In terms of $m$ and $X$,
+\[
+\lambda_m^{\text{ess}}(X) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \left(\frac{m}{X}\right)^3 \right).
+\]
 \begin{proof}
 First, we make a change of variables to simplify the problem. Since $\nu'(0) = 1/c$ and $\nu(0) = 0$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in Taylor series about $\mu = 0$,
 \begin{equation}\label{2plambdamu}
@@ -815,25 +835,61 @@ First, we make a change of variables to simplify the problem. Since $\nu'(0) = 1
 \end{equation}
 Substituting this into \cref{1pblockmatrixdet} and simplifying, we obtain the equation
 \begin{equation}\label{1pdetmu}
-\det S(\mu, r) = c^2 \mu^2 \left( 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c \mu (M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2}) \right)
+\det S(\mu, r) = c^2 \mu^2 \left( 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu|^2 + r^{1/2})) + c \mu (M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) + \mathcal{O}(|\mu|(|\mu|^2 + r^{1/2}) \right)
 \end{equation}
 For convenience, let $K = M \tilde{M} - M_c \tilde{M}_c$. Since we are looking for the nonzero essential spectrum eigenvalues, and we know there is an eigenvalue with algebraic multiplicity 2 at 0, we divide by $c \mu^2$ to get the equation
 \begin{equation}\label{1pdetmu2}
-E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2})
+E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu|^2 + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu|^2 + r^{1/2})
 \end{equation}
-Choose positive integer $m \leq N_1$. Then for our ansatz, we let
-\begin{equation}
-\mu = \frac{m \pi i}{X + c \frac{K}{2 M}} + \frac{h}{X^2}
+Choose positive integer $m \leq N_1$. For our ansatz, we take
+\begin{equation}\label{singlemu}
+\mu = \frac{m \pi i}{X + c \frac{K}{2 M}} + h \frac{m}{X}
 \end{equation}
 Factoring out an $X$ in the denominator, and expanding the denominator in a Taylor series, which we can do for sufficiently large $X$,
 \begin{align*}
-\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + \frac{h}{X^2}\\
-&= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + \frac{h}{X^2}
+\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + h \frac{m}{X}\\
+&= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + h \frac{m}{X}
 \end{align*}
 Substituting this into \cref{1pdetmu2} and expanding the $\sinh$ and $\cosh$ terms in a Taylor series about $m \pi i$,
 \begin{align*}
-E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2})
+E(h, r) &= 2 M (-1)^m \left( -\frac{m \pi c K i}{2 M X} + \frac{m \pi c^2 K^2 i}{4 M^2 X^2} + h\frac{m}{X} + \mathcal{O}\left(\frac{m}{X^3}\right) \right) \left(1 + \mathcal{O}\left( \frac{m^2}{X^2} + r^{1/2} \right) \right) \\
+&\qquad+ c K (-1)^m \left( \frac{m \pi i}{X} - c \frac{m \pi K i}{2 M X^2} + h \frac{m}{X} + \mathcal{O}\left(\frac{m}{X^3}\right) \right) \left( 1 + \mathcal{O}\left(\frac{m}{X^2}\right) \right) \\
+&\qquad+ \mathcal{O}\left( \frac{m}{X} \left( \frac{m^2}{X^2} + r^{1/2} \right) \right) \\
+&= (-1)^m\left( 2M + cK \right)h \frac{m}{X} + \mathcal{O}\left( \frac{m}{X} \left( \frac{m^2}{X^2} + r^{1/2} \right) \right)
 \end{align*}
+Dividing by $m/X$ and $(-1)^m$, we wish to solve 
+\begin{align*}
+G_m(h, r) = \left( 2M + cK \right)h + \mathcal{O}\left( \frac{m^2}{X^2} + r^{1/2} \right)
+\end{align*}
+Since $X = X(r) = \mathcal{O}(1/|\log r|)$, this becomes
+\begin{align*}
+G_m(h, r) = \left( 2M + cK \right)h + \mathcal{O}\left( \frac{1}{|\log r|^2} \right),
+\end{align*}
+where we subsumed the faster decaying $\mathcal{O}(r^{1/2})$ term into the slower decaying $1/|\log r|^2$ remainder term. Since
+\begin{align*}
+G_m(0,0) &= 0 \\
+\partial_h G_m(0,0) &= 2M + cK \neq 0,
+\end{align*}
+we can use the implicit function theorem to solve for $h$ in terms of $r$ near $(h,r) = (0,0)$. Specifically, there exists $r_1^m \leq r_0$ and a unique smooth function $h_m(r)$ with $h_m(0) = 0$ such that for all $r \leq r_1^m$, $G_m(h_m(r),r) = 0$. Expanding $h_m$ in a Taylor series about $r = 0$,
+\[
+h_m(r) = \mathcal{O}\left( \frac{1}{|\log r|^2} \right) = \mathcal{O}\left( \left(\frac{m}{X}\right)^2 \right)
+\]
+Let $r_1 = \min\{ r_1^1, \dots, r_1^{N_1} \}$. Substituting $h_m(r)$ into \cref{singlemu} for $m = 1, \dots, N_1$, there are essential spectrum eigenvalues located at
+\[
+\mu_m(r) = \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+\]
+Changing variables back to $\lambda$, these are located at
+\[
+\lambda_m(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+\]
+By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m(r)$ is pure imaginary and there is another essential spectrum eigenvalue $\lambda_{-m}(r) = -\lambda_m(r)$. We conclude that the nonzero essential spectrum eigenvalues are given by $\lambda = \pm \lambda_m^{\text{ess}}(r)$ for $m = 1, \dots, N_1$, where
+\[
+\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right).
+\]
+In terms, of $X$, this is given by
+\[
+\lambda_m^{\text{ess}}(X) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \left(\frac{m}{X}\right)^3\right).
+\]
 \end{proof}
 \end{theorem}
 
