@@ -124,7 +124,7 @@ For $c > 0$, there exists a one-pulse solution $q(x)$ to \cref{KdV5eq4} which is
 \item Assume that the map $c \mapsto q(x; c)$ is $C^1$ for $c > 0$. Then the linear operator $\partial_x \calE''(q)$ has an eigenvalue at 0 with algebraic multiplicity 2 and geometric multiplicity 1; the eigenfunction is $\partial_x q(x)$ and the generalized eigenfunction is $\partial_c q(x)$. 
 \item Assume that 
 \[
-\frac{\partial}{\partial c} \left( \frac{1}{2} \int_{-\infty}^\infty q(x)^2 dx \right) > 0
+\int_{-\infty}^\infty q(x) \partial_c q(x) dx > 0
 \]
 Then $q(x)$ is orbitally stable. This implies that $\partial_x \calE''(q)$ has no eigenvalues with positive real part.
 \end{enumerate}
@@ -155,18 +155,16 @@ This paper is organized as follows. In \cref{sec:setup}, we present the mathemat
 
 \section{Mathematical Setup}\label{sec:setup}
 
-In this section, we write our problem in a general form, for which KdV5 will be a special case. First, we define a Hamiltonian PDE which is reversible and translation invariant.
-
 \subsection{Hamiltonian PDE}\label{sec:HamPDE}
 
-This analysis follows \cite{Grillakis1987}. Let $X = H^{2m}(\R)$ and $Y = L^2(\R)$, and consider the PDE
+First, we define a Hamiltonian PDE which is reversible and translation invariant. This analysis follows \cite{Grillakis1987}. Let $X = H^{2m}(\R)$ and $Y = L^2(\R)$, and consider the PDE
 \begin{equation}\label{genPDE}
 u_t = \partial_x \calE'(u)
 \end{equation}
-where $u \in X$ and $\calE(u): X \subset Y \rightarrow \R$ is a smooth functional representing the energy of the system. We take the following hypothesis regarding the energy $\calE(u)$.
+where $u \in X$ and $\calE(u): X \subset Y \rightarrow \R$ is a smooth functional representing the conserved energy of the system. We take the following hypothesis regarding the energy $\calE(u)$.
 
-\begin{hypothesis}\label{Ehyp}
-The energy $\calE(u)$ has the following properties
+\begin{hypothesis}\label{Ehyp}\leavevmode
+% The energy $\calE(u)$ has the following properties
 \begin{enumerate}[(i)]
 \item $\calE(0) = 0$ and $\calE'(0) = 0$.
 \item $\calE(u) = \calE(\rho(u))$, where $\rho: X \rightarrow X$ is the reversor operator $[\rho(u)](x) = u(-x)$.
@@ -190,37 +188,23 @@ since $\rho$ is self-adjoint. This implies that the linear part of $\calE'(u)$ o
 \calE'(u) &= T(s)^* \calE'(T(s)u) \label{Eprimesymm} \\
 \calE''(u) &= T(s)^* \calE''(T(s)u) T(s). \label{EHessiansymm}
 \end{align}
-Finally, differentiating the symmetry relation $\calE(T(s)u) = \calE(u)$ with respect to $s$ at $s = 0$, 
+Differentiating the symmetry relation $\calE(T(s)u) = \calE(u)$ with respect to $s$ at $s = 0$, 
 \begin{align*}
 0 = \langle \calE'(u), T'(s) u \rangle|_{s = 0}
 = \langle \calE'(u), T'(0) u \rangle
 = \langle \calE'(u), \partial_x u \rangle
 \end{align*}
-for all $u \in X$, since $T'(0) = \partial_x$ is the infinitesimal generator of the translation group $T(s)$. The energy $\calE(u)$ is conserved along solutions $u$ to \cref{genPDE}, since
-\[
-\frac{d}{dt}\calE(u) = \langle \calE'(u), u_t \rangle = \langle \calE'(u), \partial_x \calE'(u) \rangle = 0,
-\]
-where we used the fact that the operator $\partial_x$ is skew-symmetric. There is an additional conserved quantity $V: L^2(\R) \rightarrow \R$, given by
+for all $u \in X$, since $T'(0) = \partial_x$ is the infinitesimal generator of the translation group $T(s)$. There is an additional conserved quantity $\calQ: L^2(\R) \rightarrow \R$, given by
 \begin{equation}\label{defV}
-V(u) = -\frac{1}{2} \int_{-\infty}^\infty u^2 dx,
+\calQ(u) = -\frac{1}{2} \int_{-\infty}^\infty u^2 dx,
 \end{equation}
-which represents charge in some applications. $V(u)$ is also conserved along solutions $u$ to \cref{genPDE}, since
-\begin{align*}
-\frac{d}{dt}V(u) &= \langle V'(u), u_t \rangle
-= \langle -u, \partial_x \calE'(u) \rangle 
-= \langle \partial_x u, \calE'(u) \rangle = 0,
-\end{align*}
-where we used $V'(u) = -u$ in the second equality.
+which represents charge in some applications. 
 
-As in \cite{Grillakis1987}, we will consider bound states of \cref{genPDE}, which are solutions of the form
+We will consider traveling wave solutions (bound states in \cite{Grillakis1987}) of \cref{genPDE}, which are solutions of the form
 \begin{equation}
 u(x, t) = T(ct)\phi(x) = \phi(x - ct),
 \end{equation}
-where $\phi \in X$. Since $T(s)$ is the translation group, these bound states are traveling waves, and we will refer to them as traveling waves from here on. If $\phi$ satisfies the equilibrium equation
-\begin{equation}\label{eqODE1}
-\calE'(\phi) = c V'(\phi),
-\end{equation}
-then $T(ct)\phi(x)$ is a traveling wave \cite{Grillakis1987}. Since $V'(\phi) = -\phi$, we can write the equilibrium equation as
+If $\phi$ satisfies the equilibrium equation $\calE'(\phi) = c \calQ'(\phi)$, then $T(ct)\phi(x)$ is a traveling wave \cite{Grillakis1987}. Since $\calQ'(\phi) = -\phi$, we can write the equilibrium equation as
 \begin{equation}\label{eqODE}
 \calE'(\phi) + c \phi = 0.
 \end{equation}
@@ -228,37 +212,25 @@ Without loss of generality, we will assume that $\calE'(\phi)$ does not contain 
 
 We take the following hypothesis concerning existence of traveling waves. This hypothesis is similar to \cite[Assumption 2]{Grillakis1987}. In the next section, we will give a condition under which this hypothesis is satisfied. 
 \begin{hypothesis}\label{cintervalhyp}
-There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\phi_c$ is a traveling wave solution for \cref{genPDE}, i.e. $\calE'(\phi_c) + c \phi_c = 0$. Furthermore, $\partial_x \phi_c \neq 0$.
+There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\phi_c$ is a traveling wave solution to \cref{genPDE}, i.e. $\calE'(\phi_c) + c \phi_c = 0$.
 \end{hypothesis}
 
-As a first step in stability analysis of traveling wave solutions, we will look at the spectrum of the linearization of the PDE \cref{genPDE} about a traveling wave. For $c \in (c_1, c_2)$, let $\phi_c$ be a traveling wave solution to \cref{genPDE}. The linearization of the PDE \cref{genPDE} about $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is defined by
+The linearization of the PDE \cref{genPDE} about the traveling wave solution $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
 \begin{equation}\label{PDElinearization}
 \calL(\phi_c) = \calE''(\phi_c) + c
 \end{equation}
-and $\calE''(\phi_c)$ is the Hessian of the energy $\calE(\phi_c)$. Both $\calE''(\phi_c)$ and $\calL(\phi_c)$ are self-adjoint. Since $\phi_c$ is a traveling wave, by \cref{Eprimesymm} and \cref{eqODE} we have
-\begin{align}\label{TeqODE}
-\calE'(T(s)\phi_c) + c T(s)\phi_c = T(s)[\calE'(\phi_c) + c \phi_c] = 0.
-\end{align}
-Differentiating \cref{TeqODE} with respect to $s$ at $s = 0$, this becomes
-\begin{align*}
-0 &= \calE''(T(0)\phi_c)T'(0)\phi_c + c T'(0)\phi_c \\
-&= (\calE''(\phi_c) + c ) \partial_x \phi_c \\
-&= \calL(\phi_c) \partial_x \phi_c,
-\end{align*}
-thus $\partial_x \phi_c$ is an eigenfunction of $\calL(\phi_c)$ with eigenvalue 0. Differentiating one more time, $\partial_x \phi_c$ is also an eigenfunction of $\partial_x \calL(\phi_c)$ with eigenvalue 0. Differentiating \cref{eqODE} with respect to $c$, which is well-defined by \cref{cintervalhyp},
-\begin{align*}
-\calE''(\phi_c)\partial_c \phi_c + c \partial_c \phi_c + \phi_c = 0.
-\end{align*}
-Rearranging and differentiating both sides with respect to $x$,
-\begin{align*}
-\partial_x \calL(\phi_c) (-\partial_c \phi_c) 
-= \partial_x (\calE''(\phi_c) + c )(-\partial_c \phi_c) = \partial_x\phi_c,
-\end{align*}
-thus $-\partial_c \phi_c$ is a generalized eigenfunction of $\partial_x \calL(\phi_c)$ corresponding to eigenvalue 0.
+and $\calE''(\phi_c)$ is the Hessian of the energy $\calE(\phi_c)$. Differentiating \cref{eqODE} with respect to $x$ and with respect to $c$,
+\begin{equation}\label{Ekernel}
+\begin{aligned}
+[\partial_x \calL(\phi_c)] \partial_x \phi_c &= 0 \\
+[\partial_x \calL(\phi_c)](-\partial_c \phi_c) &= \partial_x \phi_c,
+\end{aligned}
+\end{equation}
+thus the kernel of $\partial_x \calE''(\phi_c)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1.
 
-\subsection{Spatial dynamics}\label{sec:spatdym}
+\subsection{Spatial dynamics formulation}\label{sec:spatdym}
 
-We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach. Using this approach, we rewrite \cref{eqODE} as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a equilibrium point of the dynamical system to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{Ehyp}(iv), equation \cref{eqODE} is equivalent to the first order system
+We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach. To do this, we rewrite \cref{eqODE} as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium of the dynamical system to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{Ehyp}(iv), equation \cref{eqODE} is equivalent to the first order system
 \begin{equation}\label{genODE}
 U'(x) = F(U(x); c),
 \end{equation}
@@ -267,9 +239,9 @@ where $F: \R^{2m} \times \R \rightarrow \R^{2m}$ is given by
 F(u_1, u_2, \dots, u_{2m}; c) = 
 \begin{pmatrix}
 u_2 \\ u_3 \\ \vdots \\ f(u_1, u_2, \dots, u_{2m}) - c u_1
-\end{pmatrix}.
+\end{pmatrix},
 \end{equation}
-$f: \R^{2m} \rightarrow \R$ is smooth, and $F(0; c) = 0$ for all $c$. By reversibility,
+By reversibility,
 \begin{equation}\label{genODErev}
 F(RU; c) = -RF(U; c),
 \end{equation}
@@ -277,26 +249,6 @@ where $R:\R^{2m} \rightarrow \R^{2m}$ is the standard reversor operator on $\R^{
 \begin{equation}\label{reverserR2m}
 R(u_1, u_2, \dots, u_{2m-1}, u_{2m}) = (u_1, -u_2, \dots, u_{2m-1}, -u_{2m}).
 \end{equation}
-If $U(x)$ is a solution to \cref{genODE}, so is $RU(-x)$. Differentiating \cref{genODErev} with respect to $U$,
-\begin{equation}\label{genODErevDF}
-D F(RU; c) = -RDF(U; c)R.
-\end{equation}
-It follows from \cref{genODErev} and \cref{genODErevDF} that $f(RU) = f(U)$, which implies
-\begin{equation}\label{frev}
-\begin{aligned}
-\partial_{u_j} f(R U) &= (-1)^{j+1} \partial_{u_j} f(U) \\
-\partial^2_{u_j u_k} f(R U) &= (-1)^{j+k} \partial^2_{u_j u_k} f(U).
-\end{aligned}
-\end{equation}
-For $U = 0$,
-\begin{align}\label{fpartials0}
-\partial_{u_j} f(0) &= \begin{cases}
-0 & j \text{ even}\\
-0 & j = 1 \\
-c_j & j \text{ odd, } j > 1
-\end{cases}
-\end{align}
-where the $c_j$ are constants. We can assume without without loss of generality that $c_0 = \partial_{u_1} f(0) = 0$, since that is accounted for by the $c u_1$ term in \cref{defF}.
 
 In the next hypothesis, we assume that \cref{genODE} is a conservative system.
 \begin{hypothesis}\label{Hhyp}
@@ -311,22 +263,16 @@ There exists a smooth function $H: \R^{2m} \times \R \rightarrow \R$, denoted $H
 \end{enumerate}
 \end{hypothesis}
 
-\noi It follows from \cref{HFperp} that $H$ is conserved along solutions $U(x)$ to \cref{genODE}. 
-
-Since $F(0; c) = 0$, the rest state $U = 0$ is an equilibrium of \cref{genODE} for all $c$. The next hypothesis addresses the hyperbolicity of this equilibrium. Although the eigenvalue pattern described in \cref{hypeqhyp} is not necessary for the existence of a homoclinic orbit solution, it is a sufficient condition for the existence of multi-pulse solutions.
+\noi It follows from \cref{HFperp} that $H$ is conserved along solutions $U(x)$ to \cref{genODE}. Since $F(0; c) = 0$ for all $c$, the rest state $U = 0$ is an equilibrium of \cref{genODE} for all $c$. The next hypothesis addresses the hyperbolicity of this equilibrium. Although the eigenvalue pattern described in \cref{hypeqhyp} is not necessary for the existence of a homoclinic orbit solution, it is a sufficient condition for the existence of multi-pulse and periodic multi-pulse solutions.
 
 \begin{hypothesis}\label{hypeqhyp}
 For a specific $c_0 \in \R$ with $c_0 > 0$, $U = 0$ is a hyperbolic equilibrium of \cref{genODE}. Furthermore, the spectrum of $DF(0; c_0)$ contains a quartet of simple eigenvalues $\pm \alpha_0 \pm \beta_0 i$, $\alpha_0, \beta_0 > 0$, and for any other eigenvalue $\nu$ of $DF(0; c_0)$, $|\text{Re }\nu| > \alpha_0$.
 \end{hypothesis}
 
-Let $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$ be the stable and unstable manifolds of the equilibrium at 0, and let $\tilde{E}_0^s(c_0)$ and $\tilde{E}_0^u(c_0)$ be the stable and unstable eigenspaces of $DF(0; c_0)$. By reversibility, these spaces have dimension $m$. The stable and unstable manifolds are smooth since $F$ is smooth.
-
-\subsection{Primary pulse solution}\label{sec:primarypulse}
-
-We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the rest state equilibrium to itself. In general, the existence of such a solution is unknown, although in specific cases such as KdV5 we do have an existence result (\cref{KdV1pulse}). We will take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
+We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium. Both of these manifolds are dimension $m$ my reversibility. In general, the existence of such a solution is unknown, although in specific cases such as KdV5 we do have an existence result (\cref{KdV1pulse}). We will thus take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
 
 \begin{hypothesis}\label{Qexistshyp}
-For the same $c_0$ as in \cref{hypeqhyp}, there exists a homoclinic orbit solution $Q(x; c_0) \in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0)$ to \cref{genODE}. In addition,
+For the same $c_0$ as in \cref{hypeqhyp}, there exists a homoclinic orbit solution $Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0)$ to \cref{genODE}. In addition,
 \begin{enumerate}[(i)]
 \item $Q(0; c_0) \neq 0$
 \item $\nabla_U H(Q(0; c_0); c_0) \neq 0$
@@ -334,25 +280,13 @@ For the same $c_0$ as in \cref{hypeqhyp}, there exists a homoclinic orbit soluti
 \end{enumerate}
 \end{hypothesis}
 
-\noi Let
-\begin{equation}\label{Qqrelation}
-Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T,
-\end{equation}
-Then $q(x; c_0)$ is an even function and is an exponentially localized traveling wave solution solution to \cref{genPDE}. 
-
-Next, we address the intersection of the stable and unstable manifolds $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$. By \cref{Hhyp}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We have the following lemma concerning $H^{-1}(0; c_0)$.
-
-\begin{lemma}\label{manifoldinH0}
-There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the zero level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$; $K(c_0)$ contains $Q(0; c_0)$.
-\end{lemma}
-
-We take the following hypothesis regarding the intersection of the stable and unstable manifolds in $H^{-1}(0; c_0)$.
+It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. By \cref{Hhyp} and \cref{Qexistshyp}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We take the following hypothesis regarding the intersection of the stable and unstable manifolds in $H^{-1}(0; c_0)$.
 
 \begin{hypothesis}\label{H0transversehyp}
 The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u(0; c_0)$ intersect transversely in $H^{-1}(0; c_0)$ at $Q(0; c_0)$.
 \end{hypothesis}
 
-\noi Using \cref{H0transversehyp}, \cref{manifoldinH0}, and a dimension-counting argument, we obgain the nondegeneracy condition
+\noi Using \cref{H0transversehyp} and a dimension-counting argument, we obtain the nondegeneracy condition
 \begin{equation}\label{nondegencond}
 T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0).
 \end{equation}
@@ -366,32 +300,53 @@ Assume \cref{Hhyp} and \cref{H0transversehyp}. There exists $\delta > 0$ such th
 \end{equation}
 \end{theorem}
 
-\cref{transverseint} implies that Hypothesis \ref{cintervalhyp} is satisfied. From this point forward, we will fix a speed $c$ and will omit the dependence on $c$ in our notation. The variational and adjoint variational equations associated with \cref{genODE} are
-\begin{align}
-\tilde{V}' &= DF(Q(x)) \tilde{V} \label{vareq1} \\
-\tilde{W}' &= -DF(Q(x))^* \tilde{W} \label{adjvareq1},
+Finally, as in \cite{Grillakis1987}, define the scalar
+\begin{equation}
+d(c) = \calE(q(x, c)) - \omega\calQ(q(x, c)).
+\end{equation}
+By \cite[(2.21)]{Grillakis1987},
+\begin{align}\label{ddoubleprime}
+d''(c) = \langle \calQ'(q(x, c)), \partial_c q(x, c) \rangle
+= \int_{-\infty}^\infty q(x, c) \partial_c q(x, c) dx
 \end{align}
+By \cite[Theorem 3.5]{Grillakis1987}, the traveling wave $q(x, c)$ is orbitally stable if $d''(c) > 0$. This quantity is easy to compute numerically, and we take this stability criterion as a hypothesis.
 
-It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to \cref{vareq1}, and that there exists a unique bounded solution $\tilde{\Psi}(x)$ to \cref{adjvareq1}. (In both cases, uniqueness is up to scalar multiples). The form of $\tilde{\Psi}(x)$ is given in the following lemma.
+\begin{hypothesis}\label{hyp:dccpos}
+Let $\delta > 0$ be as in \cref{transverseint}. Then for each $c \in (c_0 - \delta, c_0 + \delta)$, $d''(c) > 0$.
+\end{hypothesis}
 
-\begin{lemma}\label{psiform}
-$\tilde{\Psi} = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{Hhyp}. $\tilde{\Psi}(x)$ is symmetric with respect to the standard reversor operator $R$, i.e. $\tilde{\Psi}(-x) = R \tilde{\Psi}(x)$, and the last component of $\tilde{\Psi}(x)$ is $q'(x)$.
-\end{lemma}
+\noi From this point on, we will fix a speed $c \in (c_0 - \delta, c_0 + \delta)$ and suppress the dependence on $c$ for simplicity of notation.
 
 \subsection{Eigenvalue problem}\label{sec:EVP}
 
-In this section, we will reformulate the PDE eigenvalue problem associated with an exponentially localized traveling wave solution $\phi$ using a spatial dynamics approach.  The PDE eigenvalue problem
-\begin{equation}\label{genPDEeig}
-\partial_x \calL(\phi) v = \lambda v
+Let $U^*(x) = (u^*(x), \partial_x u^*(x), \dots, \partial_x^{2m-1}u^*(x) )^T$ be any solution to \cref{genODE}, so that the first component $u^*(x)$ is a traveling wave solution to \cref{genPDE}. Then $u^*$ also solves the equation $\partial_x(\calE'(u) + cu) = 0$, which is equivalent to the system
+\begin{equation}\label{eqsystem2}
+\begin{aligned}
+\calE'(u) + cu &= k \\
+\partial_x k &= 0,
+\end{aligned}
 \end{equation}
-is equivalent to the system
+Again using a spatial dynamics approach, we rewrite \cref{eqsystem2} as
+\begin{equation}\label{spsystem2}
+\begin{pmatrix}
+U \\ k
+\end{pmatrix}'(x) =
+\begin{pmatrix} 
+F(U(x)) + k e_{2m} \\ 0
+\end{pmatrix},
+\end{equation}
+where $e_{2m} = (0, \dots, 0, 1)^T \in \R^{2m}$ is the standard unit vector. Since $U^*(x)$ solves \cref{genODE}, $(U^*(x), 0)$ is a solution to \cref{spsystem2}. We similarly reformulate the PDE eigenvalue problem 
+\begin{equation}\label{genPDEeig}
+\partial_x \calL(u^*) v = \lambda v
+\end{equation}
+as the system
 \begin{equation}\label{genPDEeig2}
 \begin{aligned}
-\calL(\phi) v &= k \\
+\calL(u^*) v &= k \\
 \partial_x k &= \lambda v,
 \end{aligned}
 \end{equation}
-which is much more convenient for analysis. As in \cite{Sandstede1998}, we write \cref{genPDEeig2} as a first order system. Let $U^*(x) = (\phi(x), \partial_x \phi(x, \dots, \partial_x^{2m-1}\phi(x), 0)^T \in \R^{2m+1}$ and $V(x) = (v(x), \partial_x v(x), \dots, \partial_x^{2m-1} v(x), k)^T$. Using \cref{Eprimeuform} and \cref{PDElinearization}, equation \cref{genPDEeig2} is equivalent to the first order system
+Using a spatial dynamics approach, this is equivalent to the first order system 
 \begin{equation}\label{PDEeigsystem}
 V'(x) = A(U^*(x))V(x) + \lambda B V(x),
 \end{equation}
@@ -399,33 +354,25 @@ where $A(U^*(x))$ and $B$ are the $(2m+1) \times (2m+1)$ matrices
 \begin{equation}\label{defAB}
 A(U^*(x)) = 
 \begin{pmatrix}
-DF(U^*(x)) & \begin{pmatrix} 0 \\ \vdots \\ 0 \\ 1 \end{pmatrix} \\
-\begin{pmatrix} 0 & 0 \dots & 0 \end{pmatrix} & 0
+DF(U^*(x)) & e_{2m}\\
+0 & 0
 \end{pmatrix}, \qquad
-B = \begin{pmatrix}0 & 0 & 0 & 0 & 0 \\0 & 0 & 0 & 0 & 0 \\  & 
-\vdots & & \vdots & \\0 & 0 & 0 & 0 & 0 \\1 & 0 & 0 & 0 & 0 \end{pmatrix}.
+B = \begin{pmatrix}0 & 0 & 0 & 0 \\ & 
+\vdots & & \vdots & \\0 & 0 & 0 & 0 \\1 & 0 & 0 & 0 \end{pmatrix}.
 \end{equation}
 
-Since $\phi$ is exponentially localized, so is $U^*(x)$, thus $A(U^*(x))$ is exponentially asymptotic to the constant coefficient matrix $A(0)$. The following lemma describes the eigenvalues and kernel of $A(0)$.
+The rest state $(U, k) = (0, 0)$ is an equilibrium of \cref{spsystem2}, but it is not a hyperbolic equilibrium since the matrix $A(0)$ is non-hyperbolic. $A(0)$ has a one-dimensional kernel, which is characterized in the following lemma. 
 
 \begin{lemma}\label{eigA0lemma}
-The following hold concerning the eigenvalues of $A(0)$.
-\begin{enumerate}[(i)]
-\item $A(0)$ has a simple eigenvalue at 0 and a quartet of eigenvalues at $\pm \alpha_0 \pm \beta_0 i$. For any other eigenvalue $\nu$ of $A(0)$, $|\text{Re }\nu| > \alpha_0$.
-\item The kernel of $A(0)$ is spanned by $V_0$ and the kernel of $A^*(0)$ is spanned by $W_0$, where
-\begin{align}
-V_0 &= \left(\frac{1}{c}, 0, \dots, 0, 1\right)^T \label{V0} \\
-W_0 &= (0, 0, \dots, 0, 1)^T \label{W0}
-\end{align}
-and $\langle V_0, W_0 \rangle = 1$.
-\item The projection on the kernel of $A(0)$ is given by
-\begin{equation}\label{projkernelA0}
-P_{\ker A(0)} = \langle W_0, \cdot \rangle V_0
+The matrix $A(0)$ has a simple eigenvalue at 0 and a quartet of eigenvalues at $\pm \alpha_0 \pm \beta_0 i$. For any other eigenvalue $\nu$ of $A(0)$, $|\text{Re }\nu| > \alpha_0$. The kernel of $A(0)$ is spanned by $V_0$ and the kernel of $A^*(0)$ is spanned by $W_0$, where
+\begin{equation}\label{V0W0}
+V_0 = \left(\frac{1}{c}, 0, \dots, 0, 1\right)^T, \quad
+W_0 = (0, 0, \dots, 0, 1)^T
 \end{equation}
-\end{enumerate} 
+and $\langle V_0, W_0 \rangle = 1$.
 \end{lemma}
 
-Since $A(0)$ is not hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium at 0. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The center manifold $W^c(0)$ is one-dimensional. Let $Q(x)$ be the primary pulse solution from \cref{sec:primarypulse}, where an additional 0 is added in the last component so that $Q(x) \in R^{2m+1}$. Since $Q(x)$ is exponentially localized, it cannot involve the center manifold $W^c(0)$, thus it must lie in the intersection of the stable and unstable manifolds. In particular, this implies that $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{H0transversehyp} that these are actually equal, which we state in the following lemma.
+Since $A(0)$ is not hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium at $(U, k) = (0, 0)$. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The one-dimensional center manifold $W^c(0)$ is the span of $V_0$. Let $Q_1(x)$ be the primary pulse solution from \cref{sec:spatdym}, and let $Q(x) = (Q_1(x), 0)$. Since $Q(x)$ is exponentially localized, $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{H0transversehyp} that these are equal, which we state in the following lemma.
 
 \begin{lemma}\label{nondegenlemma}
 We have the nondegeneracy condition
@@ -434,55 +381,46 @@ T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0) = \R Q'(0)
 \end{equation}
 \end{lemma}
 
-The variational and adjoint variational equations associated with \cref{PDEeigsystem} are
+The associated variational and adjoint variational equations are
 \begin{align}
 V'(x) = A(Q(x)) V(x) \label{vareq2} \\
 W'(x) = -A(Q(x))^* W(x) \label{adjvareq2}
 \end{align}
-It follows from \cref{sec:HamPDE} that 
+It follows from \cref{Ekernel} that 
 \begin{align}
 [\partial_x Q(x)]' &= A(Q(x))\partial_x Q(x) \label{Qprimevarsol} \\
 [\partial_c Q(x)]' &= A(Q(x))\partial_c Q(x) + B \partial_x Q(x), \label{Qcvarsol}
 \end{align}
-thus $\partial_x Q(x)$ is an exponentially localized solution to the variational equation \eqref{vareq2}. The following lemma characterizes solutions to \eqref{vareq2} and \eqref{adjvareq2}.
+The following lemma characterizes bounded solutions to \eqref{vareq2} and \eqref{adjvareq2}.
 
-\begin{lemma}\label{varadjsolutions}
-We have the following solutions to the variational equation \cref{vareq2} and adjoint variational equation \cref{adjvareq2}.
-\begin{enumerate}
-	\item There exist two linearly independent, bounded solutions $\partial_x Q(x)$ and $V^c(x)$ to \eqref{vareq2}. $V^c(x)$ is bounded, and
+\begin{lemma}\label{varadjsolutions}\leavevmode
+\begin{enumerate}[(i)]
+	\item There exist two linearly independent, bounded solutions $\partial_x Q(x)$ and $V^c(x)$ to \eqref{vareq2}. $V^c(x)$ is bounded,
 	\begin{equation}
-	V^c(x) \rightarrow V_0 \text{ as }|x| \rightarrow \infty
+	V^c(x) \rightarrow V_0 \text{ as }|x| \rightarrow \infty,
 	\end{equation}
-	$V^c$ is symmetric with respect to the standard reversor operator $R$, i.e. $V^c(-x) = R V^c(x)$. Furthermore, $V^c = (\tilde{V}^c, 1)$, where $\tilde{V}^c$ solves the equation $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + (0, \dots, 0, 1)^T$. Any other bounded solution to \eqref{vareq2} is a linear combination of these.
+	and	$V^c(-x) = R V^c(x)$, where $R$ is the standard reversor operator. Furthermore, $V^c = (\tilde{V}^c, 1)$, where $\tilde{V}^c$ is a solution to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$. Any other bounded solution to \eqref{vareq2} is a linear combination of these.
 
-	\item There exist two linearly independent, bounded solutions $\Psi(x)$ and $\Psi^c(x)$ to \eqref{adjvareq2}.
-	\begin{enumerate}[(i)]
-	\item $\Psi(x)$ is the exponentially localized solution
+	\item There exist two linearly independent, bounded solutions $\Psi(x)$ and $W_0$ to \eqref{adjvareq2}. $\Psi(x)$ is the exponentially localized solution
 	\begin{equation}\label{psicomponents}
-	\Psi(x) = (\nabla H(Q(x)), q(x)).
+	\Psi(x) = (\nabla H(Q(x)), q(x)), 
 	\end{equation}
-	$\Psi(x)$ is symmetric with respect to the standard reversor operator $R$, i.e. $\Psi(-x) = R \Psi(x)$. 
-	\item $\Psi^c(x)$ is the constant solution
-	\begin{equation}
-	\Psi^c(x) = W_0
-	\end{equation}
-	\end{enumerate}
-	Any other bounded solution to \eqref{adjvareq2} is a linear combination of these.
+	with $\Psi(-x) = R \Psi(x)$. Any other bounded solution to \eqref{adjvareq2} is a linear combination of these.
 \end{enumerate}
 \end{lemma}
 
 \begin{remark}\label{remark:computeVc}
-Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution to $\calL(q) v_c = 1$. This provides a convenient way of computing $V^c(x)$ numerically. Since $v^c(x)$ is not in $H^{2m}(\R)$, $v^c(x)$ is not an eigenfunction of \cref{genPDEeig}.
+Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution to $\calL(q) v_c = 1$, which provides a convenient way of computing $V^c(x)$ numerically.
 \end{remark}
 
 \section{Existence of periodic multi-pulses}\label{sec:perexist}
 
-In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}. Heuristically, we construct a periodic multi-pulse using Lin's method by gluing together multiple copies of the primary pulse end-to-end in a loop.
+In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}. Heuristically, we construct a periodic multi-pulse by gluing together multiple copies of the primary pulse end-to-end in a loop.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=10cm]{images/multipulseperiodic}
 \end{center}
-\caption[Construction of a periodic $n-$pulse solution]{Construction of a periodic $n-$pulse solution from the primary pulse.}
+\caption[Construction of a periodic $n$-pulse solution]{Construction of a periodic $n-$pulse solution from the primary pulse.}
 \label{fig:permultipulse}
 \end{figure}
 A periodic $n$-pulse can be described by $n$ pulse distances $\{X_0, \dots, X_{n-1} \}$, as shown in \cref{fig:permultipulse}, where the distance between consecutive copies of $Q(x)$ in the loop is $2 X_j$. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more pulse distance than an $n$-homoclinic orbit, since we need one more connection to ``close the loop''.  
@@ -600,6 +538,8 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and 
 
 As a consequence of our analysis, we also note that periodic single pulse solutions exist for sufficiently small $r$.
 
+
+
 \section{Spectrum of periodic multipulses}\label{sec:perstab}
 
 We now look at the spectral stability of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x)$ be any periodic $n$-pulse solution constructed according to Theorem \ref{perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeigper} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
@@ -623,21 +563,11 @@ where $V(x) \in C^0(\R,\R^{2m+1})$. Let $A(\lambda) = A(0; \lambda)$. By Lemma \
 There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0.
 \end{lemma}
 
-We will need one final hypothesis concerning a higher order Melnikov-type integral that appears in the stability theorem. In applications such as KdV5, numerical analysis suggests that \cref{Melnikov2hyp} is satisfied with $M > 0$.
-
-\begin{hypothesis}\label{Melnikov2hyp}
-The following higher order Melnikov integral is nonzero.
-\begin{equation}\label{M2}
-M = \int_{-\infty}^\infty \langle \Psi(x), B Q_c(x) \rangle dx =
-\int_{-\infty}^\infty q(x) \partial_c q(x) dx \neq 0
-\end{equation}
-\end{hypothesis}
-
 We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeigper}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, except the matrix $S(\lambda)$ is replaced by a block matrix.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, \ref{Qclocalhyp}, and \ref{Melnikov2hyp}. Let $Q(x)$ be the primary pulse solution, and let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{perexist}. 
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{Qclocalhyp}. Let $Q(x)$ be the primary pulse solution, and let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{perexist}. 
 
 Choose any positive integer $N$. Then for any $r \leq r_*$ there exists $\delta(r,N)$, where $0 < \delta(r,N) < N/|\log r|$, with the following property. There exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta(r,N)$ if and only if
 \begin{equation}\label{blockmatrixcond}
@@ -647,9 +577,10 @@ $S(\lambda)$ is the $(2n \times 2n)$ block matrix
 \begin{equation}\label{blockeq}
 S(\lambda) = 
 \begin{pmatrix}
-K(\lambda) -\frac{1}{2} \tilde{M} K_1(\lambda) + C_1 & -\lambda A_1 - \lambda^2 \tilde{M}^c I + D_1 \\
--\frac{1}{2} \lambda M^c K_1(\lambda) + C_2 & A - \lambda^2 MI + D_2
+K(\lambda) -\frac{1}{2} \tilde{M} K_1(\lambda) & - \lambda^2 \tilde{M}^c I \\
+-\frac{1}{2} \lambda M^c K_1(\lambda) & A - \lambda^2 MI 
 \end{pmatrix}
++ \begin{pmatrix}C_1 & D_1 \\ C_2 & D_2 \end{pmatrix}
 \end{equation}
 The individual terms in $S(\lambda)$ are as follows.
 
@@ -694,18 +625,6 @@ where
 a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
 \end{align*}
 
-\item $A_1$ is the matrix
-\begin{align*}
-A_1 &= \begin{pmatrix}
-q(X_0) - q(X_1) & q(X_1) &&& -q(X_0) \\
--q(X_1) & q(X_1) - q(X_2) & q(X_2) \\
-& -q(X_2) & q(X_2) - q(X_3) & q(X_3) \\ && \ddots \\
-\\
-q(X_0) &&& -q(X_{n-1}) & q(X_{n-1}) - q(X_0) 
-\end{pmatrix},
-\end{align*}
-where $q(x)$ is the first component of the primary pulse solution $Q(x)$. 
-
 \item $M$, $M^c$, $\tilde{M}$, and $\tilde{M}^c$ are  Melnikov-type integrals
 \begin{align*}
 M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy \\
@@ -735,13 +654,11 @@ In \cref{blockmatrixtheorem}, we restricted $|\lambda|$ to $|\lambda| < N/|\log 
 the restriction $\delta(r,N) < N/|\log r|$ in \cref{blockmatrixtheorem} will not hinder a search for the first $N$ essential spectrum eigenvalues.
 \end{remark}
 
-\section{Spectrum of periodic pulses}
+\section{Spectrum of periodic single pulse}
 
-\subsection{Spectrum of periodic single pulse}\label{sec:per1peig}
+The simplest case is the periodic single pulse. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the following lemma.
 
-The simplest case is the periodic single pulse. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the next corollary.
-
-\begin{corollary}\label{corr:2blockmatrix}
+\begin{lemma}\label{lemma:1blockmatrix}
 For a periodic single pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is 
 \begin{align}\label{1pblockmatrix}
 S(\lambda) &= 
@@ -763,61 +680,9 @@ In addition,
 \det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right),
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
-\begin{proof}
-We use the same piecewise ansatz as in \cref{Vpiecewise}, and we note that that there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
-\begin{equation}\label{eigsystemper1p}
-\begin{aligned}
-(W^\pm)'(x) &= A(Q(x); \lambda) W^\pm(x) + G^\pm(x) W^\pm(x) + c e^{\mp\nu(\lambda)X} G^\pm(x)V^\pm(x; \lambda) + d \lambda^2 \tilde{H}^\pm(x) \\
-W^+(X) &- W^-(-X) = C_i c \\
-W^\pm(0) &\in \R \Psi(0) \oplus \R \Psi^c(0) \oplus Y^+ \oplus Y^- \\
-W^+(0) &- W_i^-(0) \in \R \Psi(0) \oplus \R \Psi^c(0) 
-\end{aligned}
-\end{equation}
-In particular, the second equation in \cref{eigsystemper1p} (the matching condition at the tail) no longer contains the term $D_i d$. Equation \cref{1pblockmatrix} follows directly from \cref{blockmatrixtheorem}.
+\end{lemma}
 
-We next turn to symmetry. Since the periodic single pulse is symmetric, $Q^-(x) = R Q^+(-x)$. Following the same procedure as in \cref{AQxsymmetrylemma}, it follows that $G^-(x) = -R G^+(-x)R$. Multiplying the first equation in \cref{eigsystemper1p} by $R$ on the right and using the symmetry relations,
-\begin{align*}
-(R W^\pm)'(x) &= R A(Q(x); \lambda) R R W^\pm(x) + R G^\pm(x) R R W^\pm(x) + c e^{\mp\nu(\lambda)X} R G^\pm(x)R R V^\pm(x; \lambda) + d \lambda^2 R \tilde{H}^\pm(x) \\
-&= -A(Q(-x); -\lambda) R W^\pm(x) - G^\mp(-x) R W^\pm(x) - c e^{\pm\nu(-\lambda)X} G^\mp(-x) V^\mp(-x; -\lambda) + d \lambda^2 \tilde{H}^\mp(-x)
-\end{align*}
-Making the change of variables $x \mapsto -x$, this becomes
-\begin{align*}
-[-R W^\mp(-x)]' &= A(Q(x); -\lambda)[ R W^\mp(-x)] + G^\pm(x) [-R W^\mp(-x)] - c e^{\mp\nu(-\lambda)X} G^\pm(x) R V^\pm(x; -\lambda) + d \lambda^2 \tilde{H}^\pm(x)
-\end{align*}
-Multiplying the second equation in \cref{eigsystemper1p} by $R$,
-\begin{align*}
-RW^+(X) - RW^-(-X) &= c \left( e^{\nu(\lambda) X_i} R V^-(-X_i; \lambda) - e^{-\nu(\lambda) X_i} R V^+(X_i; \lambda) \right) \\
- [-RW^-(-X)] - [-RW^+(X)]&= -c \left( e^{\nu(-\lambda) X_i} V^-(-X_i; -\lambda) - e^{-\nu(-\lambda) X_i} V^+(X_i; -\lambda) \right)
-\end{align*}
-Since $Y^+ = R Y^-$, $R \Psi(0) = \Psi(0)$, and $R \Psi^c(0) = \Psi^c(0)$, the system of equations \cref{eigsystemper1p} is satisfied by $(-RW^-(-x), -RW^+(-x))$ when $(c, d, \lambda) \mapsto (-c, d, -\lambda)$. Since the solution $(W^+(x), W^-(x))$ is unique for a given $(c, d, \lambda)$, 
-\[
-\left(W^+(x; c, d, -\lambda), W^-(x; -c, d, -\lambda)\right)
-= -\left(RW^-(-x; c, d, \lambda), RW^+(-x; -c, d, \lambda)\right).
-\]
-For the jump expressions at $x = 0$,
-\[
-W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) = RW^+(0; -c, d, \lambda) - RW^-(0; c, d, \lambda).
-\]
-Since $R \Psi^c(0) = \Psi^c(0)$ and $R \Psi(0) = \Psi(0)$,
-\begin{align*}
-\langle \Psi^c(0), W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) \rangle &= \langle \Psi^c(0), W^+(0; -c, d, \lambda) - W^-(0; c, d, \lambda) \rangle \\
-\langle \Psi(0), W^+(0; c, d, -\lambda) - W^-(0; -c, d, -\lambda) \rangle &= \langle \Psi(0), W^+(0; -c, d, \lambda) - W^-(0; c, d, \lambda) \rangle 
-\end{align*}
-Since $W(x; c, d; \lambda)$ is linear in $(c, d)$ by \cref{Zinv2}, 
-\begin{align}\label{1pdetSneg}
-S(-\lambda) &= 
-\begin{pmatrix}
-2 \sinh(\nu(\lambda) X) + \tilde{M}\lambda \cosh(\nu(\lambda) X) & -\tilde{M}^c \lambda^2 \\
-M^c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
-\end{pmatrix} +
-\begin{pmatrix}
--C_1 & D_1 \\ -C_2 & D_2
-\end{pmatrix}
-= S(\lambda)\begin{pmatrix}-1 & 0 \\ 0 & 1 \end{pmatrix}.
-\end{align}
-Thus the $C_i$ are odd functions of $\lambda$ and the $D_i$ are even functions of $\lambda$. Using this together with the fact that since $D_i d = 0$, the parameter $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}, we obtain the bounds for $C_i$, $D_i$ in the statement of the theorem. It follows from \cref{1pdetSneg} that $\det S(-\lambda) = -\det S(\lambda)$. To obtain \cref{1pblockmatrixdet}, we compute the determinant and use the fact that $S(\lambda)$ is odd in $\lambda$ together with the bounds on $C_i$ and $D_i$ to obtain the order of the remainder terms.
-\end{proof}
-\end{corollary}
+Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse. 
 
 \begin{theorem}\label{theorem:1pess}
 Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref{H0transversehyp}, \ref{Melnikov2hyp}, and \ref{Hoverlaphyp}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. 
@@ -826,77 +691,8 @@ Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delt
 \[
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
 \]
-is on the imaginary axis. In terms of $m$ and $X$,
-\[
-\lambda_m^{\text{ess}}(X) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \left(\frac{m}{X}\right)^3 \right).
-\]
-\begin{proof}
-First, we make a change of variables to simplify the problem. Since $\nu'(0) = 1/c$ and $\nu(0) = 0$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in Taylor series about $\mu = 0$,
-\begin{equation}\label{2plambdamu}
-\lambda = \nu^{-1}(\mu) = c \mu + \mathcal{O}(\mu^3)
-\end{equation}
-Substituting this into \cref{1pblockmatrixdet} and simplifying, we obtain the equation
-\begin{equation}\label{1pdetmu}
-\det S(\mu, r) = c^2 \mu^2 \left( 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu|^2 + r^{1/2})) + c \mu (M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) + \mathcal{O}(|\mu|(|\mu|^2 + r^{1/2}) \right)
-\end{equation}
-For convenience, let $K = M \tilde{M} - M_c \tilde{M}_c$. Since we are looking for the nonzero essential spectrum eigenvalues, and we know there is an eigenvalue with algebraic multiplicity 2 at 0, we divide by $c \mu^2$ to get the equation
-\begin{equation}\label{1pdetmu2}
-E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu|^2 + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu|^2 + r^{1/2})
-\end{equation}
-Choose positive integer $m \leq N_1$. For our ansatz, we take
-\begin{equation}\label{singlemu}
-\mu = \frac{m \pi i}{X + c \frac{K}{2 M}} + h \frac{m}{X}
-\end{equation}
-Factoring out an $X$ in the denominator, and expanding the denominator in a Taylor series, which we can do for sufficiently large $X$,
-\begin{align*}
-\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + h \frac{m}{X}\\
-&= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + h \frac{m}{X}
-\end{align*}
-Substituting this into \cref{1pdetmu2} and expanding the $\sinh$ and $\cosh$ terms in a Taylor series about $m \pi i$,
-\begin{align*}
-E(h, r) &= 2 M (-1)^m \left( -\frac{m \pi c K i}{2 M X} + \frac{m \pi c^2 K^2 i}{4 M^2 X^2} + h\frac{m}{X} + \mathcal{O}\left(\frac{m}{X^3}\right) \right) \left(1 + \mathcal{O}\left( \frac{m^2}{X^2} + r^{1/2} \right) \right) \\
-&\qquad+ c K (-1)^m \left( \frac{m \pi i}{X} - c \frac{m \pi K i}{2 M X^2} + h \frac{m}{X} + \mathcal{O}\left(\frac{m}{X^3}\right) \right) \left( 1 + \mathcal{O}\left(\frac{m}{X^2}\right) \right) \\
-&\qquad+ \mathcal{O}\left( \frac{m}{X} \left( \frac{m^2}{X^2} + r^{1/2} \right) \right) \\
-&= (-1)^m\left( 2M + cK \right)h \frac{m}{X} + \mathcal{O}\left( \frac{m}{X} \left( \frac{m^2}{X^2} + r^{1/2} \right) \right)
-\end{align*}
-Dividing by $m/X$ and $(-1)^m$, we wish to solve 
-\begin{align*}
-G_m(h, r) = \left( 2M + cK \right)h + \mathcal{O}\left( \frac{m^2}{X^2} + r^{1/2} \right)
-\end{align*}
-Since $X = X(r) = \mathcal{O}(1/|\log r|)$, this becomes
-\begin{align*}
-G_m(h, r) = \left( 2M + cK \right)h + \mathcal{O}\left( \frac{1}{|\log r|^2} \right),
-\end{align*}
-where we subsumed the faster decaying $\mathcal{O}(r^{1/2})$ term into the slower decaying $1/|\log r|^2$ remainder term. Since
-\begin{align*}
-G_m(0,0) &= 0 \\
-\partial_h G_m(0,0) &= 2M + cK \neq 0,
-\end{align*}
-we can use the implicit function theorem to solve for $h$ in terms of $r$ near $(h,r) = (0,0)$. Specifically, there exists $r_1^m \leq r_0$ and a unique smooth function $h_m(r)$ with $h_m(0) = 0$ such that for all $r \leq r_1^m$, $G_m(h_m(r),r) = 0$. Expanding $h_m$ in a Taylor series about $r = 0$,
-\[
-h_m(r) = \mathcal{O}\left( \frac{1}{|\log r|^2} \right) = \mathcal{O}\left( \left(\frac{m}{X}\right)^2 \right)
-\]
-Let $r_1 = \min\{ r_1^1, \dots, r_1^{N_1} \}$. Substituting $h_m(r)$ into \cref{singlemu} for $m = 1, \dots, N_1$, there are essential spectrum eigenvalues located at
-\[
-\mu_m(r) = \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
-\]
-Changing variables back to $\lambda$, these are located at
-\[
-\lambda_m(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
-\]
-By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m(r)$ is pure imaginary and there is another essential spectrum eigenvalue $\lambda_{-m}(r) = -\lambda_m(r)$. We conclude that the nonzero essential spectrum eigenvalues are given by $\lambda = \pm \lambda_m^{\text{ess}}(r)$ for $m = 1, \dots, N_1$, where
-\[
-\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right).
-\]
-In terms, of $X$, this is given by
-\[
-\lambda_m^{\text{ess}}(X) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \left(\frac{m}{X}\right)^3\right).
-\]
-\end{proof}
+is on the imaginary axis.
 \end{theorem}
-
-
-
 
 \section{Spectrum of periodic 2-pulse}\label{sec:per2peig}
 
@@ -904,11 +700,11 @@ We will apply \cref{blockmatrixtheorem} to the simplest case, which is the perio
 
 \begin{corollary}\label{corr:2blockmatrix}
 For a periodic 2-pulse, the block matrix \cref{blockeq} from \cref{blockmatrixtheorem} can be written as $S(\lambda) = S_1(\lambda) + S_2(\lambda)$. $S_1(\lambda)$ is the $4 \times 4$ matrix
-\begin{align}
+\begin{align}\label{S1for2pulse}
 S&_1(\lambda) = \\
 &\begin{pmatrix}
-e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} & k_0^+ - k_1^- -\tilde{M}^c \lambda^2 & -k_0^+ + k_1^- \\
--e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} & k_0^- - k_1^+ & -k_0^- + k_1^+-\tilde{M}^c \lambda^2 \\
+e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} & \lambda(q(X_0) - q(X_1)) -\tilde{M}^c \lambda^2 & -\lambda(q(X_0) - q(X_1)) \\
+-e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} & \lambda(q(X_0) - q(X_1)) & -\lambda(q(X_0) - q(X_1)) -\tilde{M}^c \lambda^2 \\
 -\frac{1}{2}\lambda M^c e^{-\nu(\lambda)X_1} & -\frac{1}{2}\lambda M^ce^{\nu(\lambda)X_0} &-a-\lambda^2 M_2 & a \\
 -\frac{1}{2}\lambda M^c e^{\nu(\lambda)X_1} & -\frac{1}{2}\lambda M^c e^{-\nu(\lambda)X_0}  & a & -a-\lambda^2 M_2 \\
 \end{pmatrix}
@@ -1024,7 +820,7 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref
 \item There is an eigenvalue at 0 with algebraic multiplicity 3. 
 \item Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
 \[
-\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X}+  \mathcal{O}\left( \frac{1}{|\log r|^2} \right)
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
 \]
 is on the imaginary axis and $X$ is given by \cref{Xdomain}.
 
@@ -1144,7 +940,53 @@ For $c = 20$, the maximum real part of the eigenvalues in the Krein bubble is or
 The slope of the least squares linear regression line is $-0.5$ (with a relative error of less than $0.005$), which suggests that the radius of the Krein bubble scales as $X^{-1/2}$
 
 \appendix
+
 \section{Proofs of primary pulse results}
+
+***
+
+Next, we address the intersection of the stable and unstable manifolds $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$. By \cref{Hhyp}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We have the following lemma concerning $H^{-1}(0; c_0)$.
+
+\begin{lemma}\label{manifoldinH0}
+There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the zero level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$; $K(c_0)$ contains $Q(0; c_0)$.
+\end{lemma}
+
+***
+
+If $U(x)$ is a solution to \cref{genODE}, so is $RU(-x)$. Differentiating \cref{genODErev} with respect to $U$,
+\begin{equation}\label{genODErevDF}
+D F(RU; c) = -RDF(U; c)R.
+\end{equation}
+
+It follows from \cref{genODErev} and \cref{genODErevDF} that $f(RU) = f(U)$, which implies
+\begin{equation}\label{frev}
+\begin{aligned}
+\partial_{u_j} f(R U) &= (-1)^{j+1} \partial_{u_j} f(U) \\
+\partial^2_{u_j u_k} f(R U) &= (-1)^{j+k} \partial^2_{u_j u_k} f(U).
+\end{aligned}
+\end{equation}
+For $U = 0$,
+\begin{align}\label{fpartials0}
+\partial_{u_j} f(0) &= \begin{cases}
+0 & j \text{ even}\\
+0 & j = 1 \\
+c_j & j \text{ odd, } j > 1
+\end{cases}
+\end{align}
+where the $c_j$ are constants. We can assume without without loss of generality that $c_0 = \partial_{u_1} f(0) = 0$, since that is accounted for by the $c u_1$ term in \cref{defF}.
+
+\cref{transverseint} implies that Hypothesis \ref{cintervalhyp} is satisfied. From this point forward, we will fix a speed $c$ and will omit the dependence on $c$ in our notation. The variational and adjoint variational equations associated with \cref{genODE} are
+\begin{align}
+\tilde{V}' &= DF(Q(x)) \tilde{V} \label{vareq1} \\
+\tilde{W}' &= -DF(Q(x))^* \tilde{W} \label{adjvareq1},
+\end{align}
+
+It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to \cref{vareq1}, and that there exists a unique bounded solution $\tilde{\Psi}(x)$ to \cref{adjvareq1}. (In both cases, uniqueness is up to scalar multiples). The form of $\tilde{\Psi}(x)$ is given in the following lemma.
+
+\begin{lemma}\label{psiform}
+$\tilde{\Psi} = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{Hhyp}. $\tilde{\Psi}(x)$ is symmetric with respect to the standard reversor operator $R$, i.e. $\tilde{\Psi}(-x) = R \tilde{\Psi}(x)$, and the last component of $\tilde{\Psi}(x)$ is $q'(x)$.
+\end{lemma}
+
 \section{Proofs of existence results}
 
 Using \cref{nondegencond}, we decompose the tangent spaces of the stable and unstable manifolds at $Q(0; c_0)$. Since the two tangent spaces have a one-dimensional intersection spanned by $Q'(0; c_0)$, we can decompose them as 
