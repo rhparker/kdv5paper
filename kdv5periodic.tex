@@ -62,23 +62,17 @@ which is a weakly nonlinear long-wave approximation to the classical capillary-g
 \begin{equation}\label{KdV5}
 u_t = u_{xxxxx} - u_{xxx} - 2 u u_x,
 \end{equation}
-which we will refer to as the 5th order KdV equation (KdV5). This is the Kawahara equation with $\alpha = 1$, $\beta = -1$, and $f(u, u_x, u_{xx}) = u^2$.
+which we will refer to as the 5th order KdV equation (KdV5). This is the Kawahara equation with $\alpha = 1$, $\beta = -1$, and $f(u, u_x, u_{xx}) = u^2$. 
 
 We are interested in traveling wave solutions of the the form $u(x, t) = u(x - ct)$. Writing \cref{KdV5} in a co-moving frame with speed $c$ by letting $\xi = x - ct$, equation \cref{KdV5} becomes
 \begin{equation}\label{KdV5c}
 u_t = \partial_x(u_{xxxx} - u_{xx} - u^2 + cu) ,
 \end{equation}
-where we have renamed the independent variable back to $x$. Equation \cref{KdV5c} is Hamiltonian, and can be written as $u_t = \partial_x \calE'(u)$, where $\calE(u)$ is the energy
-\begin{equation}\label{KdV5energy}
-\calE(u) = -\int_{-\infty}^{\infty} \left( \frac{1}{2}u_{xx}^2 + \frac{1}{2}u_x^2 + \frac{1}{2}cu^2 - \frac{1}{3}u^3 \right) dx.
-\end{equation}
-For any solution $u(x, t)$ to \cref{KdV5c}, the energy $\calE(u)$ is conserved in $t$. In addition, the energy $\calE(u)$ is translation invariant and is reversible, i.e invariant under the transformation $x \mapsto -x$.
-
-An equilibrium solution to \cref{KdV5} satisfies the 5th order nonlinear ODE
+where we have renamed the independent variable back to $x$. An equilibrium solution to \cref{KdV5} satisfies the 5th order nonlinear ODE
 \begin{equation}\label{KdV5eq}
 u_{xxxxx} - u_{xxx} + c u_x - 2 u u_x = 0.
 \end{equation}
-We are interested in pulses, localized solutions which decay exponentially to the background state $u = 0$ at $\pm \infty$. Integrating \cref{KdV5eq} once, a pulse solution satisfies the 4th order ODE
+We are interested in localized pulse solutions which decay exponentially to the background state $u = 0$ at $\pm \infty$. Integrating \cref{KdV5eq} once, a pulse solution satisfies the 4th order ODE
 \begin{equation}\label{KdV5eq4}
 u_{xxxx} - u_{xx} + c u - u^2 = 0.
 \end{equation}
@@ -109,7 +103,7 @@ Linearization of the 4th order ODE \cref{KdV5eq4} about a solution $u^*(x)$ is t
 \begin{equation}\label{KdV5hessian}
 \calE''(u^*) = \partial_x^4 - \partial_x^2 + c - 2 u^* 
 \end{equation}
-where $\calE''(u^*)$ is the Hessian of the energy \cref{KdV5energy}. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system $U'(x) = F(U(x))$. The eigenvalues of the $4 \times 4$ matrix $DF(0)$ are the solutions to the fourth-order polynomial equation $\nu^4 - \nu^2 + c = 0$, which are
+where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system $U'(x) = F(U(x))$. The eigenvalues of the $DF(0)$ are the solutions to the fourth-order polynomial equation $\nu^4 - \nu^2 + c = 0$, which are
 \begin{align}
 \nu = \pm \sqrt{ \frac{1 \pm \sqrt{1 - 4c} }{2}}.
 \end{align}
@@ -121,37 +115,37 @@ For $c > 0$, a symmetric primary pulse solution exists to \cref{KdV5eq4}. We wil
 For $c > 0$, there exists a one-pulse solution $q(x)$ to \cref{KdV5eq4} which is an even function and decays exponentially to 0 at $\pm \infty$. For the linear operators $\calE''(q)$ and $\partial_x \calE''(q)$, we have the following:
 \begin{enumerate}[(i)]
 \item The linear operator $\calE''(q)$ has exactly one negative eigenvalue with an even eigenfunction and a simple eigenvalue at 0 with eigenfunction $q_x$.
-\item Assume that the map $c \mapsto q(x; c)$ is $C^1$ for $c > 0$. Then the linear operator $\partial_x \calE''(q)$ has an eigenvalue at 0 with algebraic multiplicity 2 and geometric multiplicity 1; the eigenfunction is $\partial_x q(x)$ and the generalized eigenfunction is $\partial_c q(x)$. 
+\item Assume that the map $c \mapsto q(x; c)$ is $C^1$ for $c > 0$. Then the linear operator $\partial_x \calE''(q)$ has an eigenvalue at 0 with algebraic multiplicity 2 and geometric multiplicity 1; the eigenfunction is $\partial_x q(x)$ and the generalized eigenfunction is $-\partial_c q(x)$. 
 \item Assume that 
-\[
+\begin{equation}\label{KdV5stabhyp}
 \int_{-\infty}^\infty q(x) \partial_c q(x) dx > 0
-\]
+\end{equation}
 Then $q(x)$ is orbitally stable. This implies that $\partial_x \calE''(q)$ has no eigenvalues with positive real part.
 \end{enumerate}
 \end{theorem}
 
-For $c > 1/4$, multi-pulse solutions exist to \cref{KdV5eq4}. These resemble multiple, well-separated copies of the primary pulse $q(x)$. For each $n \geq 2$, Buffoni, Champneys, and Toland \cite{Buffoni1996} show that a countable family of multi-pulse solutions exists; their proof uses the Smale horseshoe set. The result for 2-pulse solutions is also given in \cite[Theorem 2.2]{Pelinovsky2007}, which is based on the variational method used in \cite{Buffoni1996}. The method we will employ is due to Sandstede \cite{Sandstede1993, SandstedeStrut}, and uses a spatial dynamics approach and Lin's method. From a spatial dynamics perspective, a multi-pulse is a multi-loop homoclinic orbit which remains close to the primary pulse. The advantage of this method is that multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions. In addition to an existence results, Lin's method provides estimates and bounds on these small remainder functions. The distances between consecutive pulses are constrained to be (approximately) an integer multiple of a phase parameter which depends on $\beta_0$. Geometrically, these integers represent the number of half-twists made by the multi-pulse between consecutive peaks and represent a specific alignment of stable and unstable manifolds necessary for multi-pulses to exist. 
+For $c > 1/4$, multi-pulse solutions exist to \cref{KdV5eq4}. These resemble multiple, well-separated copies of the primary pulse $q(x)$. For each $n \geq 2$, Buffoni, Champneys, and Toland \cite{Buffoni1996} show that a countable family of multi-pulse solutions exists; their proof uses the Smale horseshoe set. The result for 2-pulse solutions is also given in \cite[Theorem 2.2]{Pelinovsky2007}, which is based on the variational method used in \cite{Buffoni1996}. The method we will employ is due to Sandstede \cite{Sandstede1993, SandstedeStrut}, and uses a spatial dynamics approach and Lin's method. From this perspective, a multi-pulse is a multi-loop homoclinic orbit which remains close to the primary pulse. Since multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions, Lin's method provides not only existence results but also estimates for these small remainder functions. The distances between consecutive peaks in a multi-pulse are constrained to be (approximately) an integer multiple of a phase parameter which depends on $\beta_0$. Geometrically, these integers represent the number of half-twists made by the multi-pulse between consecutive peaks and represent a specific alignment of stable and unstable manifolds necessary for multi-pulses to exist. 
 
-We are interested in the stability of multi-pulse solutions. As a first step to studying the stability of an equilibrium solution $u^*$, we will determine the spectrum of the linearization of the PDE \eqref{KdV5c} about $u^*$. Substituting the standard linearization ansatz $u(x, t) = u^*(x) + \epsilon e^{\lambda t} v(x)$ into \eqref{KdV5c} and keeping terms up to order $\epsilon$, we obtain the PDE eigenvalue problem
+By \cref{KdV5stabhyp}, which can be verified numerically, the primary pulse solution is orbitally stable. We are interested in the stability of multi-pulse solutions. As a first step to studying the stability of an exponentially localized equilibrium solution $u^*$, we will determine the spectrum of the linearization of the PDE \eqref{KdV5c} about $u^*$. Substituting the standard linearization ansatz $u(x, t) = u^*(x) + \epsilon e^{\lambda t} v(x)$ into \eqref{KdV5c} and keeping terms up to order $\epsilon$, we obtain the PDE eigenvalue problem
 \begin{equation}\label{KdV5PDEevp}
 \partial_x \calE''(u^*) v = \lambda v.
 \end{equation}
-where $\calE''(u^*): H^4(\R) \subset L^2(\R) \rightarrow L^2(\R)$ is given in \cref{KdV5hessian}. We are interested in the spectrum of the linear operator $\partial_x \calE''(u^*): H^5(\R) \subset L^2(\R) \rightarrow L^2(\R)$, which is the set of $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ does not have bounded inverse. The essential spectrum consists of the set of all $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ either is not Fredholm or is Fredholm with nonzero index. For KdV5, it follows from \cite[Theorem 3.1.11]{Kapitula2013} that $\partial_x \calE''(u^*) - \lambda \calI$ cannot be Fredholm with nonzero index, thus the essential spectrum consists of all $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ is not Fredholm. Since $\partial_x \calE''(u^*)$ is exponentially asymptotic to the operator 
+where $\calE''(u^*): H^4(\R) \subset L^2(\R) \rightarrow L^2(\R)$ is given in \cref{KdV5hessian}. The spectrum of the linear operator $\partial_x \calE''(u^*): H^5(\R) \subset L^2(\R) \rightarrow L^2(\R)$ is the set of $\lambda \in \C$ for which the linear operator $\partial_x \calE''(u^*) - \lambda \calI$ does not have a bounded inverse. The spectrum can be decomposed into to disjoint sets: the essential spectrum and the point spectrum. By \cite[Theorem 3.1.11]{Kapitula2013}, the essential spectrum consists of all $\lambda \in \C$ for which the operator $\partial_x \calE''(u^*) - \lambda \calI$ is not Fredholm. For an exponentially localized solution $u^*$, $\partial_x \calE''(u^*)$ is exponentially asymptotic to the operator 
 \[
 \partial_x \calE''(0) = \partial_x(\partial_x^4 - \partial_x^2 + c - 2 u^*),
 \]
-by the Weyl essential spectrum theorem \cite[Theorem 2.2.6]{Kapitula2013} and \cite[Theorem 3.1.11]{Kapitula2013}, $\partial_x \calE''(u^*)$ and $\partial_x \calE''(0)$ have the same essential spectrum. By a straightforward calculation, the essential spectrum of $\partial_x \calE''(u^*)$ is the entire imaginary axis. In particular, the essential spectrum does not depend on the equilibrium solution $u^*(x)$, and is the same for the primary pulse solution and all multi-pulses.
+thus by the Weyl essential spectrum theorem \cite[Theorem 2.2.6]{Kapitula2013} and \cite[Theorem 3.1.11]{Kapitula2013}, $\partial_x \calE''(u^*)$ and $\partial_x \calE''(0)$ have the same essential spectrum. By a straightforward calculation, the essential spectrum of $\partial_x \calE''(u^*)$ is independent of $u^*$ and consists of the entire imaginary axis.
 
-Spectral stability thus depends on the point spectrum, which is the set of all $\lambda \in \C$ for which $\dim \ker(\partial_x \calE''(u^*) - \lambda \calI) > 0$. Since \cref{KdV5c} is Hamiltonian, these eigenvalues must come in quartets $\{ \pm \lambda, \pm \overline{\lambda}\}$ \cite[Proposition 5.1.2]{Kapitula2013}, thus the best we can hope for is neutral stability. For an equilibrium solution $u^*(x)$, we can verify directly that 
+Spectral stability thus depends on the point spectrum, which is the set of all $\lambda \in \C$ for which $\dim \ker(\partial_x \calE''(u^*) - \lambda \calI) > 0$. Since \cref{KdV5c} is Hamiltonian, these eigenvalues must come in quartets $\{ \pm \lambda, \pm \overline{\lambda}\}$ \cite[Proposition 5.1.2]{Kapitula2013}. As with the primary pulse solution,
 \begin{align*}
 \partial_x \calE''(u^*) (\partial_x u^*) &= 0 \\
 \partial_x \calE''(u^*) (-\partial_c u^*) &= \partial_x u^*,
 \end{align*}
-where for now we assume that $\partial_c u^*$ exists. Thus there is an eigenvalue at 0 with at least algebraic multiplicity 2 and geometric multiplicity 1. The kernel eigenfunction $\partial_x u^*$ is a consequence of translation invariance. For the primary pulse solution $q(x)$, these are the only eigenvalues. For an $n$-pulse solution $q_n(x)$, there will be $n-1$ additional sets of eigenvalues near 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will refer to these as interaction eigenvalues. For double pulses, Chugunova and Pelinovsky prove that there is a pair of interaction eigenvalues which is either real or purely imaginary (to leading order) with negative Krein signature \cite[Theorem 2.3]{Pelinovsky2007}. Using an exponentially weighted space, we can extend this result to arbitrary multi-pulses through a suitable adaptation of Lin's method used in \cite{Sandstede1998}. By doing this, we can derive a criterion for when the multi-pulses are spectrally unstable. However, any potentially imaginary eigenvalues can only be located to leading order. Since the system is no longer Hamiltonian when posed in an exponentially weighted space, we cannot conclude that these eigenvalues are in fact on the imaginary axis.
+thus the kernel of $\partial_x \calE''(u^*)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1. For the primary pulse solution $q(x)$, these are the only eigenvalues. For an $n$-pulse solution $q_n(x)$, there will be $n-1$ additional sets of eigenvalues near 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will refer to these as interaction eigenvalues. For double pulses, Chugunova and Pelinovsky prove that there is a pair of interaction eigenvalues which is either real or imaginary (to leading order) with negative Krein signature \cite[Theorem 2.3]{Pelinovsky2007}. Using an exponentially weighted space, we can extend this result to arbitrary multi-pulses through a suitable adaptation of Lin's method used in \cite{Sandstede1998}. By doing this, we can derive a criterion for when the multi-pulses are spectrally unstable. However, any potentially imaginary eigenvalues can only be located to leading order. Since the system is no longer Hamiltonian when posed in an exponentially weighted space, we cannot conclude that these eigenvalues are in fact on the imaginary axis.
 
-The presence of the essential spectrum along the entire imaginary axis makes any interaction eigenvalues which may be purely imaginary extremely difficult to locate. As an alternative, we consider instead a more tractable problem. Instead of multipulses on the real line, we will look at multi-pulses on a periodic domain. From a spatial dynamics perspective, a periodic multi-pulse is a multi-loop periodic orbits which remains close to the primary pulse. On a periodic domain, the essential spectrum becomes a discrete set of eigenvalues located on the imaginary axis. For simplicity, and to contrast them with the interaction eigenvalues, we will refer to these as essential spectrum eigenvalues, even though they are elements of the point spectrum. This will make the analysis straightforward as long as the essential spectrum eigenvalues and the interaction eigenvalues do not interfere with each other. To do the analysis, we adapt Lin's method to the eigenvalue problem \cref{KdV5PDEevp}. Following \cite{Sandstede1998}, we write \cref{KdV5PDEevp} in a first-order system in the form $V'(x) = A(u^*(x)) V(x) + \lambda B V(x)$, where $A(x)$ and $B$ are $5 \times 5$ matrices and $A(u^*(x))$. $A(0)$ has an eigenvalue of 0, and the four remaining eigenvalues are the same as those of $DF(0)$. Since $A(0)$ has a one-dimensional center subspace, the results of \cite{Sandstede1998} do not apply since we cannot decompose the evolution of $V'(x) = A(u^*(x))V(x)$ in an exponential dichotomy. Instead, we will use an exponential trichotomy which separates out the evolution on the one-dimensional center subspace. Following the steps of Lin's method, as in \cite{Sandstede1998}, we reduce the eigenvalue problem to computing the determinant of a matrix $S(\lambda)$. In this case, $S(\lambda)$ is a block matrix composed of four $5 \times 5$ blocks. To leading order, $S(\lambda)$ is block diagonal. The singularities of the upper block correspond to the essential spectrum eigenvalues, while the singularities of the lower block (which corresponds to the matrix $A$ in \cite[Theorem 2]{Sandstede1998}) correspond to the interaction eigenvalues. 
+The presence of the essential spectrum along the entire imaginary axis makes any interaction eigenvalues which may be purely imaginary extremely difficult to locate. As an alternative, we will look at multi-pulses on a periodic domain instead of multi-pulses on the real line. From a spatial dynamics perspective, a periodic multi-pulse is a multi-loop periodic orbit which remains close to the primary pulse. When the eigenvalue problem is posed on a periodic domain, the essential spectrum becomes a discrete set of eigenvalues located on the imaginary axis. For simplicity (and to contrast them with the interaction eigenvalues), we will refer to these as essential spectrum eigenvalues, even though they are elements of the point spectrum. As long as the essential spectrum eigenvalues and the interaction eigenvalues do not interfere with each other, we can adapt Lin's method to the eigenvalue problem \cref{KdV5PDEevp}. As in \cite{Sandstede1998}, we reduce the eigenvalue problem to computing the determinant of a block matrix $S(\lambda)$, which gives us both the interaction eigenvalues and the essential spectrum eigenvalues. The lower right block of $S(\lambda)$ corresponds to the matrix in \cite[Theorem 2]{Sandstede1998}.
 
-This paper is organized as follows. In \cref{sec:setup}, we present the mathematical setup of the problem, for which KdV5 is a special case. In \cref{sec:main}, we present the main results of this paper, which concern existence and spectral properties of periodic multi-pulse solutions. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
+This paper is organized as follows. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is applied to the periodic single pulse in \cref{sec:persingle} and the periodic double pulse in \cref{sec:perdouble}. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
 
 \section{Mathematical Setup}\label{sec:setup}
 
@@ -410,7 +404,7 @@ The following lemma characterizes bounded solutions to \eqref{vareq2} and \eqref
 \end{lemma}
 
 \begin{remark}\label{remark:computeVc}
-Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution to $\calL(q) v_c = 1$, which provides a convenient way of computing $V^c(x)$ numerically.
+Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution to $\calL(q) v^c = 1$, which provides a convenient way of computing $V^c(x)$ numerically.
 \end{remark}
 
 \section{Existence of periodic multi-pulses}\label{sec:perexist}
@@ -538,8 +532,6 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and 
 
 As a consequence of our analysis, we also note that periodic single pulse solutions exist for sufficiently small $r$.
 
-
-
 \section{Spectrum of periodic multipulses}\label{sec:perstab}
 
 We now look at the spectral stability of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x)$ be any periodic $n$-pulse solution constructed according to Theorem \ref{perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeigper} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
@@ -654,7 +646,7 @@ In \cref{blockmatrixtheorem}, we restricted $|\lambda|$ to $|\lambda| < N/|\log 
 the restriction $\delta(r,N) < N/|\log r|$ in \cref{blockmatrixtheorem} will not hinder a search for the first $N$ essential spectrum eigenvalues.
 \end{remark}
 
-\section{Spectrum of periodic single pulse}
+\section{Spectrum of periodic single pulse}\label{sec:persingle}
 
 The simplest case is the periodic single pulse. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the following lemma.
 
@@ -694,7 +686,7 @@ Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delt
 is on the imaginary axis.
 \end{theorem}
 
-\section{Spectrum of periodic 2-pulse}\label{sec:per2peig}
+\section{Spectrum of periodic 2-pulse}\label{sec:perdouble}
 
 We will apply \cref{blockmatrixtheorem} to the simplest case, which is the periodic 2-pulse. The block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next corollary, which follows immediately from \cref{blockmatrixtheorem}.
 
@@ -734,40 +726,6 @@ where the remainder term have bounds
 |R(\lambda)| \leq C(r^{1/2} + |\lambda|)^5
 \end{align*}
 \end{corollary}
-
-The interaction eigenvalue pattern will be determined by the quantity $a$ in \cref{2pa}. In order to characterize this, we will need to make one technical hypothesis. Define the functions $H: \R^+ \times \R^+ \rightarrow \R$ and $K: \R^+ \times \R^+ \rightarrow \R$ by 
-\begin{align}
-H(b_0, b_1) &= b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) \label{perdefH} \\
-H_1(b_0, b_1) &= b_0 \left[ \rho \cos \left( -\rho \log b_0 \right) - \sin \left( -\rho \log b_0 \right) \right] + b_1 \left[ \rho \cos \left( -\rho \log b_1 \right) - \sin \left( -\rho \log b_1 \right) \right]  \label{perdefH1} \\
-\end{align}
-Roughly speaking, the permissible pulse distances for periodic 2-pulses are determined by the zero set of $H(b_0, b_1)$. 
-% See \cref{section:bifH} for details. 
-The value of $a$ is determined by $H_1(b_0, b_1)$ evaluated on the zero set of $H(b_0, b_1)$. We hypothesize that the zero sets of these two functions overlap only at a discrete set of points corresponding the pitchfork bifurcation points in \cref{2pulsebifurcation}.
-
-\begin{hypothesis}\label{Hoverlaphyp}
-The zero sets of $H(b_0, b_1)$ and $H_1(b_0, b_1)$ intersect only at the discrete set of points
-\begin{align*}
-(b_0, b_1) &= (b_k^*, b_k^*) && k \in \Z
-\end{align*}
-where 
-\begin{equation*}
-b^*_k = e^{-\frac{1}{\rho} (k \pi + p^*) }
-\end{equation*}
-These are the same as the pitchfork bifurcation points from \cref{2pulsebifurcation}.
-\end{hypothesis}
-
-% \begin{remark}There is strong numerical evidence that \cref{Hoverlaphyp} is true. See \cref{fig:HH1overlap} for a plot of two zero sets. Although it is likely that \cref{Hoverlaphyp} can be proved, the functions involved, while smooth, are not well-behaved, making the analysis very difficult.
-% \end{remark}
-
-% \begin{figure}
-% \begin{center}
-% \begin{tabular}{cc}
-% \includegraphics[width=10cm]{images/periodic/zeroHoverlap.eps} 
-% \end{tabular}
-% \end{center}
-% \caption[Intersection of zero sets of $H$ and $H_1$]{ Intersection of zero sets of $H(b_0, b_1)$ (blue) and $H_1(b_0, b_1)$ (orange). }
-% \label{fig:HH1overlap}
-% \end{figure}
 
 We can now characterize the quantity $a$ in \cref{2pa} from \cref{corr:2blockmatrix}.
 
@@ -839,20 +797,7 @@ Next, we consider the symmetric periodic 2-pulse. As long as we are away from th
 Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref{H0transversehyp}, \ref{Melnikov2hyp}, and \ref{Hoverlaphyp}. Let $r_*$ be as in \cref{2pulsebifurcation}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
 \end{theorem}
 
-\section{Spectrum of periodic multi-pulses}
-
-When $n \geq 3$, it should be possible to prove an analogue to \cref{theorem:2peigsassym} in the case where the essential spectrum eigenvalues and nonzero interaction eigenvalues do not interfere with each other. Since it is too unwieldy to compute the determinant, we note that it follows from Theorem \ref{blockmatrixtheorem} that $\lambda$ is an eigenvalue if and only if the equation
-\[
-S(\lambda) \begin{pmatrix} c\\d \end{pmatrix} = 0
-\]
-has a nontrivial solution. Write this as the pair of equations
-\begin{align}
-(K(\lambda) + C_1)c + (\lambda K_2(\lambda) - \lambda^2 \tilde{M}^c I + D_1)d &= 0 \label{topline} \\
-(-\frac{1}{2} \lambda M^c K_1(\lambda) + C_2)c + (A - \lambda^2 MI + D_2) &= 0 \label{bottomline}.
-\end{align}
-To find the interaction eigenvalues, it should be possible to invert $K(\lambda)$, solve \cref{topline} for $c$, and plug the result into \cref{bottomline}. To find the essential spectrum eigenvalues, it should be possible to invert $A - \lambda^2 MI$, solve \cref{bottomline} for $d$, and plug the result into \cref{topline}.
-
-\section{Numerical Results}
+\section{Numerical Results}\label{sec:numerics}
 
 In this section, we present numerical results for the existence and spectrum of periodic multi-pulse solutions to \cref{KdV5c}. We start with the construction of the primary pulse solution. For $c = 36/169 < 1/4$, an exact solution to \cref{KdV5eq4} is known \cite[(3)]{Pelinovsky2007}:
 \begin{equation}\label{KdV5exactsol}
@@ -938,6 +883,13 @@ For $c = 20$, the maximum real part of the eigenvalues in the Krein bubble is or
 \label{fig:kreinbubbleradius}
 \end{figure}
 The slope of the least squares linear regression line is $-0.5$ (with a relative error of less than $0.005$), which suggests that the radius of the Krein bubble scales as $X^{-1/2}$
+
+\section{Conclusions}\label{sec:conclusions}
+
+\bibliographystyle{amsalpha}
+\bibliography{kdv5.bib}
+
+\end{document}
 
 \appendix
 
