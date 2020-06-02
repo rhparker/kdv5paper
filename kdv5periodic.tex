@@ -551,7 +551,7 @@ There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(
 \end{equation}
 \end{lemma}
 
-We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeigper}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$block matrix.
+We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$block matrix.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
@@ -662,8 +662,8 @@ where
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
-\det &S(\lambda, r) \\
-&= \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right),
+\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) \\
+&\qquad+ \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \Big),
 \end{aligned}
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
@@ -672,10 +672,10 @@ and $\det S(-\lambda) = -\det S(\lambda)$.
 Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse. 
 
 \begin{theorem}\label{theorem:1pess}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. . Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
-\[
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
+\begin{align}\label{1pess}
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
-\]
+\end{align}
 is on the imaginary axis.
 \end{theorem}
 
@@ -702,58 +702,17 @@ a = \langle \Psi(X_0), Q'(-X_0) \rangle + \langle \Psi(X_1), Q'(-X_1) \rangle,
 the remainder matrices are $2\times2$ matrices with bounds given in \cref{blockmatrixtheorem}, and the rest of the terms are defined in \cref{blockmatrixtheorem}. In addition,
 \begin{equation}\label{2pblockmatrixdet}
 \begin{aligned}
-\det S(\lambda, r) = -2 \lambda^2 \left( (2a + \lambda^2 M)\left( M \sinh(\nu(\lambda)X) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) \right) + \mathcal{O}\left((|\lambda| + r^{1/2})^4\right) \right),
+\det S(\lambda, r) &= -2 \lambda^2 (2a + \lambda^2 M)\left( M \sinh(\nu(\lambda)X) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) \right) \\
+&\qquad+ \mathcal{O}\left(|\lambda|^2(|\lambda| + r^{1/2})^4\right),
 \end{aligned}
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
 \end{lemma}
 
-We can now characterize the quantity $a$ in \cref{2pa} from \cref{corr:2blockmatrix}.
-
-\begin{lemma}\label{lemma:chara}
-Let $r_*$ be as in Theorem \ref{2pulsebifurcation}. Then for any $r \in \mathcal{R}$ with $r \leq r_*$:
-\begin{enumerate}[(i)]
-	\item For a symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, s_0, r)$, $a = r \tilde{a}(r; m_0, s_0)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. Furthermore $\tilde{a}(0; m_0, s_0) = 0$ if and only if $s_0 = p^*$. For $s_0 \neq p^*$,
-	\begin{equation}
-	\begin{aligned}
-	\text{if }s_0 &> p^*, \, \tilde{a}(0; 0, s_0) > 0 \text{ and } \tilde{a}(0; 1, s_0) < 0 \\
-	\text{if }s_0 &< p^*, \, \tilde{a}(0; 0, s_0) < 0 \text{ and } \tilde{a}(0; 1, s_0) > 0 
-	\end{aligned}
-	\end{equation}
-
-	\item For an asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$, $a = r \tilde{a}(r; m_0, s_1)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. The sign of $\tilde{a}(r; m_0, s_0)$ is completely determined by $m_0$ as follows.
-	\begin{equation} 
-	\begin{aligned}
-	\tilde{a}(0; m_0, s_1) &< 0 && \text{if }m_0 = 0 \\
-	\tilde{a}(0; m_0, s_1) &> 0 && \text{if }m_0 = 1
-	\end{aligned}
-	\end{equation}
-	Furthermore,
-	\begin{equation}\label{tildeas1limit}
-	\tilde{a}(r; m_0, s_1) = \tilde{a}^*(m_0) + \mathcal{O}\left(r^{\gamma/2\alpha_0} + e^{-\frac{1}{\rho}s_1} \right),
-	\end{equation}
-	where $\gamma > 0$. Finally, $\tilde{a}^*(m_0) < 0$ if $m_0 = 0$ and $\tilde{a}^*(m_0) > 0$ if $m_0 = 1$.
-\end{enumerate}	
-\end{lemma}
-
-We will consider only the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale like $r^{1/2}$ and the essential spectrum eigenvalues scale like $1/|\log r|$, we can always choose $r$ sufficiently small so that this is the case. 
-%In particular, this will always avoid the Krein bubbles that we observed numerically in \cref{chapter:KdV5numerics}. We will discuss the Krein bubbles in the concluding chapter. We expect that the eigenvalues will come in one of the two patterns shown in \cref{fig:2ppatterns}.
-
-% \begin{figure}
-% \begin{center}
-% \begin{tabular}{cc}
-% \includegraphics[width=5cm]{images/kdv5/2punstableeigpattern.eps} &
-% \includegraphics[width=5cm]{images/kdv5/2pstableeigpattern.eps} 
-% \end{tabular}
-% \caption[Eigenvalue patterns for periodic 2-pulses]{Eigenvalue patterns for periodic 2-pulses with essential spectrum out of the way. Blue dots are interaction eigenvalues, red dots are essential spectrum eigenvalues, and black X at the origin represents the three kernel eigenvalues. Left panel shows a pair of real interaction eigenvalues, and right panel shows a pair of purely imaginary interaction eigenvalues.}
-% \label{fig:2ppatterns}
-% \end{center}
-% \end{figure}
-
-We will state the result separately for asymmetric and symmetric periodic 2-pulses. First, we locate the eigenvalues for asymmetric 2-pulses. As long as $r$ is chosen sufficiently small, the interaction eigenvalue pattern is determined by the parameter $m_0$, and the essential spectrum eigenvalues do not interfere.
+We will consider only the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale like $r^{1/2}$ and the essential spectrum eigenvalues scale like $1/|\log r|$, we can always choose $r$ sufficiently small so that this is the case. We will state the result separately for asymmetric and symmetric periodic 2-pulses. First, we locate the eigenvalues for asymmetric 2-pulses. As long as $r$ is chosen sufficiently small, the interaction eigenvalue pattern is determined by the parameter $m_0$, and the essential spectrum eigenvalues do not interfere.
 
 \begin{theorem}\label{theorem:2peigsassym}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref{H0transversehyp}, \ref{Melnikov2hyp}, and \ref{Hoverlaphyp}. Let $r_*$ be as in \cref{2pulsebifurcation}. Let $\tilde{a}(r)$ be as in \cref{lemma:chara}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1, N) \leq r_*$ with the following property. For any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1, N) \leq r_*$ with the following property. For any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
 
 \begin{enumerate}[(i)]
 \item There is an eigenvalue at 0 with algebraic multiplicity 3. 
@@ -765,17 +724,20 @@ is on the imaginary axis and $X$ is given by \cref{Xdomain}.
 
 \item There is a pair of interaction eigenvalues located at $\lambda = \pm \lambda^{\text{int}}(r)$, where
 	\begin{align*}
-	\lambda^{\text{int}}(r) =  \sqrt{-\frac{2 \tilde{a}(r)}{M}}r^{1/2} + \mathcal{O}\left( \frac{r^{1/2}}{|\log r|} \right) 
+	\lambda^{\text{int}}(r) =  \sqrt{-\frac{2a}{M}} + \mathcal{O}\left( r \right),
 	\end{align*}
-and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambda_1^{\text{ess}}(r)|$. If $M > 0$, these are real when $m_0 = 0$ and purely imaginary when $m_0 = 1$. (This is reversed if $M < 0)$. 
+$|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambda_1^{\text{ess}}(r)|$, and $a$ is defined in \cref{2pa}. If $M > 0$, these are real when $m_0 = 0$ and purely imaginary when $m_0 = 1$. (This is reversed if $M < 0)$. 
 \item There are no other eigenvalues inside a circle with radius slightly larger than $|\lambda_{N_1}^{\text{ess}}(r)|$.
 \end{enumerate}
 \end{theorem}
 
-Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points, i.e. as long as $\tilde{a}(0) \neq 0$, the results of \cref{theorem:2peigsassym} hold in the symmetric case as well; the only difference is that the eigenvalue pattern is determined by the sign of $\tilde{a}_0(0)$ rather than by $m_0$. Thus we only need to consider what happens at the pitchfork bifurcation point.
+\begin{remark}The essential spectrum eigenvalues are not identical for the periodic single pulse and the periodic double pulse. In particular, note the additional factor of 2 in the denominator of \cref{1pess}.
+\end{remark}
+
+Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points, i.e. as long as $a \neq 0$, the results of \cref{theorem:2peigsassym} hold in the symmetric case as well; the only difference is that the eigenvalue pattern is determined by the sign of $a$ rather than by $m_0$. Thus we only need to consider what happens at the pitchfork bifurcation point.
 
 \begin{theorem}\label{theorem:2peigssym}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref{H0transversehyp}, \ref{Melnikov2hyp}, and \ref{Hoverlaphyp}. Let $r_*$ be as in \cref{2pulsebifurcation}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
 \end{theorem}
 
 \section{Numerical Results}\label{sec:numerics}
@@ -976,7 +938,6 @@ A(U(x)) =
 \end{pmatrix}
 \end{equation}
 
-
 Using the nondegeneracy condition \eqref{nondegen2}, we can decompose the tangent spaces of the stable and unstable manifolds at $Q(0)$ as
 \begin{align*}
 T_{Q(0)}W^s(0) &= \R Q'(0) \oplus Y^+ \\
@@ -989,6 +950,36 @@ Using Lemma \ref{nondegenlemma} and Lemma \ref{varadjsolutions}, we can decompos
 \R^{2m+1} = \R \Psi(0) \oplus \R \Psi^c(0) \oplus \R Q'(0) \oplus Y^+ \oplus Y^-
 \end{equation}
 where $\R \Psi(0) \oplus \R \Psi^c(0) \perp \R Q'(0) \oplus Y^+ \oplus Y^-$.
+
+*****
+
+We can now characterize the quantity $a$ in \cref{2pa} from \cref{corr:2blockmatrix}.
+
+\begin{lemma}\label{lemma:chara}
+Let $r_*$ be as in Theorem \ref{2pulsebifurcation}. Then for any $r \in \mathcal{R}$ with $r \leq r_*$:
+\begin{enumerate}[(i)]
+	\item For a symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, s_0, r)$, $a = r \tilde{a}(r; m_0, s_0)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. Furthermore $\tilde{a}(0; m_0, s_0) = 0$ if and only if $s_0 = p^*$. For $s_0 \neq p^*$,
+	\begin{equation}
+	\begin{aligned}
+	\text{if }s_0 &> p^*, \, \tilde{a}(0; 0, s_0) > 0 \text{ and } \tilde{a}(0; 1, s_0) < 0 \\
+	\text{if }s_0 &< p^*, \, \tilde{a}(0; 0, s_0) < 0 \text{ and } \tilde{a}(0; 1, s_0) > 0 
+	\end{aligned}
+	\end{equation}
+
+	\item For an asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$, $a = r \tilde{a}(r; m_0, s_1)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. The sign of $\tilde{a}(r; m_0, s_0)$ is completely determined by $m_0$ as follows.
+	\begin{equation} 
+	\begin{aligned}
+	\tilde{a}(0; m_0, s_1) &< 0 && \text{if }m_0 = 0 \\
+	\tilde{a}(0; m_0, s_1) &> 0 && \text{if }m_0 = 1
+	\end{aligned}
+	\end{equation}
+	Furthermore,
+	\begin{equation}\label{tildeas1limit}
+	\tilde{a}(r; m_0, s_1) = \tilde{a}^*(m_0) + \mathcal{O}\left(r^{\gamma/2\alpha_0} + e^{-\frac{1}{\rho}s_1} \right),
+	\end{equation}
+	where $\gamma > 0$. Finally, $\tilde{a}^*(m_0) < 0$ if $m_0 = 0$ and $\tilde{a}^*(m_0) > 0$ if $m_0 = 1$.
+\end{enumerate}	
+\end{lemma}
 
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
