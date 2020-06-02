@@ -145,7 +145,7 @@ thus the kernel of $\partial_x \calE''(u^*)$ has algebraic multiplicity at least
 
 The presence of the essential spectrum along the entire imaginary axis makes any interaction eigenvalues which may be purely imaginary extremely difficult to locate. As an alternative, we will look at multi-pulses on a periodic domain instead of multi-pulses on the real line. From a spatial dynamics perspective, a periodic multi-pulse is a multi-loop periodic orbit which remains close to the primary pulse. When the eigenvalue problem is posed on a periodic domain, the essential spectrum becomes a discrete set of eigenvalues located on the imaginary axis. For simplicity (and to contrast them with the interaction eigenvalues), we will refer to these as essential spectrum eigenvalues, even though they are elements of the point spectrum. As long as the essential spectrum eigenvalues and the interaction eigenvalues do not interfere with each other, we can adapt Lin's method to the eigenvalue problem \cref{KdV5PDEevp}. As in \cite{Sandstede1998}, we reduce the eigenvalue problem to computing the determinant of a block matrix $S(\lambda)$, which gives us both the interaction eigenvalues and the essential spectrum eigenvalues. The lower right block of $S(\lambda)$ corresponds to the matrix in \cite[Theorem 2]{Sandstede1998}.
 
-This paper is organized as follows. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is applied to the periodic single pulse in \cref{sec:persingle} and the periodic double pulse in \cref{sec:perdouble}. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
+This paper is organized as follows. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
 
 \section{Mathematical Setup}\label{sec:setup}
 
@@ -409,7 +409,7 @@ Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution
 
 \section{Existence of periodic multi-pulses}\label{sec:perexist}
 
-In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}. Heuristically, we construct a periodic multi-pulse by gluing together multiple copies of the primary pulse end-to-end in a loop.
+In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}. These are multi-modal periodic orbits which remain close to the primary homoclinic orbit. Heuristically, we construct a periodic multi-pulse by gluing together multiple copies of the primary pulse end-to-end in a loop.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=10cm]{images/multipulseperiodic}
@@ -417,9 +417,9 @@ In this section, we prove the existence of periodic multi-pulse solutions to \cr
 \caption[Construction of a periodic $n$-pulse solution]{Construction of a periodic $n-$pulse solution from the primary pulse.}
 \label{fig:permultipulse}
 \end{figure}
-A periodic $n$-pulse can be described by $n$ pulse distances $\{X_0, \dots, X_{n-1} \}$, as shown in \cref{fig:permultipulse}, where the distance between consecutive copies of $Q(x)$ in the loop is $2 X_j$. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more pulse distance than an $n$-homoclinic orbit, since we need one more connection to ``close the loop''.  
+A periodic $n$-pulse can be described by $n$ pulse distances $\{X_0, \dots, X_{n-1} \}$, as shown in \cref{fig:permultipulse}, where the distance between consecutive copies of the primary pulse $Q(x)$ is $2 X_j$. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more pulse distance than an $n$-homoclinic orbit, since we need one more connection to ``close the loop''.  
 
-Rather than describing a periodic multi-pulse by its physical pulse distances $X_j$, we will adopt an alternative parameterization which is both more convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
+Rather than describing a periodic multi-pulse by the pulse distances $X_j$, we will adopt an alternative parameterization which is both more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
 \begin{equation}\label{defrho}
 \rho = \frac{\beta_0}{\alpha_0},
 \end{equation}
@@ -444,10 +444,10 @@ For $n \geq 2$, a \emph{periodic parameterization} of a periodic $n$-pulse is a 
 \item $\theta \in (\pi + -p^*, p^*]$.
 \end{enumerate}
 \end{definition}
-The selection of $m_{n-1}$ as the largest of the $m_j$ is made only for notational convenience and to allow the parameterization to be unique. Since we are on a periodic domain, there is no loss of generality. The physical pulse distances $X_j$ are determined by these parameters and by the scaling parameter $r$. If $r = \exp\left(-\frac{2 k \pi}{\rho}\right)$, then
+The selection of $m_{n-1}$ as the largest of the $m_j$ is made only for notational convenience and to allow the parameterization to be unique. Since we are on a periodic domain, there is no loss of generality. The physical pulse distances $X_j$ are determined by these parameters and by the scaling parameter $r$. If $r = \exp\left(-\frac{2 m \pi}{\rho}\right)$, then
 \begin{align*}
-X_j &= \frac{1}{2 \beta_0}\big( (2 k + m_j)\pi + \theta^*(\theta; m_{n-1} - m_j)\big) + L_0 + \mathcal{O}(r) \\
-X_{n-1} &= \frac{1}{2 \beta_0}\big( (2 k + m_{n-1})\pi + \theta \big) + L_0
+X_j &= \frac{1}{2 \beta_0}\big( (2 m + m_j)\pi + \theta^*(\theta; m_{n-1} - m_j)\big) + L_0 + \mathcal{O}(r) \\
+X_{n-1} &= \frac{1}{2 \beta_0}\big( (2 m + m_{n-1})\pi + \theta \big) + L_0
 \end{align*}
 where $L_0$ is a constant. The functions $\theta^*(\theta; m): [-\pi + p^*, p^*] \rightarrow \R$ are defined for all nonnegative integers $m$, are continuous in $\theta$, and have the following properties.
 \begin{enumerate}[(i)]
@@ -462,7 +462,7 @@ The last property is a matching condition which ``links up'' the parameterizatio
 We can now state the main theorem of this section, which gives conditions for the existence of periodic multi-pulses. The requirement that the scaling parameter $r$ be sufficiently small means that the individual pulses must be well-separated.
 
 \begin{theorem}[Existence of $n$-periodic solutions]\label{perexist}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r^*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$:
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$:
 \begin{enumerate}[(i)]
 	\item There exists a periodic $n$-pulse solution $Q_n(x) = Q_n(x; m_0, \dots, m_{n-1}, \theta, r)$ to \eqref{genODE}.
 
@@ -482,14 +482,17 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and 
 	X(r; m_0, \dots, m_{n-1}, \theta) = \frac{n}{2\alpha_0} |\log r| + \frac{1}{2\beta_0} \sum_{j=0}^{n-1} t_j(r; m_j, \theta) + n L_0
 	\end{align}
 
-	\item $Q_n(x)$ can be written as piecewise perturbation of the primary pulse $Q(x)$. 
-	Details are given below in Lemma \ref{solvewithjumps}.
+	\item Estimates for $Q_n(x)$ in terms of the primary pulse $Q(x)$ are given below in Lemma \ref{solvewithjumps}.
 \end{enumerate}
 \end{theorem}
 
-The condition that $\theta \notin \{-\pi + p^*, p^*) \}$ in \cref{perexist} is used to avoid any bifurcation points which may arise in the construction. For periodic 2-pulses, we can use a symmetry argument to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:2pitch}, left panel). We note that \cref{2pulsebifurcation} uses a different parameterization than \cref{perexist} (\cref{fig:2pitch}, right panel).
+\begin{remark}
+It follows from the proof of \cref{2pulsebifurcation} that periodic single pulse solutions exist on domain $[-X, X]$ for all sufficiently large $X$. These are single-loop periodic orbits which lie close to the primary homoclinic orbit.
+\end{remark}
 
-\begin{figure}
+The condition that $\theta \notin \{-\pi + p^*, p^*) \}$ in \cref{perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:2pitch}, left panel). \cref{2pulsebifurcation} uses a different parameterization than \cref{perexist} (\cref{fig:2pitch}, right panel).
+
+\begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
 \includegraphics[width=8cm]{images/2pitchfork.eps}
@@ -501,11 +504,11 @@ The condition that $\theta \notin \{-\pi + p^*, p^*) \}$ in \cref{perexist} is u
 \end{figure} 
 
 \begin{theorem}\label{2pulsebifurcation}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}. Let $Q(x)$ be a transversely constructed, symmetric primary pulse solution to \eqref{genODE}. There exists $r_* > 0$ such that for all $r \in \mathcal{R}$ with $r \leq r_*$ and $m_0 \in \{0, 1\}$
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. There exists $r_* > 0$ such that for all $r \in \mathcal{R}$ with $r \leq r_*$ and $m_0 \in \{0, 1\}$
 \begin{enumerate}[(i)]
 	\item There exists a family of symmetric periodic 2-pulses $\tilde{Q}_2(x; m_0, s_0, r)$ parameterized by $s_0 \in [0, \pi)$. The distances $\tilde{X}_j$ are given by
 	\begin{equation}\label{2psymmdist}
-		\tilde{X}_0(r, s_0) = \tilde{X}_1(r, s_0) = \frac{1}{2 \alpha_0} |\log r| + \frac{\pi}{2\beta_0} (m_0 + s_0) + L_0.
+		\tilde{X}_0(r, s_0) = \tilde{X}_1(r, s_0) = \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} (m_0 \pi + s_0) + L_0.
 	\end{equation}
 	\item There exists a family of asymmetric periodic 2-pulses $Q_2(x; m_0, s_1, r)$ with distances $X_1 > X_0$ parameterized by $s_1 \in [p^*, \infty)$. The distances $X_j$ are given by
 	\begin{equation}\label{2pasymmdist}
@@ -514,52 +517,45 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and 
 		X_1(r, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} s_1 + L_0, 
 	\end{aligned}
 	\end{equation}
-	where $t_0(r; m_0, s_1)$ is continuous in $r$ and $t_1$, and $t_0(0; m_0, k \pi) = m_0$ for all nonnegative integers $k$. Furthermore,
+	where $t_0(r; m_0, s_1)$ is continuous in $r$ and $t_1$, $t_0(0; m_0, k \pi) = m_0 \pi$ for all nonnegative integers $k$, and 
 	\begin{align}\label{deft0}
-	t_0(0; m_0, s_1) = m_0 \pi + \mathcal{O}\left(-\frac{1}{\rho} s_1 \right)
+	t_0(0; m_0, s_1) = m_0 \pi + \mathcal{O}\left(e^{-\frac{1}{\rho} s_1 }\right).
 	\end{align}
-	The periodic domain has length $2X$, where
-	\begin{equation}\label{X2pdomain}
-	X(r, m_0, s_1) = \frac{1}{2 \alpha_0} 2 |\log r| + \frac{1}{2\beta_0} \left( t_0(r; m_0, s_1) + s_1\right) + 2 L_0.
-	\end{equation}
 
-	\item The two families meet at a pitchfork bifurcation. In terms of the two parameterizations, this occurs when $s_0 = p^*(m_0; r)$ and $s_1 = p^*$. The bifurcation points $p^*(m_0; r)$ are continuous in $r$, and
+	\item The two families meet at a pitchfork bifurcation when $s_0 = p^*(m_0; r)$ and $s_1 = p^*$. The bifurcation points $p^*(m_0; r)$ are continuous in $r$, and
 	\[
 	p^*(m_0; r) \rightarrow \arctan \rho \text{ as }r \rightarrow 0.
 	\]
 \end{enumerate}
 \end{theorem}
 
-As a consequence of our analysis, we also note that periodic single pulse solutions exist for sufficiently small $r$.
-
 \section{Spectrum of periodic multipulses}\label{sec:perstab}
 
-We now look at the spectral stability of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x)$ be any periodic $n$-pulse solution constructed according to Theorem \ref{perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeigper} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
+We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x)$ be any periodic $n$-pulse solution constructed according to Theorem \ref{perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
 \[
 H^{2m}_{\text{per}}[-X,X] = \left\{ f \in H^{2m}(\R) : f^{(k)}(-X) = f^{(k)}(X) \text{ for } k = 0, \dots, 2m \right\} 
 \]
-The norm on this space is the $H^{2m}$ norm restricted to $[-X, X]$. Using the notation in \cref{genPDEeig}, let
-\begin{equation}\label{AQnlambda}
-A(Q_n(x); \lambda) = A(Q_n(x)) + \lambda B.
-\end{equation}
-Then the PDE eigenvalue problem on $[-X, X]$ is equivalent to the first order system with periodic boundary conditions
+Following the spatial dynamics approach from \cref{sec:EVP}, this is equivalent to the first order system with periodic boundary conditions
 \begin{equation}\label{PDEeigsystemper3}
 \begin{aligned}
-V'(x) &= A(Q_n(x); \lambda)V(x) \\
+V'(x) &= A(Q_n^*(x))V(x) + \lambda B V(x) \\
 V(-X) &= V(X),
 \end{aligned}
 \end{equation}
-where $V(x) \in C^0(\R,\R^{2m+1})$. Let $A(\lambda) = A(0; \lambda)$. By Lemma \ref{eigA0lemma}, $A(0)$ has a simple eigenvalue at 0. The next lemma states that for small $\lambda$, $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0. The proof is part of Lemma \ref{nulambdalemma} below.
+where $V(x) \in C^0(\R,\R^{2m+1})$. Let $A(\lambda) = A(0) + \lambda B$. The next lemma states that for small $\lambda$, $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0.
 
 \begin{lemma}\label{nulambdalemmasimple}
-There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0.
+There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0 given by
+\begin{equation}\label{nulambda}
+\nu(\lambda) = \frac{1}{c} \lambda + \mathcal{O}(|\lambda|^3)
+\end{equation}
 \end{lemma}
 
-We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeigper}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, except the matrix $S(\lambda)$ is replaced by a block matrix.
+We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeigper}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$block matrix.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{Qclocalhyp}. Let $Q(x)$ be the primary pulse solution, and let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{perexist}. 
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. Let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{perexist}. 
 
 Choose any positive integer $N$. Then for any $r \leq r_*$ there exists $\delta(r,N)$, where $0 < \delta(r,N) < N/|\log r|$, with the following property. There exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta(r,N)$ if and only if
 \begin{equation}\label{blockmatrixcond}
@@ -575,43 +571,41 @@ K(\lambda) -\frac{1}{2} \tilde{M} K_1(\lambda) & - \lambda^2 \tilde{M}^c I \\
 + \begin{pmatrix}C_1 & D_1 \\ C_2 & D_2 \end{pmatrix}
 \end{equation}
 The individual terms in $S(\lambda)$ are as follows.
-
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item $K(\lambda)$ is the periodic, bi-diagonal matrix
 \begin{align*}
-K(\lambda) =  
+K(\lambda) &= 
+\begin{pmatrix}
+e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} \\
+-e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0}
+\end{pmatrix} && n = 2 \\
+K(\lambda) &=  
 \begin{pmatrix}
 e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
 -e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_2} \\
 & -e^{\nu(\lambda)X_2} & e^{-\nu(\lambda)X_3} \\
   & & \ddots & && \\
 & & & & -e^{\nu(\lambda)X_{n-1}} & e^{-\nu(\lambda)X_0}
-\end{pmatrix}.
+\end{pmatrix} && n > 2.
 \end{align*}
-where $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemmasimple}.
-
-\item $K_1(\lambda)$ is the same matrix as $K(\lambda)$ with all terms positive, i.e. 
-\begin{align*}
-K_1(\lambda) =  
-\begin{pmatrix}
-e^{-\nu(\lambda)X_1} & & & & & e^{\nu(\lambda)X_0} \\
-e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_2} \\
-& e^{\nu(\lambda)X_2} & e^{-\nu(\lambda)X_3} \\
- & & \ddots & &&   \\
-& & & & e^{\nu(\lambda)X_{n-1}} & e^{\nu(\lambda)X_0}
-\end{pmatrix}.
-\end{align*}
+$\nu(\lambda)$ is defined in Lemma \ref{nulambdalemmasimple}. $K_1(\lambda)$ is the same matrix as $K(\lambda)$ with all terms positive.
 
 \item $A$ is the symmetric banded matrix
-\begin{align}\label{Asymm}
+\begin{equation}\label{Asymm}
+\begin{aligned}
+A &= \begin{pmatrix}
+-a_1 - a_0 & a_1 + a_0 \\
+a_1 + a_0 & - a_1 - a_0 
+\end{pmatrix} && n = 2 \\
 A &= \begin{pmatrix}
 -a_{n-1} - a_0 & a_0 & & &  & a_{n-1}\\
 a_0 & -a_0 - a_1 &  a_1 \\
 & a_1 & -a_1 - a_2 &  a_2 \\
 & \ddots & \ddots & \ddots \\
 a_{n-1} & & & & a_{n-2} & -a_{n-2} - a_{n-1} \\
-\end{pmatrix},
-\end{align}
+\end{pmatrix} && n > 2,
+\end{aligned}
+\end{equation}
 where
 \begin{align*}
 a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
@@ -622,11 +616,11 @@ a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
 M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy \\
 M^c &= \int_{-\infty}^\infty q(y) v^c(y) dy \\
 \tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy \\
-\tilde{M}^c &= \int_{-\infty}^\infty \partial_c q(y) dy
+\tilde{M}^c &= \int_{-\infty}^\infty \partial_c q(y) dy .
 \end{align*}
-where $v^c(y)$ is the first component of $V^c(y)$, which is defined in \cref{varadjsolutions}.
+$v^c(y)$ is the first component of $V^c(y)$, which is defined in \cref{varadjsolutions}.
 
-\item The remainder matrices and $K_2(\lambda)$ are analytic in $\lambda$ and have uniform bounds
+\item The remainder matrices are analytic in $\lambda$ and have uniform bounds
 \begin{align*}
 |C_1| &\leq C |\lambda|(|\lambda| + r^{1/2}) \\
 |D_1| &\leq C |\lambda|(|\lambda| + r^{1/2})^2 \\
@@ -637,16 +631,14 @@ The constants $C$ depend on $N$.
 \end{enumerate}
 \end{theorem}
 
-To leading order, equation \cref{blockeq} is block diagonal with blocks $A - \lambda^2 MI$ and $K(\lambda) -\frac{1}{2} \tilde{M} K_1(\lambda)$. Singularities of $A - \lambda^2 MI$ correspond to the interaction eigenvalues as well as two kernel eigenvalues. Singularities of $K(\lambda) -\frac{1}{2} \tilde{M} K_1(\lambda)$ correspond to the essential spectrum eigenvalues, as well as one additional kernel eigenvalue.
-
 \begin{remark}
 In \cref{blockmatrixtheorem}, we restricted $|\lambda|$ to $|\lambda| < N/|\log r|$, for a positive integer $N$ we choose. Without this restriction, the analysis is still possible, but the remainder terms in \cref{blockeq} are much more complicated. Since the essential spectrum eigenvalues are located at approximately $c\frac{k \pi i}{X}$ for $k \in \Z$, and \begin{align*}
 \left| c\frac{k \pi i}{X} \right| \leq \frac{N}{|\log r|} && |k|\leq N,
 \end{align*} 
-the restriction $\delta(r,N) < N/|\log r|$ in \cref{blockmatrixtheorem} will not hinder a search for the first $N$ essential spectrum eigenvalues.
+this restriction will not hinder a search for the first $N$ essential spectrum eigenvalues.
 \end{remark}
 
-\section{Spectrum of periodic single pulse}\label{sec:persingle}
+\subsection{Spectrum of periodic single pulse}\label{sec:persingle}
 
 The simplest case is the periodic single pulse. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the following lemma.
 
@@ -664,12 +656,15 @@ C_1 & D_1 \\ C_2 & D_2
 \end{align}
 where
 \begin{align*}
-|C_1|, |C_2| &\leq C |\lambda|(|\lambda|^2 + r^{1/2}) \\
-|D_1|, |D_2| &\leq C |\lambda|^2(|\lambda|^2 + r^{1/2})
+|C_1|, |C_2| &\leq C |\lambda|(|\lambda| + r^{1/2}) \\
+|D_1|, |D_2| &\leq C |\lambda|^2(|\lambda| + r^{1/2}).
 \end{align*}
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
-\det S(\lambda, r) = \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right),
+\begin{aligned}
+\det &S(\lambda, r) \\
+&= \lambda^2 \left( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \right),
+\end{aligned}
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
 \end{lemma}
@@ -677,55 +672,41 @@ and $\det S(-\lambda) = -\det S(\lambda)$.
 Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse. 
 
 \begin{theorem}\label{theorem:1pess}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref{H0transversehyp}, \ref{Melnikov2hyp}, and \ref{Hoverlaphyp}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. 
-
-Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
+Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. . Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
 \[
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
 \]
 is on the imaginary axis.
 \end{theorem}
 
-\section{Spectrum of periodic 2-pulse}\label{sec:perdouble}
+\subsection{Spectrum of periodic double pulse}\label{sec:perdouble}
 
-We will apply \cref{blockmatrixtheorem} to the simplest case, which is the periodic 2-pulse. The block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next corollary, which follows immediately from \cref{blockmatrixtheorem}.
+For the periodic double pulse, the block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next lemma.
 
-\begin{corollary}\label{corr:2blockmatrix}
-For a periodic 2-pulse, the block matrix \cref{blockeq} from \cref{blockmatrixtheorem} can be written as $S(\lambda) = S_1(\lambda) + S_2(\lambda)$. $S_1(\lambda)$ is the $4 \times 4$ matrix
-\begin{align}\label{S1for2pulse}
-S&_1(\lambda) = \\
-&\begin{pmatrix}
-e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} & \lambda(q(X_0) - q(X_1)) -\tilde{M}^c \lambda^2 & -\lambda(q(X_0) - q(X_1)) \\
--e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} & \lambda(q(X_0) - q(X_1)) & -\lambda(q(X_0) - q(X_1)) -\tilde{M}^c \lambda^2 \\
+\begin{lemma}\label{lemmma:2pblockmatrix}
+For a periodic 2-pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is the $4 \times 4$ matrix
+\begin{align}\label{dpSmatrix}
+S(\lambda) = 
+\begin{pmatrix}
+e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} & -\tilde{M}^c \lambda^2 & 0 \\
+-e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} & 0 & -\tilde{M}^c \lambda^2 \\
 -\frac{1}{2}\lambda M^c e^{-\nu(\lambda)X_1} & -\frac{1}{2}\lambda M^ce^{\nu(\lambda)X_0} &-a-\lambda^2 M_2 & a \\
 -\frac{1}{2}\lambda M^c e^{\nu(\lambda)X_1} & -\frac{1}{2}\lambda M^c e^{-\nu(\lambda)X_0}  & a & -a-\lambda^2 M_2 \\
 \end{pmatrix}
++ \begin{pmatrix} C_1 & D_1 \\ C_2 & D_2 \end{pmatrix}
 \end{align}
 where
 \begin{equation}\label{2pa}
-a = \langle \Psi(X_0), Q'(-X_0) \rangle + \langle \Psi(X_1), Q'(-X_1) \rangle
+a = \langle \Psi(X_0), Q'(-X_0) \rangle + \langle \Psi(X_1), Q'(-X_1) \rangle,
 \end{equation}
-and the rest of the terms are defined in \cref{blockmatrixtheorem}. $S_2(\lambda)$ is the remainder matrix
-\[
-S_2(\lambda) = \begin{pmatrix} C_1 & D_1 \\ C_2 & D_2 \end{pmatrix}.
-\]
-The remainder terms have the same bounds as in \cref{blockmatrixtheorem}.
-\end{corollary}
-
-With the aid of Mathematica, the determinant of the block matrix for the periodic 2-pulse is a straightforward computation.
-
-\begin{corollary}\label{corr:2perDet1}
-For a periodic 2-pulse, the determinant of the block matrix $S(\lambda)$ is given by
-\begin{equation*}
+the remainder matrices are $2\times2$ matrices with bounds given in \cref{blockmatrixtheorem}, and the rest of the terms are defined in \cref{blockmatrixtheorem}. In addition,
+\begin{equation}\label{2pblockmatrixdet}
 \begin{aligned}
-\det S(&\lambda) = -2 \lambda^2 M (2a + \lambda^2 M) \sinh(\nu(\lambda)X) + R(\lambda),
+\det S(\lambda, r) = -2 \lambda^2 \left( (2a + \lambda^2 M)\left( M \sinh(\nu(\lambda)X) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) \right) + \mathcal{O}\left((|\lambda| + r^{1/2})^4\right) \right),
 \end{aligned}
-\end{equation*}
-where the remainder term have bounds
-\begin{align*}
-|R(\lambda)| \leq C(r^{1/2} + |\lambda|)^5
-\end{align*}
-\end{corollary}
+\end{equation}
+and $\det S(-\lambda) = -\det S(\lambda)$.
+\end{lemma}
 
 We can now characterize the quantity $a$ in \cref{2pa} from \cref{corr:2blockmatrix}.
 
@@ -799,90 +780,90 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, \ref
 
 \section{Numerical Results}\label{sec:numerics}
 
-In this section, we present numerical results for the existence and spectrum of periodic multi-pulse solutions to \cref{KdV5c}. We start with the construction of the primary pulse solution. For $c = 36/169 < 1/4$, an exact solution to \cref{KdV5eq4} is known \cite[(3)]{Pelinovsky2007}:
-\begin{equation}\label{KdV5exactsol}
-q(x) = \frac{105}{338}\sech^4\left(\frac{x}{2\sqrt{13}} \right)
-\end{equation}
-By \cite{Pelinovsky2007}, multi-pulses exist when $c > 1/4$, and we will show that periodic multi-pulses also exist for $c > 1/4$. To obtain a primary pulse solution for $c > 1/4$, we use AUTO for parameter continuation in $c$ starting with the solution \cref{KdV5exactsol} at $c = 36/169$. Since we will are interested in periodic solutions, we use periodic boundary conditions on the bounded interval $[-X,X]$. (To do this in AUTO, we scale equation \cref{KdV5eq4} from $[-X, X]$ to $[0, 1]$ by taking $x \mapsto \frac{1}{2X}(x + X)$). Following the AUTO demo \texttt{kdv}, we use the Hamiltonian formulation \cref{KdV5ham2} and include a small parameter $\epsilon$ to break the Hamiltonian structure. In \cref{fig:KdV5singlepulse}, we plot the exact solution (left) together with the output of parameter continuation for $c = 10$ (right). We note the presence of oscillatory tails for $c = 10$ (these are hard to see since the tails also decay exponentially, but the first downward bump is visible).
-\begin{figure}
-\begin{center}
-\begin{tabular}{cc}
-\includegraphics[width=7cm]{images/singleexact.eps} &
-\includegraphics[width=7cm]{images/single10}
-\end{tabular}
-\caption[Primary pulse solutions for KdV5]{Single pulse solutions for KdV5. Exact solution for $c = 36/169$ (left panel) and solution from parameter continuation using AUTO for $c = 10.0$ (right panel). Solutions have been scaled to $[0, 1]$ using $X = 25$ in both cases, periodic boundary conditions.}
-\label{fig:KdV5singlepulse}
-\end{center}
-\end{figure}
+% In this section, we present numerical results for the existence and spectrum of periodic multi-pulse solutions to \cref{KdV5c}. We start with the construction of the primary pulse solution. For $c = 36/169 < 1/4$, an exact solution to \cref{KdV5eq4} is known \cite[(3)]{Pelinovsky2007}:
+% \begin{equation}\label{KdV5exactsol}
+% q(x) = \frac{105}{338}\sech^4\left(\frac{x}{2\sqrt{13}} \right)
+% \end{equation}
+% By \cite{Pelinovsky2007}, multi-pulses exist when $c > 1/4$, and we will show that periodic multi-pulses also exist for $c > 1/4$. To obtain a primary pulse solution for $c > 1/4$, we use AUTO for parameter continuation in $c$ starting with the solution \cref{KdV5exactsol} at $c = 36/169$. Since we will are interested in periodic solutions, we use periodic boundary conditions on the bounded interval $[-X,X]$. (To do this in AUTO, we scale equation \cref{KdV5eq4} from $[-X, X]$ to $[0, 1]$ by taking $x \mapsto \frac{1}{2X}(x + X)$). Following the AUTO demo \texttt{kdv}, we use the Hamiltonian formulation \cref{KdV5ham2} and include a small parameter $\epsilon$ to break the Hamiltonian structure. In \cref{fig:KdV5singlepulse}, we plot the exact solution (left) together with the output of parameter continuation for $c = 10$ (right). We note the presence of oscillatory tails for $c = 10$ (these are hard to see since the tails also decay exponentially, but the first downward bump is visible).
+% \begin{figure}
+% \begin{center}
+% \begin{tabular}{cc}
+% \includegraphics[width=7cm]{images/singleexact.eps} &
+% \includegraphics[width=7cm]{images/single10}
+% \end{tabular}
+% \caption[Primary pulse solutions for KdV5]{Single pulse solutions for KdV5. Exact solution for $c = 36/169$ (left panel) and solution from parameter continuation using AUTO for $c = 10.0$ (right panel). Solutions have been scaled to $[0, 1]$ using $X = 25$ in both cases, periodic boundary conditions.}
+% \label{fig:KdV5singlepulse}
+% \end{center}
+% \end{figure}
 
-To construct a periodic double pulse, we glue together two copies of the single pulse we constructed above. To enforce periodic boundary conditions, we use Fourier spectral methods for spatial discretization. As an initial ansatz, we splice two single pulses together. For the distance between the two peaks, we use those predicted by \cite{SandstedeStrut}; we choose $X$ sufficiently large so that the tail interactions at periodic boundary conditions do not affect the solution very much. The periodic double pulse is then found using Matlab's \texttt{fsolve} function (Levenberg–Marquardt algorithm). The first six periodic double pulse solutions are shown in \cref{fig:KdV5doublepulse}.
-\begin{figure}
-\begin{center}
-\includegraphics[width=7cm]{images/double10.eps}
-\caption[Double pulse solutions for KdV5]{First six periodic double pulse solutions for KdV5. Fourier spectral methods with $N = 1024$ grid points, $c = 10$, $X = 25$.}
-\label{fig:KdV5doublepulse}
-\end{center}
-\end{figure}
-This same procedure can be used to construct arbitrary periodic multi-pulses. Once a periodic double pulse has been constructed, we can vary $X$ by using AUTO for parameter continuation. Transforming back from the interval $[0, 1]$ to $[-X, X]$, we plot the pulse distances $2 X_0$ vs $2 X_1$ in \cref{fig:periodicpitchfork}.
-\begin{figure}
-\begin{center}
-\includegraphics[width=10cm]{images/periodicpitchfork.eps}
-\end{center}
-\caption[Pulse distances of periodic multi-pulses in KdV5]{Pulse distances $2 X_0$ vs $2 X_1$ for periodic double pulse solutions to \cref{KdV5eq4}. Solutions with unequal pulse distances corresponding to the first three double pulses are shown in blue. Solutions with equal pulse distances are shown in red.}
-\label{fig:periodicpitchfork}
-\end{figure}
-From this figure, we see that solutions with unequal pulse distances bifurcate from solutions with equal pulse distances in a series of pitchfork bifurcations. 
+% To construct a periodic double pulse, we glue together two copies of the single pulse we constructed above. To enforce periodic boundary conditions, we use Fourier spectral methods for spatial discretization. As an initial ansatz, we splice two single pulses together. For the distance between the two peaks, we use those predicted by \cite{SandstedeStrut}; we choose $X$ sufficiently large so that the tail interactions at periodic boundary conditions do not affect the solution very much. The periodic double pulse is then found using Matlab's \texttt{fsolve} function (Levenberg–Marquardt algorithm). The first six periodic double pulse solutions are shown in \cref{fig:KdV5doublepulse}.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=7cm]{images/double10.eps}
+% \caption[Double pulse solutions for KdV5]{First six periodic double pulse solutions for KdV5. Fourier spectral methods with $N = 1024$ grid points, $c = 10$, $X = 25$.}
+% \label{fig:KdV5doublepulse}
+% \end{center}
+% \end{figure}
+% This same procedure can be used to construct arbitrary periodic multi-pulses. Once a periodic double pulse has been constructed, we can vary $X$ by using AUTO for parameter continuation. Transforming back from the interval $[0, 1]$ to $[-X, X]$, we plot the pulse distances $2 X_0$ vs $2 X_1$ in \cref{fig:periodicpitchfork}.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=10cm]{images/periodicpitchfork.eps}
+% \end{center}
+% \caption[Pulse distances of periodic multi-pulses in KdV5]{Pulse distances $2 X_0$ vs $2 X_1$ for periodic double pulse solutions to \cref{KdV5eq4}. Solutions with unequal pulse distances corresponding to the first three double pulses are shown in blue. Solutions with equal pulse distances are shown in red.}
+% \label{fig:periodicpitchfork}
+% \end{figure}
+% From this figure, we see that solutions with unequal pulse distances bifurcate from solutions with equal pulse distances in a series of pitchfork bifurcations. 
 
-Now that we have constructed multi-pulses, we can look at their spectral stability. For a periodic double pulse $q_2$, we compute the spectrum of $\partial_x \calE''(q_n)$ numerically by writing the linear operator in matrix form using Fourier differentiation matrices and computing the eigenvalues of the resulting matrix using Matlab's \texttt{eig} function. On a periodic domain, the essential spectrum becomes a collection of discrete, purely imaginary eigenvalues. These eigenvalues depend only on the size of the periodic domain $X$ and are located at approximately
-\begin{equation}\label{Kdv5peress}
-\lambda \approx \left\{ c \frac{k \pi i}{L} : k \in \Z \right\} ,
-\end{equation}
-where $c$ is the wavespeed.
+% Now that we have constructed multi-pulses, we can look at their spectral stability. For a periodic double pulse $q_2$, we compute the spectrum of $\partial_x \calE''(q_n)$ numerically by writing the linear operator in matrix form using Fourier differentiation matrices and computing the eigenvalues of the resulting matrix using Matlab's \texttt{eig} function. On a periodic domain, the essential spectrum becomes a collection of discrete, purely imaginary eigenvalues. These eigenvalues depend only on the size of the periodic domain $X$ and are located at approximately
+% \begin{equation}\label{Kdv5peress}
+% \lambda \approx \left\{ c \frac{k \pi i}{L} : k \in \Z \right\} ,
+% \end{equation}
+% where $c$ is the wavespeed.
 
-Next, we compute the interaction eigenvalues for periodic double pulses with equal pulse distances. We can identify the interaction eigenvalues because they correspond to localized eigenfunctions. For periodic double pulses with equal pulse distances ($X_1 = X_2$), the result is shown in \cref{fig:periodicequaleigbif}.
-\begin{figure}
-\begin{center}
-\includegraphics[width=10cm]{images/periodicequaleigbif.eps}
-\end{center}
-\caption[Eigenvalue bifurcations for symmetric periodic double pulses in KdV5]{Real (blue line) and imaginary (red line) parts of interaction eigenvalues versus pulse distance ($2 X_1$) for periodic double pulses with equal pulse distances.}
-\label{fig:periodicequaleigbif}
-\end{figure}
-At each of the pitchfork bifurcation points in \cref{fig:periodicpitchfork}, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern corresponding to \cref{fig:periodicpitchfork} is given in \cref{fig:2periodiceigpattern}.
-\begin{figure}
-\begin{center}
-\includegraphics[width=10cm]{images/2periodiceigpattern.eps}
-\end{center}
-\caption[Interaction eigenvalue pattern for periodic double pulses in KdV5]{Interaction eigenvalue pattern for periodic double pulses. Blue lines represent periodic double pulses with a pair of real interaction eigenvalues. Red lines represent periodic double pulses with a pair of purely imaginary interaction eigenvalues. Bifurcations take place in the interaction eigenvalues at the black dots.}
-\label{fig:2periodiceigpattern}
-\end{figure}
+% Next, we compute the interaction eigenvalues for periodic double pulses with equal pulse distances. We can identify the interaction eigenvalues because they correspond to localized eigenfunctions. For periodic double pulses with equal pulse distances ($X_1 = X_2$), the result is shown in \cref{fig:periodicequaleigbif}.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=10cm]{images/periodicequaleigbif.eps}
+% \end{center}
+% \caption[Eigenvalue bifurcations for symmetric periodic double pulses in KdV5]{Real (blue line) and imaginary (red line) parts of interaction eigenvalues versus pulse distance ($2 X_1$) for periodic double pulses with equal pulse distances.}
+% \label{fig:periodicequaleigbif}
+% \end{figure}
+% At each of the pitchfork bifurcation points in \cref{fig:periodicpitchfork}, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern corresponding to \cref{fig:periodicpitchfork} is given in \cref{fig:2periodiceigpattern}.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=10cm]{images/2periodiceigpattern.eps}
+% \end{center}
+% \caption[Interaction eigenvalue pattern for periodic double pulses in KdV5]{Interaction eigenvalue pattern for periodic double pulses. Blue lines represent periodic double pulses with a pair of real interaction eigenvalues. Red lines represent periodic double pulses with a pair of purely imaginary interaction eigenvalues. Bifurcations take place in the interaction eigenvalues at the black dots.}
+% \label{fig:2periodiceigpattern}
+% \end{figure}
 
-Finally, we look at what happens when we increase the period $X$. For a neutrally stable double pulse, we have a pair of interaction eigenvalues on the imaginary axis whose location is approximately constant for large $X$. On the other hand, the essential spectrum eigenvalues \cref{Kdv5peress} move towards the origin as $X$ is increased. It is straightforward to determine the Krein signatures of the eigenvalues numerically; the interaction eigenvalues have negative Krein signature and the essential spectrum eigenvalues have positive Krein signature. At some value of $X$, these eigenvalues will collide. When this happens, since the eigenvalues have opposite Krein signatures, the two eigenvalues will generically move off of the imaginary axis and create an instability \cite[Chapter 7.1]{Kapitula2013}. By Hamiltonian symmetry, we expect there to be a pair of eigenvalues which has nonzero real part and is symmetric across the imaginary axis.
+% Finally, we look at what happens when we increase the period $X$. For a neutrally stable double pulse, we have a pair of interaction eigenvalues on the imaginary axis whose location is approximately constant for large $X$. On the other hand, the essential spectrum eigenvalues \cref{Kdv5peress} move towards the origin as $X$ is increased. It is straightforward to determine the Krein signatures of the eigenvalues numerically; the interaction eigenvalues have negative Krein signature and the essential spectrum eigenvalues have positive Krein signature. At some value of $X$, these eigenvalues will collide. When this happens, since the eigenvalues have opposite Krein signatures, the two eigenvalues will generically move off of the imaginary axis and create an instability \cite[Chapter 7.1]{Kapitula2013}. By Hamiltonian symmetry, we expect there to be a pair of eigenvalues which has nonzero real part and is symmetric across the imaginary axis.
 
-To see what happens in this case, we increase the periodic length parameter $X$ using AUTO. This is shown in \cref{fig:kreinbubble1}.
-\begin{figure}
-\begin{center}
-\includegraphics[width=10cm]{images/kreinbubble1}
-\end{center}
-\caption[Eigenvalue collisions for periodic double pulses in KdV5]{Collision of first essential spectrum eigenvalue with purely imaginary interaction eigenvalue as $X$ is increased. Imaginary part of eigenvalues on top, real part of eigenvalues on bottom. Parameter continuation with AUTO in periodic domain length $X$, $c = 20$.}
-\label{fig:kreinbubble1}
-\end{figure}
-As $X$ is increased, the two eigenvalues undergo a Krein collision and move off of the imaginary axis. As $X$ is further increased, the eigenvalues come back together on the imaginary axis in a reverse Krein collision. Increasing $X$ further, the essential spectrum eigenvalue continues to move on the imaginary axis towards the origin, and the interaction eigenvalue is unchanged. We will call this instability bubble a Krein bubble. \cref{fig:kreinbubble1zoom} shows the eigenvalues of the Krein bubble in the complex plane. To leading order, the bubble is a circle.
-\begin{figure}
-\begin{center}
-\includegraphics[width=8cm]{images/kreinbubble1zoom}
-\end{center}
-\caption[First Krein bubble for KdV5]{Plot of imaginary vs real part of eigenvalues inside Krein bubble occurring upon collision of first essential spectrum eigenvalue with interaction eigenvalue. $c = 20$.}
-\label{fig:kreinbubble1zoom}
-\end{figure}
-For $c = 20$, the maximum real part of the eigenvalues in the Krein bubble is order order $10^{-4}$, which is very small compared to the interaction eigenvalue, which is approximately $0.22i$. We can continue the parameter continuation with AUTO, and we find a Krein bubble with every subsequent collision of an essential spectrum eigenvalue with the interaction eigenvalue. \cref{fig:kreinbubbleradius} plots the log of the Krein bubble radius versus the log of $X$ for the first 10 Krein bubbles.
-\begin{figure}
-\begin{center}
-\includegraphics[width=8cm]{images/kreinbubbleradius}
-\end{center}
-\caption[Krein bubble radius for KdV5]{Plot of log of Krein bubble radius vs. log $X$ for the first 10 Krein bubbles together with least squares linear regression line. $c = 20$.}
-\label{fig:kreinbubbleradius}
-\end{figure}
-The slope of the least squares linear regression line is $-0.5$ (with a relative error of less than $0.005$), which suggests that the radius of the Krein bubble scales as $X^{-1/2}$
+% To see what happens in this case, we increase the periodic length parameter $X$ using AUTO. This is shown in \cref{fig:kreinbubble1}.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=10cm]{images/kreinbubble1}
+% \end{center}
+% \caption[Eigenvalue collisions for periodic double pulses in KdV5]{Collision of first essential spectrum eigenvalue with purely imaginary interaction eigenvalue as $X$ is increased. Imaginary part of eigenvalues on top, real part of eigenvalues on bottom. Parameter continuation with AUTO in periodic domain length $X$, $c = 20$.}
+% \label{fig:kreinbubble1}
+% \end{figure}
+% As $X$ is increased, the two eigenvalues undergo a Krein collision and move off of the imaginary axis. As $X$ is further increased, the eigenvalues come back together on the imaginary axis in a reverse Krein collision. Increasing $X$ further, the essential spectrum eigenvalue continues to move on the imaginary axis towards the origin, and the interaction eigenvalue is unchanged. We will call this instability bubble a Krein bubble. \cref{fig:kreinbubble1zoom} shows the eigenvalues of the Krein bubble in the complex plane. To leading order, the bubble is a circle.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=8cm]{images/kreinbubble1zoom}
+% \end{center}
+% \caption[First Krein bubble for KdV5]{Plot of imaginary vs real part of eigenvalues inside Krein bubble occurring upon collision of first essential spectrum eigenvalue with interaction eigenvalue. $c = 20$.}
+% \label{fig:kreinbubble1zoom}
+% \end{figure}
+% For $c = 20$, the maximum real part of the eigenvalues in the Krein bubble is order order $10^{-4}$, which is very small compared to the interaction eigenvalue, which is approximately $0.22i$. We can continue the parameter continuation with AUTO, and we find a Krein bubble with every subsequent collision of an essential spectrum eigenvalue with the interaction eigenvalue. \cref{fig:kreinbubbleradius} plots the log of the Krein bubble radius versus the log of $X$ for the first 10 Krein bubbles.
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=8cm]{images/kreinbubbleradius}
+% \end{center}
+% \caption[Krein bubble radius for KdV5]{Plot of log of Krein bubble radius vs. log $X$ for the first 10 Krein bubbles together with least squares linear regression line. $c = 20$.}
+% \label{fig:kreinbubbleradius}
+% \end{figure}
+% The slope of the least squares linear regression line is $-0.5$ (with a relative error of less than $0.005$), which suggests that the radius of the Krein bubble scales as $X^{-1/2}$
 
 \section{Conclusions}\label{sec:conclusions}
 
