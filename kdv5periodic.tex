@@ -467,7 +467,7 @@ We can now state the main theorem of this section, which gives conditions for th
 \begin{theorem}[Existence of $n$-periodic solutions]\label{perexist}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$:
 \begin{enumerate}[(i)]
-	\item There exists a periodic $n$-pulse solution $Q_n(x) = Q_n(x; m_0, \dots, m_{n-1}, \theta, r)$ to \eqref{genODE}.
+	\item There exists a periodic $n$-pulse solution $U(x) = U(x; m_0, \dots, m_{n-1}, \theta, r)$ to \eqref{genODE}.
 
 	\item The distances between consecutive copies of $Q(x)$ are $2X_j$, where
 	\begin{align}\label{Xj}
@@ -485,7 +485,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 	X(r; m_0, \dots, m_{n-1}, \theta) = \frac{n}{2\alpha_0} |\log r| + \frac{1}{2\beta_0} \sum_{j=0}^{n-1} t_j(r; m_j, \theta) + n L_0
 	\end{align}
 
-	\item Estimates for $Q_n(x)$ in terms of the primary pulse $Q(x)$ are given below in Lemma \ref{solvewithjumps}.
+	\item The specific piecewise form of $U(x)$ and estimates for $U(x)$ in terms of the primary pulse $Q(x)$ are given below in Lemma \ref{solvewithjumps}.
 \end{enumerate}
 \end{theorem}
 
@@ -1168,8 +1168,14 @@ We have found a unique solution to \eqref{exsystem1} and \eqref{exsystem2} such 
 % bounds in this lemma
 
 \begin{lemma}\label{solvewithjumps}
-There exists $X^* > 0$ such that for $|X_i| \geq X^*$, $i = 0, \dots, n-1$, there are unique solutions of the form \cref{Upiecewise} to equations \eqref{exsystem1}, \eqref{exsystem2}, and \eqref{exsystem3} which are continuous except for $n$ jumps in the direction of $\Psi(0)$.
-In addition, we have the estimates
+There exists $X^* > 0$ such that for $|X_i| \geq X^*$, $i = 0, \dots, n-1$, there is a unique solution $U(x)$ to equations \eqref{exsystem1}, \eqref{exsystem2}, and \eqref{exsystem3} which is continuous except for $n$ jumps in the direction of $\Psi(0)$. $U(x)$ can be written piecewise in the form 
+\begin{equation}\label{Upiecewise2}
+\begin{aligned}
+U_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
+U_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) && x \in [0, X_i]
+\end{aligned}
+\end{equation}
+where the pieces are glued together end-to-end in a loop. We have the estimates
 \begin{enumerate}[(i)]
 \item
 \begin{equation}\label{Vpmbounds}
