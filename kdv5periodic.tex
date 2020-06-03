@@ -998,7 +998,7 @@ Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, we obtain th
 \begin{align}\label{Vpiecewise1}
 (\tilde{Q}_i^\pm(x))' &= DF(Q^\pm(x; \beta_i^\pm)) \tilde{Q}_i^\pm(x) + G_i^\pm(x; \beta_i^\pm) && i = 0, \dots, n-1
 \end{align}
-where
+where $G_i^\pm$ depends on $\tilde{Q}_i^\pm$ and
 \begin{equation}\label{Gquadratic}
 G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2).
 \end{equation}
@@ -1178,7 +1178,7 @@ U_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) && x \in [0, X_i]
 where the pieces are glued together end-to-end in a loop. We have the estimates
 \begin{enumerate}[(i)]
 \item
-\begin{equation}\label{Vpmbounds}
+\begin{equation}\label{tildeQbounds}
 \begin{aligned}
 |\tilde{Q}_i^-(x)| &\leq C e^{-\alpha(X_{i-1} + x)}e^{-\alpha X_{i-1}} \\
 |\tilde{Q}_i^+(x)| &\leq C e^{-\alpha(X_i - x)}e^{-\alpha X_i} 
@@ -1207,6 +1207,62 @@ Q^+(X_i; \beta_i^+) + \tilde{Q}_i^+(X_i) = Q^-(-X_i; \beta_{i+1}^-) + \tilde{Q}_
 Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)$ in turn to \cref{matchpmXi} and using \cref{projdifflemma}, the fixed point equations \cref{FPequations}, and the estimates from the previous lemmas in this section, we obtain the estimates \cref{VQpm}.
 \end{proof}
 \end{lemma}
+
+\subsection{Jump conditions}
+
+Equation \eqref{PZmatch} will give us jump conditions in the direction of the adjoint solution $\Psi(0)$. As in \cite{SandstedeStrut,Sandstede1998} these will only be satisfied for certain values of the lengths $X_i$. 
+
+\begin{lemma}\label{jumplemma1}
+A periodic $n$-pulse solution exists if and only if for $i = 0, \dots, n-2$,
+\begin{align}\label{jumpcond2}
+\langle \Psi(-X_i), Q(X_i) \rangle - \langle \Psi(-X_{i-1}), Q(X_{i-1}) \rangle + R_i = 0
+\end{align}
+where the remainder term has bound
+\begin{align*}
+|R_i| \leq C ( e^{-3 \alpha X_i} +  e^{-3 \alpha X_{i-1}})
+\end{align*}
+\begin{proof}
+Evaluating the fixed point equations \eqref{FPequations} at $x = 0$ and substituting them into \eqref{PZmatch},
+\begin{equation}\label{PZmatch2}
+\begin{aligned}
+\langle \Psi(0), &\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0) \rangle = \langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle
+- \langle \Psi(0), \Phi^s_-(0, -X_{i-1}, \beta_i^-) a_{i-1}^- \rangle \\
+&+ \int_{X_i}^0 \langle \Psi(0), \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+) \rangle dy - \int_{-X_{i-1}}^0 \langle \Psi(0), \Phi_-^s(0, y, \beta_i^-) G_i^-(y; \beta_i^-) \rangle dy
+\end{aligned}
+\end{equation}
+Using Lemma \ref{dichotomy1} together with smooth dependence on initial conditions and the bound \eqref{betaest},
+\begin{equation}\label{phibetaest}
+\begin{aligned}
+|(\Phi_+^u(0, x; \beta_i^+) - \Phi_+^u(0, x; 0)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x} && x \geq 0\\
+|(\Phi_-^s(0, x; \beta_i^-) - \Phi_-^s(0, x; 0)| &\leq C e^{-2 \alpha X_i}e^{\alpha x} &&  x \leq 0\\
+\end{aligned}
+\end{equation}
+To evaluate the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from Lemma \ref{solvefora} for $a_i^+$. Using \eqref{phibetaest}, the estimate \eqref{Qpmbounds}, and Lemma \ref{eigadjoint}(iii),
+\begin{align*}
+\langle \Psi(0), &\Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = -\langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+)\left( P^u_0 ( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)) + \mathcal{O}( e^{-2 \alpha X_i} ) \right) \rangle \\
+&= -\langle \Psi(0), \Phi^u_+(0, X_i; 0) P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-2\alpha X_{i-1}}e^{-\alpha X_i} ) \\
+&= -\langle \Psi(X_i), P^u_+(X_i; 0) P^u_0 \left( Q(X_i) - Q(-X_i) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}})
+\end{align*}
+Using \cref{projdiffest}, $P^u_+(X_i; 0) P^u_0 ( Q(X_i) - Q(-X_i)) = Q(-X_i) + \mathcal{O}(e^{-2\alpha X_i})$.
+\begin{align*}
+\langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = 
+\langle \Psi(X_i), Q(-X_i) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}})
+\end{align*}
+Using the reversibility relations $Q(-x) = RQ(x)$ and $\Psi(-x) = R\Psi(x)$ from \cref{varadjsolutions},
+\begin{align*}
+\langle \Psi(X_i), Q(-X_i) \rangle 
+&= \langle R\Psi(-X_i), R Q(X_i) \rangle 
+= \langle \Psi(-X_i), Q(X_i) \rangle.
+\end{align*}
+Combining everything, we obtain equation \cref{jumpcond2} and the remainder bound for $R_i$. By \cite[p. 2093]{SandstedeStrut}, since \cref{eqODE} is a conservative system, if $n-1$ of the jump conditions are satisfied, the final jump condition must automatically be satisfied. Since we are on a periodic domain, it does not matter which condition we eliminate, so choose to eliminate the last one. 
+\end{proof}
+\end{lemma}
+
+As a corollary, periodic single pulse solutions exist for sufficiently large $X_0$ since there are no jump conditions. These are periodic orbits which are close to the primary homoclinic orbit $Q(x)$.
+
+\begin{corollary}\label{corr:1pexists}
+Periodic single pulse solutions exist for sufficiently large $X_0$.
+\end{corollary}
 
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
