@@ -1,4 +1,4 @@
-\documentclass[11pt,reqno]{amsart}
+\documentclass[10pt,reqno]{amsart}
 \usepackage[left=1in,right=1in,top=1in,bottom=1.25in]{geometry}%
 
 \usepackage{setspace}
@@ -157,7 +157,7 @@ u_t = \partial_x \calE'(u)
 \end{equation}
 where $u \in X$ and $\calE(u): X \subset Y \rightarrow \R$ is a smooth functional representing the conserved energy of the system. We take the following hypothesis regarding the energy $\calE(u)$.
 
-\begin{hypothesis}\label{Ehyp}\leavevmode
+\begin{hypothesis}\label{hyp:E}\leavevmode
 % The energy $\calE(u)$ has the following properties
 \begin{enumerate}[(i)]
 \item $\calE(0) = 0$ and $\calE'(0) = 0$.
@@ -171,7 +171,7 @@ where $f: \R^{2m} \rightarrow \R$ is smooth.
 \end{enumerate}
 \end{hypothesis}
 
-\noi \cref{Ehyp}(ii) is reversibility, and \cref{Ehyp}(iii) is translation invariance. \cref{Ehyp}(iv) holds in applications such as KdV5, and ensures that we can write the equilibrium equation $\partial_x \calE'(u) = 0$ as a first order system.
+\noi \cref{hyp:E}(ii) is reversibility, and \cref{hyp:E}(iii) is translation invariance. \cref{hyp:E}(iv) holds in applications such as KdV5, and ensures that we can write the equilibrium equation $\partial_x \calE'(u) = 0$ as a first order system.
 
 Differentiating the reversibility relation $\calE(u) = \calE(\rho(u))$ with respect to $u$,
 \[
@@ -205,7 +205,7 @@ If $\phi$ satisfies the equilibrium equation $\calE'(\phi) = c \calQ'(\phi)$, th
 Without loss of generality, we will assume that $\calE'(\phi)$ does not contain any terms of the form $b\phi$ for constant $b$, since those are accounted for by the $c \phi$ term in \cref{eqODE}.
 
 We take the following hypothesis concerning existence of traveling waves. This hypothesis is similar to \cite[Assumption 2]{Grillakis1987}. In the next section, we will give a condition under which this hypothesis is satisfied. 
-\begin{hypothesis}\label{cintervalhyp}
+\begin{hypothesis}\label{hyp:cinterval}
 There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\phi_c$ is a traveling wave solution to \cref{genPDE}, i.e. $\calE'(\phi_c) + c \phi_c = 0$.
 \end{hypothesis}
 
@@ -224,7 +224,7 @@ thus the kernel of $\partial_x \calE''(\phi_c)$ has algebraic multiplicity at le
 
 \subsection{Spatial dynamics formulation}\label{sec:spatdym}
 
-We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach. To do this, we rewrite \cref{eqODE} as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium of the dynamical system to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{Ehyp}(iv), equation \cref{eqODE} is equivalent to the first order system
+We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach. To do this, we rewrite \cref{eqODE} as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium of the dynamical system to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{hyp:E}(iv), equation \cref{eqODE} is equivalent to the first order system
 \begin{equation}\label{genODE}
 U'(x) = F(U(x); c),
 \end{equation}
@@ -237,7 +237,10 @@ u_2 \\ u_3 \\ \vdots \\ f(u_1, u_2, \dots, u_{2m}) - c u_1
 \end{equation}
 By reversibility,
 \begin{equation}\label{genODErev}
-F(RU; c) = -RF(U; c),
+\begin{aligned}
+F(RU; c) &= -RF(U; c) \\
+D F(RU; c) &= -RDF(U; c)R
+\end{aligned}
 \end{equation}
 where $R:\R^{2m} \rightarrow \R^{2m}$ is the standard reversor operator on $\R^{2m}$
 \begin{equation}\label{reverserR2m}
@@ -245,28 +248,28 @@ R(u_1, u_2, \dots, u_{2m-1}, u_{2m}) = (u_1, -u_2, \dots, u_{2m-1}, -u_{2m}).
 \end{equation}
 
 In the next hypothesis, we assume that \cref{genODE} is a conservative system.
-\begin{hypothesis}\label{Hhyp}
+\begin{hypothesis}\label{hyp:H}
 There exists a smooth function $H: \R^{2m} \times \R \rightarrow \R$, denoted $H(U; c)$, such that 
 \begin{enumerate}[(i)]
 \item $H(0; c) = 0$ for all $c$
 \item $\nabla_U H(U; c) = 0$ if and only if $F(U; c) = 0$
 \item For all $U \in \R^{2m}$ and all $c$,
 \begin{equation}\label{HFperp}
-\langle \nabla_U H(U; c), F(U; c) \rangle = 0
+\langle F(U; c), \nabla_U H(U; c) \rangle = 0
 \end{equation}
 \end{enumerate}
 \end{hypothesis}
 
-\noi It follows from \cref{HFperp} that $H$ is conserved along solutions $U(x)$ to \cref{genODE}. Since $F(0; c) = 0$ for all $c$, the rest state $U = 0$ is an equilibrium of \cref{genODE} for all $c$. The next hypothesis addresses the hyperbolicity of this equilibrium. Although the eigenvalue pattern described in \cref{hypeqhyp} is not necessary for the existence of a homoclinic orbit solution, it is a sufficient condition for the existence of multi-pulse and periodic multi-pulse solutions.
+\noi It follows from \cref{HFperp} that $H$ is conserved along solutions $U(x)$ to \cref{genODE}. Since $F(0; c) = 0$ for all $c$, the rest state $U = 0$ is an equilibrium of \cref{genODE} for all $c$. The next hypothesis addresses the hyperbolicity of this equilibrium. Although the eigenvalue pattern described in \cref{hyp:hypeq} is not necessary for the existence of a homoclinic orbit solution, it is a sufficient condition for the existence of multi-pulse and periodic multi-pulse solutions.
 
-\begin{hypothesis}\label{hypeqhyp}
+\begin{hypothesis}\label{hyp:hypeq}
 For a specific $c_0 \in \R$ with $c_0 > 0$, $U = 0$ is a hyperbolic equilibrium of \cref{genODE}. Furthermore, the spectrum of $DF(0; c_0)$ contains a quartet of simple eigenvalues $\pm \alpha_0 \pm \beta_0 i$, $\alpha_0, \beta_0 > 0$, and for any other eigenvalue $\nu$ of $DF(0; c_0)$, $|\text{Re }\nu| > \alpha_0$.
 \end{hypothesis}
 
 We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium. Both of these manifolds are dimension $m$ my reversibility. In general, the existence of such a solution is unknown, although in specific cases such as KdV5 we do have an existence result (\cref{KdV1pulse}). We will thus take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
 
 \begin{hypothesis}\label{Qexistshyp}
-For the same $c_0$ as in \cref{hypeqhyp}, there exists a homoclinic orbit solution $Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0)$ to \cref{genODE}. In addition,
+For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0)$ to \cref{genODE}. In addition,
 \begin{enumerate}[(i)]
 \item $Q(0; c_0) \neq 0$
 \item $\nabla_U H(Q(0; c_0); c_0) \neq 0$
@@ -274,13 +277,13 @@ For the same $c_0$ as in \cref{hypeqhyp}, there exists a homoclinic orbit soluti
 \end{enumerate}
 \end{hypothesis}
 
-It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. By \cref{Hhyp} and \cref{Qexistshyp}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We take the following hypothesis regarding the intersection of the stable and unstable manifolds in $H^{-1}(0; c_0)$.
+It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. By \cref{hyp:H} and \cref{Qexistshyp}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We take the following hypothesis regarding the intersection of the stable and unstable manifolds in $H^{-1}(0; c_0)$.
 
-\begin{hypothesis}\label{H0transversehyp}
+\begin{hypothesis}\label{hyp:transverse}
 The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u(0; c_0)$ intersect transversely in $H^{-1}(0; c_0)$ at $Q(0; c_0)$.
 \end{hypothesis}
 
-\noi Using \cref{H0transversehyp} and a dimension-counting argument, we obtain the nondegeneracy condition
+\noi Using \cref{hyp:transverse} and a dimension-counting argument, we obtain the nondegeneracy condition
 \begin{equation}\label{nondegencond}
 T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0).
 \end{equation}
@@ -288,7 +291,7 @@ T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0).
 We can now prove the existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$.
 
 \begin{theorem}\label{transverseint}
-Assume \cref{Hhyp} and \cref{H0transversehyp}. There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. The map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 < \delta$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
+Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. The map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 < \delta$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
 \begin{equation}\label{Qcbound}
 |\partial_c Q(x; c)| \leq C e^{-(\alpha_0 - \epsilon)|x|}
 \end{equation}
@@ -366,7 +369,7 @@ W_0 = (0, 0, \dots, 0, 1)^T
 and $\langle V_0, W_0 \rangle = 1$.
 \end{lemma}
 
-Since $A(0)$ is not hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium at $(U, k) = (0, 0)$. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The one-dimensional center manifold $W^c(0)$ is the span of $V_0$. Let $Q_1(x)$ be the primary pulse solution from \cref{sec:spatdym}, and let $Q(x) = (Q_1(x), 0)$. Since $Q(x)$ is exponentially localized, $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{H0transversehyp} that these are equal, which we state in the following lemma.
+Since $A(0)$ is not hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium at $(U, k) = (0, 0)$. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The one-dimensional center manifold $W^c(0)$ is the span of $V_0$. Let $Q_1(x)$ be the primary pulse solution from \cref{sec:spatdym}, and let $Q(x) = (Q_1(x), 0)$. Since $Q(x)$ is exponentially localized, $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{hyp:transverse} that these are equal, which we state in the following lemma.
 
 \begin{lemma}\label{nondegenlemma}
 We have the nondegeneracy condition
@@ -423,7 +426,7 @@ Rather than describing a periodic multi-pulse by the pulse distances $X_j$, we w
 \begin{equation}\label{defrho}
 \rho = \frac{\beta_0}{\alpha_0},
 \end{equation}
-where $\alpha_0$ and $\beta_0$ are defined in \cref{hypeqhyp}, and let
+where $\alpha_0$ and $\beta_0$ are defined in \cref{hyp:hypeq}, and let
 \begin{equation}\label{pstar}
 p^* = \arctan \rho.
 \end{equation}
@@ -462,7 +465,7 @@ The last property is a matching condition which ``links up'' the parameterizatio
 We can now state the main theorem of this section, which gives conditions for the existence of periodic multi-pulses. The requirement that the scaling parameter $r$ be sufficiently small means that the individual pulses must be well-separated.
 
 \begin{theorem}[Existence of $n$-periodic solutions]\label{perexist}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$:
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$:
 \begin{enumerate}[(i)]
 	\item There exists a periodic $n$-pulse solution $Q_n(x) = Q_n(x; m_0, \dots, m_{n-1}, \theta, r)$ to \eqref{genODE}.
 
@@ -504,7 +507,7 @@ The condition that $\theta \notin \{-\pi + p^*, p^*) \}$ in \cref{perexist} is u
 \end{figure} 
 
 \begin{theorem}\label{2pulsebifurcation}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. There exists $r_* > 0$ such that for all $r \in \mathcal{R}$ with $r \leq r_*$ and $m_0 \in \{0, 1\}$
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. There exists $r_* > 0$ such that for all $r \in \mathcal{R}$ with $r \leq r_*$ and $m_0 \in \{0, 1\}$
 \begin{enumerate}[(i)]
 	\item There exists a family of symmetric periodic 2-pulses $\tilde{Q}_2(x; m_0, s_0, r)$ parameterized by $s_0 \in [0, \pi)$. The distances $\tilde{X}_j$ are given by
 	\begin{equation}\label{2psymmdist}
@@ -551,11 +554,11 @@ There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(
 \end{equation}
 \end{lemma}
 
-We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$block matrix.
+We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. Let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{perexist}. 
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. Let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{perexist}. 
 
 Choose any positive integer $N$. Then for any $r \leq r_*$ there exists $\delta(r,N)$, where $0 < \delta(r,N) < N/|\log r|$, with the following property. There exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta(r,N)$ if and only if
 \begin{equation}\label{blockmatrixcond}
@@ -672,7 +675,7 @@ and $\det S(-\lambda) = -\det S(\lambda)$.
 Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse. 
 
 \begin{theorem}\label{theorem:1pess}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
 \begin{align}\label{1pess}
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
 \end{align}
@@ -712,7 +715,7 @@ and $\det S(-\lambda) = -\det S(\lambda)$.
 We will consider only the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale like $r^{1/2}$ and the essential spectrum eigenvalues scale like $1/|\log r|$, we can always choose $r$ sufficiently small so that this is the case. We will state the result separately for asymmetric and symmetric periodic 2-pulses. First, we locate the eigenvalues for asymmetric 2-pulses. As long as $r$ is chosen sufficiently small, the interaction eigenvalue pattern is determined by the parameter $m_0$, and the essential spectrum eigenvalues do not interfere.
 
 \begin{theorem}\label{theorem:2peigsassym}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1, N) \leq r_*$ with the following property. For any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1, N) \leq r_*$ with the following property. For any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
 
 \begin{enumerate}[(i)]
 \item There is an eigenvalue at 0 with algebraic multiplicity 3. 
@@ -737,7 +740,7 @@ $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambda_1^{\text{ess}}(r)|$, and $a$ is
 Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points, i.e. as long as $a \neq 0$, the results of \cref{theorem:2peigsassym} hold in the symmetric case as well; the only difference is that the eigenvalue pattern is determined by the sign of $a$ rather than by $m_0$. Thus we only need to consider what happens at the pitchfork bifurcation point.
 
 \begin{theorem}\label{theorem:2peigssym}
-Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and \ref{H0transversehyp}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
 \end{theorem}
 
 \section{Numerical Results}\label{sec:numerics}
@@ -829,18 +832,386 @@ Assume Hypotheses \ref{Ehyp}, \ref{Hhyp}, \ref{hypeqhyp}, \ref{Qexistshyp}, and 
 
 \section{Conclusions}\label{sec:conclusions}
 
+\appendix
+
+\section{Proof of existence results}\label{sec:existproof}
+
+We will construct periodic multi-pulses using Lin's method. Rather than constructing a periodic $n$-pulse $U(x)$ as a piecewise perturbation of the primary pulse $Q(x)$, we adapt the technique in \cite{Sandstede1997} and take a piecewise ansatz of the form
+\[
+U_i^\pm(x) = Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x),
+\]
+where the functions $Q^\pm(x; \beta_i^\pm)$ paramaterize the stable and unstable manifolds $\tilde{W}^s(0)$ and $\tilde{W}^u(0)$ near $Q(0)$, and $\tilde{Q}_i^\pm$ are small remainder terms. In essence, we use the small parameters $\beta_i^\pm$ to break the homoclinic orbit $Q(x)$, and then use Lin's method to glue the pieces together. We will show that we can find a unique piecewise solution $U_i^\pm(x)$ which generically has $n$ jumps in a specified direction. A periodic multi-pulse solution exists if and only if these $n$ jumps are all 0.
+
+\subsection{Setup}
+
+Using \cref{nondegencond}, we decompose the tangent spaces of the stable and unstable manifolds at $Q(0)$ as 
+\begin{equation*}
+\begin{aligned}
+T_{Q(0)}\tilde{W}^u(0) &= \R Q'(0) \oplus Y^- \\
+T_{Q(0)}\tilde{W}^s(0) &= \R Q'(0) \oplus Y^+
+\end{aligned}
+\end{equation*}
+The variational and adjoint variational equations associated with \cref{genODE} are
+\begin{align}
+V' = DF(Q(x)) V \label{vareq1} \\
+W' = -DF(Q(x))^* W \label{adjvareq1},
+\end{align}
+It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to \cref{vareq1}, and that there exists a unique bounded solution $\Psi(x)$ to \cref{adjvareq1}. (In both cases, uniqueness is up to scalar multiples). Since we have a conserved quantity $H$, the following lemma gives the exact form of $\Psi(x)$.
+
+\begin{lemma}\label{psiform}
+We can take $\Psi(x) = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{hyp:H}. In addition, $\Psi(-x) = R \Psi(x)$, where $R$ is the standard reversor operator, and the last component of $\Psi(x)$ is $q'(x)$.
+\begin{proof}
+Taking the gradient of \cref{HFperp}, we have $0 = D F(Q(x))^* \nabla H(Q(x)) + D^2 H(Q(x))^* F(Q(x))$. Using standard vector calculus identities, equation \cref{eqODE}, and the fact that the Hessian is self-adjoint,
+\begin{align*}
+-D F(Q(x))^* \nabla H(Q(x)) &= D^2 H(Q(x)) Q'(x) = \frac{d}{dx} \nabla H(Q(x))
+\end{align*}
+thus $\nabla H(Q(x))$ is a solution to \eqref{adjvareq1}. Since $\nabla H$ is continuous and $Q(x)$ is exponentially localized, $\nabla H(Q(x))$ is bounded as well, thus by uniqueness we can take $\Psi(x) = \nabla H(Q(x))$. Using \eqref{genODErev} and the symmetry relation $Q(-x) = R Q(x)$, 
+\begin{align*}
+[R \Psi(-x)]' = -R DF(Q(-x)) \Psi(-x) 
+= -R [-RDF(Q(x))R] \Psi(-x) = DF(Q(x))[ R \Psi(-x) ].
+\end{align*}
+By uniqueness, $\Psi(x) = R \Psi(-x)$, thus $\Psi(-x) = R \Psi(x)$. By the construction of $F$, if $\Psi(x) = (\psi_1(x), \dots, \psi_{2m}(x))$ is a solution to \cref{adjvareq1}, then $\psi_{2m}(x)$ solves $\calL(q)^* w = [\calE''(q) + c]^* w = 0$. Since $\calL(q)$ is self-adjoint and $\calL(q)q' = 0$, by uniqueness we must have $\psi_{2m}(x) = q'(x)$.
+\end{proof}
+\end{lemma}
+
+In the next lemma, we collect a few important results about solutions to \cref{vareq1} and \cref{adjvareq1}.
+
+\begin{lemma}\label{eigadjoint}
+Consider the linear ODE $V' = A(x)V$ and the corresponding adjoint equation $W' = -A(x)^* W$, where $A(x)$ is a smooth $n \times n$ matrix. Then
+\begin{enumerate}[(i)]
+\item $\dfrac{d}{dx}\langle V(x), W(x) \rangle = 0$, thus the inner product is constant in $x$.
+\item If $W(x)$ is bounded and $V(x) \rightarrow 0$ as $x \rightarrow \infty$ or $x \rightarrow -\infty$, then $\langle V(x), W(x) \rangle = 0$ for all $x \in \R$. The same holds if we reverse the roles of $W$ and $V$.
+\item If $\Phi(y, x)$ is the evolution operator for $V'(x) = A(x)V(x)$, then $\Phi(x, y)^*$ is the evolution operator for the adjoint equation $W'(y) = -A(y)^* W(y)$.
+\end{enumerate}
+\begin{proof}
+For part (i), 
+\begin{align*}
+\dfrac{d}{dx}\langle V(x), W(x) \rangle &= 
+\langle V'(x), W(x) \rangle + \langle V(x), W'(x) \rangle \\
+&= \langle A(x)V(x), W(x) \rangle + \langle V(x), -A(x)^* W(x) \rangle = 0
+\end{align*}
+Part (ii) follows from part (i), the Cauchy-Schwartz inequality and the continuity of the norm. For part (iii), take the derivative of the expression $\Phi(y, x)\Phi(x, y) = I$ with respect to $y$ to get
+\begin{align*}
+0 &= \left(\frac{d}{dy}\Phi(y, x)\right) \Phi(x, y) +
+\Phi(y, x)\left(\frac{d}{dy}\Phi(x, y)\right) 
+= A(y) + \Phi(y, x)\left(\frac{d}{dy}\Phi(x, y)\right).
+\end{align*}
+Rearrange and take the transpose of both sides to get
+\begin{align*}
+\frac{d}{dy}\Phi(x, y)^* &= -A(y)^* \Phi(x, y)^*  
+\end{align*}
+\end{proof}
+\end{lemma}
+
+\noi Using \cref{eigadjoint}(ii), $\Psi(0) \perp \R Q'(0) \oplus Y^+ \oplus Y^-$, thus we can decompose $\R^{2m}$ as
+\begin{equation}\label{R2mdecomp}
+\R^{2m} = \R Q'(0) \oplus Y^+ \oplus Y^- \oplus \R \Psi(0).
+\end{equation}
+
+\subsection{Piecewise ansatz}
+
+First, we write the manifolds $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$ as graphs over their tangent spaces near $Q(0)$. Following \cite{Sandstede1997}, we can parameterize the unstable and stable manifolds near $Q(0)$ by the smooth functions $Q^-(\gamma, \beta^-)$ and $Q^+(\gamma, \beta^+)$, where $\gamma \in \R$, $\beta^\pm \in Y^\pm$. These functions are chosen so that $Q^+(\gamma, 0) - Q^-(\gamma, 0) \in \R \Psi(0)$, and $Q^+(0, 0) = Q^-(0, 0) = Q(0)$. We will always take $\gamma = 0$. Let $Q^\pm(x; \beta^\pm)$ be the unique solutions to \eqref{genODE} on $\R^\pm$ with initial conditions $Q^\pm(0, \beta^\pm)$ at $x = 0$. We will look for a $n-$periodic solution $U(n)$ to \eqref{genODE} which is piecewise of the form
+\begin{equation}\label{Upiecewise}
+\begin{aligned}
+U_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
+U_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) && x \in [0, X_i]
+\end{aligned}
+\end{equation}
+for $i = 0, \dots, n-1$, where $U_i^-: [-X_{i-1}, 0] \rightarrow \R$ and $U_i^+: [0, X_i] \rightarrow \R$ are continuous. The subscripts $i$ are taken $\Mod n$ since we are on a periodic domain, and the pieces are glued together end-to-end as in \cite{Sandstede1998} 
+. Since $Q^\pm(0; \beta_i^\pm) \in \R Q'(0) \oplus Y^\pm$, we are free to choose $\tilde{Q}_i^\pm(x)$ such that
+\begin{align*}
+\tilde{Q}_i^-(0) &\in \R \Psi(0) \oplus Y^- \\
+\tilde{Q}_i^+(0) &\in \R \Psi(0) \oplus Y^+
+\end{align*}
+In order to construct a periodic $n$-pulse, i.e. to join the $2n$ pieces $U_i^\pm(x)$ end-to-end in a loop, we will solve the following system of equations
+\begin{align}
+(U_i^\pm(x))' - F(U_i^\pm(x)) &= 0 \label{exsystem1} \\
+U_i^+(X_i) - U_{i+1}^-(-X_i) &= 0 \label{exsystem2} \\
+U_i^+(0) - U_i^-(0) &= 0 \label{exsystem3}
+\end{align}
+for $i = 0, \dots, n-1$. Equation \cref{exsystem2} is a matching condition at the pulse tails, and equation \cref{exsystem3} is a matching condition at the pulse centers.
+
+\subsection{Exponential Dichotomy}\label{sec:existdichot}
+
+Let $\Phi_\pm(x, y; \beta^\pm)$ be the family of evolution operators for
+\begin{align}\label{qpmODEs}
+[V^\pm(x)]' &= D F\left(Q^\pm(x, \beta^\pm)\right) V^\pm(x) && x \in \R^\pm
+\end{align}
+Choose any $\alpha$ slightly less than $\alpha_0$. In the next lemma, we decompose these evolution operators in exponential dichotomies on $\R^+$ and $\R^-$. 
+
+% lemma : exp dichotomy
+\begin{lemma}\label{dichotomy1}
+There exist projections
+\begin{align*}
+&P_+^s(y; \beta^+) && y \geq 0 \\
+&P_+^u(y; \beta^+) = I - P_+^s(y; \beta^+) && y \geq 0 \\
+&P_-^u(y; \beta^-) && y \leq 0 \\
+&P_-^s(y; \beta^-) = I - P_-^u(y; \beta^-) && y \leq 0 \\
+\end{align*}
+such that the evolution operators $\Phi_\pm(x, y; \beta^\pm)$ can be decomposed as
+\begin{align*}
+\Phi^s_\pm(x, y; \beta^\pm) &= \Phi_\pm(x, y; \beta^\pm) P^s_\pm(y; \beta^\pm) \\
+\Phi^u_\pm(x, y; \beta^\pm) &= \Phi_\pm(x, y; \beta^\pm) P^u_\pm(y; \beta^\pm),
+\end{align*}
+and we have the estimates
+\begin{align*}
+|\Phi^s_+(x, y, \beta^+)| &\leq C e^{-\alpha(x - y)} && 0 \leq y \leq x \\
+|\Phi^u_+(x, y, \beta^+)| &\leq C e^{-\alpha(y - x)} && 0 \leq x \leq y \\
+|\Phi^u_-(x, y, \beta^-)| &\leq C e^{-\alpha(y - x)} && 0 \geq y \geq x \\
+|\Phi^s_-(x, y, \beta^-)| &\leq C e^{-\alpha(x - y)} && 0 \geq x \geq y \\
+\end{align*}
+which also hold for derivatives with respect to the initial conditions $\beta^\pm$. In addition, the projections satisfy the commuting relations
+\begin{align*}
+\Phi_\pm(x, y; \beta^\pm) P^{s/u}_\pm(y; \beta^\pm) 
+= P^{s/u}_\pm(x; \beta^\pm) \Phi_\pm(x, y; \beta^\pm)
+\end{align*}
+The projections can be chosen such that at $y = 0$ we have, independent of $\beta^+$ and $\beta^-$
+\begin{align*}
+\ker P^s_+(0; \beta^+) &= \R \Psi(0) \oplus Y^- \\
+\ker P^u_-(0; \beta^-) &= \R \Psi(0) \oplus Y^+ \\
+\ran P^u_+(0; \beta^+) &= \R \Psi(0) \oplus Y^- \\
+\ran P^s_-(0; \beta^-) &= \R \Psi(0) \oplus Y^+
+\end{align*}
+Let $E_0^s$ and $E_0^u$ be the stable and unstable eigenspaces of $DF(0)$, and let $P_0^s$ and $P_0^u$ be the corresponding eigenprojections. Then
+\begin{equation}\label{projdiffest}
+\begin{aligned}
+|P^u_+(x; \beta^+) - P_0^u| &\leq C e^{-\alpha x} \\
+|P^s_+(x; \beta^+) - P_0^s| &\leq C e^{-\alpha x} \\
+|P^u_-(x; \beta^-) - P_0^u| &\leq C e^{\alpha x} \\
+|P^s_-(x; \beta^-) - P_0^s| &\leq C e^{\alpha x} 
+\end{aligned}
+\end{equation}
+These estimates are independent of $\beta_i^\pm$.
+
+\begin{proof}
+Since $DF(0)$ is hyperbolic by \cref{hyp:hypeq} and $|\Re \nu| \geq \alpha_0$ for all eigenvalues $\nu$ of $DF(0)$, the exponential dichotomy results follow from \cite[Lemma 5.1]{Sandstede1997}, which follows from \cite[Lemma 1.1]{Sandstede1993}. The estimates \cref{projdiffest} follow from \cite[Lemma 1.1]{Sandstede1993} and \cite[Lemma 2.1]{Sandstede1993}.
+\end{proof}
+\end{lemma}
+
+\subsection{Fixed Point Formulation}
+
+Next, we formulate equation \eqref{exsystem1} as a fixed point problem. Plug in the piecewise ansatz \eqref{Upiecewise} into \eqref{genODE} and using the fact that $Q^\pm(x; \beta_i^\pm)$ solves \eqref{genODE} on $\R^\pm$,
+\begin{align*}
+(\tilde{Q}_i^\pm(x))' &= F\left(Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x) \right) - F(Q^\pm(x; \beta_i^\pm)) && i = 0, \dots, n-1
+\end{align*}
+Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, we obtain the ODE for $\tilde{Q}_i^\pm$
+\begin{align}\label{Vpiecewise1}
+(\tilde{Q}_i^\pm(x))' &= DF(Q^\pm(x; \beta_i^\pm)) \tilde{Q}_i^\pm(x) + G_i^\pm(x; \beta_i^\pm) && i = 0, \dots, n-1
+\end{align}
+where
+\begin{equation}\label{Gquadratic}
+G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2).
+\end{equation}
+As in \cite{Sandstede1997}, derivatives of $G_i^\pm$ with respect to the parameters $\beta_i^\pm$ are also quadratic in $\tilde{Q}_i^\pm$. We rewrite \eqref{Vpiecewise1} in integrated form to get the fixed point problem
+\begin{equation}\label{FPequations}
+\begin{aligned}
+\tilde{Q}_i^+(x) &= \Phi^u_+(x, X_i; \beta_i^+) a_i^+  
++ \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy 
++ \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\ 
+\tilde{Q}_i^-(x) &= \Phi^s_-(x, -X_{i-1}; \beta_i^-) a_{i-1}^-  
++\int_{-X_{i-1}}^x \Phi_-^s(x, y; \beta_i^-) G_i^-(y; \beta_i^-)dy 
++ \int_0^x \Phi_-^u(x, y; \beta_i^-) G_i^-(y; \beta_i^-)dy
+\end{aligned}
+\end{equation}
+where $a_i^+ \in E_0^u$ and $a_i^- \in E_0^s$. Define the exponentially weighted norms
+\begin{equation}\label{expwtnorm}
+\begin{aligned}
+\|V\|_{X, +} &= \sup_{x \in [0, X]} e^{\alpha(X - x)}|V(x)| \\
+\|V\|_{X, -} &= \sup_{x \in [-X, 0]} e^{\alpha(X + x)}|V(x)|,
+\end{aligned}
+\end{equation}
+and let $K_{X, \pm}$ be the Banach spaces of continuous functions on $[0, X]$ and $[-X, 0]$ equipped with these norms. Let $B_{X, \pm}(\rho)$ be the ball of radius $\rho$ about $0$ in $K_{X, \pm}$.
+
+\subsection{Inversion}
+
+As in \cite{Sandstede1997}, we will solve for the remainder functions $\tilde{Q}_i^\pm$ and parameters $\beta_i^\pm$ in a series of lemmas. First, we will solve equation \cref{exsystem1} for $\tilde{Q}_i^\pm(x)$.
+
+\begin{lemma}\label{solveforV}
+There exist $\delta, \rho > 0$ such that for $|X_i|, |X_{i-1}| > 1/\delta$ and $|a_{i-1}^-|, |a_i^+|, |\beta_i^\pm| < \delta$, there exist unique solutions
+\begin{align*}
+\tilde{Q}_i^-(a_{i-1}^-, \beta_i^-) &\in B_{X_{i-1}, -}(\rho) \\
+\tilde{Q}_i^+(a_i^+, \beta_i^+) &\in B_{X_i, +}(\rho) \\
+\end{align*}
+to \eqref{FPequations}. $\tilde{Q}_i^-(a_{i-1}, \beta_i^-)$ depends smoothly on $(a_{i-1}^-, \beta_i^-)$, and $\tilde{Q}_i^+(a_i, \beta_i^+)$ depends smoothly on $(a_i^+, \beta_i^+)$, and we have the estimates
+\begin{equation}\label{Vest}
+\begin{aligned}
+\|\tilde{Q}_i^-\|_{X_{i-1}, -} &\leq C |a_{i-1}^-| \\
+\|\tilde{Q}_i^+\|_{X_i, +} &\leq C |a_i^+|
+\end{aligned}
+\end{equation}
+where the constant $C$ depends only on $\delta$. The estimates hold for derivatives of $\tilde{Q}_i^\pm$ with respect to $\beta_i^\pm$.
+\begin{proof}
+The proof follows \cite[Lemma 5.2]{Sandstede1997}. For the first term on the RHS of \eqref{FPequations} on $\R^+$,
+\begin{align*}
+e^{\alpha(X_i - x)} | \Phi^u_+(x, X_i; \beta_i^+) a_i^+ | 
+&\leq C e^{\alpha(X_i - x)} e^{-\alpha(X_i - x)} |a_i^+| = C |a_i^+|,
+\end{align*}
+and for the second term, since $G_i^+$ is quadratic order in $\tilde{Q}_i^+$ and $\tilde{Q}_i^+ \in K_{X_i, +}$, 
+\begin{align*}
+e^{\alpha(X_i - x)} &\left| \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy  \right| 
+\leq C e^{\alpha(X_i - x)} \int_x^{X_i} e^{-\alpha(y - x)}|\tilde{Q}_i^+(y)|^2 dy \\
+&\leq C e^{\alpha(X_i - x)} \int_x^{X_i} 
+e^{-\alpha(y - x)}(e^{-\alpha(X_i - y)})^2|e^{\alpha(X_i - y)} \tilde{Q}_i^+(y)|^2 dy \leq C
+\end{align*}
+The third term is similarly bounded. Thus the RHS of the fixed point equation \eqref{FPequations} on $\R^+$ is a smooth map $K_{X_i, +} \mapsto K_{X_i, +}$. Define $H: K_{X_i, +} \times E_0^s \times Y^+ \rightarrow K_{X_i, +}$ by
+\begin{align*}
+H(\tilde{Q}_i^+(x), &a_i^+, \beta_i^+) = \tilde{Q}_i^+(x) - \Phi^u_+(x, X_i; \beta_i^+) a_i^+ - \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\
+&- \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy.
+\end{align*}
+Since $Q(x)$ satisfies \eqref{genODE}, $H(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \eqref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from Lemma \ref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these do as well. We can similary solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
+\end{proof}
+\end{lemma}
+
+Next, we will solve equation \cref{exsystem2} to match the pieces \cref{Upiecewise} at $\pm X_i$, which will solve for the initial conditions $a_i^\pm$.
+
+\begin{lemma}\label{solvefora}
+For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
+\begin{equation}\label{aest}
+|a_i^\pm| \leq C e^{-\alpha X_i},
+\end{equation}
+which holds as well for derivatives with respect to $\beta_i^\pm$. In addition,
+\begin{equation}\label{aiformula}
+\begin{aligned}
+a_i^+ &= -P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}( e^{-2 \alpha X_i} ) \\
+a_i^- &= P^s_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}\left( e^{-2 \alpha X_i} \right)
+\end{aligned}
+\end{equation}
+
+\begin{proof}
+Evaluating the fixed point equations \cref{FPequations} at $\pm X_i$ and substituting them into \cref{Upiecewise}, the matching condition \cref{exsystem2} becomes $H(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$, where $H: E_0^s \times E_0^u \times Y^+ \times Y^- \rightarrow \R^{2m}$ is defined by
+\begin{align*}
+H(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-) 
+= a_i^+ - a_i^- + (P^u_+(X_i; \beta_i^+) -  P^u_0)a_i^+ - (P^s_-(-X_i; \beta_{i+1}^-) - P^s_0) a_i^-  \\
+&+ Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)\\
+&+ \int_0^{X_i} \Phi_+^s(X_i, y; \beta_i^+) G_i^+(y,\beta_i^+)dy
+- \int_0^{-X_i} \Phi_-^u(-X_i, y; \beta_{i+1}^-) G_{i+1}^-(y,\beta_{i+1}^-)dy,
+\end{align*}
+where we substutited $\tilde{Q}_i^\pm(x)$ from Lemma \ref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \eqref{genODE}, $H(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by Lemma \ref{solveforV},
+\[
+\frac{\partial}{\partial a_i^\pm} H(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
+\]
+where we also used the estimate \cref{projdiffest}. For sufficiently large $X_i$, $D_{a_i^\pm} H(0, 0, 0, 0)$ is invertible in a neighborhood of $(0, 0, 0, 0)$, thus we can use the implicit function theorem to solve for $a_i^\pm$ in terms of $\beta_i^\pm$. The estimate \cref{aest} then comes from the stable manifold theorem, since $Q^\pm(\pm X_i; \beta_i^\pm) = \mathcal{O}(e^{-\alpha X_i})$. To obtain the expressions \cref{aiformula}, we apply the eigenprojections $P^u_0$ and $P^s_0$ (respectively) to $H(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$. The bound on the remainder term comes from the bound \cref{aest}, together with the estimates from Lemma \ref{solveforV} and equation \cref{projdiffest}. 
+\end{proof}
+\end{lemma}
+
+It only remains to solve equation \eqref{exsystem3}, which will match the pieces \eqref{Upiecewise} at $0$. Before we do that, we will use the the flow-box method to make a smooth change of coordinates to ``straighten out'' the stable and unstable manifolds near $Q(0)$ so that their non-intersecting directions are $Y^+$ and $Y^-$.
+
+\begin{lemma}\label{straightenW}
+There exists a differentiable map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ such that $S(0, 0, 0, 0) = Q(0)$, $S$ is invertible in a neighborhood of $Q(0)$, and
+\begin{align*}
+S^{-1}(Q^-(0; \beta^-)) &= \beta^-  \\
+S^{-1}(Q^+(0; \beta^+)) &= \beta^+ 
+\end{align*}
+for sufficiently small $\beta^\pm$.
+\begin{proof}
+Let $\Theta_x(U_0)$ be the solution operator which maps $U_0 \in \R^{2m}$ to the point $U(x)$, where $U(\cdot)$ is the unique solution to \eqref{genODE} with $U(0) = U_0$. Define the map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ by 
+\begin{equation}\label{flowboxdefS}
+S(x; \beta^-, \beta^+, \gamma) = \Theta_x\left(Q(0) + Q^-(0; \beta^-) + Q^-(0; \beta^+) + \gamma \Psi(0)\right)
+\end{equation}
+For small $x$ and $\beta^\pm$ the stable and unstable manifolds are the surfaces
+\begin{align*}
+\tilde{W}^u &= S(x; \beta^-, 0, 0) \\
+\tilde{W}^s &= S(x; 0, \beta^+, 0) 
+\end{align*}
+Their one-dimensional intersection is the homoclinic orbit $Q(x) = S(x; 0, 0, 0)$, whose tangent space is $Q'(x)$, and $S(0, 0, 0, 0) = Q(0) \neq 0$. The partial derivatives of $S$ are
+\begin{align*}
+S_x(0, 0, 0, 0) &= F(Q(0)) = Q'(0) \\
+S_{\beta^-}(0, 0, 0, 0) &= (Q^-)_{\beta^-}(0; 0) = Y^- \\
+S_{\beta^+}(0, 0, 0, 0) &= (Q^+)_{\beta^+}(0; 0) = Y^+ \\
+S_{\gamma}(0, 0, 0, 0) &= \Psi(0)
+\end{align*}
+which span $\R^{2m}$ by \cref{R2mdecomp}. Since the Jacobian of $S$ is invertible at the origin, $S$ is invertible near $Q(0)$ by the inverse function theorem.
+\end{proof}
+\end{lemma}
+
+Applying this coordinate change near $Q(0)$, the matching condition \cref{exsystem3} is equivalent to projecting $U_i^+(0) - U_i^-(0) = 0$ onto $\R \Q'(0)$, $Y^+$, $Y^-$, and $\R \Psi(0)$ and solving separately on each subspace. Since $P_{\R Q'(0)}(Q^\pm(0; \beta^\pm)) = 0$ and $\tilde{Q}_i^\pm(0) \in \R \Psi(0) \oplus Y^+ \oplus Y^-$, $P_{\R Q'(0)}(U_i^+(0) - U_i^-(0)) = 0$ is automatically satisfied. Since $P_{Y^\pm}(Q^\pm(0; \beta^\pm)) = \beta^\pm$ and $P_{\R \Psi(0)}(Q^\pm(0; \beta^\pm)) = 0$, it remains to solve the equations
+\begin{align}
+P_{Y^+}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) + \beta_i^+  &= 0 \label{PY+match} \\
+P_{Y^-}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) - \beta_i^- &= 0 \label{PY-match} \\
+P_{\R \Psi(0)}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) &= 0 \label{PZmatch}
+\end{align}
+In the next lemma we solve \cref{PY+match} and \cref{PY-match} to obtain the parameters $\beta_i^\pm$.
+
+\begin{lemma}\label{solveforbeta}
+For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, and for $i = 0, \dots, n-1$, there exist $(\beta_i^+, \beta_i^-) \in Y^+ \times Y^-$ such that $P_{Y^+ \oplus Y^-}(U_i^+(0) - U_i^-(0)) = 0$. In addition,
+\begin{equation}\label{betaest}
+\begin{aligned}
+|\beta_i^+| &\leq C e^{-2 \alpha X_{i-1}} \\
+|\beta_i^-| &\leq C e^{-2 \alpha X_i}
+\end{aligned}
+\end{equation}
+\begin{proof}
+Evaluating the fixed point equations \cref{FPequations} at $0$ and substituting them into \cref{Upiecewise}, equations \cref{PY+match} and \cref{PY-match} become $H_i(\beta_i^+, \beta_i^-) = 0$, where $H: Y^+ \oplus Y^- \rightarrow Y^+ \oplus Y^-$ is defined by
+\begin{equation}\label{defHPY}
+H_i(\beta_i^+, \beta_i^-) = 
+\begin{pmatrix}
+\beta_i^+ - P_{Y^+}\left(\Phi^s_-(0, -X_{i-1}, \beta_i^-) a_{i-1}^- 
+- \int_{-X_{i-1}}^0 \Phi_-^s(0, y, \beta_i^-) G_i^-(y; \beta_i^-) dy\right) \\
+\beta_i^- + P_{Y^-}\left( \Phi^u_+(0, X_i; \beta_i^+) a_i^+ 
++ \int_{X_i}^0 \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \right)
+\end{pmatrix},
+\end{equation}
+and we have substituted our expressions for $\tilde{Q}_i^\pm$ and $a_i^\pm$ from \cref{solveforV} and \cref{solvefora}. Using the estimates from these lemmas together with \cref{dichotomy1},
+\begin{equation}\label{DHexp}
+D H_i(\beta_i^+, \beta_i^-) = 
+\begin{pmatrix}
+1 & \mathcal{O}(e^{-2 \alpha X_{i-1}} ) \\
+\mathcal{O}(e^{-2 \alpha X_i}) &  1 
+\end{pmatrix},
+\end{equation}
+which is independent of $\beta_i^\pm$, thus $D H_i(\beta_i^+, \beta_i^-)$ is invertible for sufficiently large $X_i$. By the inverse function theorem, $(\beta_i^+, \beta_i^-) = H_i^{-1}(0, 0)$. The estimates \cref{betaest} follow from \cref{defHPY} and Lemmas \ref{dichotomy1}, \ref{solveforV}, and \ref{solvefora}.
+\end{proof}
+\end{lemma}
+
+We have found a unique solution to \eqref{exsystem1} and \eqref{exsystem2} such that \eqref{exsystem3} is satisfied except for $n$ jumps in the direction of $\Psi(0)$. We summarize what we have obtained so far in the following lemma.
+
+% bounds in this lemma
+
+\begin{lemma}\label{solvewithjumps}
+There exists $X^* > 0$ such that for $|X_i| \geq X^*$, $i = 0, \dots, n-1$, there are unique solutions of the form \cref{Upiecewise} to equations \eqref{exsystem1}, \eqref{exsystem2}, and \eqref{exsystem3} which are continuous except for $n$ jumps in the direction of $\Psi(0)$.
+In addition, we have the estimates
+\begin{enumerate}[(i)]
+\item
+\begin{equation}\label{Vpmbounds}
+\begin{aligned}
+|\tilde{Q}_i^-(x)| &\leq C e^{-\alpha(X_{i-1} + x)}e^{-\alpha X_{i-1}} \\
+|\tilde{Q}_i^+(x)| &\leq C e^{-\alpha(X_i - x)}e^{-\alpha X_i} 
+\end{aligned}
+\end{equation}
+\item 
+\begin{equation}
+\begin{aligned}\label{Qpmbounds}
+|Q^-(x; \beta_i^-) - Q(x)| &\leq C e^{-2 \alpha X_i} e^{\alpha x} \\
+|Q^+(x; \beta_i^+) - Q(x)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x}
+\end{aligned}
+\end{equation}
+\item
+\begin{equation}\label{VQpm}
+\begin{aligned}
+\tilde{Q}_i^+(X_i) &= Q^-(-X_i; \beta_{i+1}^-) + \mathcal{O}(e^{-2 \alpha X_i}) \\
+\tilde{Q}_{i+1}^-(-X_i) &= Q^+(X_i; \beta_i^+) + \mathcal{O}(e^{-2 \alpha X_i})
+\end{aligned}
+\end{equation}
+\end{enumerate}
+\begin{proof}
+Part (i) follows from the estimates \cref{Vest} and \cref{aest} together with the definition of the exponentially weighted norm \cref{expwtnorm}. Part (ii) follows from estimate \eqref{betaest}, smooth dependence on initial conditions, and the stable manifold theorem. For part (iii), in \cref{solvefora} we solved the matching condition at $\pm X_i$
+\begin{equation}\label{matchpmXi}
+Q^+(X_i; \beta_i^+) + \tilde{Q}_i^+(X_i) = Q^-(-X_i; \beta_{i+1}^-) + \tilde{Q}_i^-(-X_i)
+\end{equation}
+Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)$ in turn to \cref{matchpmXi} and using \cref{projdifflemma}, the fixed point equations \cref{FPequations}, and the estimates from the previous lemmas in this section, we obtain the estimates \cref{VQpm}.
+\end{proof}
+\end{lemma}
+
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
 
 \end{document}
 
-\appendix
-
 \section{Proofs of primary pulse results}
 
 ***
 
-Next, we address the intersection of the stable and unstable manifolds $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$. By \cref{Hhyp}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We have the following lemma concerning $H^{-1}(0; c_0)$.
+Next, we address the intersection of the stable and unstable manifolds $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$. By \cref{hyp:H}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We have the following lemma concerning $H^{-1}(0; c_0)$.
 
 \begin{lemma}\label{manifoldinH0}
 There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the zero level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$; $K(c_0)$ contains $Q(0; c_0)$.
@@ -870,7 +1241,7 @@ c_j & j \text{ odd, } j > 1
 \end{align}
 where the $c_j$ are constants. We can assume without without loss of generality that $c_0 = \partial_{u_1} f(0) = 0$, since that is accounted for by the $c u_1$ term in \cref{defF}.
 
-\cref{transverseint} implies that Hypothesis \ref{cintervalhyp} is satisfied. From this point forward, we will fix a speed $c$ and will omit the dependence on $c$ in our notation. The variational and adjoint variational equations associated with \cref{genODE} are
+\cref{transverseint} implies that Hypothesis \ref{hyp:cinterval} is satisfied. From this point forward, we will fix a speed $c$ and will omit the dependence on $c$ in our notation. The variational and adjoint variational equations associated with \cref{genODE} are
 \begin{align}
 \tilde{V}' &= DF(Q(x)) \tilde{V} \label{vareq1} \\
 \tilde{W}' &= -DF(Q(x))^* \tilde{W} \label{adjvareq1},
@@ -879,18 +1250,10 @@ where the $c_j$ are constants. We can assume without without loss of generality 
 It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to \cref{vareq1}, and that there exists a unique bounded solution $\tilde{\Psi}(x)$ to \cref{adjvareq1}. (In both cases, uniqueness is up to scalar multiples). The form of $\tilde{\Psi}(x)$ is given in the following lemma.
 
 \begin{lemma}\label{psiform}
-$\tilde{\Psi} = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{Hhyp}. $\tilde{\Psi}(x)$ is symmetric with respect to the standard reversor operator $R$, i.e. $\tilde{\Psi}(-x) = R \tilde{\Psi}(x)$, and the last component of $\tilde{\Psi}(x)$ is $q'(x)$.
+$\tilde{\Psi} = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{hyp:H}. $\tilde{\Psi}(x)$ is symmetric with respect to the standard reversor operator $R$, i.e. $\tilde{\Psi}(-x) = R \tilde{\Psi}(x)$, and the last component of $\tilde{\Psi}(x)$ is $q'(x)$.
 \end{lemma}
 
 \section{Proofs of existence results}
-
-Using \cref{nondegencond}, we decompose the tangent spaces of the stable and unstable manifolds at $Q(0; c_0)$. Since the two tangent spaces have a one-dimensional intersection spanned by $Q'(0; c_0)$, we can decompose them as 
-\begin{equation}\label{TQ0decomp1}
-\begin{aligned}
-T_{Q(0; c_0)}W^u(0; c_0) &= \R Q'(0; c_0) \oplus Y^-(c_0) \\
-T_{Q(0; c_0)}W^s(0; c_0) &= \R Q'(0; c_0) \oplus Y^+(c_0)
-\end{aligned}
-\end{equation}
 
 For the variational equation, $DF(Q(x))$ is the $2m \times 2m$ matrix
 \begin{equation}\label{defDF}
