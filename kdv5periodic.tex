@@ -36,6 +36,9 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{hypothesis}[theorem]{Hypothesis} 
 
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
 \begin{document}
 
 \section{Introduction}\label{sec:intro}
@@ -285,10 +288,9 @@ The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u
 
 \noi Using \cref{hyp:transverse} and a dimension-counting argument, we obtain the nondegeneracy condition
 \begin{equation}\label{nondegencond}
-T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0).
+T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0),
 \end{equation}
-
-We can now prove the existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$.
+from which it follows that the variational equation $V' = DF(Q(x))V$ has a unique bounded solution $Q'(x)$. We can now prove the existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$.
 
 \begin{theorem}\label{transverseint}
 Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. $Q(-x; c) = R Q(x; c)$, the map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 < \delta$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
@@ -366,7 +368,7 @@ The matrix $A(0)$ has a simple eigenvalue at 0 and a quartet of eigenvalues at $
 V_0 = \left(\frac{1}{c}, 0, \dots, 0, 1\right)^T, \quad
 W_0 = (0, 0, \dots, 0, 1)^T
 \end{equation}
-and $\langle V_0, W_0 \rangle = 1$.
+and $\langle V_0, W_0 \rangle = 1$. The projection on $\R V_0$ is given by $P_{V_0} = \langle W_0, \cdot \rangle$.
 \end{lemma}
 
 Since $A(0)$ is not hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium at $(U, k) = (0, 0)$. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The one-dimensional center manifold $W^c(0)$ is the span of $V_0$. Let $Q_1(x)$ be the primary pulse solution from \cref{sec:spatdym}, and let $Q(x) = (Q_1(x), 0)$. Since $Q(x)$ is exponentially localized, $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{hyp:transverse} that these are equal, which we state in the following lemma.
@@ -860,6 +862,35 @@ where the last term on the RHS is bounded. Define the weighted linear operator $
 \calL_{\alpha - \epsilon} = \frac{d}{dx} - D_U F(Q(x;c); c) - (\alpha - \epsilon) r'(x) \calI.
 \end{equation}
 Since $B Q(x;c) \in \ran \calL$, $e^{(\alpha - \epsilon)r(x)} B Q(x;c) \in \ran \calL_{\alpha - \epsilon}$. Since $D_U F(0; c)-(\alpha-\epsilon)\calI$ is still hyperbolic with the same unstable dimension as $D_U F(0; c)$, it follows again from \cite[Lemma 4.2]{Palmer1984} that $\calL_{\alpha - \epsilon}$ is Fredholm with index 0. Since $Q'(x; c)$ is exponentially localized by the stable manifold theorem, $e^{(\alpha - \epsilon)r(x)} Q'(x; c)$ is bounded, thus since $Q'(x; c) \in \ker \calL$, $e^{(\alpha - \epsilon)r(x)} Q'(x; c) \in \ker \calL_{\alpha - \epsilon}$. Since any element in $\ker \calL_{\alpha - \epsilon}$ gives an element of $\ker \calL$ via \cref{defQZ}, $\ker \calL_{\alpha - \epsilon} = \R e^{(\alpha - \epsilon)r(x)} Q'(x; c)$. Since $e^{(\alpha - \epsilon)r(x)} B Q(x;c) \in \ran \calL_{\alpha - \epsilon}$, the set of all bounded solutions to \cref{Zcprime} is given by $\{ \partial_c Z(x; c) + \R e^{(\alpha - \epsilon)r(x)} Q'(x;c) \}$, which implies that $\partial_c Q(x; c) = \partial_c(x; c) e^{-(\alpha - \epsilon)r(x)}$ is exponentially localized.
+
+\subsection{Proof of \cref{eigA0lemma}}
+
+Let $p_1(\nu)$ and $p_2(\nu)$ be the characteristic polynomials of $DF(0)$ and $A(0)$ (respectively). From equation \cref{defAB},
+\begin{equation*}
+A(0) = 
+\begin{pmatrix}
+DF(U^*(x)) & e_{2m}\\
+0 & 0
+\end{pmatrix}.
+\end{equation*}
+Expanding the determinant by minors using the bottom row, we have for $p_2(\nu)$,
+\begin{align*}
+p_2(\nu) &= \det(A_0 - \nu I) = -\nu \det(DF(0) - \nu I) = -\nu p_1(\nu),
+\end{align*}
+thus $A(0)$ has the same eigenvalues as $DF(0)$ as well as an additional eigenvalue at 0. The eigenvalues of $DF(0)$ are characterized in Hypothesis \ref{hypeqhyp}, from which (i) follows. The eigenvectors $V_0$ and $W_0$ can be verified directly. The projection on $V_0$ is a standard result from linear algebra.
+
+\subsection{Proof of \cref{nondegenlemma}}
+
+Since $Q(x)$ is a homoclinic orbit in the intersection of $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$, $\R Q'(0) \subset T_{Q(0)}\tilde{W}^s(0) \cap T_{Q(0)}\tilde{W}^u(0)$. If the intersection were more than one-dimensional, there would exist another exponentially localized solution $V(x) = (v_1, \dots, v_{2m}, v_{2m+1})^T$ to \eqref{vareq2}. It follows from \eqref{vareq2} that $v_{2m+1}$ is a constant, which must be 0 since $V(x)$ is exponentially localized. Then $(v_1, \dots, v_{2m})^T$ would be an exponentially localized solution to $V'(x) = DF(Q(x)) V(x)$, which contradicts \eqref{nondegencond}.
+
+\subsection{Proof of \cref{varadjsolutions}}
+
+For part (i), we can verify directly that $Q'(x)$ is a solution to \cref{vareq2}. The existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below in \cref{lemma:Vcexists}. Letting $V^c = (\tilde{V}^c, 1)$, $V^c(x)' = A(Q(x))V^c(x)$ reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$, thus the first component $v^c(x)$ formally satisfies $\calL(q)v^c = 1$. For part (ii), equation \cref{adjvareq2} can be written in block form as
+\[
+W'(x) = - 
+\begin{pmatrix}DF(Q(x))^* & 0 \\ e_{2m}^T & 0 \end{pmatrix} W(x).
+\]
+One solution is $\Psi^c(x) = W_0 = (0, \dots, 0, 1)^T$, which is constant. It follows from \cref{psiform} below that another bounded solution is given by $\Psi(x) = ( \nabla H(Q(x)), q(x) )^T$, which is exponetially localized. $\Psi(0)$ and $\Psi^c(0)$ are linearly independent, and by Lemma \ref{eigadjoint} below, $\Psi(0)$ and $\Psi^c(0)$ are perpendicular to $\R Q'(0) \oplus Y^+ \oplus Y^-$ at $x = 0$, thus there can be no other bounded, linearly independent solutions to \eqref{adjvareq2}.
 
 \section{Proof of existence results}\label{sec:existproof}
 
@@ -1612,52 +1643,6 @@ from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, 
 
 \end{document}
 
-\section{Proofs of primary pulse results}
-
-***
-
-Next, we address the intersection of the stable and unstable manifolds $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$. By \cref{hyp:H}, $\tilde{W}^s(0; c_0), \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$, where $H^{-1}(0; c_0)$ is the 0-level set of $H$. We have the following lemma concerning $H^{-1}(0; c_0)$.
-
-\begin{lemma}\label{manifoldinH0}
-There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the zero level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$; $K(c_0)$ contains $Q(0; c_0)$.
-\end{lemma}
-
-***
-
-If $U(x)$ is a solution to \cref{genODE}, so is $RU(-x)$. Differentiating \cref{genODErev} with respect to $U$,
-\begin{equation}\label{genODErevDF}
-D F(RU; c) = -RDF(U; c)R.
-\end{equation}
-
-It follows from \cref{genODErev} and \cref{genODErevDF} that $f(RU) = f(U)$, which implies
-\begin{equation}\label{frev}
-\begin{aligned}
-\partial_{u_j} f(R U) &= (-1)^{j+1} \partial_{u_j} f(U) \\
-\partial^2_{u_j u_k} f(R U) &= (-1)^{j+k} \partial^2_{u_j u_k} f(U).
-\end{aligned}
-\end{equation}
-For $U = 0$,
-\begin{align}\label{fpartials0}
-\partial_{u_j} f(0) &= \begin{cases}
-0 & j \text{ even}\\
-0 & j = 1 \\
-c_j & j \text{ odd, } j > 1
-\end{cases}
-\end{align}
-where the $c_j$ are constants. We can assume without without loss of generality that $c_0 = \partial_{u_1} f(0) = 0$, since that is accounted for by the $c u_1$ term in \cref{defF}.
-
-\cref{transverseint} implies that Hypothesis \ref{hyp:cinterval} is satisfied. From this point forward, we will fix a speed $c$ and will omit the dependence on $c$ in our notation. The variational and adjoint variational equations associated with \cref{genODE} are
-\begin{align}
-\tilde{V}' &= DF(Q(x)) \tilde{V} \label{vareq1} \\
-\tilde{W}' &= -DF(Q(x))^* \tilde{W} \label{adjvareq1},
-\end{align}
-
-It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to \cref{vareq1}, and that there exists a unique bounded solution $\tilde{\Psi}(x)$ to \cref{adjvareq1}. (In both cases, uniqueness is up to scalar multiples). The form of $\tilde{\Psi}(x)$ is given in the following lemma.
-
-\begin{lemma}\label{psiform}
-$\tilde{\Psi} = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{hyp:H}. $\tilde{\Psi}(x)$ is symmetric with respect to the standard reversor operator $R$, i.e. $\tilde{\Psi}(-x) = R \tilde{\Psi}(x)$, and the last component of $\tilde{\Psi}(x)$ is $q'(x)$.
-\end{lemma}
-
 
 \section{Proofs of stability results}
 
@@ -1721,7 +1706,5 @@ Let $r_*$ be as in Theorem \ref{2pulsebifurcation}. Then for any $r \in \mathcal
 \end{enumerate}	
 \end{lemma}
 
-\bibliographystyle{amsalpha}
-\bibliography{kdv5.bib}
 
 \end{document}
