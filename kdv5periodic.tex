@@ -521,14 +521,11 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 	\end{aligned}
 	\end{equation}
 	where $t_0(r; m_0, s_1)$ is continuous in $r$ and $t_1$, $t_0(0; m_0, k \pi) = m_0 \pi$ for all nonnegative integers $k$, and 
-	\begin{align}\label{deft0}
+	\begin{align}\label{t0est}
 	t_0(0; m_0, s_1) = m_0 \pi + \mathcal{O}\left(e^{-\frac{1}{\rho} s_1 }\right).
 	\end{align}
 
-	\item The two families meet at a pitchfork bifurcation when $s_0 = p^*(m_0; r)$ and $s_1 = p^*$. The bifurcation points $p^*(m_0; r)$ are continuous in $r$, and
-	\[
-	p^*(m_0; r) \rightarrow \arctan \rho \text{ as }r \rightarrow 0.
-	\]
+	\item The two families meet at a pitchfork bifurcation when $s_0 = p^*(m_0; r)$ and $s_1 = p^*$. The $p^*(m_0; r)$ are continuous in $r$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
 \end{enumerate}
 \end{theorem}
 
@@ -1283,7 +1280,7 @@ We will use $r$ as a scaling parameter for the system. For $i = 0, \dots n-1$, l
 b_i = e^{-2 \alpha_0 (X_i - X^*)},
 \end{equation}
 where $X_i \geq X^*$ for $i = 0, \dots, n-1$. The quantities $b_i$ are length parameters for the system. In terms of $r$ and $b_i$,
-\begin{equation}\label{Xjscale}
+\begin{equation}\label{Xiscale}
 X_i = -\frac{1}{2\alpha_0}\log(b_i r) - \frac{\phi}{2 \beta_0}
 \end{equation}
 In the next lemma, we rewrite the system \eqref{jumpcond2} using this rescaling.
@@ -1300,7 +1297,7 @@ Using \cite[Lemma 6.1(i)]{Sandstede1998}, for $x > 0$ sufficiently large,
 \xi_i = \langle \Psi(-x), Q(x) \rangle
 = p_0 e^{-2 \alpha_0 x} \sin(2 \beta_0 x + \phi) + \mathcal{O}(e^{-(2 \alpha_0 + \gamma) x})
 \end{equation}
-where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. We do not have a parameter $\mu$ in this system, so the $\mu$-dependent terms in \cite[Lemma 6.1(i)]{Sandstede1998} are constant and $\beta(\mu) = \beta_0$. We will always take $\gamma \leq 1$. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{Xjscale} and \cref{bjscale},
+where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. We do not have a parameter $\mu$ in this system, so the $\mu$-dependent terms in \cite[Lemma 6.1(i)]{Sandstede1998} are constant and $\beta(\mu) = \beta_0$. We will always take $\gamma \leq 1$. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{Xiscale} and \cref{bjscale},
 \begin{align}\label{diff2}
 \xi_i = p_0 e^{\alpha \phi / \beta_0 } b_i r \sin \left( - \rho \log (b_i r) \right) - p_0 e^{\alpha \phi / \beta_0 } b_{i-1} r \sin \left( -\rho \log (b_{i-1} r) \right) + \mathcal{O}(r^{1 + \gamma / 2 \alpha}) &= 0.
 \end{align}
@@ -1477,7 +1474,108 @@ From Lemma \ref{pitchforkH}, $\partial_{b_i} G_i(b, 0) = 0$ if and only if $b_i$
 \begin{equation}\label{defti}
 t_i(r; m_i, m_{n-1}, \theta) = -\rho \log b_i(r)
 \end{equation}
-The functions $t_i(r; m_i, m_{n-1}, \theta)$ are continuous in $r$, and from \cref{thetaparammulti} we have $t_i(0; m_i, m_{n-1}, \theta) = m_i \pi + \theta^*(\theta, m_{n-1} - m_i)$. Equations \cref{Xi} are obtained by substituting $b_i(r)$, $i = 0, \dots, n-2$, and $b_{n-1}(m_{n-1}, \theta)$ for $b_i$ in \cref{Xjscale} and using \cref{defti}.
+The functions $t_i(r; m_i, m_{n-1}, \theta)$ are continuous in $r$, and from \cref{thetaparammulti} we have $t_i(0; m_i, m_{n-1}, \theta) = m_i \pi + \theta^*(\theta, m_{n-1} - m_i)$. Equations \cref{Xi} are obtained by substituting $b_i(r)$, $i = 0, \dots, n-2$, and $b_{n-1}(m_{n-1}, \theta)$ for $b_i$ in \cref{Xiscale} and using \cref{defti}.
+
+\subsection{Periodic 2-pulse}
+
+For the periodic 2-pulse, we have a single jump condition
+\begin{equation}\label{2pulsedefG}
+G(b_0, b_1, r) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0 \\
+\end{equation}
+
+First, we will show that that the pitchfork bifurcations along the diagonal persist for small $r$. Recall that by \cref{def:perparam}, $m_0 \in \{0, 1\}$ for a periodic 2-pulse.
+
+\begin{lemma}\label{pitchpersist}
+There exists $r_2 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_2$, there is a non-degenerate pitchfork bifurcation in the zero set of $G(b_0, b_1, r)$ at $(b_{m_0}^*(r),b_{m_0}^*(r))$, and 
+\begin{equation*}
+b_{m_0}^*(r) \rightarrow b_{m_0}^* \text{ as } r \rightarrow 0
+\end{equation*}
+\begin{proof}
+Take $m_0 = 0$. The proof is identical for $m_0 = 1$. First, we show the required odd symmetry relation. By Lemma \ref{solvewithjumps}, for an ordered pair $(X_0, X_1)$ with $X_i$ sufficiently large, there exists a unique piecewise solution $(U_0^-(x), U_0^+(x), U_1^-(x), U_1^+(x))$ which is continuous except for two jumps 
+\begin{equation}\label{xijumps}
+\xi_0(X_0, X_1) = \langle \Psi(0), U_0^+(0) - U_0^-(0) \rangle, \quad
+\xi_1(X_0, X_1) = \langle \Psi(0), U_1^+(0) - U_1^-(0) \rangle 
+\end{equation}
+in the direction of $\Psi(0)$. By symmetry, $(U_1^+(-x), U_1^-(-x), U_0^+(-x), U_0^-(-x))$ is also a solution for $(X_0, X_1)$, thus it must be the same solution by uniqueness. In particular, $U_1^+(0) = U_0^-(0)$ and $U_1^-(0) = U_0^+(0)$, thus $\xi_0(X_0, X_1) = -\xi_1(X_0, X_1) = -\xi_0(X_1, X_0)$. Since swapping $X_0$ and $X_1$ is equivalent to swapping $b_0$ and $b_1$ in \cref{2pulsedefG}, $G(b_0, b_1, r) = -G(b_1, b_0, r)$ for sufficiently small $r$. Making the change of coordinates $(b_0, b_1) \mapsto (x, y)$ as in Lemma \ref{pitchforkH}, $G(-x, y, r) = -G(x, y, r)$ for sufficiently small $r$. 
+
+The persistence of the pitchfork bifurcation follows from a Lyapunov-Schmidt reduction.  By Lemma \ref{pitchforkH}, $G_x(0, b_0^*, 0) = 0$ and $G_{xy}(0, b_0^*, 0) \neq 0$, thus by the implicit function theorem there exists $r_2 > 0$, an open interval $(-a, a)$, and a unique smooth function $y = y^*(x, r)$ such that $y^*(0, 0) = b_0^*$ and $G_x(x, y^*(x, r), r) = 0$ for all $x \in (-a, a)$ and $r < r_2$. It follows that a pitchfork bifurcation occurs at $(x, y, r) = (0, y^*(0, r), r)$ by evaluating the appropriate partial derivatives of $G$ as in Lemma \ref{pitchforkH}. Let $b_0^*(r) = y^*(0, r)$. The result follows upon reverting to the original $(b_0, b_1)$ coordinates.
+\end{proof} 
+\end{lemma}
+
+Next, we show that the arms of the pitchfork persist for sufficiently small $r$. By symmetry, it suffices to show this for the lower arm.
+
+\begin{lemma}\label{armpersists}
+Choose any $\delta > 0$. Then there exists $r_3 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_3$, the portion of the zero set of $G(b_0, b_1, r)$ corresponding to lower arm of the pitchfork at $(b_{m_0}^*(r), b_{m_0}^*(r))$ is parameterized by
+\begin{align*}
+(b_0, b_1) = (b_0(s; m_0, r), b_1(s)) && s \in [p^* + \delta, \infty)
+\end{align*}
+where
+\begin{align}\label{defb1}
+b_1(s) &= e^{-\frac{1}{\rho}s} 
+\end{align}
+
+\begin{proof}
+As in the previous lemma, take $m_0 = 0$. The proof is identical for $m_0 = 1$. For every positive integer $m_1$ with $m_1 \geq 1$, let
+\begin{equation}\label{thetaparam2}
+\begin{aligned}
+\tilde{b}_0( m_1, \theta) = \exp\left[ -\frac{1}{\rho}\theta^*(\theta, m_1) \right], \quad
+\tilde{b}_1( m_1, \theta) = \exp\left[ -\frac{1}{\rho}(m_1 \pi + \theta) \right]
+\end{aligned}
+\end{equation}
+Since these families connect together at their endpoints by \cref{thetaparamlemma}, define $b_1(s)$ by \cref{defb1}. For $s > p^*$, let
+\begin{equation}\label{defmsthetas}
+\begin{aligned}
+m(s) = \left\lceil \frac{s - p^*}{\pi} \right\rceil, \quad
+\theta(s) &= s - m(s) \pi,
+\end{aligned}
+\end{equation}
+and define $\tilde{b}_0(s)$ by
+\begin{equation}\label{defb0}
+\tilde{b}_0(s) = b_0(m(s), \theta(s)),
+\end{equation}
+so that the continuous curve $(\tilde{b}_0(s), b_1(s))$, $s > p^*$, parameterizes the lower arm of the pitchfork when $r = 0$. For $\delta > 0$, define the Banach space $X = C_b([p^* + \delta, \infty), \R)$ of bounded continuous functions equipped with the uniform norm. For $b \in X$, define $\tilde{G}: X \times \mathcal{R} \rightarrow X$ by
+\begin{align*}
+[\tilde{G}(b, r)](s) &= G(b(s), b_1(s), r) = b(s) \sin(-\log b(s) ) - e^{-\frac{1}{\rho}s} \sin s + \mathcal{O}(r^{\gamma/2\alpha}).
+\end{align*}
+Then $\tilde{G}(\tilde{b}_0(s), r) = 0$, and the Fr\'echet derivative $D_{b_0} \tilde{G}(b, 0) = G_{b_0}(b(s), b_1(s), 0)$.
+
+By Lemma \ref{pitchforkH}, $G_{b_0}(b_0, b_1, 0) = 0$ if and only if $(b_0, b_1)$ is one of the pitchfork bifurcation points; by \cref{thetaparamlemma}, these occur on the curve $(\tilde{b}_0(s), b_1(s))$ only when $s = p^*$. From the proof of \cref{thetaparamlemma}, $|G_{b_0}(\tilde{b}_0(s), b_1(s), 0)|$ is bounded below for $s \geq p^* + \delta$, thus $D_{b_0} \tilde{G}(\tilde{b}_0, 0)$ is invertible with bounded inverse. Using the implicit function theorem for Banach spaces, there exists $r_3 > 0$ and a unique smooth function $b: \mathcal{R} \rightarrow X$ with $b(0) = \tilde{b}_0$ such that for all $r \leq r_3$, $\tilde{G}(b(r), r) = 0$. It follows from the definition of $\tilde{G}$ that $G([b(r)](s), b_1(s), r) = 0$ for all $r \leq r_3$ and $s \in [p^* + \delta, \infty)$. The result follows by taking $b_0(s; m_0, r) = [b(r)](s)$.
+\end{proof}
+\end{lemma} 
+
+Finally, we show that for sufficiently small $r$, the lower arm of the pitchfork connects to the pitchfork bifurcation point, which extends the parameterization in Lemma \ref{armpersists} to $s \in [p^*, \infty)$.
+
+\begin{lemma}\label{pitchforkconnects}
+There exists $r_4 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_4$, the parameterization in Lemma \ref{armpersists} can be extended to $s \in [p^*, \infty)$, and 
+\begin{align*}
+(b_0(p^*; m_0, r), b_1(p^*)) = (b_{m_0}^*(r), b_{m_0}^*(r)),
+\end{align*}
+which is the pitchfork bifurcation point from Lemma \ref{pitchpersist}.
+
+\begin{proof}
+For simplicity, take $m_0 = 0$. The proof is identical for $m_0 = 1$. Change variables $(b_0, b_1) \mapsto (x, y)$ as in Lemma \ref{pitchforkH}, so that the pitchfork bifurcation takes place on the horizontal axis. Let $r_2$ be as in Lemma \ref{pitchpersist}. Then there is a unique nondegenerate pitchfork bifurcation at $(x, y) = (b_0^*(r), 0)$, and there exists $y_1 \geq 0$ such that for $r \leq r_2$, the arm of the pitchfork is uniquely parameterized by $(x, y) = (x_0(y, r), y)$ for $y \in [0, y_1]$, where $x_0(0, r) = b_0^*(r)$. Take $\delta = y_1/2$, and let $r_3$ be as in Lemma \ref{armpersists}. In the $(x, y)$ coordinate system, the lower arm of the pitchfork is uniquely parameterized by 
+$(x, y) = (x_1(y, r), y)$ for  $y \in [y_1/2, \infty)$ for $r < r_3$. Let $r_4 = \min\{ r_2, r_3 \}$. Then by the uniqueness of the two parameterizations, $(x_1(y, r), y) = (x_0(y, r), y)$ for $y \in [y_1/2, y_1]$ and $r \leq r_4$. Since the two parameterizations overlap on an interval, the lower arm of the pitchfork connects to the pitchfork bifurcation point. Returning to the $(b_0, b_1)$ coordinate system, we can extend the parameterization in Lemma \ref{armpersists} to the pitchfork bifurcation point, which occurs when $s = p^*$.
+\end{proof}
+\end{lemma}
+
+\subsection{Proof of \cref{2pulsebifurcation}}
+
+Let $r_* = r_4$, where $r_4$ is defined in \cref{pitchforkconnects}. From the proof of \cref{pitchpersist}, $G(b_0, b_0, r) = -G(b_0, b_0, r)$, thus symmetric solutions with $b_0 = b_1$ exist for sufficiently small $r$. To parameterize these, for $m_0 \in \{0, 1\}$ and $s_0 \in [0, \pi)$, let
+\[
+b_0(m_0, s_0) = b_1(m_0, s_0) = 
+\exp\left( -\frac{1}{\rho}(m_0 \pi + s_0) \right)
+\]
+The pulse distances \cref{2psymmdist} are obtained by substituting this into \cref{Xiscale}. Let $p^*(m_0; r) = -\rho \log(b_{m_0}^*(r))$. Then the pitchfork bifurcation occurs when $s_0 = p^*(m_0; r)$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
+
+For asymmetric 2-pulses, taking $s_1 = s$ in Lemma \ref{pitchforkconnects}, the lower arms of the pitchforks are parameterized by $(b_0, b_1) = (b_0(s_1; m_0, r), b_1(s_1))$ for $s_1 \in [p^*, \infty)$. The formula for $X_1(r, s_1)$ in \cref{2pasymmdist} follows by substituting \cref{defb1} into \cref{Xiscale}. Let 
+\begin{equation}\label{deft0}
+t_0(r; m_0, s_1) = -\rho \log\left( b_0(s_1; m_0, r) \right),
+\end{equation}
+which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we obtain the formula for $X_0(r; m_0, s_1)$ in \cref{2pasymmdist}. From Lemma \ref{armpersists}, $t_0(0; m_0, s_1) = m_0 \pi + \theta^*(\theta(s_1); m(s_1) - m_0)$, where $m(s) = \lceil \frac{s - p^*}{\pi} \rceil$ and $\theta(s) = s - m(s) \pi$. Using the estimate for $\theta^*(\theta, m)$ from Lemma \ref{thetaparamlemma},
+\[
+\theta^*(\theta(s_1); m(s_1) - m_0) \leq C \exp\left(-\frac{1}{\rho} ( m(s_1) - m_0 )\pi \right) \leq C \exp\left(-\frac{1}{\rho} s_1 \right),
+\]
+from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, the pitchfork bifurcation point is reached when $s_1 = p^*$.
 
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
