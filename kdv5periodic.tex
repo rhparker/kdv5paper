@@ -111,7 +111,7 @@ For $c > 0$, two eigenvalues have positive real part and two have negative real 
 
 For $c > 0$, a symmetric primary pulse solution exists to \cref{KdV5eq4}. We will refer to this as the primary pulse solution. This result is stated in the following theorem, which is adapted from \cite[Theorem 2.1]{Pelinovsky2007}.
 
-\begin{theorem}[Existence of Primary Pulse]\label{KdV1pulse}
+\begin{theorem}\label{KdV1pulse}
 For $c > 0$, there exists a one-pulse solution $q(x)$ to \cref{KdV5eq4} which is an even function and decays exponentially to 0 at $\pm \infty$. For the linear operators $\calE''(q)$ and $\partial_x \calE''(q)$, we have the following:
 \begin{enumerate}[(i)]
 \item The linear operator $\calE''(q)$ has exactly one negative eigenvalue with an even eigenfunction and a simple eigenvalue at 0 with eigenfunction $q_x$.
@@ -291,7 +291,7 @@ T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0).
 We can now prove the existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$.
 
 \begin{theorem}\label{transverseint}
-Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. The map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 < \delta$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
+Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. $Q(-x; c) = R Q(x; c)$, the map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 < \delta$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
 \begin{equation}\label{Qcbound}
 |\partial_c Q(x; c)| \leq C e^{-(\alpha_0 - \epsilon)|x|}
 \end{equation}
@@ -831,6 +831,36 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 
 \appendix
 
+\section{Proof of results from \cref{sec:setup}}
+
+\subsection{Proof of \cref{transverseint}}
+
+By \cref{Qexistshyp}, $Q(0; c_0) \neq 0$, $H(Q(0; c_0); c_0) = 0$, and $\nabla_U H(Q(0; c_0); c_0) \neq 0$. By the implicit function theorem, for $c$ close to $c_0$, the 0-level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$, with $K(c_0)$ containing $Q(0; c_0)$. The existence result and the smoothness of the map $c \rightarrow Q(x; c)$ follow from the transverse intersection of $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$ in $K(c_0) \subset H^{-1}(0; c_0)$, the implicit function theorem, and the smoothness of $F$. Symmetry with respect to the reversor $R$ follows from symmetry of $Q(0; c_0)$ and the symmetry of $H$ from \cref{hyp:H}.
+
+Fix $c \in (c_0 - \delta, c_0 + \delta)$. Since $Q(x; c)$ solves \ref{genODE}, $Q(x; c) \in C^1(\R, \R^{2m})$. By the stable manifold theorem, $Q(x; c)$ is exponentially localized, i.e. for every $\epsilon > 0$ there exists a constant $C$ such that for all $x \in \R$, $|Q(x; c)| \leq C e^{-(\alpha - \epsilon)|x|}$. Substituting $Q(x; c)$ into \cref{genODE} and differentiating with respect to $c$, $\partial_c Q(x; c)$ satisfies
+\begin{equation}\label{Qcprime}
+[\partial_c Q(x; c)]' = D_U F(Q(x;c); c) \partial_c Q(x; c) - B Q(x;c),
+\end{equation}
+where $B$ is defined in \cref{defAB}. Define the linear operator $\calL: C^1(\R, \R^{2m}) \rightarrow C^0(\R, \R^{2m})$ by
+\begin{equation}\label{defLtv}
+\calL = \frac{d}{dx} - D_U F(Q(x;c); c).
+\end{equation}
+By equation \cref{Qcprime}, $B Q(x;c) \in \ran \calL$ and is exponentially localized. Since $DF(0; c)$ is hyperbolic, it follows from \cite[Lemma~4.2]{Palmer1984} and the roughness theorem for exponential dichotomies \cite{Coppel1978} that $\calL$ is Fredholm with index 0. By \cref{Qexistshyp}, $\ker \calL = \R \partial_x Q'(x; c)$, thus the set of all bounded solutions to \cref{Qcprime} is given by $\{\partial_c Q(x; c) + \R Q'(x; c)\}$.
+
+To show that $\partial_c Q(x; c)$ is exponentially localized, we reformulate equation \cref{Qcprime} in an exponentially weighted space. Choose $\epsilon \in (0,\alpha_0)$ and let $\eta(x)$ be a standard mollifier function \cite[Section~C.5]{Evans2010}. Let
+\begin{equation}\label{defQZ}
+Q(x; c) = Z(x; c) e^{-(\alpha - \epsilon)r(x)},
+\end{equation}
+where $r(x) = \eta(x) * |x|$ is smooth, and $r(x) = |x|$ and $r'(x) = 1$ for $|x| > 1$. Substituting \cref{defQZ} into \cref{Qcprime} and simplifying, we obtain the weighted equation
+\begin{equation}\label{Zcprime}
+[\partial_c Z(x; c)]' = [D_U F(Q(x;c); c) + (\alpha - \epsilon) r'(x) ] Z(x; c) - e^{(\alpha - \epsilon)r(x)} B Q(x;c),
+\end{equation}
+where the last term on the RHS is bounded. Define the weighted linear operator $\calL_{\alpha - \epsilon}: C^1(\R, \R^{2m}) \rightarrow C^0(\R, \R^{2m})$ by
+\begin{equation}\label{defLtvalpha}
+\calL_{\alpha - \epsilon} = \frac{d}{dx} - D_U F(Q(x;c); c) - (\alpha - \epsilon) r'(x) \calI.
+\end{equation}
+Since $B Q(x;c) \in \ran \calL$, $e^{(\alpha - \epsilon)r(x)} B Q(x;c) \in \ran \calL_{\alpha - \epsilon}$. Since $D_U F(0; c)-(\alpha-\epsilon)\calI$ is still hyperbolic with the same unstable dimension as $D_U F(0; c)$, it follows again from \cite[Lemma 4.2]{Palmer1984} that $\calL_{\alpha - \epsilon}$ is Fredholm with index 0. Since $Q'(x; c)$ is exponentially localized by the stable manifold theorem, $e^{(\alpha - \epsilon)r(x)} Q'(x; c)$ is bounded, thus since $Q'(x; c) \in \ker \calL$, $e^{(\alpha - \epsilon)r(x)} Q'(x; c) \in \ker \calL_{\alpha - \epsilon}$. Since any element in $\ker \calL_{\alpha - \epsilon}$ gives an element of $\ker \calL$ via \cref{defQZ}, $\ker \calL_{\alpha - \epsilon} = \R e^{(\alpha - \epsilon)r(x)} Q'(x; c)$. Since $e^{(\alpha - \epsilon)r(x)} B Q(x;c) \in \ran \calL_{\alpha - \epsilon}$, the set of all bounded solutions to \cref{Zcprime} is given by $\{ \partial_c Z(x; c) + \R e^{(\alpha - \epsilon)r(x)} Q'(x;c) \}$, which implies that $\partial_c Q(x; c) = \partial_c(x; c) e^{-(\alpha - \epsilon)r(x)}$ is exponentially localized.
+
 \section{Proof of existence results}\label{sec:existproof}
 
 We will construct periodic multi-pulses using Lin's method. Rather than constructing a periodic $n$-pulse $U(x)$ as a piecewise perturbation of the primary pulse $Q(x)$, we adapt the technique in \cite{Sandstede1997} and take a piecewise ansatz of the form
@@ -1201,7 +1231,7 @@ Part (i) follows from the estimates \cref{Vest} and \cref{aest} together with th
 \begin{equation}\label{matchpmXi}
 Q^+(X_i; \beta_i^+) + \tilde{Q}_i^+(X_i) = Q^-(-X_i; \beta_{i+1}^-) + \tilde{Q}_i^-(-X_i)
 \end{equation}
-Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)$ in turn to \cref{matchpmXi} and using \cref{projdifflemma}, the fixed point equations \cref{FPequations}, and the estimates from the previous lemmas in this section, we obtain the estimates \cref{VQpm}.
+Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)$ in turn to \cref{matchpmXi} and using \cref{projdiffest}, the fixed point equations \cref{FPequations}, and the estimates from the previous lemmas in this section, we obtain the estimates \cref{VQpm}.
 \end{proof}
 \end{lemma}
 
