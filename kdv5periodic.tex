@@ -160,7 +160,7 @@ u_t = \partial_x \calE'(u)
 \end{equation}
 where $u \in X$ and $\calE(u): X \subset Y \rightarrow \R$ is a smooth functional representing the conserved energy of the system. We take the following hypothesis regarding the energy $\calE(u)$.
 
-\begin{hypothesis}\label{hyp:E}\leavevmode
+\begin{hypothesis}\label{hyp:E}
 % The energy $\calE(u)$ has the following properties
 \begin{enumerate}[(i)]
 \item $\calE(0) = 0$ and $\calE'(0) = 0$.
@@ -242,7 +242,7 @@ By reversibility,
 \begin{equation}\label{genODErev}
 \begin{aligned}
 F(RU; c) &= -RF(U; c) \\
-D F(RU; c) &= -RDF(U; c)R
+DF(RU; c) &= -RDF(U; c)R
 \end{aligned}
 \end{equation}
 where $R:\R^{2m} \rightarrow \R^{2m}$ is the standard reversor operator on $\R^{2m}$
@@ -531,7 +531,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 \end{enumerate}
 \end{theorem}
 
-\section{Spectrum of periodic multipulses}\label{sec:perstab}
+\section{Spectrum of periodic multi-pulses}\label{sec:perstab}
 
 We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x)$ be any periodic $n$-pulse solution constructed according to \cref{th:perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
 \[
@@ -546,11 +546,12 @@ V(-X) &= V(X),
 \end{equation}
 where $V(x) \in C^0(\R,\R^{2m+1})$. Let $A(\lambda) = A(0) + \lambda B$. The next lemma states that for small $\lambda$, $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0.
 
-\begin{lemma}\label{nulambdalemmasimple}
-There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0 given by
+\begin{lemma}\label{nulambdalemma}
+There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$. $\nu(\lambda)$ is smooth in $\lambda$, $\nu(0) = 0$, $\nu'(0) = 1/c$, and for $|\lambda| < \delta_0$,
 \begin{equation}\label{nulambda}
 \nu(\lambda) = \frac{1}{c} \lambda + \mathcal{O}(|\lambda|^3)
 \end{equation}
+In addition, $\nu(-\lambda) = -\nu(\lambda)$ and $\nu(\overline{\lambda}) = \overline{\nu(\lambda)}$.
 \end{lemma}
 
 We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix.
@@ -565,8 +566,8 @@ $S(\lambda)$ is the $(2n \times 2n)$ block matrix
 \begin{equation}\label{blockeq}
 S(\lambda) = 
 \begin{pmatrix}
-\tilde{K}(\lambda) + C_1 & - \lambda^2 \tilde{M}^c I + D_1 \\
-K(\lambda) + C_2 & A - \lambda^2 MI + D_2
+\tilde{K}(\lambda) + C_1 & \lambda^2 \tilde{M}^c I + D_1 \\
+K(\lambda) + C_2 & A + \lambda^2 MI + D_2
 \end{pmatrix}
 \end{equation}
 The individual terms in $S(\lambda)$ are as follows.
@@ -608,8 +609,7 @@ where
 k_i^- &= -e^{-\nu(\lambda)X_i}\left(\frac{1}{2}\lambda \tilde{M}^c + \mathcal{O}((|\lambda| + r^{1/2})^2) \right), \quad
 k_i^+ = -e^{\nu(\lambda)X_i}\left(\frac{1}{2}\lambda \tilde{M}^c + \mathcal{O}((|\lambda| + r^{1/2})^2) \right)
 \end{align*}
-
-and $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemmasimple}.
+and $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemma}.
 
 \item $A$ is the symmetric banded matrix
 \begin{align}\label{Asymm}
@@ -901,7 +901,7 @@ Since $Q(x)$ is a homoclinic orbit in the intersection of $\tilde{W}^u(0)$ and $
 
 \subsection{Proof of \cref{varadjsolutions}}
 
-For part (i), we can verify directly that $Q'(x)$ is a solution to \cref{vareq2}. The existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below in \cref{lemma:Vcexists}. Letting $V^c = (\tilde{V}^c, 1)$, $V^c(x)' = A(Q(x))V^c(x)$ reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$, thus the first component $v^c(x)$ formally satisfies $\calL(q)v^c = 1$. For part (ii), equation \cref{adjvareq2} can be written in block form as
+For part (i), we can verify directly that $Q'(x)$ is a solution to \cref{vareq2}. The existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below after \cref{lemma:Vcexists}. Letting $V^c = (\tilde{V}^c, 1)$, $V^c(x)' = A(Q(x))V^c(x)$ reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$, thus the first component $v^c(x)$ formally satisfies $\calL(q)v^c = 1$. For part (ii), equation \cref{adjvareq2} can be written in block form as
 \[
 W'(x) = - 
 \begin{pmatrix}DF(Q(x))^* & 0 \\ e_{2m}^T & 0 \end{pmatrix} W(x).
@@ -1654,30 +1654,242 @@ which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we
 \]
 from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, the pitchfork bifurcation point is reached when $s_1 = p^*$.
 
+\section{Proofs of stability results}
+
+As in \cite{Sandstede1998}, we will use Lin's method to construct eigenfunctions, which are solutions to \cref{PDEeigsystemper3}. We will take a piecewise linear combination of the kernel eigenfunctions $\partial_x Q_n(x)$ and $\partial_c Q_n(x)$ and a ``center'' eigenfunction as our ansatz, and we will join these together with small remainder functions. As long as the individual pulses in $Q_n(x)$ are well-separated, we will use Lin's method to construct a unique function which solves \cref{PDEeigsystemper3} but which has $n$ discontinuities. In contrast to \cite{Sandstede1998}, these $n$ jumps are in the two-dimensional space spanned by $\Psi(0)$ and $\Psi^c(0)$, which gives us $2n$ jump conditions. Finding the eigenvalues amounts to solving these $2n$ jump conditions. 
+
+\subsection{Proof of \cref{nulambdalemma}}
+
+Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(\lambda)$. Since $p(0; 0) = 0$ and $\partial_\nu p(0; 0) = -c \neq 0$, by the implicit function theorem there exists $\delta_0 > 0$ and a smooth function $\nu(\lambda)$ such that $\nu(0) = 0$ and for $|\lambda| < \delta$, $\nu(\lambda)$ is the unique solution to $p(\nu; \lambda) = 0$ and $\nu'(0) = 1/c$. By reversibility, $p(\nu; \lambda)$ only involves odd powers of $\nu$, thus $p(\nu; \lambda) = 0$ if and only if $p(-\nu; -\lambda) = 0$. Since the solution $\nu(\lambda)$ is unique, $\nu(-\lambda) = -\nu(\lambda)$, and conjugate symmetry similarly follows since $p(\nu; \lambda) = 0$ if and only if $p(\overline{\nu}; \overline{\lambda}) = 0$. Equation \cref{nulambda} then follows from a Taylor expansion of $\nu(\lambda)$ about $\lambda = 0$. The next lemma collects some useful facts about the matrix $A(\lambda)$.
+
+\begin{lemma}\label{lemma:Afacts}\leavevmode
+\begin{enumerate}[(i)]
+	\item $A(-\lambda) = -R A(\lambda)R$, where $R$ is the standard reversor operator. In particular, $A(0) = -R A(0)R$.
+	\item If $V$ is an eigenvector of $A(0)$ corresponding to eigenvalue $\mu$, then $RV$ is an eigenvector of $A(0)$ corresponding to eigenvalue $-\mu$, and $\overline{V}$ is an eigenvector of $A(0)$ corresponding to eigenvalue $\overline{\mu}$. 
+	\item Let $P^{c,*}(0)$ be the center eigenprojection of $-A(0)^*$. Then $P^{c,*}(0) = [P^c(0)]^*$. 
+	\item Let $P^{s,*}(0)$ and $P^{u,*}$ be the stable and unstable eigenprojections of $-A(0)^*$. Then $P^{s,*}(0) = [P^u(0)]^*$ and $P^{u,*}(0) = [P^s(0)]^*$
+\end{enumerate}	
+\begin{proof}
+Part (i) can be verified by multiplying out $R A(\lambda)R$. For part (ii), $A(0)V = \mu V$ implies $A(0)\overline{V} = \overline{\mu}\overline{V}$ since $A(0)$ is real. Using part (i), $-R A(0) R V = \mu V$, which rearranges to $A(0) (RV) = -\mu(RV)$. For part (iii), $\ker [P^c(0)]^* = (\ran P^c(0))^\perp = (V_0)^\perp$  and $\ran [P^c(0)]^* = (\ker P^c(0))^\perp$. For any eigenvector $W$ of $-A(0)^*$ with nonzero eigenvalue $\mu$,
+\begin{align*}
+\langle W, V_0 \rangle = \frac{1}{\overline{\mu}} \langle \mu W, V_0 \rangle
+= \frac{1}{\overline{\mu}}\langle -A(0)^* W, V_0 \rangle = -\frac{1}{\overline{\mu}}\langle W, A(0) V_0 \rangle = 0,
+\end{align*}
+thus $\ker [P^c(0)]^*$ is the direct sum of the stable and unstable eigenspaces of $-A(0)^*$. Similarly, for any eigenvector $V$ of $A(0)$ with nonzero eigenvalue $\mu$, $\langle W_0, V \rangle = 0$, thus $\ran [P^c(0)]^* = \spn\{W_0\}$, which proves (iii).
+
+For part (iv), let $W$ be an eigenvector of $-A(0)^*$ with nonzero eigenvalue $\mu$. Then for all eigenvectors of $A(0)$ with eigenvalue $\tilde{\mu}$, we have 
+\begin{align*}
+\langle W, V \rangle = \frac{1}{\overline{\mu}} \langle \mu W, V \rangle
+= \frac{1}{\overline{\mu}}\langle -A(0)^* W, V \rangle = -\frac{1}{\overline{\mu}}\langle W, A(0) V \rangle = -\frac{1}{\overline{\mu}}\langle W, \tilde{\mu} V_0 \rangle = -\frac{\tilde{\mu}}{\overline{\mu}}\langle W, V \rangle,
+\end{align*}
+thus $\langle W, V \rangle = 0$ unless $\tilde{\mu} = -\overline{\mu}$. For the stable eigenprojection, $\ker [P^s(0)]^* = (\ran P^s(0))^\perp$ and $\ran [P^s(0)]^* = (\ker P^s(0))^\perp = (E^u(0) \oplus E^c(0))^\perp$. Let $W$ be in the unstable eigenspace of $-A(0)^*$, and let $\mu$ be the corresponding eigenvalue with $\Re \mu > 0$. Then $W$ is perpendicular to all eigenvectors in $E^c(0) \oplus E^u(0)$, thus $W \in \ran [P^s(0)]^*$. Similarly, if $W$ is in the unstable or center eigenspace of $-A(0)^*$, then $W \in \ker [P^s(0)]^*$. This proves (iv) for $P^{u,*}(0)$. The result $P^{s,*}(0)$ is similar.
+\end{proof}
+\end{lemma}
+
+\subsection{Conjugation lemma}
+
+The Conjugation lemma will allow us to make a smooth change of coordinates to convert certain linear ODEs of the form $W'(x) = A(x) W(x)$ into a constant coefficient system. The statement of the lemma is identical to that in \cite{Zumbrun2009}, except the parameter vector $\Lambda$ lives in an arbitrary Banach space. The proof is a straightforward modification of that in \cite{Zumbrun2009}.
+
+% Conjugation lemma
+\begin{lemma}[Conjugation Lemma]\label{conjlemma}
+Let $W \in \C^N$, and consider the family of ODEs on $\R$
+\begin{equation}\label{EVPconj}
+W(x)' = A(x; \Lambda) W(x) + F(x)
+\end{equation}
+where $\Lambda \in \Omega$ is a parameter vector and $\Omega$ is a Banach space. Assume that
+\begin{enumerate}[(i)]
+	\item The map $\Lambda \mapsto A(\cdot; \Lambda)$ is analytic in $\Lambda$.
+	\item $A(x; \Lambda) \rightarrow A_\pm(\lambda)$ (independent of $\Lambda$) as $x \rightarrow \pm \infty$, and there exists $\delta > 0$ such that for $|\Lambda| < \delta$ we have the uniform exponential decay estimates 
+	\begin{align}
+	\left| \frac{\partial^k}{\partial x^k} A(x; \Lambda) - A_\pm(\Lambda) \right| 
+	&\leq C e^{-\theta |x|} && 0 \leq k \leq K
+	\end{align}
+	where $\alpha > 0$, $C > 0$, and $K$ is a nonnegative integer.
+\end{enumerate}
+Then in a neighborhood of any $\Lambda_0 \in \Omega$ there exist invertible linear transformations
+\begin{equation}\label{conjlemmaP}
+\begin{aligned}
+P_+(x, \Lambda) &= I + \Theta_+(x, \Lambda) \\
+P_-(x, \Lambda) &= I + \Theta_-(x, \Lambda) 
+\end{aligned}
+\end{equation}
+defined on $\R^+$ and $\R^-$, respectively, such that
+\begin{enumerate}[(i)]
+\item The change of coordinates $W = P_\pm Z$ reduces \eqref{EVPconj} to the equations on $\R^\pm$
+\begin{align}\label{conjZ}
+Z'(x) = A^\pm(\Lambda) Z(x) + P_\pm(x, \Lambda)^{-1} F(x)
+\end{align}
+
+\item For any fixed $0 < \tilde{\theta} < \theta$, $0 \leq k \leq K+1$, and $j \geq 0$ we have the decay rates
+\begin{align}\label{conjthetadecay}
+\left| \partial_\Lambda^j \partial_x^k \Theta_\pm \right| \leq C(j, k)e^{-\tilde{\theta}|x|}
+\end{align}
+\end{enumerate}
+\end{lemma}
+
+\subsection{Solutions in center subspace}\label{sec:conjvareq}
+
+We first apply the conjugation lemma to the equation
+\begin{equation}\label{vareqlambda}
+V'(x) = A(Q(x); \lambda) V'(x),
+\end{equation}
+where $A(Q(x); \lambda) = A(Q(x)) + \lambda B$. For all $\lambda$, $A(Q(x); \lambda)$ decays exponentially to the constant-coefficient matrix $A(\lambda)$, i.e. 
+\[
+|A(Q(x); \lambda) - A(\lambda)| \leq C e^{-\alpha_0 |x|}
+\]
+Choose $\alpha > 0$ with $\alpha_0/2 < \alpha < \alpha_0$, and let $\eta = \alpha_0 - \alpha$. Using the conjugation lemma on $\R^+$ with $\Lambda = \lambda$ and $\Lambda_0 = 0$, there exists $\delta_1 > 0$ and an invertible linear transformation 
+\begin{equation}\label{defPplus}
+P^+(x; \lambda) = I + \Theta^+(x; \Lambda)
+\end{equation}
+such that for all $|\lambda| < \delta_1$, the change of coordinates $V(x) = P^+(x; \lambda) Z^+(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^+)'(x) = A(\lambda) Z^+(x)$, and $\Theta^+(x; \lambda)$ has the uniform decay rate
+\begin{equation}\label{Thetadecay}
+|\Theta^+(x; \lambda)| \leq C e^{-\alpha |x|}.
+\end{equation}
+which holds for derivatives with respect to $x$ and $\lambda$. It follows from the definition \cref{defAB} of $A(Q(x))$ and symmetry relations \cref{genODErev} that $A(Q(x); \lambda) = -R A(Q(-x); -\lambda)R$, where $R$ is standard reversor operator. For $x \in \R^-$ and $|\lambda| < \delta_1$, define $P^-(x; \lambda)$ by
+\begin{equation}\label{defPminus}
+P^-(x; \lambda) = RP^+(-x; -\lambda)R.
+\end{equation}
+By a straightforward adaptation of the proof of the conjugation lemma in \cite{Zumbrun2009}, the change of coordinates $V(x) = P^-(x; \lambda) Z^-(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^-)'(x) = A(\lambda) Z^-(x)$.
+
+Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$ and $P^{u/s/c}(\lambda)$ the corresponding eigenprojections. $E^s(0)$ and $E^u(0)$ are $m$-dimensional, and $E^c(0)$ is 1-dimensional. Choose $\delta \leq \min\{\delta_0, \delta_1\}$ so that for all $|\lambda| < \delta$, $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ defined in Lemma \ref{nulambdalemma}, and the real part of any other eigenvalue of $A(\lambda)$ lies strictly outside the interval $[-\alpha, \alpha]$. Let
+\begin{equation}
+\Phi(x, y; \lambda) = e^{A(\lambda)(x-y)}
+\end{equation}
+be the evolution of the constant-coefficient equation
+\begin{equation}\label{constcoeffZ}
+Z'(x) = A(\lambda) Z(x)
+\end{equation}
+
+Equation \cref{constcoeffZ} has a solution $Z(x) = V_0(\lambda)e^{\nu(\lambda)x}$ which lies in the eigenspace spanned by $V_0(\lambda)$. In the next lemma, we show that \cref{vareqlambda} has solutions $V^\pm(x; \lambda)$ on $\R^+$ and $\R^-$ which approach $V_0(\lambda)e^{\nu(\lambda)x}$ as $x \rightarrow \pm \infty$. 
+
+\begin{lemma}\label{lemma:Vpm}
+For sufficiently small $|\lambda|$, equation \cref{vareqlambda} has solutions
+\begin{align}\label{Vpmlambda}
+V^\pm(x; \lambda) &= e^{\nu(\lambda)x}(V_0(\lambda) + V_1^\pm(x; \lambda)) && x \in \R^\pm,
+\end{align}
+where
+\begin{equation}\label{Vpmdecay}
+|V_1^\pm(x; \lambda)| \leq C e^{-\alpha |x|}
+\end{equation}
+and we have the symmetry relationship
+\begin{equation}\label{Vpmsymmetry}
+V^-(x; \lambda) = R V^+(-x; -\lambda).
+\end{equation}
+\begin{proof}
+Let $Z(x) = e^{\nu(\lambda)x}V_0(\lambda)$, and define
+\begin{equation}\label{defVplus}
+V^+(x; \lambda) = P^+(x; \lambda) Z(x) = e^{\nu(\lambda)x}P^+(x; \lambda)V_0(\lambda).
+\end{equation}
+By the expansion \eqref{conjlemmaP}, $V^+(x; \lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + V_1^+(x; \lambda))$, where we define $V_1^+(x; \lambda) = \Theta_+(x; \lambda) V_0(\lambda)$
+Similarly, we define 
+\begin{align*}
+V^-(x; \lambda) &= P^-(x; \lambda) Z(x) = RP^+(-x; -\lambda)R e^{\nu(\lambda)x} V_0(\lambda) \\
+&= e^{\nu(\lambda)x} R(I + \Theta_+(-x; -\lambda))R V_0(\lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + R\Theta_+(-x; -\lambda) V_0(-\lambda) ),
+\end{align*}
+and we let $V_1^-(x; \lambda) = R\Theta_+(-x; -\lambda) V_0(-\lambda)$. The decay rate \cref{Vpmdecay} comes from the conjugation lemma.
+\end{proof}
+\end{lemma}
+
+We now use this result to prove the existence of $V^c(x)$ in part (i) of Lemma \ref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, so $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by Lemma \ref{nondegenlemma}, there exists $Y_0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$, and $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Using \cref{lemma:Vpm}, let $V^\pm(x) = V^\pm(x; 0) = V_0 + V_1^\pm(x)$, where $V_1^\pm(x) = \mathcal{O}(e^{-\alpha |x|})$. Since $V^-(0) = R V^+(0)$ and $V^\pm(0) \in \Span \{Y^0 \}$, we must have $V^+(0) = V^-(0)$, thus we define 
+\[
+V^c(x) = \begin{cases}
+V^+(x) & x \geq 0 \\
+V^-(-x) & x \leq 0 
+\end{cases}
+\]
+
+The next lemma evaluates two important inner products involving $V^\pm(0; \lambda)$.
+
+\begin{lemma}\label{lemma:VpmPsiIP}
+\begin{equation}\label{VpmIPs}
+\begin{aligned}
+\langle W_0, V^\pm(0; \lambda) \rangle &= 1 \mp \frac{1}{2} \tilde{M}\lambda + \mathcal{O}(|\lambda|^2), \quad
+\langle \Psi(0), V^\pm(0; \lambda) \rangle = \mp \frac{1}{2} M^c \lambda + \mathcal{O}(|\lambda|^2)
+\end{aligned}
+\end{equation}
+where
+\begin{align*}
+\tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy < \infty, \quad
+M^c = \int_{-\infty}^\infty q(y) v^c(y) dy,
+\end{align*}
+$q(y)$ is the first component of $Q(y)$, and $v^c(y)$ the first component of $V^c(y)$.
+\begin{proof}
+Define $\tilde{V}^+(x; \lambda)$ by
+\begin{equation}\label{deftildeV}
+V^+(x; \lambda) = e^{\nu(\lambda)x}\tilde{V}^+(x; \lambda),
+\end{equation}
+so that $\tilde{V}^+(x, \lambda) \rightarrow V_0(\lambda)$ as $x \rightarrow \infty$. Differentiating with respect to $\lambda$ at $\lambda = 0$, and using $\tilde{V}^+(x; 0) = V^c(x)$ and $\nu'(0) = 1/c$, we have
+\begin{equation}\label{VtildeVderiv}
+\partial_\lambda V^+(x; 0)
+= \partial_\lambda \tilde{V}^+(x; 0) + \frac{1}{c} x V^c(x).
+\end{equation}
+Substituting \cref{deftildeV} into \cref{vareqlambda}, differentiating with respect to $\lambda$ at $\lambda = 0$, and simplifying, 
+\begin{align}\label{tildeVsolves}
+[\partial_\lambda \tilde{V}^+(x; 0)]' &= A(Q(x))\partial_\lambda \tilde{V}^+(x; 0) + \left( B - \frac{1}{c}I\right) V^c(x).
+\end{align}
+
+For convenience, let $Y(x) = \partial_\lambda \tilde{V}^+(x; 0)$. We can decompose the evolution of the equation $V'(x) = A(Q(x)) V(x)$ in an exponential trichotomy on $\R^+$ via the evolution operators
+\begin{align*}
+\tilde{\Phi}_+^{s/u/c}(x, y; 0) &= P^-(y; 0) \Phi(y, x; 0) P^{s/u/c}(0) P_-(x; \lambda)^{-1} && x, y \leq 0.
+\end{align*}
+Since the center subspace is one-dimensional, we have the formula
+\begin{equation*}
+\tilde{\Phi}_+^c(x, y; 0) = \langle W_0, \cdot \rangle V^c(x)
+\end{equation*}
+Using these with equation \cref{tildeVsolves} we can formally write $Y(x)$ in integrated form as
+\begin{equation}\label{Yintegform}
+\begin{aligned}
+Y(x) &= \tilde{\Phi}^s_+(x,0; 0)Y_0^s 
++ \int_0^x \tilde{\Phi}^s(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy \\
+&+ \int_{\infty}^x \tilde{\Phi}^u(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy + V^c(x) \int_{\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy 
+\end{aligned}
+\end{equation}
+Since $V^c(x)$ is bounded and we have exponentially decaying estimates for the stable evolution $\tilde{\Phi}^s(x,y; 0)$ and the unstable evolution $\tilde{\Phi}^u(x,y; 0)$, the first and second integrals are finite for all $x$. Thus to show that \cref{Yintform} is a valid expression for $Y(x)$, it remains to show that the third integral is finite for all $x$. Using the expression for $V^c(x)$ from \cref{varadjsolutions}, 
+\[
+\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle = v_c(y) - \frac{1}{c},
+\]
+where $v^c(x)$ is the first component of $V^c(y)$. Since $|V^c(y) - V_0|\leq C e^{-\alpha y}$ by \ref{lemma:Vcexists} and the first component of $V_0$ is $1/c$, 
+\begin{align*}
+\left| \int_{-\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy \right| 
+\leq C \int_x^{\infty} e^{-\alpha y} dy = C \frac{e^{-\alpha x}}{\alpha},
+\end{align*}
+thus the formal expression \cref{Yintegform} is valid. 
+
+Evaluating \cref{Yintegform} at $x = 0$ and taking the inner product with $W_0$, 
+\begin{align}\label{W0IPwithtildeV}
+\langle W_0, \partial_\lambda \tilde{V}^+(x; 0) \rangle
+&= \langle W_0, V^c(0) \rangle \int_{\infty}^0 \left(v_0(y) - \frac{1}{c}\right) dy 
+= -\int_0^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy = -\frac{1}{2} \tilde{M},
+\end{align}
+since $v^c(y)$ is an even function. Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equations \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle W_0, V^c(0)\rangle = 1$, we obtain the first equation in \cref{VpmIPs}.
+
+Evaluating \cref{Yintegform} at $x = 0$ and taking the inner product with $\Psi(0)$, 
+\begin{align*}
+\langle \Psi(0), \partial_\lambda \tilde{V}^+(x; 0)  \rangle
+&= \int_{\infty}^0 \langle \Psi(0), \tilde{\Phi}_+^u(0,y; 0) B V^c(y) \rangle dy
+= \int_{\infty}^0 \langle \Psi(0), \tilde{\Phi}_+^u(0,0; 0) \tilde{\Phi}(0,y; 0) B V^c(y) \rangle dy,
+\end{align*}
+since $\tilde{\Phi}_+^u(0,y; 0) V^c(y) = 0$. For the exponential dichotomy projection $\tilde{\Phi}_+^u(0,0; 0)$, since $\ker \tilde{\Phi}_+^u(0, 0; 0)^* \perp \ran \tilde{\Phi}_+^u(0, 0; 0)$, $\ran \tilde{\Phi}_+^u(0, 0; 0)^* \perp \ker \tilde{\Phi}_+^u(0, 0; 0)$, and $\ker \tilde{\Phi}_+^u(0, 0; 0) = T_{Q(0)} W^s(0) \oplus T_{Q(0)} W^c(0)$, $\tilde{\Phi}_+^u(0, 0; 0)^*$ acts as the identity on $(T_{Q(0)} W^s(0) \oplus T_{Q(0)} W^c(0))^\perp$. Since $\Psi(0) \perp T_{Q(0)} W^s(0)$, $\Psi(0) \in \ran \tilde{\Phi}_+^u(0, 0; 0)^*$, so $\tilde{\Phi}_+^u(0, 0; 0)^* \Psi(0) = \Psi(0)$. It follows that
+\begin{align*}
+\langle \Psi(0), \partial_\lambda \tilde{V}^+(x; 0)  \rangle
+&= \int_{\infty}^0 \langle \tilde{\Phi}(0,y; 0)^* \tilde{\Phi}_+^u(0,0; 0)^* \Psi(0), B V^c(y) \rangle dy = -\int_0^\infty \langle \Psi(y), B V^c(y) \rangle dy \\
+&= -\int_0^\infty q(y) v^c(y) dy = -\frac{1}{2}M^c,
+\end{align*}
+since $q(y)$ is the last component of $\Psi(y)$ and both $v^c(y)$ and $q(y)$ are even functions. Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equations \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle \Psi(0), V^c(0)\rangle = 0$, we obtain the second equation in \cref{VpmIPs}.
+\end{proof}
+\end{lemma}
+
+
+
+
+
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
 
 \end{document}
 
 
-\section{Proofs of stability results}
-
-\begin{equation}\label{PDEeigsystem}
-V'(x) = A(U(x))V(x) + \lambda B V(x),
-\end{equation}
-where $A(U(x))$ is the $(2m+1)\times(2m+1)$ matrix
-\begin{equation}\label{defAphi}
-A(U(x)) = 
-\begin{pmatrix}
-0 & 1 & 0 & \dots & 0 & 0 & 0 \\
-0 & 0 & 1 & \dots & 0 & 0 & 0\\
-&  && \ddots \\
-0 & 0 & 0 & \dots & 1 & 0 & 0 \\
-0 & 0 & 0 & \dots & 0 & 1 & 0 \\
-\partial_{u_1}f(U(x)) - c & \partial_{u_2}f(U(x)) & \partial_{u_3}f(U(x)) & \dots & \partial_{u_{2m-1}}f(U(x)) & \partial_{u_{2m}}f(U(x)) & 1 \\
-0 & 0 & 0 & \dots & 0 & 0 & 0
-\end{pmatrix}
-\end{equation}
+***** 
 
 Using the nondegeneracy condition \eqref{nondegen2}, we can decompose the tangent spaces of the stable and unstable manifolds at $Q(0)$ as
 \begin{align*}
