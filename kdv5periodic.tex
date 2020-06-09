@@ -357,7 +357,7 @@ DF(U^*(x)) & e_{2m}\\
 0 & 0
 \end{pmatrix}, \qquad
 B = \begin{pmatrix}0 & 0 & 0 & 0 \\ & 
-\vdots & & \vdots & \\0 & 0 & 0 & 0 \\1 & 0 & 0 & 0 \end{pmatrix}.
+\vdots & \vdots & \\0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix}.
 \end{equation}
 
 The rest state $(U, k) = (0, 0)$ is an equilibrium of \cref{spsystem2}, but it is not a hyperbolic equilibrium since the matrix $A(0)$ is non-hyperbolic. $A(0)$ has a one-dimensional kernel, which is characterized in the following lemma. 
@@ -557,9 +557,7 @@ We can now state the main theorem of this section, which provides a condition fo
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. Let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{th:perexist}. 
-
-Choose any positive integer $N$. Then for any $r \leq r_*$ there exists $\delta(r,N)$, where $0 < \delta(r,N) < N/|\log r|$, with the following property. There exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta(r,N)$ if and only if
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. Let $\Psi(x)$ be the solution to the adjoint variational equation from Lemma \ref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $r_*$ be as in \cref{th:perexist}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \neq \pm \pi$, and let $r_*$ be as in \cref{th:perexist}. Then for any $r \leq r_*$ there exists $\delta = \delta(r)$ with the following property. There exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta$ if and only if
 \begin{equation}\label{blockmatrixcond}
 E(\lambda) = \det S(\lambda) = 0.
 \end{equation}
@@ -567,34 +565,54 @@ $S(\lambda)$ is the $(2n \times 2n)$ block matrix
 \begin{equation}\label{blockeq}
 S(\lambda) = 
 \begin{pmatrix}
-K(\lambda) -\frac{1}{2} \tilde{M} K_1(\lambda) & - \lambda^2 \tilde{M}^c I \\
--\frac{1}{2} \lambda M^c K_1(\lambda) & A - \lambda^2 MI 
+\tilde{K}(\lambda) + C_1 & - \lambda^2 \tilde{M}^c I + D_1 \\
+K(\lambda) + C_2 & A - \lambda^2 MI + D_2
 \end{pmatrix}
-+ \begin{pmatrix}C_1 & D_1 \\ C_2 & D_2 \end{pmatrix}
 \end{equation}
 The individual terms in $S(\lambda)$ are as follows.
+
 \begin{enumerate}[(i)]
-\item $K(\lambda)$ is the periodic, bi-diagonal matrix
+\item $\tilde{K}(\lambda)$ and $K(\lambda)$ are the periodic, bi-diagonal matrices
 \begin{align*}
-K(\lambda) &= 
+&\tilde{K}(\lambda) =  
 \begin{pmatrix}
-e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} \\
--e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0}
+\tilde{k}_1^- & \tilde{k}_0^+ \\
+\tilde{k}_1^+ & \tilde{k}_0^-
+\end{pmatrix}, \quad
+K(\lambda) =  
+\begin{pmatrix}
+k_1^- & k_0^+ \\
+k_1^+ & k_0^-
 \end{pmatrix} && n = 2 \\
-K(\lambda) &=  
+&\tilde{K}(\lambda) =  
 \begin{pmatrix}
-e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
--e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_2} \\
-& -e^{\nu(\lambda)X_2} & e^{-\nu(\lambda)X_3} \\
+\tilde{k}_1^- & & & & & \tilde{k}_0^+ \\
+\tilde{k}_1^+ & \tilde{k}_2^- \\
+& \tilde{k}_2^+ & \tilde{k}_3^- \\
   & & \ddots & && \\
-& & & & -e^{\nu(\lambda)X_{n-1}} & e^{-\nu(\lambda)X_0}
-\end{pmatrix} && n > 2.
+& & & & \tilde{k}_{n-1}^+ & \tilde{k}_0^-
+\end{pmatrix}, \quad
+K(\lambda) =  
+\begin{pmatrix}
+k_1^- & & & & & k_0^+ \\
+k_1^+ & k_2^- \\
+& k_2^+ & k_3^- \\
+  & & \ddots & && \\
+& & & & k_{n-1}^+ & k_0^-
+\end{pmatrix} && n > 2
 \end{align*}
-$\nu(\lambda)$ is defined in Lemma \ref{nulambdalemmasimple}. $K_1(\lambda)$ is the same matrix as $K(\lambda)$ with all terms positive.
+where
+\begin{align*}
+\tilde{k}_i^- &= e^{-\nu(\lambda)X_i}\left(1 - \frac{1}{2}\lambda \tilde{M} + \mathcal{O}((|\lambda| + r^{1/2})^2) \right),
+\quad \tilde{k}_i^+ = -e^{\nu(\lambda)X_i}\left(1 + \frac{1}{2}\lambda \tilde{M} + \mathcal{O}((|\lambda| + r^{1/2})^2) \right) \\
+k_i^- &= -e^{-\nu(\lambda)X_i}\left(\frac{1}{2}\lambda \tilde{M}^c + \mathcal{O}((|\lambda| + r^{1/2})^2) \right), \quad
+k_i^+ = -e^{\nu(\lambda)X_i}\left(\frac{1}{2}\lambda \tilde{M}^c + \mathcal{O}((|\lambda| + r^{1/2})^2) \right)
+\end{align*}
+
+and $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemmasimple}.
 
 \item $A$ is the symmetric banded matrix
-\begin{equation}\label{Asymm}
-\begin{aligned}
+\begin{align}\label{Asymm}
 A &= \begin{pmatrix}
 -a_1 - a_0 & a_1 + a_0 \\
 a_1 + a_0 & - a_1 - a_0 
@@ -606,8 +624,7 @@ a_0 & -a_0 - a_1 &  a_1 \\
 & \ddots & \ddots & \ddots \\
 a_{n-1} & & & & a_{n-2} & -a_{n-2} - a_{n-1} \\
 \end{pmatrix} && n > 2,
-\end{aligned}
-\end{equation}
+\end{align}
 where
 \begin{align*}
 a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
@@ -615,21 +632,20 @@ a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
 
 \item $M$, $M^c$, $\tilde{M}$, and $\tilde{M}^c$ are  Melnikov-type integrals
 \begin{align*}
-M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy \\
-M^c &= \int_{-\infty}^\infty q(y) v^c(y) dy \\
-\tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy \\
-\tilde{M}^c &= \int_{-\infty}^\infty \partial_c q(y) dy .
+M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy, \quad
+M^c = \int_{-\infty}^\infty q(y) v^c(y) dy \\
+\tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy, \quad
+\tilde{M}^c = \int_{-\infty}^\infty \partial_c q(y) dy
 \end{align*}
-$v^c(y)$ is the first component of $V^c(y)$, which is defined in \cref{varadjsolutions}.
+where $v^c(y)$ is the first component of $V^c(y)$, which is defined in \cref{varadjsolutions}.
 
 \item The remainder matrices are analytic in $\lambda$ and have uniform bounds
 \begin{align*}
-|C_1| &\leq C |\lambda|(|\lambda| + r^{1/2}) \\
-|D_1| &\leq C |\lambda|(|\lambda| + r^{1/2})^2 \\
-|C_2| &\leq C (|\lambda| + r^{1/2})^2 \\
-|D_2| &\leq C (|\lambda| + r^{1/2})^3 
+|C_1| &\leq C |\lambda|(|\lambda| + r^{1/2}), \quad
+|D_1| \leq C |\lambda|(|\lambda| + r^{1/2})^2 \\
+|C_2| &\leq C (|\lambda| + r^{1/2})^2, \quad
+|D_2| \leq C (|\lambda| + r^{1/2})^3 
 \end{align*}
-The constants $C$ depend on $N$.
 \end{enumerate}
 \end{theorem}
 
@@ -877,7 +893,7 @@ Expanding the determinant by minors using the bottom row, we have for $p_2(\nu)$
 \begin{align*}
 p_2(\nu) &= \det(A_0 - \nu I) = -\nu \det(DF(0) - \nu I) = -\nu p_1(\nu),
 \end{align*}
-thus $A(0)$ has the same eigenvalues as $DF(0)$ as well as an additional eigenvalue at 0. The eigenvalues of $DF(0)$ are characterized in Hypothesis \ref{hypeqhyp}, from which (i) follows. The eigenvectors $V_0$ and $W_0$ can be verified directly. The projection on $V_0$ is a standard result from linear algebra.
+thus $A(0)$ has the same eigenvalues as $DF(0)$ as well as an additional eigenvalue at 0. The eigenvalues of $DF(0)$ are characterized in \cref{hyp:hypeq}, from which (i) follows. The eigenvectors $V_0$ and $W_0$ can be verified directly. The projection on $V_0$ is a standard result from linear algebra.
 
 \subsection{Proof of \cref{nondegenlemma}}
 
