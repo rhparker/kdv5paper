@@ -658,15 +658,15 @@ M^c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
 C_1 & D_1 \\ C_2 & D_2
 \end{pmatrix},
 \end{align}
-where
+where the remainder terms are scalars with bounds
 \begin{align*}
 |C_1|, |C_2| &\leq C |\lambda|(|\lambda| + r^{1/2}) \\
-|D_1|, |D_2| &\leq C |\lambda|^2(|\lambda| + r^{1/2}).
+|D_1|, |C_2| &\leq C |\lambda|^2(|\lambda| + r^{1/2}).
 \end{align*}
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
-\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) \\
+\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M^c \tilde{M}^c)\cosh(\nu(\lambda)X) \\
 &\qquad+ \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \Big),
 \end{aligned}
 \end{equation}
@@ -887,7 +887,7 @@ Since $Q(x)$ is a homoclinic orbit in the intersection of $\tilde{W}^u(0)$ and $
 
 \subsection{Proof of Lemma \ref{varadjsolutions}}
 
-For part (i), we can verify directly that $Q'(x)$ is a solution to \cref{vareq2}. The existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below after \cref{lemma:Vcexists}. Letting $V^c = (\tilde{V}^c, 1)$, $V^c(x)' = A(Q(x))V^c(x)$ reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$, thus the first component $v^c(x)$ formally satisfies $\calL(q)v^c = 1$. For part (ii), equation \cref{adjvareq2} can be written in block form as
+For part (i), we can verify directly that $Q'(x)$ is a solution to \cref{vareq2}. The existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below after \cref{lemma:Vpm}. Letting $V^c = (\tilde{V}^c, 1)$, $V^c(x)' = A(Q(x))V^c(x)$ reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$, thus the first component $v^c(x)$ formally satisfies $\calL(q)v^c = 1$. For part (ii), equation \cref{adjvareq2} can be written in block form as
 \[
 W'(x) = - 
 \begin{pmatrix}DF(Q(x))^* & 0 \\ e_{2m}^T & 0 \end{pmatrix} W(x).
@@ -2224,7 +2224,7 @@ we have $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha X^*}|c_i|$. To est
 &= \langle W_0, \Phi^s(X_i, 0; 0)  P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||b|) = \mathcal{O}(e^{-\alpha X_i} |\lambda||b|)
 \end{align*}
 Using this for the rest of the terms in $L_3(\lambda)_i(b, c, d)$, we obtain the bound
-\begin{equation}\label{L3bound}
+\begin{equation}\label{W0L3bound}
 |\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + |\lambda|(e^{-\alpha X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right)
 \end{equation}
 Combining everything and dividing by 2, $a_i^c = \tilde{A}_2(\lambda)_i(b, c, d)$, where $\tilde{A}_2(\lambda)_i(b, c, d)$ has bound \cref{tildeA2bound}.
@@ -2584,6 +2584,96 @@ We can write this in matrix form as in the statement of the lemma, using \cref{d
 \end{lemma}
 
 Theorem \ref{blockmatrixtheorem} combines the results of Lemma \ref{jumpcenteradj} and Lemma \ref{jumpadj} into a single block matrix equation.
+
+\section{Proof of results for periodic single pulse }
+
+\subsection{Proof of Lemma \ref{lemma:1blockmatrix} }
+
+For the periodic single pulse, there is a single length parameter $X_0$, and for the ansatz \cref{Vpiecewise}, there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
+\begin{equation}\label{eigsystemper1p}
+\begin{aligned}
+(W^\pm)'(x) &= A(Q_0^\pm(x); \lambda) W^\pm(x) + G_0^\pm(x; \lambda) + d \lambda^2 \tilde{H}_0^\pm(x)  \\
+W^+(X) &- W^-(-X) = C_0 c \\
+W^\pm(0) &\in \R \Psi(0) \oplus \R \Psi^c(0) \oplus Y^+ \oplus Y^- \\
+W^+(0) - W^-(0) &+ c ( e^{-\nu(\lambda)X_0}V_0^+(0; \lambda) - e^{\nu(\lambda)X_0} V_0^-(0; \lambda)) \in \C \Psi(0) \oplus \C \Psi^c(0)\end{aligned}
+\end{equation}
+Equation \cref{1pblockmatrix} follows directly from \cref{blockmatrixtheorem}. The bounds for $D_1$ and $D_2$ follow from \cref{blockmatrixtheorem} and the fact that $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}. 
+
+For symmetry, suppose that $(W^+(x; c, d, \lambda), W^-(x; c, d, \lambda))$ is a solution to \cref{eigsystemper1p}. Since the periodic single pulse is symmetric, $Q_0^-(x) = R Q_0^+(-x)$ and $V_0^-(x; \lambda) = R V_0^+(-x; -\lambda)$, from which it follows that $G_0^-(x; \lambda) = -R G_0^+(-x; -\lambda)R$. Since $Y^+ = R Y^-$, $R \Psi(0) = \Psi(0)$, and $R \Psi^c(0) = \Psi^c(0)$, if we replace $(c, d, \lambda)$ by $(-c, d, -\lambda)$, equations \cref{eigsystemper1p} are satisfied by $(-RW^-(-x; c, d, \lambda), -RW^+(-x; c, d, \lambda)$. Since \cref{eigsystemper1p} has a unique solution for a given $(c, d, \lambda)$, 
+\[
+\left(W^+(x; c, d, -\lambda), W^-(x; c, d, -\lambda)\right)
+= -\left(RW^-(-x; -c, d, \lambda), RW^+(-x; -c, d, \lambda)\right).
+\]
+Since $R \Psi(0) = \Psi(0)$ and $R W_0 = W_0$, the jump conditions become
+\begin{align*}
+\langle W_0, W^+(0; c, d, -\lambda) - W^-(0; c, d, -\lambda) \rangle &= \langle W_0, W^+(0; -c, d, \lambda) - W^-(0; -c, d, \lambda) \rangle \\
+\langle \Psi(0), W^+(0; c, d, -\lambda) - W^-(0; c, d, -\lambda) \rangle &= \langle \Psi(0), W^+(0; -c, d, \lambda) - W^-(0; -c, d, \lambda) \rangle 
+\end{align*}
+Since $W(x; c, d; \lambda)$ is linear in $(c, d)$,
+\begin{align*}
+S(-\lambda) &= K S(\lambda), \quad K = \begin{pmatrix}-1 & 0 \\ 0 & 1 \end{pmatrix},
+\end{align*}
+thus $\det S(-\lambda) = \det K \det S(\lambda) = -\det S(\lambda)$, and we compute $\det S(\lambda)$ directly to get \cref{1pblockmatrixdet}.
+
+\section{Proof of Theorem \ref{theorem:1pess} }
+
+First, we make a change of variables to simplify the problem. Since $\nu'(0) = 1/c$ and $\nu(0) = 0$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in Taylor series about $\mu = 0$,
+\begin{equation}\label{2plambdamu}
+\lambda = \nu^{-1}(\mu) = c \mu + \mathcal{O}(\mu^3)
+\end{equation}
+Substituting this into \cref{1pblockmatrixdet} and simplifying, we obtain the equation
+\begin{equation}\label{1pdetmu}
+\det S(\mu, r) = c^2 \mu^2 \left( 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c \mu (M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2}) \right)
+\end{equation}
+For convenience, let $K = M \tilde{M} - M_c \tilde{M}_c$. Since we are looking for the nonzero essential spectrum eigenvalues, and we know there is an eigenvalue with algebraic multiplicity 2 at 0, we divide by $c \mu^2$ to get the equation
+\begin{equation}\label{1pdetmu2}
+E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2})
+\end{equation}
+Choose positive integer $m \leq N_1$. For our ansatz, we take
+\begin{equation}\label{singlemu}
+\mu = \frac{m \pi i}{X + c \frac{K}{2 M}} + \frac{h}{X}
+\end{equation}
+Factoring out an $X$ in the denominator, and expanding the denominator in a Taylor series, which we can do for sufficiently large $X$,
+\begin{align*}
+\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + \frac{h}{X} \\
+&= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + \frac{h}{X}
+\end{align*}
+Substituting this into \cref{1pdetmu2} and expanding the $\sinh$ and $\cosh$ terms in a Taylor series about $m \pi i$,
+\begin{align*}
+E(h, r) &= 2 M (-1)^m \left( -\frac{m \pi c K i}{2 M X} + \frac{m \pi c^2 K^2 i}{4 M^2 X^2} + h + \mathcal{O}\left(\frac{1}{X^3}\right) \right) \left(1 + \mathcal{O}\left( \frac{1}{X} + r^{1/2} \right) \right) \\
+&\qquad+ c K (-1)^m \left( \frac{m \pi i}{X} - c \frac{m \pi K i}{2 M X^2} + \frac{h}{X} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) \left( 1 + \mathcal{O}\left(\frac{1}{X^2}\right) \right) \\
+&\qquad+ \mathcal{O}\left( \frac{1}{X} \left( \frac{1}{X^2} + r^{1/2} \right) \right) \\
+&= (-1)^m\left( 2M + \frac{cK}{X} \right) h + \mathcal{O}\left( \frac{1}{X} \left( \frac{1}{X} + r^{1/2} \right) \right)
+\end{align*}
+Dividing by $(-1)^m$, we wish to solve 
+\begin{align*}
+G_m(h, r) = \left( 2M + \frac{cK}{X} \right)h + \mathcal{O}\left( \frac{1}{X} \left( \frac{1}{X} + r^{1/2} \right) \right)
+\end{align*}
+Since $X = X(r) = \mathcal{O}(|\log r|)$, this becomes
+\begin{align*}
+G_m(h, r) = \left( 2M + \mathcal{O}\left( \frac{1}{|\log r|} \right)\right) h + \mathcal{O}\left( \frac{1}{|\log r|^2} \right),
+\end{align*}
+where we subsumed the faster decaying $\mathcal{O}(r^{1/2})$ term into the slower decaying $1/|\log r|^2$ remainder term. Since
+\begin{align*}
+G_m(0,0) &= 0 \\
+\partial_h G_m(0,0) &= 2M \neq 0,
+\end{align*}
+we can use the implicit function theorem to solve for $h$ in terms of $r$ near $(h,r) = (0,0)$. Specifically, there exists $r_1^m \leq r_0$ and a unique smooth function $h_m(r)$ with $h_m(0) = 0$ such that for all $r \leq r_1^m$, $G_m(h_m(r),r) = 0$. Expanding $h_m$ in a Taylor series about $r = 0$,
+\[
+h_m(r) = \mathcal{O}\left( \frac{1}{|\log r|^2} \right)
+\]
+Let $r_1 = \min\{ r_1^1, \dots, r_1^{N_1} \}$. Substituting $h_m(r)$ into \cref{singlemu} for $m = 1, \dots, N_1$, there are essential spectrum eigenvalues located at
+\[
+\mu_m(r) = \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+\]
+Changing variables back to $\lambda$, these are located at
+\[
+\lambda_m(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+\]
+By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m(r)$ is pure imaginary and there is another essential spectrum eigenvalue $\lambda_{-m}(r) = -\lambda_m(r)$. We conclude that the nonzero essential spectrum eigenvalues are given by $\lambda = \pm \lambda_m^{\text{ess}}(r)$ for $m = 1, \dots, N_1$, where
+\[
+\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right).
+\]
 
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
