@@ -666,8 +666,7 @@ where the remainder terms are scalars with bounds
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
-\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda|^2 + r^{1/2})) + \lambda(M \tilde{M} - M^c \tilde{M}^c)\cosh(\nu(\lambda)X) \\
-&\qquad+ \mathcal{O}(|\lambda|(|\lambda|^2 + r^{1/2}) \Big),
+\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} - M^c \tilde{M}^c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} ) \Big),
 \end{aligned}
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
@@ -676,9 +675,9 @@ and $\det S(-\lambda) = -\det S(\lambda)$.
 Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse. 
 
 \begin{theorem}\label{theorem:1pess}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{th:perexist}, and let $\delta(r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{1pess}
-\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{2 M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M^c\tilde{M^c}}{2 M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
 is on the imaginary axis.
 \end{theorem}
@@ -687,7 +686,7 @@ is on the imaginary axis.
 
 For the periodic double pulse, the block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next lemma.
 
-\begin{lemma}\label{lemmma:2pblockmatrix}
+\begin{lemma}\label{lemma:2blockmatrix}
 For a periodic 2-pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is the $4 \times 4$ matrix
 \begin{align}\label{dpSmatrix}
 S(\lambda) = 
@@ -706,8 +705,7 @@ a = \langle \Psi(X_0), Q'(-X_0) \rangle + \langle \Psi(X_1), Q'(-X_1) \rangle,
 the remainder matrices are $2\times2$ matrices with bounds given in \cref{blockmatrixtheorem}, and the rest of the terms are defined in \cref{blockmatrixtheorem}. In addition,
 \begin{equation}\label{2pblockmatrixdet}
 \begin{aligned}
-\det S(\lambda, r) &= -2 \lambda^2 (2a + \lambda^2 M)\left( M \sinh(\nu(\lambda)X) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\nu(\lambda)X) \right) \\
-&\qquad+ \mathcal{O}\left(|\lambda|^2(|\lambda| + r^{1/2})^4\right),
+\det S(\lambda, r) &= -2 \lambda^2 (2a + \lambda^2 M)\left( M \sinh(\nu(\lambda)X) + \lambda(M \tilde{M} - M^c \tilde{M}^c)\cosh(\nu(\lambda)X) \right) + \mathcal{O}\left((|\lambda| + r^{1/2})^5 \right),
 \end{aligned}
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
@@ -716,15 +714,15 @@ and $\det S(-\lambda) = -\det S(\lambda)$.
 We will consider only the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale like $r^{1/2}$ and the essential spectrum eigenvalues scale like $1/|\log r|$, we can always choose $r$ sufficiently small so that this is the case. We will state the result separately for asymmetric and symmetric periodic 2-pulses. First, we locate the eigenvalues for asymmetric 2-pulses. As long as $r$ is chosen sufficiently small, the interaction eigenvalue pattern is determined by the parameter $m_0$, and the essential spectrum eigenvalues do not interfere.
 
 \begin{theorem}\label{theorem:2peigsassym}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{2pulsebifurcation}. Choose any integer $N > 0$, and let $\delta(N,r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1, N) \leq r_*$ with the following property. For any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{2pulsebifurcation}, and let $\delta(r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1) \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
 
 \begin{enumerate}[(i)]
 \item There is an eigenvalue at 0 with algebraic multiplicity 3. 
-\item Let $N_1 \leq N$ be the largest positive integer such that $N_1/|\log r| < \delta(N,r)$. Then there are $2N_1$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N_1 \}$, where
-\[
-\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M_c\tilde{M_c}}{M}} +  \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
-\]
-is on the imaginary axis and $X$ is given by \cref{Xdomain}.
+\item Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
+\begin{align}\label{1pess}
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M^c\tilde{M^c}}{M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
+\end{align}
+is on the imaginary axis.
 
 \item There is a pair of interaction eigenvalues located at $\lambda = \pm \lambda^{\text{int}}(r)$, where
 	\begin{align*}
@@ -1358,14 +1356,14 @@ where $r \in \mathcal{R}$. All derivatives of the remainder term with respect to
 \begin{proof}
 Using \cite[Lemma 6.1(i)]{Sandstede1998}, for $x > 0$ sufficiently large,
 \begin{equation}\label{IPalphabeta}
-\xi_i = \langle \Psi(-x), Q(x) \rangle
+\langle \Psi(-x), Q(x) \rangle
 = p_0 e^{-2 \alpha_0 x} \sin(2 \beta_0 x + \phi) + \mathcal{O}(e^{-(2 \alpha_0 + \gamma) x})
 \end{equation}
 where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. We do not have a parameter $\mu$ in this system, so the $\mu$-dependent terms in \cite[Lemma 6.1(i)]{Sandstede1998} are constant and $\beta(\mu) = \beta_0$. We will always take $\gamma \leq 1$. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{Xiscale} and \cref{bjscale},
 \begin{align}\label{diff2}
-\xi_i = p_0 e^{\alpha \phi / \beta_0 } b_i r \sin \left( - \rho \log (b_i r) \right) - p_0 e^{\alpha \phi / \beta_0 } b_{i-1} r \sin \left( -\rho \log (b_{i-1} r) \right) + \mathcal{O}(r^{1 + \gamma / 2 \alpha}) &= 0.
+\langle \Psi(-x), Q(x) \rangle = p_0 e^{\alpha \phi / \beta_0 } b_i r \sin \left( - \rho \log (b_i r) \right) - p_0 e^{\alpha \phi / \beta_0 } b_{i-1} r \sin \left( -\rho \log (b_{i-1} r) \right) + \mathcal{O}(r^{1 + \gamma / 2 \alpha}) &= 0.
 \end{align}
-Dividing both sides by $r > 0$ and simplifying, this becomes
+Dividing both sides by $r > 0$ and $p_0 e^{\alpha \phi / \beta_0 } > 0$ and simplifying, we obtain the jump conditions
 \begin{align}\label{diff3}
 \xi_i = b_i \sin \left( -\rho \log b_i \right) - b_{i-1} \sin \left( -\rho \log b_{i-1} \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) &= 0,
 \end{align} 
@@ -2589,13 +2587,13 @@ Theorem \ref{blockmatrixtheorem} combines the results of Lemma \ref{jumpcenterad
 
 \subsection{Proof of Lemma \ref{lemma:1blockmatrix} }
 
-For the periodic single pulse, there is a single length parameter $X_0$, and for the ansatz \cref{Vpiecewise}, there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
+For the periodic single pulse, there is a single length parameter $X_0 = X$, and for the ansatz \cref{Vpiecewise}, there is only one parameter $c$ and one parameter $d$. The system of equations \cref{eigsystem} becomes
 \begin{equation}\label{eigsystemper1p}
 \begin{aligned}
 (W^\pm)'(x) &= A(Q_0^\pm(x); \lambda) W^\pm(x) + G_0^\pm(x; \lambda) + d \lambda^2 \tilde{H}_0^\pm(x)  \\
 W^+(X) &- W^-(-X) = C_0 c \\
 W^\pm(0) &\in \R \Psi(0) \oplus \R \Psi^c(0) \oplus Y^+ \oplus Y^- \\
-W^+(0) - W^-(0) &+ c ( e^{-\nu(\lambda)X_0}V_0^+(0; \lambda) - e^{\nu(\lambda)X_0} V_0^-(0; \lambda)) \in \C \Psi(0) \oplus \C \Psi^c(0)\end{aligned}
+W^+(0) - W^-(0) &+ c ( e^{-\nu(\lambda)X}V_0^+(0; \lambda) - e^{\nu(\lambda)X} V_0^-(0; \lambda)) \in \C \Psi(0) \oplus \C \Psi^c(0)\end{aligned}
 \end{equation}
 Equation \cref{1pblockmatrix} follows directly from \cref{blockmatrixtheorem}. The bounds for $D_1$ and $D_2$ follow from \cref{blockmatrixtheorem} and the fact that $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}. 
 
@@ -2613,67 +2611,184 @@ Since $W(x; c, d; \lambda)$ is linear in $(c, d)$,
 \begin{align*}
 S(-\lambda) &= K S(\lambda), \quad K = \begin{pmatrix}-1 & 0 \\ 0 & 1 \end{pmatrix},
 \end{align*}
-thus $\det S(-\lambda) = \det K \det S(\lambda) = -\det S(\lambda)$, and we compute $\det S(\lambda)$ directly to get \cref{1pblockmatrixdet}.
+thus $\det S(-\lambda) = \det K \det S(\lambda) = -\det S(\lambda)$. We compute the determinant directly to get \cref{1pblockmatrixdet}.
 
-\section{Proof of Theorem \ref{theorem:1pess} }
+\subsection{Proof of Theorem \ref{theorem:1pess} }
 
 First, we make a change of variables to simplify the problem. Since $\nu'(0) = 1/c$ and $\nu(0) = 0$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in Taylor series about $\mu = 0$,
-\begin{equation}\label{2plambdamu}
+\begin{equation}\label{lambdamu}
 \lambda = \nu^{-1}(\mu) = c \mu + \mathcal{O}(\mu^3)
 \end{equation}
-Substituting this into \cref{1pblockmatrixdet} and simplifying, we obtain the equation
-\begin{equation}\label{1pdetmu}
-\det S(\mu, r) = c^2 \mu^2 \left( 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c \mu (M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2}) \right)
-\end{equation}
-For convenience, let $K = M \tilde{M} - M_c \tilde{M}_c$. Since we are looking for the nonzero essential spectrum eigenvalues, and we know there is an eigenvalue with algebraic multiplicity 2 at 0, we divide by $c \mu^2$ to get the equation
+Substituting this into \cref{1pblockmatrixdet}, dividing by $c \mu^2$ since we are looking for the nonzero essential spectrum eigenvalues, and simplifying, we wish to solve
 \begin{equation}\label{1pdetmu2}
-E(\mu, r) = 2 M \sinh(\mu X)(1 + \mathcal{O}(|\mu| + r^{1/2})) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2})
+2 M \sinh(\mu X) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu|^2 + r^{1/2} X ) = 0
 \end{equation}
-Choose positive integer $m \leq N_1$. For our ansatz, we take
+where $K = M \tilde{M} - M_c \tilde{M}_c$. Choose any positive integer $m \leq N$, and take the ansatz
 \begin{equation}\label{singlemu}
 \mu = \frac{m \pi i}{X + c \frac{K}{2 M}} + \frac{h}{X}
 \end{equation}
-Factoring out an $X$ in the denominator, and expanding the denominator in a Taylor series, which we can do for sufficiently large $X$,
+For sufficiently large $X$, we expand the denominator of \cref{singlemu} in a Taylor series to get
+\begin{align}\label{singlemuTaylor}
+\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + \frac{h}{X}
+= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + \frac{h}{X}
+\end{align}
+Substituting this into \cref{1pdetmu2}, expanding the $\sinh$ and $\cosh$ terms in a Taylor series about $m \pi i$, and simplifying, equation \cref{1pdetmu2} is equivalent to 
 \begin{align*}
-\mu &= \frac{m \pi i}{X\left(1  + c \frac{K}{2 M X} \right) } + \frac{h}{X} \\
-&= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + \frac{h}{X}
+\left( 2M + \frac{cK}{X} \right)h + \mathcal{O}\left( \frac{m+h}{X}\left(\frac{m+h}{X} + r^{1/2} \right) \right) = 0
 \end{align*}
-Substituting this into \cref{1pdetmu2} and expanding the $\sinh$ and $\cosh$ terms in a Taylor series about $m \pi i$,
+Since $X = X(r) = \mathcal{O}(|\log r|)$ and $|\log r|^{-1}$ is lower order than $r^{1/2}$, we wish to solve
 \begin{align*}
-E(h, r) &= 2 M (-1)^m \left( -\frac{m \pi c K i}{2 M X} + \frac{m \pi c^2 K^2 i}{4 M^2 X^2} + h + \mathcal{O}\left(\frac{1}{X^3}\right) \right) \left(1 + \mathcal{O}\left( \frac{1}{X} + r^{1/2} \right) \right) \\
-&\qquad+ c K (-1)^m \left( \frac{m \pi i}{X} - c \frac{m \pi K i}{2 M X^2} + \frac{h}{X} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) \left( 1 + \mathcal{O}\left(\frac{1}{X^2}\right) \right) \\
-&\qquad+ \mathcal{O}\left( \frac{1}{X} \left( \frac{1}{X^2} + r^{1/2} \right) \right) \\
-&= (-1)^m\left( 2M + \frac{cK}{X} \right) h + \mathcal{O}\left( \frac{1}{X} \left( \frac{1}{X} + r^{1/2} \right) \right)
+G_m(h, r) = \left( 2M + \mathcal{O}\left( \frac{1}{|\log r|} \right)\right) h + \mathcal{O}\left( \frac{(m+h)^2}{|\log r|^2} \right) = 0.
 \end{align*}
-Dividing by $(-1)^m$, we wish to solve 
-\begin{align*}
-G_m(h, r) = \left( 2M + \frac{cK}{X} \right)h + \mathcal{O}\left( \frac{1}{X} \left( \frac{1}{X} + r^{1/2} \right) \right)
-\end{align*}
-Since $X = X(r) = \mathcal{O}(|\log r|)$, this becomes
-\begin{align*}
-G_m(h, r) = \left( 2M + \mathcal{O}\left( \frac{1}{|\log r|} \right)\right) h + \mathcal{O}\left( \frac{1}{|\log r|^2} \right),
-\end{align*}
-where we subsumed the faster decaying $\mathcal{O}(r^{1/2})$ term into the slower decaying $1/|\log r|^2$ remainder term. Since
-\begin{align*}
-G_m(0,0) &= 0 \\
-\partial_h G_m(0,0) &= 2M \neq 0,
-\end{align*}
-we can use the implicit function theorem to solve for $h$ in terms of $r$ near $(h,r) = (0,0)$. Specifically, there exists $r_1^m \leq r_0$ and a unique smooth function $h_m(r)$ with $h_m(0) = 0$ such that for all $r \leq r_1^m$, $G_m(h_m(r),r) = 0$. Expanding $h_m$ in a Taylor series about $r = 0$,
+Since $G_m(0,0) = 0$ and $\partial_h G_m(0,0) = 2M \neq 0$, we can use the implicit function theorem to find $r_1^m \leq r_*$ and a unique smooth function $h_m(r)$ with $h_m(0) = 0$ such that for all $r \leq r_1^m$, $G_m(h_m(r),r) = 0$. Expanding $h_m(r)$ in a Taylor series about $r = 0$,
 \[
-h_m(r) = \mathcal{O}\left( \frac{1}{|\log r|^2} \right)
+h_m(r) = \mathcal{O}\left( \frac{m^2}{|\log r|^2} \right)
 \]
-Let $r_1 = \min\{ r_1^1, \dots, r_1^{N_1} \}$. Substituting $h_m(r)$ into \cref{singlemu} for $m = 1, \dots, N_1$, there are essential spectrum eigenvalues located at
+Let $r_1 = \min\{ r_1^1, \dots, r_1^N \}$. Substituting $h_m(r)$ into \cref{singlemu}, the essential spectrum eigenvalues are located at
+\begin{align*}
+\mu_m(r) &= \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{m^2}{|\log r|^3} \right) & m = 1, \dots, N
+\end{align*}
+Changing variables back to $\lambda$ and using \cref{lambdamu},
 \[
-\mu_m(r) = \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+\lambda_m(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \]
-Changing variables back to $\lambda$, these are located at
+By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m(r)$ is pure imaginary and there is another essential spectrum eigenvalue $\lambda_{-m}(r) = -\lambda_m(r)$. 
+
+\section{Proof of results for periodic double pulse}
+
+\subsection{Proof of Lemma \ref{lemma:2blockmatrix} }
+
+The periodic double pulse is symmetric, i.e. $Q_i^-(x) = R Q_{i-1}^+(-x)$, where the subscript $i$ is taken $\Mod 2$. Let $(W_0^-(x), W_0^+(x), W_1^-(x), W_1^+(x)$ be the unique solution to \cref{eigsystem0} for given $(c_1, c_0, d_1, d_0, \lambda)$. Following the same procedure as in the proof of \cref{lemma:1blockmatrix}, when $(c_1, c_0, d_1, d_0, \lambda) \mapsto (-c_1, -c_0, d_0, d_1, -\lambda)$, equations \cref{eigsystem0} are satisfied by $(-R W_1^+(-x), -R W_1^-(-x), -R W_0^+(-x), -R W_1^-(-x))$. Since this solution is unique, we compute the jump conditions and conclude that $S(-\lambda) = K_1 S(\lambda) K_2$, where
+\begin{align*}
+K_1 = \begin{pmatrix}T & 0 \\ 0 & T \end{pmatrix}, \quad
+K_2 = \begin{pmatrix}-I & 0 \\ 0 & T \end{pmatrix}, \quad
+T = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+\end{align*}
+It follows that $\det S(-\lambda) = \det K_1 \det S(\lambda) \det K_2 = -\det S(\lambda)$.
+The determinant of $S(\lambda)$ is computed directly with the aid of Mathematica.
+
+\subsection{Change of variables}
+
+As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambda = \nu^{-1}(\mu)$ so that $\det S(\lambda)$ becomes 
+\begin{equation}\label{2pdetmu2}
+\begin{aligned}
+\det S(\mu, r) &= -2 c^2 \mu^2 (2a + c^2 \mu^2 M)\left( M \sinh(\mu X) + \lambda(M \tilde{M} - M_c \tilde{M}_c)\cosh(\mu X) \right) + \mathcal{O}\left((|\mu| + r^{1/2})^5 \right).
+\end{aligned}
+\end{equation}
+Define
+\begin{align}
+\mu^*_{int} &= \sqrt{-\frac{2 a}{M c^2}} \label{defmustarint} \\
+\mu^*_m &= \frac{m \pi i}{X + c \frac{K}{M}}  && m = 1, \dots, N \label{defmustaress}
+\end{align}
+Since $\mu^*_{int} = \mathcal{O}(r^{1/2})$ and $\mu^*_1 = \mathcal{O}(1/|\log r|)$, we can choose $r_0 \leq r_*$ sufficiently small so that $|\mu^*_{int}| \leq \frac{1}{2} |\mu^*_1|$. This will guarantee that the interaction eigenvalues and nonzero essential spectrum eigenvalues do not interfere for $r \leq r_0$.
+
+\subsection{Essential spectrum eigenvalues}
+
+Choose any positive integer $m \leq N$, and take the ansatz $\mu = \mu^*_m + \frac{h}{X}$. As in the proof of \cref{theorem:1pess}, we expand the denominator of $\mu^*_m$ in a Taylor series, substitute the result into \cref{2pdetmu2}, and simplify to obtain the equation
+\begin{align*}
+\left( 2a + M c^2 \left(\frac{m \pi i +h}{X} \right)^2 \right) \left( M + \frac{cK}{X} \right)h
++ \mathcal{O}\left( \left(\frac{m+h}{X} \right)^3 \right) = 0,
+\end{align*}
+where we used the fact that $r^{1/2}$ is higher order than $\mu$. Since $a = \mathcal{O}(r)$ and $X = \mathcal{O}(|\log r|)$, multiply by $X^2$ and simplify to get
+\begin{align}
+G_m(h, r) = M c^2 (m \pi i + h)^2 h
++ \mathcal{O}\left( \frac{(m+h)^3}{|\log r|} \right) = 0.
+\end{align}
+Since $G_m(0,0) = 0$ and $\partial_h G_m(0,0) = -M c^2 m^2 \pi^2 \neq 0$, the result follows from the implicit function theorem and Hamiltonian symmetry as in the proof of \cref{theorem:1pess}.
+
+\subsection{Interaction eigenvalues}
+
+The interaction eigenvalues will be at approximately $\mu = \pm \mu_{\int}^*$, which is defined in \cref{defmustarint}. The interaction pattern will thus be determined by the sign of $a$, which is defined in \cref{2pa}. First, we prove the following lemma.
+
+\begin{lemma}\label{lemma:Hoverlaplemma}
+Define the functions $H: \R^+ \times \R^+ \rightarrow \R$ and $H_1: \R^+ \times \R^+ \rightarrow \R$ by 
+\begin{align}
+H(b_0, b_1) &= b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) \label{perdefH} \\
+H_1(b_0, b_1) &= b_0 \left[ \rho \cos \left( -\rho \log b_0 \right) - \sin \left( -\rho \log b_0 \right) \right] + b_1 \left[ \rho \cos \left( -\rho \log b_1 \right) - \sin \left( -\rho \log b_1 \right) \right] \label{perdefH1}
+\end{align}
+Then the zero sets of $H(b_0, b_1)$ and $H_1(b_0, b_1)$ intersect only at the discrete set of points $(b_0, b_1) = (b_k^*, b_k^*), k \in \Z$, where $b^*_k = e^{-\frac{1}{\rho} (k \pi + p^*) }$ are the pitchfork bifurcation points from \cref{2pulsebifurcation}.
+\begin{proof}
+Let $f(x) = x \sin \left( -\rho \log x \right)$. Then $H(b_0, b_1) = f(b_0) - f(b_1)$ and $H_1(b_0, b_1) = -b_0 f'(b_0) - b_1 f'(b_1)$. If $H(b_0, b_1) = 0$ then $f'(b_0) = f'(b_1)$, thus since $H_1(b_0, b_1) = 0$, $(b_0 + b_1) f'(b_0) = 0$. If $f'(b_0) = 0$, then by \cref{pitchforkH}, $b_0 = b_k^*$, and so $b_1 = b_k^*$ as well, thus the result holds. Otherwise, $b_0 = -b_1$, which is not possible since $b_0$ and $b_1$ are both positive.
+\end{proof}
+\end{lemma}
+
+We can now characterize $a$ in terms of the parameterization of the periodic double pulse. 
+
+\begin{lemma}\label{lemma:chara}
+Let $r_*$ be as in Theorem \ref{2pulsebifurcation}. Then for any $r \in \mathcal{R}$ with $r \leq r_*$:
+\begin{enumerate}[(i)]
+	\item For a symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, s_0, r)$, $a = r \tilde{a}(r; m_0, s_0)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. Furthermore $\tilde{a}(0; m_0, s_0) = 0$ if and only if $s_0 = p^*$. For $s_0 \neq p^*$,
+	\begin{equation}\label{symmsigns}
+	\begin{aligned}
+	\tilde{a}(0; 0, s_0) > 0 \text{ and } \tilde{a}(0; 1, s_0) < 0 && s_0 > p^* \\
+	\tilde{a}(0; 0, s_0) < 0 \text{ and } \tilde{a}(0; 1, s_0) > 0 && s_0 < p^*
+	\end{aligned}
+	\end{equation}
+
+	\item For an asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$, $a = r \tilde{a}(r; m_0, s_1)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. The sign of $\tilde{a}(0; m_0, s_0)$ is completely determined by $m_0$ and is given for all $s_1 > p^*$ by
+	\begin{equation}\label{asymmsigns}
+	\begin{aligned}
+	\tilde{a}(0; m_0, s_1) &< 0 && \text{if }m_0 = 0 \\
+	\tilde{a}(0; m_0, s_1) &> 0 && \text{if }m_0 = 1
+	\end{aligned}
+	\end{equation}
+\end{enumerate}	
+\begin{proof}
+Using \cite[Lemma 6.1(ii)]{Sandstede1998}, rescaling as in \cref{jumplemma3}, and simplifying, 
+\begin{align*}
+\langle \Psi(X_i), Q'(-X_i) \rangle &=
+-p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r b_i \left( \rho \cos\left(-\rho \log b_i \right) - \sin \left(-\rho \log b_i \right) \right) + \mathcal{O}(r^{1+\gamma/2\alpha_0}),
+\end{align*}
+from which it follows that
+\begin{align}\label{aform}
+a = -p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r H_1(b_0, b_1),
+\end{align}
+where $H_1$ is defined in \cref{perdefH1}. 
+For part (i), $a = r \tilde{a}(r; m_0, s_0)$, where
+\begin{align*}
+\tilde{a}(r; m_0, s_0) &= -p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r H_1(b_0, b_1) = -2 p_0 \alpha_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho}(m_0 \pi + s_0)} (-1)^{m_0} \left( \rho \cos s_0 - \sin s_0 \right) + \mathcal{O}(r^{\gamma/2\alpha}).
+\end{align*}
+When $r = 0$, $\tilde{a}(0; m_0, s_0) = 0$ if and only if $s_0 = p^* = \arctan \rho$, and the sign of $\tilde{a}(0; m_0, s_0)$ is given by \cref{symmsigns} for $s_0 \neq p^*$. 
+For part (ii), $a = r \tilde{a}(r; m_0, s_1)$, where
+\begin{align*}
+\tilde{a}(r; m_0, s_1) &= -p_0 \alpha_0 e^{\alpha \phi/\beta_0} H_1( b_0(m_0, s_1), b_1(s_1) ) + \mathcal{O}(r^{\gamma/2\alpha}),
+\end{align*}
+where the parameterization $(b_0(m_0, s_1), b_1(s_1))$ is defined in \cref{armpersists}. Since $(b_0(m_0, s_1), b_1(s_1))$ is contained entirely within the zero set of $H(b_0, b_1)$, where $H(b_0, b_1)$ is defined in \cref{perdefH}, it follows from \cref{lemma:Hoverlaplemma} that $\tilde{a}(0; m_0, s_1) = 0$ if and only if $s_1 = p^*$. By continuity in $s_1$, $\tilde{a}(r; m_0, s_1)$ must have the same sign for all $s_1 > p^*$. It only remains to determine that sign. Sending $s_1 \rightarrow \infty$,
+\begin{align*}
+\lim_{s_1 \rightarrow \infty}
+\tilde{a}(0; m_0, s_1) = -p_0 \beta_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho} m_0 \pi} \cos(m_0 \pi) = (-1)^{m_0+1} p_0 \beta_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho} m_0 \pi},
+\end{align*}
+thus the sign of $\tilde{a}(0; m_0, s_1)$ is given by \cref{asymmsigns} for $s_1 > p^*$.
+\end{proof}
+\end{lemma}
+
+We can now find the interaction eigenvalues. To rescale equation \cref{2pdetmu2}, let $a = r \tilde{a}$, where $\tilde{a} = \tilde{a}(r; m_0, s_1)$ is defined in \cref{lemma:chara} and $\tilde{a}(0; m_0, s_1) \neq 0$ since $s_1 > p^*$. Let $\mu^*_{int} = r^{1/2} \tilde{\mu}^*$, where $\tilde{\mu}^* \neq 0$, and take the ansatz $\mu = r^{1/2} \tilde{\mu}^* + r^{1/2}$. Substituting this into \cref{2pdetmu2}, dividing by $-2 c^2 r^{5/2} X$, and using the fact that $\mu = \mathcal{O}(r^{1/2})$ and $X = \mathcal{O}(|\log r|)$, we obtain the equation
 \[
-\lambda_m(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right)
+G(h, r) = M^2 c^2 h (\tilde{\mu}^* + h)^3 (2 \tilde{\mu}^* + h) + \mathcal{O}\left(\frac{1}{|\log r|} \right) = 0
 \]
-By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m(r)$ is pure imaginary and there is another essential spectrum eigenvalue $\lambda_{-m}(r) = -\lambda_m(r)$. We conclude that the nonzero essential spectrum eigenvalues are given by $\lambda = \pm \lambda_m^{\text{ess}}(r)$ for $m = 1, \dots, N_1$, where
+Since $G(0, 0) = 0$ and $\partial_h G(0, 0) = 2 c^2 M^2 (\tilde{\mu}^*)^4 \neq 0$, by the implicit function theorem there exists $r_1 \leq r_0$ and a unique smooth function $h(r)$ with $h(0) = 0$ such that for all $r \leq r_1$, $G(h(r), r) = 0$. 
+
+
+*** can we do better on remainder terms? ***
+
+
+to solve $G(\tilde{h},r) = 0$ for $\tilde{h}$ in terms of $r$ near $\tilde{h} = 0$. Specifically, there exists $r_4 \leq r_0$ and a unique smooth function $\tilde{h}(r)$ with $\tilde{h}(0) = 0$ such that for all $r \leq r_4$, $G(\tilde{h}, r) = 0$. Expanding $\tilde{h}(r)$ in a Taylor series about $r = 0$, for all $r \leq r_4$,
 \[
-\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{1}{|\log r|^3} \right).
+\tilde{h}(r) = \mathcal{O}\left( \frac{1}{|\log r|} + r |\log r|^2 \right) = \mathcal{O}\left( \frac{1}{|\log r|} \right)
 \]
+Undoing the scaling, there is an interaction eigenvalue located at
+\begin{align*}
+\mu(r) = \sqrt{-\frac{\tilde{a}(r)}{M c^2}}r^{1/2} + \mathcal{O}\left( \frac{r^{1/2}}{|\log r|} \right)
+\end{align*}
+Changing variables back to $\lambda$, this is located at
+\begin{align*}
+\lambda(r) = \sqrt{-\frac{2 \tilde{a}(r)}{M}}r^{1/2} + \mathcal{O}\left( \frac{r^{1/2}}{|\log r|} \right)
+\end{align*}
+By Hamiltonian symmetry there is also an eigenvalue at $-\lambda(r)$. Since Hamiltonian symmetry  dicatates that eigenvalues must come in quartets, and there only two eigenvalues of this magnitude, we conclude that for $r \leq r_4$, there is a pair of interaction eigenvalues given by $\lambda = \pm \lambda^{\text{int}}(r)$, where
+\[
+\lambda^{\text{int}}(r) = \sqrt{ -\frac{2 \tilde{a}(r)}{M} }r^{1/2} + \mathcal{O}\left( \frac{r^{1/2}}{|\log r|} \right).
+\]
+These are real if $\tilde{a}(0) < 0$ and purely imaginary if $\tilde{a}(0) > 0$. By \cref{lemma:chara}, the sign of $\tilde{a}(0)$ depends only on $m_0$ and the sign of $M$.
 
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
