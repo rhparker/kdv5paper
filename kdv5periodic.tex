@@ -505,11 +505,17 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 
 \section{Spectrum of periodic multi-pulses}\label{sec:perstab}
 
-We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x)$ be any periodic $n$-pulse solution constructed according to \cref{th:perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
+We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x) = (q_n(x), \partial_x q_n(x), \dots, \partial_x^{2m} q_n(x), 0)$ be any periodic $n$-pulse solution constructed according to \cref{th:perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
 \[
-H^{2m}_{\text{per}}[-X,X] = \left\{ f \in H^{2m}(\R) : f^{(k)}(-X) = f^{(k)}(X) \text{ for } k = 0, \dots, 2m \right\} 
+H^{2m}_{\text{per}}[-X,X] = \left\{ f \in H^{2m}(\R) : f^{(k)}(-X) = f^{(k)}(X) \text{ for } k = 0, \dots, 2m \right\} .
 \]
-Following the spatial dynamics approach from \cref{sec:EVP}, this is equivalent to the first order system with periodic boundary conditions
+By \cref{Ekernel}, $\partial_x \calL(q_n)$ has a kernel with algebraic multiplicity at least 2 and geometric multiplicity at least 1. In the next lemma, we show that there is another kernel eigenfunction for the eigenvalue problem on $H^{2m}_{\text{per}}[-X,X]$. 
+
+\begin{lemma}\label{qnkernel}
+The linear operator $\partial_x \calL(q_n)$ on $H^{2m}_{\text{per}}[-X,X]$ has a kernel eigenfunction $v_n^c$, which is a solution to $\calL(q_n)v_n^c = 1$.
+\end{lemma}
+
+Following the spatial dynamics approach from \cref{sec:EVP}, equation \cref{genPDEeig} on $H^{2m}_{\text{per}}[-X,X]$ is equivalent to the first order system with periodic boundary conditions
 \begin{equation}\label{PDEeigsystemper3}
 \begin{aligned}
 V'(x) &= A(Q_n^*(x))V(x) + \lambda B V(x) \\
@@ -664,18 +670,18 @@ a = \langle \Psi(X_0), Q'(-X_0) \rangle + \langle \Psi(X_1), Q'(-X_1) \rangle.
 \end{equation}
 The remainder matrix is a $4 \times 4$ matrix of the form
 \begin{align}
-R(\lambda)
+R(\lambda) = 
 \begin{pmatrix} 
 c_1(\lambda) & \tilde{c}_1(\lambda) & \lambda d_1(\lambda) & \lambda \tilde{d}_1(\lambda) \\ 
 -c_1(-\lambda) & -\tilde{c}_1(-\lambda) & -\lambda \tilde{d}_1(-\lambda) & -\lambda d_1(-\lambda) \\ 
-c_2(\lambda) & \tilde{c}_2(\lambda) & d_2(\lambda) & \tilde{d}_2(\lambda) \\ 
--c_2(-\lambda) & -\tilde{c}_2(-\lambda) & \tilde{d}_2(-\lambda) & d_2(-\lambda)
+c_2(\lambda) & \tilde{c}_2(\lambda) & d_0 + \lambda d_2(\lambda) & -d_0 + \lambda \tilde{d}_2(\lambda) \\ 
+-c_2(-\lambda) & -\tilde{c}_2(-\lambda) & -d_0 - \lambda \tilde{d}_2(-\lambda) & d_0 - \lambda d_2(-\lambda)
 \end{pmatrix},
 \end{align}
 where the individual entries have bounds
 \begin{align*}
-|c_1|, |\tilde{c}_1| &\leq C (|\lambda| + r^{1/2})^2, \quad |d_1|, |\tilde{d}_1| \leq C (|\lambda| + r^{1/2})^2 \\
-|c_2|, |\tilde{c}_2| &\leq C (|\lambda| + r^{1/2})^2, \quad |d_2|, |\tilde{d}_2| \leq C (|\lambda| + r^{1/2})^3
+|d_0| &\leq C r^{3/2} \\
+|c_i|, |\tilde{c}_i|, |d_i|, |\tilde{d}_i| &\leq C (|\lambda| + r^{1/2})^2 && i = 1, 2
 \end{align*}
 In addition,
 \begin{equation}\label{2pblockmatrixdet}
@@ -855,7 +861,7 @@ We will construct periodic multi-pulses using Lin's method. Rather than construc
 \[
 U_i^\pm(x) = Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x),
 \]
-where the functions $Q^\pm(x; \beta_i^\pm)$ paramaterize the stable and unstable manifolds $\tilde{W}^s(0)$ and $\tilde{W}^u(0)$ near $Q(0)$, and $\tilde{Q}_i^\pm$ are small remainder terms. In essence, we use the small parameters $\beta_i^\pm$ to break the homoclinic orbit $Q(x)$, and then use Lin's method to glue the pieces together. We will show that we can find a unique piecewise solution $U_i^\pm(x)$ which generically has $n$ jumps in a specified direction. A periodic multi-pulse solution exists if and only if these $n$ jumps are all 0.
+where the functions $Q^\pm(x; \beta_i^\pm)$ parameterize the stable and unstable manifolds $\tilde{W}^s(0)$ and $\tilde{W}^u(0)$ near $Q(0)$, and $\tilde{Q}_i^\pm$ are small remainder terms. In essence, we use the small parameters $\beta_i^\pm$ to break the homoclinic orbit $Q(x)$, and then use Lin's method to glue the pieces together. We will show that we can find a unique piecewise solution $U_i^\pm(x)$ which generically has $n$ jumps in a specified direction. A periodic multi-pulse solution exists if and only if these $n$ jumps are all 0.
 
 \subsection{Setup}
 
@@ -1599,6 +1605,15 @@ from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, 
 \section{Proofs of stability results}
 
 As in \cite{Sandstede1998}, we will use Lin's method to construct eigenfunctions, which are solutions to \cref{PDEeigsystemper3}. We will take a piecewise linear combination of the kernel eigenfunctions $\partial_x Q_n(x)$ and $\partial_c Q_n(x)$ and a ``center'' eigenfunction as our ansatz, and we will join these together with small remainder functions. As long as the individual pulses in $Q_n(x)$ are well-separated, we will use Lin's method to construct a unique function which solves \cref{PDEeigsystemper3} but which has $n$ discontinuities. In contrast to \cite{Sandstede1998}, these $n$ jumps are in the two-dimensional space spanned by $\Psi(0)$ and $\Psi^c(0)$, which gives us $2n$ jump conditions. Finding the eigenvalues amounts to solving these $2n$ jump conditions. 
+
+\subsection{Proof of Lemma \ref{qnkernel}}
+
+First, note that $1 \in H^{2m}_{\text{per}}[-X,X]$ and $\calL(q_n) 1 = c \neq 0$. For any $v \in \ker \calL(q_n)$
+\begin{align*}
+\langle 1, v \rangle = \frac{1}{c} \langle \calL(q_n) 1, v \rangle
+= \frac{1}{c} \langle  1, \calL(q_n)^* v \rangle = \frac{1}{c} \langle  1, \calL(q_n) v \rangle = 0,
+\end{align*}
+since $\calL(q_n)$ is self-adjoint, thus $1 \perp \ker \calL(q_n)^*$. By the Fredholm alternative, the equation $\calL(q_n) v_n^c = 1$ has a solution $v_n^c \in H^{2m}_{\text{per}}[-X,X]$. Differentiating with respect to $x$, $\partial_x \calL(q_n) v_n^c = 0$.
 
 \subsection{Proof of Lemma \ref{nulambdalemma}}
 

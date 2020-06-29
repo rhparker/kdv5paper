@@ -175,8 +175,8 @@ M \sinh(&\mu X) + c \mu K \cosh(\mu X) \\
 Anticipating what we will get in the end, we take the following rescaling.
 \begin{align*}
 \mu_* &= r^{1/2} \tilde{\mu} \\
-h &= r X_0 \tilde{h} / X^{1/2} \\
-k &= r X_0 \tilde{k} / X^{1/2}
+h &= r^{5/4} X_0 \tilde{h}  \\
+k &= r^{5/4} \tilde{k} 
 \end{align*}
 Since $\mu_1$ is close to $\mu_*$, $1/X = \mathcal{O}(r^{1/2})$, thus $\sinh(\mu X) =  \mathcal{O}(r^{1/2})$. Furthermore, 
 \begin{align*}
@@ -195,30 +195,58 @@ Finally,
 Substituting these into \cref{det3} and simplifying, we wish to solve
 \begin{equation}\label{det4}
 \begin{aligned}
-2 &\left( 2 c^2 M \tilde{\mu} \tilde{h} \frac{X_0}{X^{1/2}} r^{3/2} \right) 
-\left( \left( M + \frac{c K}{X} \right) ( \tilde{h}+ \tilde{k} i) \frac{X_0}{X^{1/2}} r X + \mathcal{O}(r^{3/2}) \right) 
+2 &\left( 2 c^2 M \tilde{\mu} \tilde{h} X_0 r^{7/4} \right) 
+\left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) 
 + 2 M M^c \tilde{M}^c c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
 \end{aligned}
 \end{equation}
-Dividing by $X_0^2 r^{5/2}$, noting that $X_0 = \mathcal{O}(|\log r|)$ and $1/X = \mathcal{O}(r^{1/2})$ and simplifying, we obtain the equation
+Since
+\[
+\left( M + \frac{c K}{X} \right) X  = MX + c K = \frac{M \pi}{\lambda_1} = \frac{M \pi}{c \mu_*}
+= \frac{M \pi}{c \tilde{\mu}r^{1/2}}
+\]
+at the center of the Krein bubble, this simplifies to
+\begin{equation}\label{det4}
+\begin{aligned}
+4 \pi c M^2 X_0 r^{7/4} \tilde{h} \left( ( \tilde{h} + \tilde{k} i) X_0 r^{3/4} + \mathcal{O}(r) \right) 
++ 2 M M^c \tilde{M}^c c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
+\end{aligned}
+\end{equation}
+
+Dividing by $X_0^2 r^{5/2}$ and noting that $X_0 = \mathcal{O}(|\log r|)$, we obtain the equation
 \begin{equation}\label{det5}
 \begin{aligned}
 \tilde{h} ( \tilde{h}+ \tilde{k} i) 
-+ \frac{M^c \tilde{M}^c }{2 M} c \tilde{\mu}^4 + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0,
++ \frac{M^c \tilde{M}^c }{2 \pi M^2 } c^2 \tilde{\mu}^5 + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0,
 \end{aligned}
 \end{equation}
-where we used the fact that $1/|\log r|$ is lower order than $r^{1/2}$. 
+where we used the fact that $1/|\log r|$ is lower order than $r^{1/2}$. We can use this to prove the Krein bubble exists and persists for small $r$. To do this, we use the IFT to show that happens everywhere except for where the eigenvalues collide on the imaginary axis. For the collision point, we use the IFT again to show that there is a double zero of this function, which must then be on the imaginary axis by Hamiltonian symmetry.
 
-This means that
-\begin{itemize}
-	\item We should be able to prove the Krein bubble occurs and have the leading order term for the radius. Everything higher order than \cref{term1} should not contribute.
-	\item For numerics, the leading order term \cref{term1} is accurate to a relative error of 0.075.
-	\item We can get a better numerical result if we toss in one of the terms we know is in $b$
-	\item We might be able to use a symmetry argument or somesuch to figure out which terms in $b$ contribute at this order, although it is unclear how helpful this will be.
-\end{itemize}
+Undoing the scaling and changing variables back to $\lambda$, the Krein bubble is centered at $\lambda_*$ and has radius (in the complex plane) of $\lambda = \sqrt{R}$, where 
+\begin{equation}\label{Kreinrad}
+R = -\frac{M^c \tilde{M}^c }{2 \pi c M^2 } \lambda_*^5 X_0^2.
+\end{equation}
+Since $M^c$ and $\tilde{M}^c$ have opposite signs, $R > 0$, so the radius is real. (In fact, numerics suggest that $\tilde{M}^c = -M^c$, although I have no idea if we can show that. Probably not.) 
 
+\subsection{Numerics}
 
+We cannot (unfortunately) do nice decay estimates for this on KdV5, since we can only construct the first periodic 2-pulse with imaginary eigenvalues to a sufficient degree of accuracy for AUTO. The issue is that the tails of the primary pulse decay too fast, and the tail oscillations of the primary pulse are too slow, so that the tail interactions become negligible too quickly.
 
+To get around this problem, we instead look at this ``contrived'' version of KdV5.
+\begin{equation}\label{KdV5alt}
+u_t = \partial_x\left( u_{xxxx} - 2(a-b)u_{xx} + (a+b)^2 u - u^2 \right),
+\end{equation}
+which is constructed so that eigenvalues of the background state are 0 and $\pm \sqrt{a} \pm \sqrt{b}$. Thus we can manipulate $a$ and $b$ to control the background eigenvalues. In particular, this lets us construct the first 4 periodic 2-pulses with imaginary interaction eigenvalues so we can find the Krein bubble using AUTO and then get decay estimates on the size of the Krein bubble. A plot of the relative error of the Krein bubble radius (using the formula above) vs. $\alpha X_0$ is shown in \cref{fig:Kreinrelerror}, which suggests that the remainder term is order $e^{-3 \alpha X_0}$, which is higher order than the Krein bubble radius! The relative error for the fourth periodic double pulse is less than 0.01.
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{c}
+\includegraphics[width=7.5cm]{images/Kreinrelerror.png}
+\end{tabular}
+\end{center}
+\caption{Log relative error of Krein bubble radius vs. $\alpha X_0$ for first four double pulse solutions to \cref{KdV5alt} with imaginary interaction eigenvalues. $a = 0.35$, $b = 3$. }
+\label{fig:Kreinrelerror}
+\end{figure}
 
 
 \end{document}
