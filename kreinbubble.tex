@@ -100,9 +100,9 @@ The Krein bubble occurs when first essential spectrum eigenvalue (positive Krein
 Recall that $X = X_0 + X_1$, and we can change $X$ by changing $X_1$ without changing the scaling factor $r$. $X_0$ and $X_1$ are related, but for sufficiently large $X_1$, varying $X_1$ produces essentially no change in $X_0$. Thus since $\lambda_* = \mathcal{O}(e^{-\alpha X_0}) = \mathcal{O}(r^{1/2})$, $\lambda_*$ is essentially constant for what we will be doing. Also we assume $\lambda_*$ is purely imaginary, since that is the interesting case.
 
 We will need something a little better for $\lambda_*$. Since the remainder term $R_1 = \mathcal{O}(r^{3/2})$ and (importantly) does not depend on $\lambda$, take instead
-\[
+\begin{equation}\label{lambdastar}
 \lambda_* = \sqrt{-\frac{2a - R_1 }{M}} = \sqrt{-\frac{2a}{M}} + \mathcal{O}(r).
-\]
+\end{equation}
 which will eliminate a term we don't want later.
 
 Change variables by letting $\mu = \nu(\lambda)$. For sufficiently small $\lambda$, we then have
@@ -208,30 +208,6 @@ Dividing by $X_0^2 r^{5/2}$, noting that $X_0 = \mathcal{O}(|\log r|)$ and $1/X 
 \end{aligned}
 \end{equation}
 where we used the fact that $1/|\log r|$ is lower order than $r^{1/2}$. 
-
-\subsection{Higher order terms}
-
-The next lowest order term involves only known constants, and is
-\begin{equation}\label{term1}
-\begin{aligned}
-4 a \lambda^3 &M^c \tilde{M}^c \sinh(\nu(\lambda)X_1)\sinh(\nu(\lambda)X_0) \\
-&= 4 a \lambda^3 M^c \tilde{M}^c \sinh(\nu(\lambda)X - X_0)\sinh(\nu(\lambda)X_0) \\
-&= 4 a \lambda^3 M^c \tilde{M}^c \left( \sinh(\nu(\lambda)X) \cosh(\nu(\lambda)X_0)  - \cosh(\nu(\lambda)X)\sinh(\nu(\lambda)X_0) \right)\sinh(\nu(\lambda)X_0) \\
-&= 4 a \lambda^3 M^c \tilde{M}^c \left( c \frac{K \pi i }{M X} + \frac{\lambda_*}{c} X_0 \right) \frac{\lambda_*}{c} X_0 \\
-&\sim \lambda_*^5 a X_0^2,
-\end{aligned}
-\end{equation}
-where $a = \mathcal{O}(e^{-\alpha X^*}) = \mathcal{O}(r)$.
-
-By a symmetry/reversibility argument, we know the form of the remainder terms in lower left of the block matrix, so we have a term of the form
-\begin{align*}
-C b \lambda^4 &\sinh(\nu(\lambda)(X_1 - X_0)) 
-= C b \lambda^4 \sinh(\nu(\lambda)(X - 2 X_0)) \\
-&= C b \lambda^4 \left( \sinh(\nu(\lambda)X) \cosh(2 \nu(\lambda)X_0)  - \cosh(\nu(\lambda)X)\sinh(2 \nu(\lambda)X_0) \right) \\
-&= C b \lambda^4 \left( c \frac{K \pi i }{M X} + \frac{2 \lambda_*}{c} X_0 \right) \\
-&\sim \lambda_*^5 b X_0^2,
-\end{align*}
-where $b = \mathcal{O}(|\lambda|^2 + e^{-\alpha X^*}) = \mathcal{O}(|\lambda|^2 + r)$. This term is (barely) higher order than the previous one, since there is only one $X_0 = \mathcal{O}(|\log r|)$ term, so this becomes negligible for sufficiently small $r$.
 
 This means that
 \begin{itemize}
