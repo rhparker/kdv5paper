@@ -2638,22 +2638,30 @@ K_1 = \begin{pmatrix}T & 0 \\ 0 & T \end{pmatrix}, \quad
 K_2 = \begin{pmatrix}-I & 0 \\ 0 & T \end{pmatrix}, \quad
 T = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
 \end{align*}
-from which we obtain the form of the remainder matrix $R(\lambda)$. It follows that $\det S(-\lambda) = \det K_1 \det S(\lambda) \det K_2 = -\det S(\lambda)$. The determinant of $S(\lambda)$ is computed directly with the aid of Mathematica, where we use the odd symmetry of $S(\lambda)$ the fact that $\lambda = 0$ is an eigenvalue with at least algebraic multiplicity 3.
+from which follows that $\det S(-\lambda) = \det K_1 \det S(\lambda) \det K_2 = -\det S(\lambda)$. The form of the remainder matrix follows from this symmetry together with the fact that $\lambda = 0$ is an eigenvalue with at least algebraic multiplicity 3. The determinant of $S(\lambda)$ is then computed directly with the aid of Mathematica and the form of the remainder term $R(\lambda)$. 
 
 \subsection{Change of variables}
 
 As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambda = \nu^{-1}(\mu)$ so that $\det S(\lambda)$ becomes 
-\begin{equation}\label{2pdetmu2}
+\begin{equation}\label{2pdetmu}
 \begin{aligned}
-\det S(&\mu, r) = -2 c^2 \mu^2 (2a + c^2 \mu^2 M) \left( M \sinh(\mu X) + c \mu (M \tilde{M} - M^c \tilde{M}^c\right)\cosh(\mu X) + R_1 \sinh(\mu X) + R_2,
+\det S(&\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} - M^c \tilde{M}^c) \cosh(\mu X) \right) \\
+&-4 a c^3 \mu^3 M^c \tilde{M}^c \sinh(\mu X_1)\sinh(\mu X_0) 
++ R_2 \mu^2 \sinh(\mu(X_1 - X_0)) + R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4,
 \end{aligned}
 \end{equation}
-where $R_1 = \mathcal{O}((|\mu| + r^{1/2})^5)$ and $R_2 = \mathcal{O}((|\mu| + r^{1/2})^6)$. Define
+where the remainder terms have the same bounds as in \cref{lemma:2blockmatrix} with $\lambda$ replaced by $\mu$. Define
 \begin{align}
 \mu^*_{int} &= \sqrt{-\frac{2 a}{M c^2}} \label{defmustarint} \\
 \mu^*_m &= \frac{m \pi i}{X + c \frac{K}{M}}  && m = 1, \dots, N \label{defmustaress}
 \end{align}
-Since $\mu^*_{int} = \mathcal{O}(r^{1/2})$ and $\mu^*_1 = \mathcal{O}(1/|\log r|)$, we can choose $r_0 \leq r_*$ sufficiently small so that $|\mu^*_{int}| \leq \frac{1}{2} |\mu^*_1|$. This will guarantee that the interaction eigenvalues and nonzero essential spectrum eigenvalues do not interfere for $r \leq r_0$.
+For \cref{theorem:2peigsassym}, we will ensure that the interaction eigenvalues and essential spectrum eigenvalues do not interfere. Since $\mu^*_{int} = \mathcal{O}(r^{1/2})$ and $\mu^*_1 = \mathcal{O}(1/|\log r|)$, choose $r_0 \leq r_*$ sufficiently small so that $|\mu^*_{int}| \leq \frac{1}{2} |\mu^*_1|$ for all $r \leq r_0$. Since the second term on the RHS of \cref{2pdetmu} will not matter for this case, we can simplify $\det S(\mu, r)$ to obtain 
+\begin{equation}\label{2pdetmu2}
+\begin{aligned}
+\det S(&\mu, r) = -2 c^2 \mu^2 (2a + c^2 \mu^2 M) \left( M \sinh(\mu X) + c \mu (M \tilde{M} - M^c \tilde{M}^c) \cosh(\mu X) \right) + \tilde{R} \mu^2 \sinh(\mu X) + R \mu^3,
+\end{aligned}
+\end{equation}
+where $|\tilde{R}|, |R| < C(r^{1/2} + |\mu|)^3$. 
 
 \subsection{Essential spectrum eigenvalues}
 
@@ -2735,7 +2743,7 @@ G(h, r) = M c^2 h (\tilde{\mu}^*(r) + h)^3 (2 \tilde{\mu}^*(r) + h)
 \left( M + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)
  + \mathcal{O}\left( r^{1/2}(\tilde{\mu}^*(r) + h) \right) = 0
 \]
-Since $G(0, 0) = 0$ and $\partial_h G(0, 0) = 2 M^2 c^2 (\tilde{\mu}^*)^4 \neq 0$, by the implicit function theorem there exists $r_1 \leq r_0$ and a unique smooth function $h(r)$ with $h(0) = 0$ such that for all $r \leq r_1$, $G(h(r), r) = 0$. Expanding $h(r)$ in a Taylor series about $r = 0$, we have $h(r) = \mathcal{O}(r^{1/2})$. Undoing the rescaling and changing variables back to $\lambda$, there is an interaction eigenvalue located at 
+Since $G(0, 0) = 0$ and $\partial_h G(0, 0) = 2 M^2 c^2 (\tilde{\mu}^*(0))^4 \neq 0$, by the implicit function theorem there exists $r_1 \leq r_0$ and a unique smooth function $h(r)$ with $h(0) = 0$ such that for all $r \leq r_1$, $G(h(r), r) = 0$. Expanding $h(r)$ in a Taylor series about $r = 0$, we have $h(r) = \mathcal{O}(r^{1/2})$. Undoing the rescaling and changing variables back to $\lambda$, there is an interaction eigenvalue located at 
 \begin{align*}
 \lambda(r) = \sqrt{-\frac{2 \tilde{a}(r)}{M}}r^{1/2} + \mathcal{O}(r)
 \end{align*}
@@ -2788,6 +2796,66 @@ D_{(\tilde{\mu}, h)}K(0, 0, 0) =
 \end{pmatrix},
 \end{equation*}
 which is nonsingular. Using the implicit function theorem, there exists $r_1 \leq r_0$ and a unique smooth function $(\tilde{\mu}(r), h(r))$ with $(\tilde{\mu}, h)(0) = (0, 0)$ such that for all $r \leq r_1$, $K(\tilde{\mu}(r), h(r), r) = 0$, i.e. $\tilde{\mu}(r)$ is a double root of $G(\tilde{\mu}, r, h)$ when $h = h(r)$. By Hamiltonian symmetry, we must have $\tilde{\mu}(r) = 0$, thus for $r \leq r_1$, when $s_0 = p^* + h(r)$, there are two more eigenvalues at 0, which brings the total of eigenvalues at 0 to five. Since the pitchfork bifurcation in the family of periodic 2-pulses occurs near $p^*$ at $p^*(r)$, it follows from standard PDE bifurcation theory that this quintuple zero must occur at the pitchfork bifurcation point, i.e. $p^* + h(r) = p^*(r)$.
+
+\subsection{Proof of Theorem}
+
+Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s_1,r)$ be the family of periodic 2-pulse solutions parameterized by $s_1$. By \cref{theorem:2peigsassym}, there is a pair of purely imaginary interaction eigenvalues for sufficiently small $r$. Define
+\begin{align*}
+\mu_1(s_1, r) &= \frac{\pi i}{X(s_1,r) + c \frac{M\tilde{M} - M^c\tilde{M^c}}{M}} \\
+\mu_*(s_1, r) &= \sqrt{-\frac{ 2a(s_1,r) - R_1(r) }{M c^2}} = \sqrt{-\frac{2a(s_1,r)}{M c^2}} + \mathcal{O}(r),
+\end{align*}
+both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + L_0$, which is a nonzero constant, which implies that $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$ we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let $X_*(r) = X(s_*(r), r) = X_0(s_*(r), r) + X_1(s_*(r), r)$. For $s_1$ close to $s_*(r)$, define the parameter $k(s_1, r)$ by 
+\[
+2 k(s_1, r) i = \mu_*(s_1, r) - \mu_1(s_1, r),
+\]
+which measures the distance on the imaginary axis between $\mu_1$ and $\mu_*$. From this point forwards, we will drop the dependence on $s_1$ and $r$ for convenience of notation.
+
+Let $\mu = \mu_* + h$, so that $\mu = \mu_1 + h + 2 k i$. Similar to \cref{singlemuTaylor}, we expand $\mu_1$ in a Taylor series to get
+\begin{align}\label{muTaylor2}
+\mu &= \frac{m \pi i}{X}\left( 1 - c \frac{K}{2 M X} + c^2 \frac{K^2}{4 M^2 X^2} + \mathcal{O}\left(\frac{1}{X^3}\right) \right) + h + 2 k i.
+\end{align}
+Anticipating what will follow, we take the rescaling
+\begin{align*}
+\mu_* &= r^{1/2} \tilde{\mu}, \quad h = r^{5/4} X_0 \tilde{h}, \quad k = r^{5/4} X_0 \tilde{k} 
+\end{align*}
+Using this rescaling and the fact that $1/X(r) = \mathcal{O}(r^{1/2})$, we substitute \cref{muTaylor2} into $\sinh \mu X$ and $\cosh \mu X$ to get
+\begin{align}\label{sinhcoshmuX}
+\sinh(\mu X) &= (-1)\left( - c \frac{K \pi i }{MX} + c^2 \frac{K^2 \pi i }{M^2 X^2} + (h + 2 k i)X \right) + \mathcal{O}\left( r^{3/2} \right),
+\quad \cosh(\mu X) = (-1) + \mathcal{O}\left( r^{3/2} \right).
+\end{align}
+It follows from \cref{sinhcoshmuX} that $\sinh(\mu X) =  \mathcal{O}(r^{1/2})$. Furthermore, 
+\begin{align*}
+\sinh(\mu X_1)\sinh(\mu X_0) &= \left( \sinh(\mu X) \cosh( \mu X_0)  - \cosh(\mu X)\sinh(\mu X_0) \right)\sinh(\mu X_0) = \mu_*^2 X_0^2 + \mathcal{O}(r^{1/2}) \\
+\sinh(\mu(X_1 - X_0)) &= \sinh(\mu X) \cosh(2 \mu X_0) - \cosh(\mu X)\sinh(2 \mu X_0)
+= \mathcal{O}\left( r^{1/2}|\log r| \right)
+\end{align*}
+Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ since $\mu \neq 0$, using the relation $a = -M c^2 \mu_*^2/2 + \mathcal{O}(r^{3/2})$, and simplifying, we obtain the equation
+\begin{equation}\label{det3}
+\begin{aligned}
+M \tilde{\mu} \tilde{h} X_0 r^{7/4}
+\left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) 
++ 2 M M^c \tilde{M}^c c \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} X_0 ) = 0
+\end{aligned}
+\end{equation}
+Since
+\[
+\left( M + \frac{c K}{X} \right) X  = MX + c K = \frac{M \pi}{c \mu_1} = \frac{M \pi}{c(\mu_* - 2 k i)}
+= \frac{M \pi}{c \tilde{\mu}r^{1/2}} + \mathcal{O}(r^{1/4}),
+\]
+equation \cref{det3} simplifies to
+\begin{equation}\label{det4}
+\begin{aligned}
+2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + \tilde{k} i) 
++ 2 M M^c \tilde{M}^c c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
+\end{aligned}
+\end{equation}
+Dividing by $X_0^2 r^{5/2}$ and noting that $X_0 = \mathcal{O}(|\log r|)$, we obtain the equation
+\begin{equation}\label{det5}
+\begin{aligned}
+\tilde{h} ( \tilde{h}+ \tilde{k} i) 
++ \frac{M^c \tilde{M}^c }{2 \pi M^2 } c^2 \tilde{\mu}^5 + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0.
+\end{aligned}
+\end{equation}
 
 
 \bibliographystyle{amsalpha}
