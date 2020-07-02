@@ -729,6 +729,18 @@ Next, we consider the symmetric periodic 2-pulse. As long as we are away from th
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
 \end{theorem}
 
+Finally, we consider what happens when the first essential spectrum eigenvalue collides with an imaginary interaction eigenvalue. Choose $m_0 = 1$, so that the interaction eigenvalues will be purely imaginary by \cref{theorem:2peigsassym}, and let $Q_2(x; s_1, r)$ be the periodic double pulse constructed according to \cref{2pulsebifurcation}. The interaction eigenvalues scale like $r^{1/2}$, and the first essential spectrum eigenvalue scales like $1/X(r, s_1)$. For fixed $r$, there will be a collision between these two eigenvalues on the imaginary axis at a specific value of $s_1$. As $s_1$ is increased, the eigenvalues, collide, move off the imaginary axis, trace an approximate circle in the complex plane, and finally recombine on the imaginary axis in a ``reverse'' Krein collision. This brief instability bubble is shown in cartoon form in \cref{fig:KreinBubbleCartoon}.
+\begin{figure}
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=7.5cm]{images/KreinBubbleCartoon}
+\end{tabular}
+\end{center}
+\caption{Cartoon showing brief instability bubble which forms as imaginary interaction eigenvalue and first essential spectrum eigenvalue collide on imaginary axis. Eigenvalues are shown in red dots, center of instability bubble is marked with blue X.}
+\label{fig:KreinBubbleCartoon}
+\end{figure}
+
+
 \section{Numerical Results}\label{sec:numerics}
 
 In this section, we present numerical results for the existence and spectrum of periodic multi-pulse solutions to KdV5. We start with the construction of the primary pulse solution. For $c = 36/169$, the exact solution to \cref{KdV5eq4} is known \cite[(3)]{Pelinovsky2007}
@@ -2791,7 +2803,7 @@ For $r = 0$, $K(0, 0, 0) = 0$. Using the expression for $\tilde{a}(r; m_0, s_0)$
 \begin{equation*}
 D_{(\tilde{\mu}, h)}K(0, 0, 0) = 
 \begin{pmatrix}
-0 & \frac{2 c_1}{c^2} \\
+0 & \frac{2 c_0}{c^2} \\
 2M & 0
 \end{pmatrix},
 \end{equation*}
@@ -2801,10 +2813,14 @@ which is nonsingular. Using the implicit function theorem, there exists $r_1 \le
 
 Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s_1,r)$ be the family of periodic 2-pulse solutions parameterized by $s_1$. By \cref{theorem:2peigsassym}, there is a pair of purely imaginary interaction eigenvalues for sufficiently small $r$. Define
 \begin{align*}
-\mu_1(s_1, r) &= \frac{\pi i}{X(s_1,r) + c \frac{M\tilde{M} - M^c\tilde{M^c}}{M}} \\
+\mu_1(s_1, r) &= \frac{\pi i}{X(s_1,r) + c \frac{K}{M}} \\
 \mu_*(s_1, r) &= \sqrt{-\frac{ 2a(s_1,r) - R_1(r) }{M c^2}} = \sqrt{-\frac{2a(s_1,r)}{M c^2}} + \mathcal{O}(r),
 \end{align*}
-both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + L_0$, which is a nonzero constant, which implies that $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$ we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let $X_*(r) = X(s_*(r), r) = X_0(s_*(r), r) + X_1(s_*(r), r)$. For $s_1$ close to $s_*(r)$, define the parameter $k(s_1, r)$ by 
+both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + L_0$, which is a nonzero constant, which implies that $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$ we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let $X_*(r) = X(s_*(r), r) = X_0(s_*(r), r) + X_1(s_*(r), r)$, i.e.
+\begin{equation}\label{XstarKrein}
+X_*(r) = \frac{\pi i}{\mu_*(s_*(r), r)} - c \frac{K}{M}.
+\end{equation}
+For $s_1$ close to $s_*(r)$, define the parameter $k(s_1, r)$ by 
 \[
 2 k(s_1, r) i = \mu_*(s_1, r) - \mu_1(s_1, r),
 \]
@@ -2833,7 +2849,7 @@ Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ 
 \begin{equation}\label{det3}
 \begin{aligned}
 M \tilde{\mu} \tilde{h} X_0 r^{7/4}
-\left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) 
+\left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + 2 \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) 
 + 2 M M^c \tilde{M}^c c \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} X_0 ) = 0
 \end{aligned}
 \end{equation}
@@ -2845,17 +2861,58 @@ Since
 equation \cref{det3} simplifies to
 \begin{equation}\label{det4}
 \begin{aligned}
-2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + \tilde{k} i) 
+2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) 
 + 2 M M^c \tilde{M}^c c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
 \end{aligned}
 \end{equation}
 Dividing by $X_0^2 r^{5/2}$ and noting that $X_0 = \mathcal{O}(|\log r|)$, we obtain the equation
 \begin{equation}\label{det5}
 \begin{aligned}
-\tilde{h} ( \tilde{h}+ \tilde{k} i) 
-+ \frac{M^c \tilde{M}^c }{2 \pi M^2 } c^2 \tilde{\mu}^5 + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0.
+G(\tilde{h}, \tilde{k}, r) = \tilde{h}^2 + 2 \tilde{k}  i \tilde{h}
+- T + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0, \quad T = -\frac{M^c \tilde{M}^c }{2 \pi M^2 } c^2 \tilde{\mu}^5.
 \end{aligned}
 \end{equation}
+Since we are assuming $M > 0$ and $M^c \tilde{M}^c < 0$, $T > 0$. When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if 
+\begin{equation}
+\tilde{h} = \tilde{h}_0^\pm(\tilde{k}) = -\tilde{k}i \pm \sqrt{T - \tilde{k}^2}.
+\end{equation}
+When $|k| \leq \sqrt{T}$, this is a circle in the complex plane of radius $\sqrt{T}$. We will show this persists for small $r$. For $\tilde{h} = \tilde{h}_0^\pm(\tilde{k})$, $G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 0$ and
+\begin{equation}
+\partial_{\tilde{h}_0}G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 2 \sqrt{T - \tilde{k}^2},
+\end{equation}
+which is nonzero as long as $\tilde{k} \neq \pm \sqrt{T}$. Choose any $\epsilon > 0$. Then for $\tilde{k} \in K_\epsilon$, where
+\[
+K_\epsilon = [-2 \sqrt{T} -\sqrt{T} - \epsilon]
+\cup [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]
+\cup [\sqrt{T} + \epsilon, 2\sqrt{T}],
+\]
+$G_{\tilde{h}_0}(\tilde{h}_0(\tilde{k}), \tilde{k}, 0)$ is bounded away from 0, with bound dependent on $\epsilon$. By the uniform contraction mapping principle, there exists $r_1 \leq r_0$ and smooth functions $\tilde{h}_*^\pm(\tilde{k}, r)$ such that $h_*^\pm(\tilde{k}, 0) = \tilde{h}_0^\pm(\tilde{k})$, $h_*^\pm(\tilde{k}, r) = \tilde{h}_0^\pm(\tilde{k}) + \mathcal{O}(\frac{1}{|\log r|})$, and for all $r \leq r_1$ and $\tilde{k} \in K_\epsilon$, $G(\tilde{h}_*^\pm(\tilde{k},r),\tilde{k},r) = 0$. For $k \in [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]$, $\tilde{h}_*^\pm(\tilde{k}, r)$ is real and is symmetric across the imaginary axis by Hamiltonian symmetry. All that remains is show there is a double zero on the imaginary axis when $\tilde{k}$ is close to $\pm \sqrt{T}$. Similar to the proof of \cref{theorem:2peigssym}, for $\tilde{h}$ to be a double root of \cref{det5}, it must satisfy $H(\tilde{h}, \tilde{k}, r)$, where
+\[
+H(\tilde{h}, \tilde{k}, r) = \begin{pmatrix} G(\tilde{h}, \tilde{k}, r) \\
+\partial_{\tilde{h}} G(\tilde{h}, \tilde{k}, r) \end{pmatrix}
+\]
+For $r = 0$, $H(-\sqrt{T}i, \sqrt{T}, 0) = 0$, and
+\begin{equation*}
+D_{(\tilde{h}, \tilde{k})}H(-\sqrt{T}i, \sqrt{T}, 0) = 
+\begin{pmatrix}
+0 & 2 \sqrt{T} \\
+2 & 2i
+\end{pmatrix},
+\end{equation*}
+which is nonsingular. Using the implicit function theorem, there exists $r_2 \leq r_1$ and a unique smooth function $(\tilde{h}_1(r), \tilde{k}_1(r))$ with $(\tilde{h}_1(0), \tilde{k}_1(0)) = (-\sqrt{T}i, \sqrt{T})$ such that for all $r \leq r_2$, $H(\tilde{h}_1(r), \tilde{k}_1(r), r) = 0$, i.e. $\tilde{h}_1(r)$ is a double root of $G(\tilde{h}, \tilde{k}, r)$ when $\tilde{k} = \tilde{k}(r)$. By Hamiltonian symmetry, $\tilde{h}(r)$ must lie on the imaginary axis. We have a similar result for $(\tilde{h}, \tilde{k}) = (\sqrt{T}i, -\sqrt{T})$.
+
+Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues at
+\begin{align*}
+\lambda = \lambda_* - s i \pm \sqrt{ T_0 -  s^2}, \quad T_0 = -\frac{M^c \tilde{M}^c}{2 \pi M^2 c } \lambda_*^5 X_0^2,
+\end{align*}
+which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_0}$. For $s = s_\pm(r) = \pm \sqrt{T_0}\left( 1 + \mathcal{O}(\frac{1}{|\log r|} \right)$, there is a double eigenvalue at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_0}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
+\begin{equation}
+X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} = \mathcal{O}(s^2).
+\end{equation}
+In particular, the Krein collision (and reverse collision) occur when 
+\[
+X(r) = X_*(r) \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} = \mathcal{O}(s^2)
+\]
 
 
 \bibliographystyle{amsalpha}
