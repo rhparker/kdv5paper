@@ -45,7 +45,7 @@
 
 This paper is organized as follows. In \cref{sec:KdV5}, we introduce the fifth-order KdV equation (KdV5), which is our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
 
-\section{Motivation}\label{sec:KdV5}
+\section{Background and motivation}\label{sec:KdV5}
 
 The Kawahara equation, also known as a fifth-order KdV-type equation, is used as a model for capillary-gravity water waves, magneto-acoustic waves, plasma waves, and other dispersive phenomena. This equation takes the general form
 \begin{equation}\label{kawahara}
@@ -60,7 +60,10 @@ where $\calJ = \partial_x$ is skew-Hermitian. The energy $\calE$ is given by
 \calE(u) = -\frac{1}{2}\int_{-\infty}^\infty 
 \left( \frac{1}{2}u_{xx}^2 - \frac{1}{2}\alpha u_x^2 + h(u, u_x, u_{xx})\right)dx,
 \end{equation}
-and $f$ in \cref{kawahara} is the variational derivative of the term involving $h$ in \cref{kawaharaE} \cite{Bridges2002}. For simplicity, we will consider the form of the Kawahara equation from \cite{Pelinovsky2007}
+and $f$ in \cref{kawahara} is the variational derivative of the term involving $h$ in \cref{kawaharaE} \cite{Bridges2002}. 
+
+
+For simplicity, we will consider the form of the Kawahara equation from \cite{Pelinovsky2007}
 \begin{equation}\label{KdV5}
 u_t = u_{xxxxx} - u_{xxx} - 2 u u_x,
 \end{equation}
@@ -739,7 +742,42 @@ Finally, we consider what happens when the first essential spectrum eigenvalue c
 \caption{Cartoon showing brief instability bubble which forms as imaginary interaction eigenvalue and first essential spectrum eigenvalue collide on imaginary axis. Eigenvalues are shown in red dots, center of instability bubble is marked with blue X.}
 \label{fig:KreinBubbleCartoon}
 \end{figure}
+The existence of these Krein bubbles is given in the following theorem, which also provides numerically verifiable estimates for their size and location. The result holds under a mild assumption on the signs of $M^c$ and $\tilde{M}^c$, which can be checked numerically.
 
+\begin{theorem}\label{th:Kreinbubble}
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. In addition, assume $M^c \tilde{M}^c < 0$.
+
+Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
+\begin{align*}
+\lambda_* &= \sqrt{ \frac{-2a - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a}{M} } + \mathcal{O}(r) \\
+X_* &= c \left( \frac{\pi i}{\lambda_*} - \frac{K}{M}\right),
+\end{align*}
+and define $T_0 > 0$ by 
+\[
+T_0 = -\frac{M^c \tilde{M}^c}{2 \pi M^2 c } \lambda_*^5 X_0^2
+\]
+Let $Q_2(x; s, r)$ be the family of periodic 2-pulse solutions parameterized by a parameter $s$, where $s \in [-2\sqrt{T_0}, 2 \sqrt{T_0}]$, so that the domain size $X$ is given by
+\begin{equation}
+X = X_* + \frac{2 c \pi s}{\lambda_*^2} = \mathcal{O}(s^2).
+\end{equation}
+
+Then, as $s$ is varied, there is a pair of eigenvalues located at 
+\begin{align}\label{Kreineigs}
+\lambda = \lambda_* - s i \pm \sqrt{ T_0 -  s^2} + \mathcal{O}(\cdots)
+\end{align}
+\begin{enumerate}[(i)]
+\item For
+\[
+s = s_\pm = \pm \sqrt{T_0}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right)\right).
+\]
+there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$. This occurs when 
+\[
+X = X_* \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} + \mathcal{O}(s^2)
+\]
+\item For $s \in (s_-, s+)$, equation \cref{Kreineigs} is a pair of eigenvalues which is symmetric across the imaginary axis. The real part of \cref{Kreineigs} attains its maximum of approximately $\sqrt{T_0}$ when $s = 0$
+\item For $s \in [-2\sqrt{T_0}, s_-) \cup (s_+, 2 \sqrt{T_0}]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
+\end{enumerate}
+\end{theorem}
 
 \section{Numerical Results}\label{sec:numerics}
 
@@ -2809,9 +2847,9 @@ D_{(\tilde{\mu}, h)}K(0, 0, 0) =
 \end{equation*}
 which is nonsingular. Using the implicit function theorem, there exists $r_1 \leq r_0$ and a unique smooth function $(\tilde{\mu}(r), h(r))$ with $(\tilde{\mu}, h)(0) = (0, 0)$ such that for all $r \leq r_1$, $K(\tilde{\mu}(r), h(r), r) = 0$, i.e. $\tilde{\mu}(r)$ is a double root of $G(\tilde{\mu}, r, h)$ when $h = h(r)$. By Hamiltonian symmetry, we must have $\tilde{\mu}(r) = 0$, thus for $r \leq r_1$, when $s_0 = p^* + h(r)$, there are two more eigenvalues at 0, which brings the total of eigenvalues at 0 to five. Since the pitchfork bifurcation in the family of periodic 2-pulses occurs near $p^*$ at $p^*(r)$, it follows from standard PDE bifurcation theory that this quintuple zero must occur at the pitchfork bifurcation point, i.e. $p^* + h(r) = p^*(r)$.
 
-\subsection{Proof of Theorem}
+\subsection{Proof of Theorem \cref{th:Kreinbubble}}
 
-Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s_1,r)$ be the family of periodic 2-pulse solutions parameterized by $s_1$. By \cref{theorem:2peigsassym}, there is a pair of purely imaginary interaction eigenvalues for sufficiently small $r$. Define
+Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s_1, r)$ be the family of periodic 2-pulse solutions parameterized by $s_1$. By \cref{theorem:2peigsassym}, there is a pair of purely imaginary interaction eigenvalues for sufficiently small $r$. Define
 \begin{align*}
 \mu_1(s_1, r) &= \frac{\pi i}{X(s_1,r) + c \frac{K}{M}} \\
 \mu_*(s_1, r) &= \sqrt{-\frac{ 2a(s_1,r) - R_1(r) }{M c^2}} = \sqrt{-\frac{2a(s_1,r)}{M c^2}} + \mathcal{O}(r),
@@ -2907,11 +2945,11 @@ Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r
 \end{align*}
 which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_0}$. For $s = s_\pm(r) = \pm \sqrt{T_0}\left( 1 + \mathcal{O}(\frac{1}{|\log r|} \right)$, there is a double eigenvalue at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_0}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
 \begin{equation}
-X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} = \mathcal{O}(s^2).
+X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} + \mathcal{O}(s^2).
 \end{equation}
 In particular, the Krein collision (and reverse collision) occur when 
 \[
-X(r) = X_*(r) \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} = \mathcal{O}(s^2)
+X(r) = X_*(r) \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} + \mathcal{O}(s^2)
 \]
 
 
