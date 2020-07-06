@@ -99,11 +99,7 @@ Linearization of \cref{KdV5eq4} about a solution $u^*(x)$ is the self-adjoint li
 \begin{equation}\label{KdV5hessian}
 \calE''(u^*) = \partial_x^4 + p \partial_x^2 + c - 2 u^* 
 \end{equation}
-where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is hyperbolic saddle equilibrium with 2-dimensional stable and unstable manifolds. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$. In particular, if $p$ and $c$ are related by
-\begin{align}\label{KdVpabc}
-p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
-\end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. For $-2 \sqrt{c} < p < 2 \sqrt{c}$, multi-pulse solutions exist, which resemble multiple, well-separated copies of the primary pulse $q(x)$. For each $n \geq 2$, Buffoni, Champneys, and Toland \cite{Buffoni1996} show using the Smale horseshoe set that a countable family of multi-pulse solutions exists. The result for 2-pulse solutions is also given in \cite[Theorem 2.2]{Pelinovsky2007}, which is based on the variational method used in \cite{Buffoni1996}. The method we will employ is due to Sandstede \cite{Sandstede1993, SandstedeStrut}, and uses a spatial dynamics approach and Lin's method. From this perspective, a multi-pulse is a multi-loop homoclinic orbit which remains close to the primary pulse. Since multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions, Lin's method provides not only existence results but also estimates for these small remainder functions. The distances between consecutive peaks are constrained to be (approximately) an integer multiple of a phase parameter which depends on $\beta_0$ and represents the number of half-twists made by the multi-pulse between consecutive peaks. This corresponds to a specific alignment of stable and unstable manifolds necessary for multi-pulses to exist. 
+where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is hyperbolic saddle equilibrium with 2-dimensional stable and unstable manifolds. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$. For $-2 \sqrt{c} < p < 2 \sqrt{c}$, multi-pulse solutions exist, which resemble multiple, well-separated copies of the primary pulse $q(x)$. For each $n \geq 2$, Buffoni, Champneys, and Toland \cite{Buffoni1996} show using the Smale horseshoe set that a countable family of multi-pulse solutions exists. The result for 2-pulse solutions is also given in \cite[Theorem 2.2]{Pelinovsky2007}, which is based on the variational method used in \cite{Buffoni1996}. The method we will employ is due to Sandstede \cite{Sandstede1993, SandstedeStrut}, and uses a spatial dynamics approach and Lin's method. From this perspective, a multi-pulse is a multi-loop homoclinic orbit which remains close to the primary pulse. Since multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions, Lin's method provides not only existence results but also estimates for these small remainder functions. The distances between consecutive peaks are constrained to be (approximately) an integer multiple of a phase parameter which depends on $\beta_0$ and represents the number of half-twists made by the multi-pulse between consecutive peaks. This corresponds to a specific alignment of stable and unstable manifolds necessary for multi-pulses to exist. 
 
 By \cite{Grillakis1987}, the primary pulse $q(x)$ is orbitally stable if 
 \begin{equation}\label{KdV5stabhyp}
@@ -544,8 +540,8 @@ $S(\lambda)$ is the $2n \times 2n$ block matrix
 \begin{equation}\label{blockeq}
 S(\lambda) = 
 \begin{pmatrix}
-K(\lambda) - \frac{1}{2} \lambda \tilde{M} K^+(\lambda) & \lambda^2 \tilde{M}^c I \\
-\frac{1}{2} \lambda M^c K^+(\lambda) & A - \lambda^2 MI + D_2
+K(\lambda) - \frac{1}{2} \lambda \tilde{M} K^+(\lambda) & \lambda^2 M_c I \\
+-\frac{1}{2} \lambda M_c K^+(\lambda) & A - \lambda^2 MI + D_2
 \end{pmatrix} +
 \begin{pmatrix}C_1 & D_1 \\ C_2 & D_2
 \end{pmatrix}
@@ -590,12 +586,11 @@ where
 a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
 \end{align*}
 
-\item $M$, $M^c$, $\tilde{M}$, and $\tilde{M}^c$ are  Melnikov-type integrals
+\item $M$, $M_c$, and $\tilde{M}$ are the Melnikov-type integrals
 \begin{align*}
 M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy, \quad
-M^c = \int_{-\infty}^\infty q(y) v^c(y) dy \\
-\tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy, \quad
-\tilde{M}^c = \int_{-\infty}^\infty \partial_c q(y) dy
+M_c = \int_{-\infty}^\infty \partial_c q(y) dy, \quad
+\tilde{M} = \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy
 \end{align*}
 where $v^c(y)$ is the first component of $V^c(y)$, which is defined in \cref{varadjsolutions}, and $q(y)$ is the first component of $Q(y)$.
 
@@ -618,8 +613,8 @@ For a periodic single pulse, the block matrix $S(\lambda)$ from \cref{blockmatri
 \begin{align}\label{1pblockmatrix}
 S(\lambda) &= 
 \begin{pmatrix}
--2 \sinh(\nu(\lambda) X) - \tilde{M}\lambda \cosh(\nu(\lambda) X) & \tilde{M}^c \lambda^2 \\
-M^c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
+-2 \sinh(\nu(\lambda) X) - \tilde{M}\lambda \cosh(\nu(\lambda) X) & M_c \lambda^2 \\
+-M_c \lambda \cosh(\nu(\lambda)X) & - M \lambda^2
 \end{pmatrix} +
 \begin{pmatrix}
 C_1 & D_1 \\ C_2 & D_2
@@ -633,7 +628,7 @@ where the remainder terms are scalars with bounds
 In addition,
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
-\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} - M^c \tilde{M}^c)\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} ) \Big),
+\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} + M_c^2 )\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} ) \Big),
 \end{aligned}
 \end{equation}
 and $\det S(-\lambda) = -\det S(\lambda)$.
@@ -644,7 +639,7 @@ Using this, we can compute the nonzero essential spectrum eigenvalues for the pe
 \begin{theorem}\label{theorem:1pess}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{th:perexist}, and let $\delta(r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{1pess}
-\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M^c\tilde{M^c}}{2 M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} + M_c^2 }{2 M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
 is on the imaginary axis.
 \end{theorem}
@@ -658,10 +653,10 @@ For a periodic 2-pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheo
 \begin{align}\label{dpSmatrix}
 S(\lambda) = 
 \begin{pmatrix}
-e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} & \tilde{M}^c \lambda^2 & 0 \\
--e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} & 0 & \tilde{M}^c \lambda^2 \\
-\frac{1}{2}\lambda M^c e^{-\nu(\lambda)X_1} & \frac{1}{2}\lambda M^ce^{\nu(\lambda)X_0} &-a-\lambda^2 M & a \\
-\frac{1}{2}\lambda M^c e^{\nu(\lambda)X_1} & \frac{1}{2}\lambda M^c e^{-\nu(\lambda)X_0}  & a & -a-\lambda^2 M
+e^{-\nu(\lambda)X_1} -\frac{1}{2}\lambda \tilde{M} e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} -\frac{1}{2}\lambda \tilde{M} e^{\nu(\lambda)X_0} & M_c \lambda^2 & 0 \\
+-e^{\nu(\lambda)X_1} -\frac{1}{2}\lambda \tilde{M} e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} -\frac{1}{2}\lambda \tilde{M} e^{-\nu(\lambda)X_0} & 0 & M_c \lambda^2 \\
+-\frac{1}{2}\lambda M_c e^{-\nu(\lambda)X_1} & -\frac{1}{2}\lambda M_c e^{\nu(\lambda)X_0} &-a-\lambda^2 M & a \\
+-\frac{1}{2}\lambda M_c e^{\nu(\lambda)X_1} & -\frac{1}{2}\lambda M_c e^{-\nu(\lambda)X_0}  & a & -a-\lambda^2 M
 \end{pmatrix} + R(\lambda)
 \end{align}
 where
@@ -686,8 +681,8 @@ where the individual entries have bounds
 In addition,
 \begin{equation}\label{2pblockmatrixdet}
 \begin{aligned}
-\det S(&\lambda, r) = -2 \lambda^2 (2a + \lambda^2 M + R_1) \left( M \sinh(\nu(\lambda)X) + \lambda (M \tilde{M} - M^c \tilde{M}^c) \cosh(\nu(\lambda)X) \right) \\
-&-4 a \lambda^3 M^c \tilde{M}^c \sinh(\nu(\lambda)X_1)\sinh(\nu(\lambda)X_0) 
+\det S(&\lambda, r) = -2 \lambda^2 (2a + \lambda^2 M + R_1) \left( M \sinh(\nu(\lambda)X) + \lambda (M \tilde{M} + M_c^2 ) \cosh(\nu(\lambda)X) \right) \\
+&+4 a \lambda^3 M_c^2 \sinh(\nu(\lambda)X_1)\sinh(\nu(\lambda)X_0) 
 + R_2 \lambda^2 \sinh(\nu(\lambda)(X_1 - X_0)) + \lambda^2 R_3 \sinh(\nu(\lambda)X)) + \lambda^3 R_4,
 \end{aligned}
 \end{equation}
@@ -706,7 +701,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 \begin{enumerate}[(i)]
 \item Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{2pess}
-\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} - M^c\tilde{M^c}}{M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
+\lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} + M_c^2}{M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
 is on the imaginary axis.
 
@@ -739,20 +734,18 @@ Finally, we consider what happens when the first essential spectrum eigenvalue c
 \caption{Cartoon showing brief instability bubble which forms as imaginary interaction eigenvalue and first essential spectrum eigenvalue collide on imaginary axis. Eigenvalues are shown in red dots, center of instability bubble is marked with blue X.}
 \label{fig:KreinBubbleCartoon}
 \end{figure}
-The existence of these Krein bubbles is given in the following theorem, which also provides numerically verifiable estimates for their size and location. The result holds under a mild assumption on the signs of $M^c$ and $\tilde{M}^c$, which can be checked numerically.
+The existence of these Krein bubbles is given in the following theorem, which also provides numerically verifiable estimates for their size and location.
 
 \begin{theorem}\label{th:Kreinbubble}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. In addition, assume $M^c \tilde{M}^c < 0$.
-
-Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
-\begin{align*}
-\lambda_* &= \sqrt{ \frac{-2a - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a}{M} } + \mathcal{O}(r) \\
-X_* &= c \left( \frac{\pi i}{\lambda_*} - \frac{K}{M}\right),
-\end{align*}
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
+\begin{align}
+\lambda_* &= \sqrt{ \frac{-2a - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a}{M} } + \mathcal{O}(r) \label{deflambdastar} \\
+X_* &= c \left( \frac{\pi i}{\lambda_*} - \frac{M \tilde{M} + M_c^2 }{M}\right) \label{defXstar},
+\end{align}
 and define $T_0 > 0$ by 
-\[
-T_0 = -\frac{M^c \tilde{M}^c}{2 \pi M^2 c } \lambda_*^5 X_0^2
-\]
+\begin{align}\label{defT0}
+T_0 = \frac{M_c^2 }{2 \pi M^2 c } |\lambda_*|^5 X_0^2
+\end{align}
 Let $Q_2(x; s, r)$ be the family of periodic 2-pulse solutions parameterized by a parameter $s$, where $s \in [-2\sqrt{T_0}, 2 \sqrt{T_0}]$, so that the domain size $X$ is given by
 \begin{equation}
 X = X_* + \frac{2 c \pi s}{\lambda_*^2} = \mathcal{O}(s^2).
@@ -768,9 +761,9 @@ Then, as $s$ is varied, there is a pair of eigenvalues located at
 s = s_\pm = \pm \sqrt{T_0}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right)\right).
 \]
 there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$. This occurs when 
-\[
-X = X_* \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} + \mathcal{O}(s^2)
-\]
+\begin{equation}\label{KreinDeltaX}
+X = X_* \pm \Delta X, \quad \Delta X = \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} + \mathcal{O}(s^2)
+\end{equation}
 \item For $s \in (s_-, s+)$, equation \cref{Kreineigs} is a pair of eigenvalues which is symmetric across the imaginary axis. The real part of \cref{Kreineigs} attains its maximum of approximately $\sqrt{T_0}$ when $s = 0$
 \item For $s \in [-2\sqrt{T_0}, s_-) \cup (s_+, 2 \sqrt{T_0}]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
 \end{enumerate}
@@ -837,6 +830,21 @@ Finally, we look at what happens when we increase the period $X$. For $m_0 = 1$,
 \end{center}
 \caption{Left panel shows collision of first essential spectrum eigenvalue with purely imaginary interaction eigenvalue as $X$ is increased. Imaginary part of eigenvalues in top panel (red), real part of eigenvalues in bottom panel (blue). Right panel plots the imaginary part vs. the real part of the eigenvalues in the Krein bubble as $X$ varies. Parameter continuation with AUTO in periodic domain length $X$, $p = -1$, $c = 20$.}
 \label{fig:kreinbubble1}
+\end{figure}
+
+Finally, we verify the results of \cref{th:Kreinbubble} numerically. If $p$ and $c$ in \cref{KdV5eq4} are related by
+\begin{align}\label{KdVpabc}
+p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
+\end{align}
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. We choose $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too fast. This allows us to construct the first four periodic double pulses with $m_0 = 1$, together with their interaction eigenfunctions, to a sufficient degree of accuracy that AUTO converges to the correct solution. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble size in $X$ versus $\alpha X_0$. The slope of the least squares linear regression line suggests that the Krein bubble radius is given by $\sqrt{T_0} + \mathcal{O}(e^{-3 \alpha X_0}$; the relative error in the exponent is less than 0.01. Similarly, this suggests that the absolute error of the Krein bubble size in $X$ is proportional to $e^{-\alpha X_0})$ with a relative error in the exponent of approximately 0.03.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=7.5cm]{images/KreinRadiusError.eps}
+\includegraphics[width=7.5cm]{images/KreinRadiusXError.eps}
+\end{center}
+\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha_0 X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Parameters $p = 5.3$, $c = 11.2225$.}
+\label{fig:kreinerrors}
 \end{figure}
 
 
@@ -1828,13 +1836,13 @@ The next lemma evaluates two important inner products involving $V^\pm(0; \lambd
 \begin{equation}\label{VpmIPs}
 \begin{aligned}
 \langle W_0, V^\pm(0; \lambda) \rangle &= 1 \mp \frac{1}{2} \tilde{M}\lambda + \mathcal{O}(|\lambda|^2), \quad
-\langle \Psi(0), V^\pm(0; \lambda) \rangle = \pm \frac{1}{2} M^c \lambda + \mathcal{O}(|\lambda|^2)
+\langle \Psi(0), V^\pm(0; \lambda) \rangle = \mp \frac{1}{2} M_c \lambda + \mathcal{O}(|\lambda|^2)
 \end{aligned}
 \end{equation}
 where
 \begin{align*}
 \tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy < \infty, \quad
-M^c = \int_{-\infty}^\infty q(y) v^c(y) dy,
+M_c = \int_{-\infty}^\infty \partial_c q(y) dy,
 \end{align*}
 $q(y)$ is the first component of $Q(y)$, and $v^c(y)$ is the first component of $V^c(y)$.
 \begin{proof}
@@ -1889,9 +1897,16 @@ since $\tilde{\Phi}^{u,+}(0,y; 0) V^c(y) = 0$. For the exponential dichotomy pro
 \begin{align*}
 \langle \Psi(0), \partial_\lambda \tilde{V}^+(x; 0)  \rangle
 &= \int_{\infty}^0 \langle \tilde{\Phi}(0,y; 0)^* \tilde{\Phi}^{u,+}(0,0; 0)^* \Psi(0), B V^c(y) \rangle dy = -\int_0^\infty \langle \Psi(y), B V^c(y) \rangle dy \\
-&= \int_0^\infty q(y) v^c(y) dy = \frac{1}{2}M^c,
+&= \int_0^\infty q(y) v^c(y) dy = \frac{1}{2}\int_{-\infty}^\infty q(y) v^c(y) dy ,
 \end{align*}
-since the last component of $\Psi(y)$ is $-q(y)$, and both $v^c(y)$ and $q(y)$ are even functions. Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equations \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle \Psi(0), V^c(0)\rangle = 0$, we obtain the second equation in \cref{VpmIPs}. The formulas with $V^-(0; \lambda)$ are similarly obtained.
+since the last component of $\Psi(y)$ is $-q(y)$, and both $v^c(y)$ and $q(y)$ are even functions. Since $\calL(q)v^c = 1$ and $\calL(q)$ is self-adjoint, using \cref{Lkernel} we have
+\begin{align*}
+\langle \Psi(0), \partial_\lambda \tilde{V}^+(x; 0) \rangle
+&= -\frac{1}{2} \int_{-\infty}^\infty \calL(q) \partial_c q(y) v^c(y) dy 
+= -\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) \calL(q) v^c(y) dy =
+-\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) dy = -\frac{1}{2}M_c
+\end{align*}
+Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equations \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle \Psi(0), V^c(0)\rangle = 0$, we obtain the second equation in \cref{VpmIPs}. The formulas with $V^-(0; \lambda)$ are similarly obtained.
 \end{proof}
 \end{lemma}
 
@@ -2386,7 +2401,7 @@ We have constructed a unique solution to \cref{eigsystem0} which will have $n$ j
 \begin{lemma}\label{jumpcenteradj}
 The jumps in the direction of $\Psi^c(0)$ are given by the matrix equation
 \begin{equation}\label{matrixjumpc}
-\left( K(\lambda) - \frac{1}{2} \lambda \tilde{M} K^+(\lambda) + C_1 \right) c + \left(\lambda^2 \tilde{M}^c I + D_1\right) d = 0.
+\left( K(\lambda) - \frac{1}{2} \lambda \tilde{M} K^+(\lambda) + C_1 \right) c + \left(\lambda^2 M_c I + D_1\right) d = 0.
 \end{equation}
 $K(\lambda)$ is the matrix
 \begin{align*}
@@ -2399,10 +2414,10 @@ e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
 & & & & -e^{\nu(\lambda)X_{n-1}} & e^{-\nu(\lambda)X_0}
 \end{pmatrix},
 \end{align*}
-$K^+(\lambda)$ is the same as $K(\lambda)$ with all terms positive, and the constants $\tilde{M}$ and $\tilde{M}^c$ are
+$K^+(\lambda)$ is the same as $K(\lambda)$ with all terms positive, and the constants $\tilde{M}$ and $M_c$ are
 \begin{align*}
 \tilde{M} &= \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy, \quad
-\tilde{M}^c = \int_{-\infty}^\infty \partial_c q(y) dy.
+M_c = \int_{-\infty}^\infty \partial_c q(y) dy.
 \end{align*}
 The remainder matrices are analytic in $\lambda$ and have uniform bounds
 \begin{align}\label{centerjumprem}
@@ -2490,7 +2505,7 @@ Finally, we compute the jumps in the direction of $\Psi(0)$.
 \begin{lemma}\label{jumpadj}
 The jumps in the direction of $\Psi(0)$ are given by the matrix equation
 \begin{equation}\label{Psimatrix}
-\left( \frac{1}{2} \lambda M^c K^+(\lambda) + C_2 \right)c + \left(A - \lambda^2 M I + D_2\right)d = 0.
+\left( -\frac{1}{2} \lambda M_c K^+(\lambda) + C_2 \right)c + \left(A - \lambda^2 M I + D_2\right)d = 0.
 \end{equation}
 The matrix $A$ is given by
 \begin{align*}
@@ -2510,10 +2525,10 @@ with
 \begin{align*}
 a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
 \end{align*}
-The matrix $K^+(\lambda)$ is defined in \cref{jumpcenteradj}, and the constants $M$ and $M^c$ are
+The matrix $K^+(\lambda)$ is defined in \cref{jumpcenteradj}, and the constants $M$ and $M_c$ are
 \begin{align*}
 M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy, \quad
-M^c = \int_{-\infty}^\infty q(y) v^c(y) dy.
+M_c = \int_{-\infty}^\infty \partial_c q(y) dy.
 \end{align*}
 The remainder matrices are analytic in $\lambda$ and have uniform bounds
 \begin{align}\label{adjjumprem}
@@ -2530,7 +2545,7 @@ The jumps in the direction of $\Psi(0)$ are given by
 Using \cref{lemma:VpmPsiIP} and \cref{nubound},
 \begin{align*}
 \langle \Psi(0), &c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) \rangle
-= \frac{1}{2}\lambda M^c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_i}c_{i-1}\right) + \mathcal{O}\left( (e^{-\alpha X^*} +|\lambda|)^2 \right)
+= -\frac{1}{2}\lambda M_c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_i}c_{i-1}\right) + \mathcal{O}\left( (e^{-\alpha X^*} +|\lambda|)^2 \right)
 \end{align*}
 The terms $P^i_\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. As in Lemma \ref{jumpcenteradj}, we begin by computing the leading order terms. For the non-center integral involving $\tilde{H}_i^\pm$, following the same procedure as in \cref{jumpcenteradj}, we have
 \begin{align*}
@@ -2597,7 +2612,7 @@ The non-center integral involving $G_i^\pm(x; \lambda)$ has a stronger bound. Bo
 and simplifying, we obtain the jump expressions
 \begin{align*}
 \xi_i = \langle \Psi&(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) - \langle \Psi(X_{i-1}), Q'(-X_{i-1}) \rangle (d_i - d_{i-1} ) - \lambda^2 d_i M  \\
-&+ \frac{1}{2}\lambda M^c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_i}c_{i-1}\right)
+&- \frac{1}{2}\lambda M_c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_i}c_{i-1}\right)
 + \mathcal{O}\left( (e^{-\alpha X^*} + |\lambda|)^2 |c| + (e^{-\alpha X^*} + |\lambda|)^3 |d| \right).
 \end{align*}
 We can write this in matrix form as in the statement of the lemma, using \cref{defr} to write the remainder in terms of $r$.
@@ -2694,8 +2709,8 @@ from which follows that $\det S(-\lambda) = \det K_1 \det S(\lambda) \det K_2 = 
 As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambda = \nu^{-1}(\mu)$ so that $\det S(\lambda)$ becomes 
 \begin{equation}\label{2pdetmu}
 \begin{aligned}
-\det S(&\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} - M^c \tilde{M}^c) \cosh(\mu X) \right) \\
-&-4 a c^3 \mu^3 M^c \tilde{M}^c \sinh(\mu X_1)\sinh(\mu X_0) 
+\det S(&\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
+&+4 a c^3 \mu^3 M_c^2 \sinh(\mu X_1)\sinh(\mu X_0) 
 + R_2 \mu^2 \sinh(\mu(X_1 - X_0)) + R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4,
 \end{aligned}
 \end{equation}
@@ -2707,7 +2722,7 @@ where the remainder terms have the same bounds as in \cref{lemma:2blockmatrix} w
 For \cref{theorem:2peigsassym}, we will ensure that the interaction eigenvalues and essential spectrum eigenvalues do not interfere. Since $\mu^*_{int} = \mathcal{O}(r^{1/2})$ and $\mu^*_1 = \mathcal{O}(1/|\log r|)$, choose $r_0 \leq r_*$ sufficiently small so that $|\mu^*_{int}| \leq \frac{1}{2} |\mu^*_1|$ for all $r \leq r_0$. Since the second term on the RHS of \cref{2pdetmu} will not matter for this case, we can simplify $\det S(\mu, r)$ to obtain 
 \begin{equation}\label{2pdetmu2}
 \begin{aligned}
-\det S(&\mu, r) = -2 c^2 \mu^2 (2a + c^2 \mu^2 M) \left( M \sinh(\mu X) + c \mu (M \tilde{M} - M^c \tilde{M}^c) \cosh(\mu X) \right) + \tilde{R} \mu^2 \sinh(\mu X) + R \mu^3,
+\det S(&\mu, r) = -2 c^2 \mu^2 (2a + c^2 \mu^2 M) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) + \tilde{R} \mu^2 \sinh(\mu X) + R \mu^3,
 \end{aligned}
 \end{equation}
 where $|\tilde{R}|, |R| < C(r^{1/2} + |\mu|)^3$. 
@@ -2887,7 +2902,7 @@ Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ 
 \begin{aligned}
 M \tilde{\mu} \tilde{h} X_0 r^{7/4}
 \left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + 2 \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) 
-+ 2 M M^c \tilde{M}^c c \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} X_0 ) = 0
+- 2 M M_c^2 c \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} X_0 ) = 0
 \end{aligned}
 \end{equation}
 Since
@@ -2898,18 +2913,17 @@ Since
 equation \cref{det3} simplifies to
 \begin{equation}\label{det4}
 \begin{aligned}
-2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) 
-+ 2 M M^c \tilde{M}^c c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
+2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) - 2 M M_c^2 c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
 \end{aligned}
 \end{equation}
 Dividing by $X_0^2 r^{5/2}$ and noting that $X_0 = \mathcal{O}(|\log r|)$, we obtain the equation
 \begin{equation}\label{det5}
 \begin{aligned}
 G(\tilde{h}, \tilde{k}, r) = \tilde{h}^2 + 2 \tilde{k}  i \tilde{h}
-- T + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0, \quad T = -\frac{M^c \tilde{M}^c }{2 \pi M^2 } c^2 \tilde{\mu}^5.
+- T + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0, \quad T = \frac{M_c^2 }{2 \pi M^2 } c^2 \tilde{\mu}^5 > 0.
 \end{aligned}
 \end{equation}
-Since we are assuming $M > 0$ and $M^c \tilde{M}^c < 0$, $T > 0$. When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if 
+When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if 
 \begin{equation}
 \tilde{h} = \tilde{h}_0^\pm(\tilde{k}) = -\tilde{k}i \pm \sqrt{T - \tilde{k}^2}.
 \end{equation}
@@ -2940,7 +2954,7 @@ which is nonsingular. Using the implicit function theorem, there exists $r_2 \le
 
 Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues at
 \begin{align*}
-\lambda = \lambda_* - s i \pm \sqrt{ T_0 -  s^2}, \quad T_0 = -\frac{M^c \tilde{M}^c}{2 \pi M^2 c } \lambda_*^5 X_0^2,
+\lambda = \lambda_* - s i \pm \sqrt{ T_0 -  s^2}, \quad T_0 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
 \end{align*}
 which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_0}$. For $s = s_\pm(r) = \pm \sqrt{T_0}\left( 1 + \mathcal{O}(\frac{1}{|\log r|} \right)$, there is a double eigenvalue at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_0}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
 \begin{equation}
