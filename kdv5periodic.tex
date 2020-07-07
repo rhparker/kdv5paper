@@ -738,33 +738,37 @@ The existence of these Krein bubbles is given in the following theorem, which al
 
 \begin{theorem}\label{th:Kreinbubble}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
-\begin{align}
-\lambda_* &= \sqrt{ \frac{-2a - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a}{M} } + \mathcal{O}(r) \label{deflambdastar} \\
-X_* &= c \left( \frac{\pi i}{\lambda_*} - \frac{M \tilde{M} + M_c^2 }{M}\right) \label{defXstar},
+\begin{align}\label{deflambdastar}
+\lambda_*(r) &= \sqrt{ \frac{-2a(r) - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a(r)}{M} } + \mathcal{O}(r),
 \end{align}
-and define $T_0 > 0$ by 
+and let $Q_2^*(x; r)$ be the periodic 2-pulse solution from \cref{2pulsebifurcation} with domain length $X = X_*(r)$, where
+\begin{align}\label{defXstar}
+X_*(r) &= c \left( \frac{\pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right).
+\end{align}
+Define $T_0 > 0$ by 
 \begin{align}\label{defT0}
-T_0 = \frac{M_c^2 }{2 \pi M^2 c } |\lambda_*|^5 X_0^2
+T_0(r) = \frac{M_c^2 }{2 \pi M^2 c } |\lambda_*|^5 X_0^2.
 \end{align}
-Let $Q_2(x; s, r)$ be the family of periodic 2-pulse solutions parameterized by a parameter $s$, where $s \in [-2\sqrt{T_0}, 2 \sqrt{T_0}]$, so that the domain size $X$ is given by
+For $s \in [-2\sqrt{T_0}, 2 \sqrt{T_0}]$, let $Q_2(x; s, r)$ be the periodic 2-pulse solution with domain size $X = X(r, s)$, where
 \begin{equation}
-X = X_* + \frac{2 c \pi s}{\lambda_*^2} = \mathcal{O}(s^2).
+X(s,r) = X_*(r) + \frac{2 c \pi s}{|\lambda_*(r)|^2} = \mathcal{O}(s^2).
 \end{equation}
-
-Then, as $s$ is varied, there is a pair of eigenvalues located at 
-\begin{align}\label{Kreineigs}
-\lambda = \lambda_* - s i \pm \sqrt{ T_0 -  s^2} + \mathcal{O}(\cdots)
-\end{align}
+Then there exists $r_0 \leq r_*$ such that the following holds for the linearization about $Q_2(x; s, r)$.
 \begin{enumerate}[(i)]
-\item For
-\[
-s = s_\pm = \pm \sqrt{T_0}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right)\right).
-\]
-there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$. This occurs when 
-\begin{equation}\label{KreinDeltaX}
-X = X_* \pm \Delta X, \quad \Delta X = \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} + \mathcal{O}(s^2)
-\end{equation}
-\item For $s \in (s_-, s+)$, equation \cref{Kreineigs} is a pair of eigenvalues which is symmetric across the imaginary axis. The real part of \cref{Kreineigs} attains its maximum of approximately $\sqrt{T_0}$ when $s = 0$
+	\item There is a pair of eigenvalues located at
+	\begin{align}\label{Kreineigs}
+	\lambda = \lambda_*(r) - s i \pm \sqrt{ T_0(r) -  s^2} + \mathcal{O}\left(r^{5/4}|\log r| \right)
+	\end{align}
+
+	\item For
+	\[
+	s = s_\pm(r) = \pm \sqrt{T_0(r)} + \mathcal{O}\left(r^{5/4}|\log r| \right),
+	\]
+	there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_*(r) - s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which occurs when 
+	\begin{equation}\label{KreinDeltaX}
+	X(s, r) = X_*(r) \pm \frac{2 c \pi}{|\lambda_*(r)|^2}\sqrt{T_0} + \mathcal{O}(s^2)
+	\end{equation}
+\item For $s \in (s_-, s+)$, equation \cref{Kreineigs} describes, to leading order, a circle of radius $\sqrt{T_0}$ in the complex plane, and the pair of eigenvalues is symmetric across the imaginary axis.
 \item For $s \in [-2\sqrt{T_0}, s_-) \cup (s_+, 2 \sqrt{T_0}]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
 \end{enumerate}
 \end{theorem}
@@ -836,7 +840,7 @@ Finally, we verify the results of \cref{th:Kreinbubble} numerically. If $p$ and 
 \begin{align}\label{KdVpabc}
 p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. We choose $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too fast. This allows us to construct the first four periodic double pulses with $m_0 = 1$, together with their interaction eigenfunctions, to a sufficient degree of accuracy that AUTO converges to the correct solution. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble size in $X$ versus $\alpha X_0$. The slope of the least squares linear regression line suggests that the Krein bubble radius is given by $\sqrt{T_0} + \mathcal{O}(e^{-3 \alpha X_0}$; the relative error in the exponent is less than 0.01. Similarly, this suggests that the absolute error of the Krein bubble size in $X$ is proportional to $e^{-\alpha X_0})$ with a relative error in the exponent of approximately 0.03.
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. We choose $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too fast. This allows us to construct the first four periodic double pulses with $m_0 = 1$, together with their interaction eigenfunctions, to a sufficient degree of accuracy that AUTO converges to the correct solution. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble size in $X$ versus $\alpha X_0$. The slope of the least squares linear regression line suggests that the Krein bubble radius is given by $\sqrt{T_0} + \mathcal{O}(e^{-3 \alpha X_0})$; the relative error in the exponent is less than 0.01. Similarly, this suggests that the absolute error of the Krein bubble size in $X$ is proportional to $e^{-\alpha X_0}$ with a relative error in the exponent of approximately 0.03.
 
 \begin{figure}
 \begin{center}
@@ -2929,7 +2933,7 @@ When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if
 \end{equation}
 When $|k| \leq \sqrt{T}$, this is a circle in the complex plane of radius $\sqrt{T}$. We will show this persists for small $r$. For $\tilde{h} = \tilde{h}_0^\pm(\tilde{k})$, $G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 0$ and
 \begin{equation}
-\partial_{\tilde{h}_0}G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 2 \sqrt{T - \tilde{k}^2},
+\partial_{\tilde{h}}G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 2 \sqrt{T - \tilde{k}^2},
 \end{equation}
 which is nonzero as long as $\tilde{k} \neq \pm \sqrt{T}$. Choose any $\epsilon > 0$. Then for $\tilde{k} \in K_\epsilon$, where
 \[
@@ -2950,11 +2954,11 @@ D_{(\tilde{h}, \tilde{k})}H(-\sqrt{T}i, \sqrt{T}, 0) =
 2 & 2i
 \end{pmatrix},
 \end{equation*}
-which is nonsingular. Using the implicit function theorem, there exists $r_2 \leq r_1$ and a unique smooth function $(\tilde{h}_1(r), \tilde{k}_1(r))$ with $(\tilde{h}_1(0), \tilde{k}_1(0)) = (-\sqrt{T}i, \sqrt{T})$ such that for all $r \leq r_2$, $H(\tilde{h}_1(r), \tilde{k}_1(r), r) = 0$, i.e. $\tilde{h}_1(r)$ is a double root of $G(\tilde{h}, \tilde{k}, r)$ when $\tilde{k} = \tilde{k}(r)$. By Hamiltonian symmetry, $\tilde{h}(r)$ must lie on the imaginary axis. We have a similar result for $(\tilde{h}, \tilde{k}) = (\sqrt{T}i, -\sqrt{T})$.
+which is nonsingular. Using the implicit function theorem, there exists $r_2 \leq r_1$ and a unique smooth function $(\tilde{h}_1(r), \tilde{k}_1(r))$ with $(\tilde{h}_1(0), \tilde{k}_1(0)) = (-\sqrt{T}i, \sqrt{T})$ and $(\tilde{h}_1(r), \tilde{k}_1(r)) = (-\sqrt{T}i, \sqrt{T}) + \mathcal{O}(\frac{1}{|\log r|})$ such that for all $r \leq r_2$, $H(\tilde{h}_1(r), \tilde{k}_1(r), r) = 0$, i.e. $\tilde{h}_1(r)$ is a double root of $G(\tilde{h}, \tilde{k}, r)$ when $\tilde{k} = \tilde{k}(r)$. By Hamiltonian symmetry, $\tilde{h}(r)$ must lie on the imaginary axis. We have a similar result for $(\tilde{h}, \tilde{k}) = (\sqrt{T}i, -\sqrt{T})$.
 
 Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues at
 \begin{align*}
-\lambda = \lambda_* - s i \pm \sqrt{ T_0 -  s^2}, \quad T_0 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
+\lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_0 -  s^2} + \mathcal{O}(r^{5/4}|\log r|), \quad T_0 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
 \end{align*}
 which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_0}$. For $s = s_\pm(r) = \pm \sqrt{T_0}\left( 1 + \mathcal{O}(\frac{1}{|\log r|} \right)$, there is a double eigenvalue at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_0}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
 \begin{equation}
@@ -2964,7 +2968,6 @@ In particular, the Krein collision (and reverse collision) occur when
 \[
 X(r) = X_*(r) \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_0} + \mathcal{O}(s^2)
 \]
-
 
 \bibliographystyle{amsalpha}
 \bibliography{kdv5.bib}
