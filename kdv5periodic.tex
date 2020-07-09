@@ -43,7 +43,71 @@
 
 \section{Introduction}\label{sec:intro}
 
+Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set, and a spatial dynamics approach can be found in \cite{Sandstede1993,SandstedeStrut}. Of particular interest is the stability of these multi-pulse structures. The spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, which includes reaction-diffusion systems, these eigenvalues are computed in \cite{Sandstede1998}. 
+
+A much more difficult problem, which is not covered by the results of \cite{Sandstede1998}, concerns the spectral stability of multi-pulses in Hamiltonian PDEs. As a concrete example, consider double pulse traveling wave solutions to the fifth-order Korteweg de-Vries equation (KdV5)
+\begin{align}\label{KdV5example}
+u_t &= \partial_x\left( u_{xxxx} - u_{xx} + c u - u^2\right) && c > 1/4,
+\end{align}
+which is the equation studied in \cite{Pelinovsky2007}. Double pulses resemble two copies of the primary solitary wave joined together and separated by oscillatory tails (\cref{fig:KdV5double}, top left). The distance between the two peaks of the double pulse takes values in a discrete set (\cref{fig:KdV5double}, top right) \cite{Pelinovsky2007,SandstedeStrut}. 
+\begin{figure}[H]
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=7cm]{images/dpconstruction.eps} &
+\includegraphics[width=7cm]{images/doublepulsealt.eps}
+\end{tabular}
+\end{center}
+\caption{Left panel shows construction of double pulse solution (solid line) from two single pulses (dotted lines). Oscillatory tails are exaggerated. Right panel shows first four double pulse solutions.}
+\label{fig:KdV5double}
+\end{figure} 
+
+The essential spectrum is the entire imaginary axis and depends only on the background state. In addition, there is a set of interaction eigenvalues, which must occur in one of the three patterns in \cref{fig:kdv5inteigpattern} since equation \cref{KdV5example} is Hamiltonian. 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{images/KdV5eigpattern}
+\end{center}
+\caption{Possible interaction eigenvalue patterns for double pulse solutions to KdV5.}
+\label{fig:kdv5inteigpattern}
+\end{figure}
+\noi The eigenvalue pattern alternates between a pair of real eigenvalues (corresponding to double pulses with dashed lines in \cref{fig:KdV5double}, right panel) and a pair of eigenvalues which are, to leading order, imaginary with negative Krein signature (corresponding to double pulses with solid lines in \cref{fig:KdV5double}, right panel) \cite[Theorem 2.3]{Pelinovsky2007}. Since these imaginary eigenvalues are only located to leading order, this does not rule out the second possibility in \cref{fig:kdv5inteigpattern}. Numerical timestepping verifies that double pulses with real eigenvalues are unstable; when perturbed, the two pulses move away from each other with equal and opposite velocities (\cref{fig:KdV5waterfall}, left panel). For the remaining double pulses, numerical timestepping suggests that the two pulses exhibit oscillatory behavior when perturbed (\cref{fig:KdV5waterfall}, right panel).
+\begin{figure}[H]
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=7cm]{images/waterfallunstable.eps} &
+\includegraphics[width=7cm]{images/waterfallstable.eps}
+\end{tabular}
+\end{center}
+\caption{Results of numerical timestepping simulations using a Crank-Nicolson/Adams-Bashforth 2 IMEX scheme for perturbations of double pulse solutions to \cref{KdV5example}. Chebyshev spectral discretization in space with Dirichlet and Neumann boundary conditions.}
+\label{fig:KdV5waterfall}
+\end{figure} 
+\noi This suggests that the dynamics of perturbed double pulses can be reduced to a 2-dimensional system, where the variables are the peak distance and peak relative velocity (\cref{fig:KdV5reduction}). The phase portrait resembles that of a harmonic oscillator with spatially varying restoring force. Double pulses with real eigenvalues correspond to saddle points, and the remaining double pulses correspond to centers. 
+\begin{figure}[H]
+\begin{center}
+\begin{tabular}{c}
+\includegraphics[width=7cm]{images/reduction.eps}
+\end{tabular}
+\end{center}
+\caption{Plot of peak relative velocity versus peak distance for perturbed double pulses.}
+\label{fig:KdV5reduction}
+\end{figure}
+
+Although these numerical results suggest that every other double pulse is neutrally stable with purely imaginary interaction eigenvalues, this remains an open question. It is possible, for example, that the interaction eigenvalues have a real part which is sufficiently small that its destabilizing effect is not seen in the timestepping results. Furthermore, the timestepping simulation was performed with separated boundary conditions, which could fundamentally alter the behavior of the system. Since any purely imaginary eigenvalues would be embedded in the essential spectrum and thus not be isolated elements of the spectrum, it is unclear how to locate these eigenvalues.
+
+As an alternative, we will look at multi-pulses on a periodic domain $[-X, X]$. The essential spectrum becomes a discrete set of points on the imaginary axis, and purely imaginary interaction eigenvalues can then lie within gaps in the essential spectrum. As long as the interaction eigenvalues and the essential spectrum do not get too close, we will show that the interaction eigenvalues for double pulses are either real or purely imaginary. However, as the domain size $X$ is increased, the essential spectrum eigenvalues move towards the origin along the imaginary axis. At some point, there will be a collision between one of these eigenvalues and a purely imaginary interaction eigenvalue.  
+
 This paper is organized as follows. In \cref{sec:KdV5}, we introduce the fifth-order KdV equation (KdV5), which is our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Background and motivation}\label{sec:KdV5}
 
@@ -88,8 +152,7 @@ where $J$ is the standard $4 \times 4$ symplectic matrix and
 \begin{equation}
 \tilde{H}(q_1, q_2, p_1, p_2) = \frac{1}{3}q_1^3 - \frac{1}{2}c q_1^2 + p_1 q_2 + \frac{p}{2}q_2^2 + \frac{1}{2}p_2^2,
 \end{equation}
-
-We have the following theorem concerning the existence of localized solutions to \cref{KdV5eq4}, which is a direct consequence of \cite{Groves1998} and reversibility.
+We have the following theorem concerning the existence of localized solutions to \cref{KdV5eq4}, which is a direct consequence of \cite{Groves1998}, reversibility, and the stable manifold theorem.
 
 \begin{theorem}\label{KdV1pulse}
 If $p < 2 \sqrt{c}$, then there exists a one-pulse solution $q(x)$ to \cref{KdV5eq4} which is an even function and decays exponentially to 0 at $\pm \infty$.
@@ -99,15 +162,15 @@ Linearization of \cref{KdV5eq4} about a solution $u^*(x)$ is the self-adjoint li
 \begin{equation}\label{KdV5hessian}
 \calE''(u^*) = \partial_x^4 + p \partial_x^2 + c - 2 u^* 
 \end{equation}
-where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is hyperbolic saddle equilibrium with 2-dimensional stable and unstable manifolds. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$. For $-2 \sqrt{c} < p < 2 \sqrt{c}$, multi-pulse solutions exist, which resemble multiple, well-separated copies of the primary pulse $q(x)$. For each $n \geq 2$, Buffoni, Champneys, and Toland \cite{Buffoni1996} show using the Smale horseshoe set that a countable family of multi-pulse solutions exists. The result for 2-pulse solutions is also given in \cite[Theorem 2.2]{Pelinovsky2007}, which is based on the variational method used in \cite{Buffoni1996}. The method we will employ is due to Sandstede \cite{Sandstede1993, SandstedeStrut}, and uses a spatial dynamics approach and Lin's method. From this perspective, a multi-pulse is a multi-loop homoclinic orbit which remains close to the primary pulse. Since multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions, Lin's method provides not only existence results but also estimates for these small remainder functions. The distances between consecutive peaks are constrained to be (approximately) an integer multiple of a phase parameter which depends on $\beta_0$ and represents the number of half-twists made by the multi-pulse between consecutive peaks. This corresponds to a specific alignment of stable and unstable manifolds necessary for multi-pulses to exist. 
+where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is a hyperbolic saddle with 2-dimensional stable and unstable manifolds. The primary pulse $q(x)$ corresponds to a homoclinic orbit connecting the stable and unstable manifolds of this equilibrium. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$. For $-2 \sqrt{c} < p < 2 \sqrt{c}$, multi-pulse solutions exist, which resemble multiple, well-separated copies of the primary pulse $q(x)$ \cite{Buffoni1996,Pelinovsky2007}. For our analysis, we will use a spatial dynamics approach and Lin's method as in \cite{Sandstede1993, SandstedeStrut}. From this perspective, a multi-pulse $q_n(x)$ is a multi-loop homoclinic orbit which remains close to the primary homoclinic orbit. Since multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions, Lin's method provides not only an existence result but also estimates for these small remainder functions. The distances between consecutive peaks are constrained to be (approximately) an integer multiple of a phase parameter, which depends on $\beta_0$. These represent the number of half-twists made by the multi-pulse between consecutive peaks, and correspond to a specific alignment of the stable and unstable manifolds necessary for multi-pulses to exist. 
 
 By \cite{Grillakis1987}, the primary pulse $q(x)$ is orbitally stable if 
 \begin{equation}\label{KdV5stabhyp}
 \int_{-\infty}^\infty q(x) \partial_c q(x) dx > 0,
 \end{equation}
-which can be checked numerically. To examine the stability of a multi-pulse solution $q_n$, we first study the spectrum of the linear operator $\partial_x \calE''(q_n)$, which is the linearization of the PDE \eqref{KdV5c} about $q_n$. It follows from the Weyl essential spectrum theorem \cite[Theorem 2.2.6]{Kapitula2013} and \cite[Theorem 3.1.11]{Kapitula2013} that the essential spectrum of $\partial_x \calE''(u^*)$ is the entire imaginary axis, which depends only on the rest state and is independent of $u^*$. Spectral stability thus depends on the point spectrum, which must come in quartets $\{ \pm \lambda, \pm \overline{\lambda}\}$ since \cref{KdV5c} is Hamiltonian \cite[Proposition 5.1.2]{Kapitula2013}. Since $\partial_x \calE''(q_n) (\partial_x q_n) = 0$ and $\partial_x \calE''(q_n) (-\partial_c q_n) = \partial_x q_n$, the kernel of $\partial_x \calE''(q_n)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1. For the primary pulse solution $q(x)$, these are the only eigenvalues. For an $n$-pulse solution, there will be $n-1$ additional sets of eigenvalues near 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will refer to these as interaction eigenvalues. For double pulses, there is a pair of interaction eigenvalues which is either real or imaginary (to leading order) with negative Krein signature \cite[Theorem 2.3]{Pelinovsky2007}. Using an exponentially weighted space, we can extend this result to arbitrary multi-pulses through a suitable adaptation of \cite{Sandstede1998}. Any potentially imaginary eigenvalues, however, can only be located to leading order. Since the system is no longer Hamiltonian when posed in an exponentially weighted space, we cannot conclude that these eigenvalues are in fact on the imaginary axis.
+which can be checked numerically. To examine the stability of a multi-pulse solution $q_n$, we first study the spectrum of the linear operator $\partial_x \calE''(q_n)$, which is the linearization of the PDE \eqref{KdV5c} about $q_n$. It follows from the Weyl essential spectrum theorem \cite[Theorem 2.2.6]{Kapitula2013} and \cite[Theorem 3.1.11]{Kapitula2013} that the essential spectrum of $\partial_x \calE''(q_n)$ is the entire imaginary axis, which depends only on the rest state and is independent of $q_n$. Spectral stability thus depends on the point spectrum, which must come in quartets $\{ \pm \lambda, \pm \overline{\lambda}\}$ since \cref{KdV5c} is Hamiltonian \cite[Proposition 5.1.2]{Kapitula2013}. Since $\partial_x \calE''(q_n) (\partial_x q_n) = 0$ and $\partial_x \calE''(q_n) (-\partial_c q_n) = \partial_x q_n$, the kernel of $\partial_x \calE''(q_n)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1. For the primary pulse solution $q(x)$, these are the only eigenvalues. For an $n$-pulse solution, there will be $n-1$ additional sets of eigenvalues near 0 \cite{Sandstede1998}, which we will call interaction eigenvalues since they result from nonlinear interactions between the tails of neighboring pulses. For double pulses, there is a pair of interaction eigenvalues which is either real or imaginary (to leading order) with negative Krein signature \cite[Theorem 2.3]{Pelinovsky2007}. Using an exponentially weighted space, we can extend this result to arbitrary multi-pulses through a suitable adaptation of \cite[Theorem 2]{Sandstede1998}. Any potentially imaginary eigenvalues, however, can only be located to leading order. Since the system is no longer Hamiltonian when posed in an exponentially weighted space, we cannot conclude that these eigenvalues are in fact on the imaginary axis.
 
-The presence of the essential spectrum along the entire imaginary axis makes any purely imaginary extremely difficult to locate. As an alternative, we will look at multi-pulses on a periodic domain. From a spatial dynamics perspective, a periodic multi-pulse is a multi-loop periodic orbit which remains close to the primary homoclinic orbit. When posed on a periodic domain, the essential spectrum of $\partial_x \calE''(u^*)$ becomes a discrete set of eigenvalues located on the imaginary axis. For simplicity, we will refer to these as essential spectrum eigenvalues, although they are elements of the point spectrum. As in \cite{Sandstede1998}, we reduce the computation of the spectrum of $\partial_x \calE''(u^*)$ in a ball around the origin to computing the determinant of a matrix $S(\lambda)$. In the periodic case, $S(\lambda)$ is a $2n \times 2n$ matrix, and solving $\det S(\lambda) = 0$ will give us both the interaction eigenvalues and the essential spectrum eigenvalues.
+The presence of the essential spectrum along the entire imaginary axis makes any purely imaginary extremely difficult to locate. To circumvent this problem, we will look instead at multi-pulses on a periodic domain. From a spatial dynamics perspective, a periodic multi-pulse is a multi-loop periodic orbit which remains close to the primary homoclinic orbit. When posed on a periodic domain, the essential spectrum of $\partial_x \calE''(q_n)$ becomes a discrete set of eigenvalues located on the imaginary axis. For simplicity, we will refer to these as essential spectrum eigenvalues, although they are elements of the point spectrum. As in \cite{Sandstede1998}, we will reduce the computation of the spectrum of $\partial_x \calE''(q_n)$ in a ball around the origin to computing the determinant of a matrix $S(\lambda)$. For the periodic case, $S(\lambda)$ is a $2n \times 2n$ matrix, and solving $\det S(\lambda) = 0$ will give us both the interaction eigenvalues and the essential spectrum eigenvalues.
 
 \section{Mathematical Setup}\label{sec:setup}
 
@@ -115,12 +178,12 @@ The presence of the essential spectrum along the entire imaginary axis makes any
 
 First, we define a Hamiltonian PDE which is reversible and translation invariant. This analysis follows \cite{Grillakis1987}. Let $X = H^{2m}(\R)$ and $Y = L^2(\R)$, and consider the PDE
 \begin{equation}\label{genPDE}
-u_t = \partial_x \calE'(u)
+u_t = \partial_x \calE'(u),
 \end{equation}
-where $u \in X$ and $\calE(u): X \subset Y \rightarrow \R$ is a smooth functional representing the conserved energy of the system. We take the following hypothesis regarding the energy $\calE(u)$.
+where $u \in X$ and $\calE: X \subset Y \rightarrow \R$ is a smooth functional representing the conserved energy of the system. We take the following hypothesis regarding the energy $\calE(u)$.
 
 \begin{hypothesis}\label{hyp:E}
-% The energy $\calE(u)$ has the following properties
+The energy $\calE(u)$ has the following properties:
 \begin{enumerate}[(i)]
 \item $\calE(0) = 0$ and $\calE'(0) = 0$.
 \item $\calE(u) = \calE(\rho(u))$, where $\rho: X \rightarrow X$ is the reversor operator $[\rho(u)](x) = u(-x)$.
@@ -133,7 +196,7 @@ where $f: \R^{2m} \rightarrow \R$ is smooth.
 \end{enumerate}
 \end{hypothesis}
 
-\noi \cref{hyp:E}(ii) is reversibility, and \cref{hyp:E}(iii) is translation invariance. \cref{hyp:E}(iv) holds in applications such as KdV5 and lets us write $\partial_x \calE'(u) = 0$ as a first order system. Differentiating the reversibility relation $\calE(u) = \calE(\rho(u))$ with respect to $u$,
+\noi \cref{hyp:E}(ii) is reversibility, and \cref{hyp:E}(iii) is translation invariance. \cref{hyp:E}(iv) holds in applications such as KdV5 and lets us write $\partial_x \calE'(u) = 0$ as a first order system in the standard way. Differentiating the reversibility relation $\calE(u) = \calE(\rho(u))$ with respect to $u$,
 \[
 \calE'(u) = \rho^*( \calE'(\rho(u) ) = \rho( \calE'(\rho(u) ),
 \]
@@ -156,92 +219,91 @@ which represents charge in some applications.
 
 We will consider traveling wave solutions (bound states) of \cref{genPDE}, which are solutions of the form
 \begin{equation}
-u(x, t) = T(ct)\phi(x) = \phi(x - ct),
+u(x, t) = T(ct)\phi(x) = \phi(x - ct).
 \end{equation}
-If $\phi$ satisfies the equilibrium equation $\calE'(\phi) = c \calQ'(\phi)$, then $T(ct)\phi(x)$ is a traveling wave \cite{Grillakis1987}. Since $\calQ'(\phi) = -\phi$, we can write the equilibrium equation as
+If $\phi$ satisfies the equilibrium equation $\calE'(\phi) = c \calQ'(\phi)$, then $T(ct)\phi(x)$ is a traveling wave \cite{Grillakis1987}. Since $\calQ'(\phi) = -\phi$, the equilibrium equation becomes
 \begin{equation}\label{eqODE}
 \calE'(\phi) + c \phi = 0.
 \end{equation}
-Without loss of generality, we will assume that $\calE'(\phi)$ does not contain any terms of the form $b\phi$ for constant $b$, since those are accounted for by the $c \phi$ term in \cref{eqODE}.
+Without loss of generality, we will assume that $\calE'(\phi)$ does not contain any terms of the form $b\phi$ for $b$ constant, since that is accounted for by the $c \phi$ term in \cref{eqODE}.
 
-We take the following hypothesis concerning existence of traveling waves, which is similar to \cite[Assumption 2]{Grillakis1987}. In the next section, we will give a condition under which this hypothesis is satisfied. 
+We take the following hypothesis concerning existence of traveling waves, which is similar to \cite[Assumption 2]{Grillakis1987}. In the next section, we give a condition under which this hypothesis is satisfied. 
 \begin{hypothesis}\label{hyp:cinterval}
 There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\phi_c$ is a traveling wave solution to \cref{genPDE}, i.e. $\calE'(\phi_c) + c \phi_c = 0$.
 \end{hypothesis}
 
-The linearization of the PDE \cref{genPDE} about the traveling wave solution $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
+The linearization of the PDE \cref{genPDE} about a traveling wave solution $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
 \begin{equation}\label{PDElinearization}
 \calL(\phi_c) = \calE''(\phi_c) + c
 \end{equation}
 and $\calE''(\phi_c)$ is the Hessian of the energy $\calE(\phi_c)$. Differentiating \cref{eqODE} with respect to $x$ and with respect to $c$,
 \begin{equation}\label{Lkernel}
 \begin{aligned}
-\calL(\phi_c) \partial_x \phi_c &= 0 \\
-\calL(\phi_c) (-\partial_c \phi_c) &= \phi_c.
+\calL(\phi_c) \partial_x \phi_c &= 0, \quad
+\calL(\phi_c) (-\partial_c \phi_c) = \phi_c.
 \end{aligned}
 \end{equation}
 Differentiating again with respect to $x$,
 \begin{equation}\label{Ekernel}
 \begin{aligned}
-[\partial_x \calL(\phi_c)] \partial_x \phi_c &= 0 \\
-[\partial_x \calL(\phi_c)](-\partial_c \phi_c) &= \partial_x \phi_c,
+[\partial_x \calL(\phi_c)] \partial_x \phi_c &= 0, \quad
+[\partial_x \calL(\phi_c)](-\partial_c \phi_c) = \partial_x \phi_c,
 \end{aligned}
 \end{equation}
 thus the kernel of $\partial_x \calE''(\phi_c)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1.
 
 \subsection{Spatial dynamics formulation}\label{sec:spatdym}
 
-We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach. To do this, we rewrite \cref{eqODE} as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium of the dynamical system to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{hyp:E}(iv), equation \cref{eqODE} is equivalent to the first order system
+We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach by rewriting it as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{hyp:E}(iv), equation \cref{eqODE} is equivalent to the first order system
 \begin{equation}\label{genODE}
 U'(x) = F(U(x); c),
 \end{equation}
-where $F: \R^{2m} \times \R \rightarrow \R^{2m}$ is given by
+where $F: \R^{2m} \times \R \rightarrow \R^{2m}$ is smooth and given by
 \begin{equation}\label{defF}
 F(u_1, u_2, \dots, u_{2m}; c) = 
 \begin{pmatrix}
 u_2 \\ u_3 \\ \vdots \\ f(u_1, u_2, \dots, u_{2m}) - c u_1
-\end{pmatrix},
+\end{pmatrix}.
 \end{equation}
 By reversibility,
 \begin{equation}\label{genODErev}
 \begin{aligned}
-F(RU; c) &= -RF(U; c) \\
-DF(RU; c) &= -RDF(U; c)R
+F(RU; c) &= -RF(U; c), \quad
+DF(RU; c) = -RDF(U; c)R,
 \end{aligned}
 \end{equation}
 where $R:\R^{2m} \rightarrow \R^{2m}$ is the standard reversor operator on $\R^{2m}$
 \begin{equation}\label{reverserR2m}
 R(u_1, u_2, \dots, u_{2m-1}, u_{2m}) = (u_1, -u_2, \dots, u_{2m-1}, -u_{2m}).
 \end{equation}
-
-In the next hypothesis, we assume that \cref{genODE} is a conservative system.
+First, we assume that \cref{genODE} is a conservative system.
 \begin{hypothesis}\label{hyp:H}
-There exists a smooth function $H: \R^{2m} \times \R \rightarrow \R$, denoted $H(U; c)$, such that 
+There exists a smooth function $H: \R^{2m} \times \R \rightarrow \R$ such that 
 \begin{enumerate}[(i)]
-\item $H(0; c) = 0$ for all $c$
-\item $\nabla_U H(U; c) = 0$ if and only if $F(U; c) = 0$
+\item $H(0; c) = 0$ for all $c$.
+\item $\nabla_U H(U; c) = 0$ if and only if $F(U; c) = 0$.
 \item For all $U \in \R^{2m}$ and all $c$, $\langle F(U; c), \nabla_U H(U; c) \rangle = 0$.
 \end{enumerate}
 \end{hypothesis}
 
-\noi It follows from \cref{hyp:H} that $H$ is conserved along solutions $U(x)$ to \cref{genODE}. Since $F(0; c) = 0$ for all $c$, the rest state $U = 0$ is an equilibrium of \cref{genODE} for all $c$. The next hypothesis addresses the hyperbolicity of this equilibrium. Although the eigenvalue pattern described in \cref{hyp:hypeq} is not necessary for the existence of a homoclinic orbit solution, it is a sufficient condition for the existence of multi-pulse and periodic multi-pulse solutions.
+\noi It follows from \cref{hyp:H} that $H$ is conserved along solutions to \cref{genODE}. Since $F(0; c) = 0$ for all $c$, the rest state $U = 0$ is an equilibrium of \cref{genODE} for all $c$. The next hypothesis addresses the hyperbolicity of this equilibrium. Although the eigenvalue pattern described in \cref{hyp:hypeq} is not necessary for the existence of a homoclinic orbit solution, it is a sufficient condition for the existence of multi-pulse and periodic multi-pulse solutions.
 
 \begin{hypothesis}\label{hyp:hypeq}
 For a specific $c_0 \in \R$ with $c_0 > 0$, $U = 0$ is a hyperbolic equilibrium of \cref{genODE}. Furthermore, the spectrum of $DF(0; c_0)$ contains a quartet of simple eigenvalues $\pm \alpha_0 \pm \beta_0 i$, $\alpha_0, \beta_0 > 0$, and for any other eigenvalue $\nu$ of $DF(0; c_0)$, $|\text{Re }\nu| > \alpha_0$.
 \end{hypothesis}
 
-We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium. Both of these manifolds are dimension $m$ by reversibility. In general, the existence of such a solution is unknown, although in specific cases such as KdV5 we do have an existence result (\cite{Pelinovsky2007}). We will thus take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
+We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium. Both of these manifolds have dimension $m$ by reversibility. Since, in general, the existence of such a solution is unknown, we take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
 
 \begin{hypothesis}\label{Qexistshyp}
-For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0)$ to \cref{genODE}. In addition,
+For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0; c_0)$ to \cref{genODE}. In addition,
 \begin{enumerate}[(i)]
-\item $Q(0; c_0) \neq 0$
-\item $\nabla_U H(Q(0; c_0); c_0) \neq 0$
-\item $Q(-x; c_0) = R Q(x; c_0)$, i.e. $Q(x; c_0)$ is symmetric with respect to the reversor operator \cref{reverserR2m}
+\item $Q(0; c_0) \neq 0$.
+\item $\nabla_U H(Q(0; c_0); c_0) \neq 0$.
+\item $Q(x; c_0)$ is symmetric with respect to the reversor operator \cref{reverserR2m}, i.e. $Q(-x; c_0) = R Q(x; c_0)$.
 \end{enumerate}
 \end{hypothesis}
 
-\noi It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. We take the following hypothesis regarding the intersection of the stable and unstable manifolds in $H^{-1}(0; c_0)$.
+\noi It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. In order to prove the  existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$, we take the following additional hypothesis.
 
 \begin{hypothesis}\label{hyp:transverse}
 The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u(0; c_0)$ intersect transversely in $H^{-1}(0; c_0)$ at $Q(0; c_0)$.
@@ -251,27 +313,27 @@ The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u
 \begin{equation}\label{nondegencond}
 T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0),
 \end{equation}
-from which it follows that the variational equation $V' = DF(Q(x))V$ has a unique bounded solution $Q'(x)$. We can now prove the existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$.
+from which it follows that the variational equation $V' = DF(Q(x))V$ has a unique bounded solution $Q'(x)$. We then have the following existence theorem.
 
 \begin{theorem}\label{transverseint}
-Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta > 0$ such that for $c \in (c_0 - \delta, c_0 + \delta)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. $Q(-x; c) = R Q(x; c)$, the map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 < \delta$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
+Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta_0 > 0$ such that for $c \in (c_0 - \delta_0, c_0 + \delta_0)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. $Q(-x; c) = R Q(x; c)$, the map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 \leq \delta_0$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
 \begin{equation}\label{Qcbound}
 |\partial_c Q(x; c)| \leq C e^{-(\alpha_0 - \epsilon)|x|}
 \end{equation}
 \end{theorem}
 
-Finally, as in \cite{Grillakis1987}, define the scalar $d(c) = \calE(q(x, c)) - \omega\calQ(q(x, c))$. By \cite[(2.21)]{Grillakis1987},
+Finally, as in \cite{Grillakis1987}, define the scalar $d(c) = \calE(q(x, c)) - \omega\calQ(q(x, c))$. By \cite[Theorem 3.5]{Grillakis1987}, the traveling wave $q(x, c)$ is orbitally stable if $d''(c) > 0$, where
 \begin{align}\label{ddoubleprime}
 d''(c) = \langle \calQ'(q(x, c)), \partial_c q(x, c) \rangle
 = \int_{-\infty}^\infty q(x, c) \partial_c q(x, c) dx
 \end{align}
-By \cite[Theorem 3.5]{Grillakis1987}, the traveling wave $q(x, c)$ is orbitally stable if $d''(c) > 0$. This quantity is easy to compute numerically, and we take this stability criterion as a hypothesis.
+This quantity can be computed numerically, and we take this stability criterion as a hypothesis.
 
 \begin{hypothesis}\label{hyp:dccpos}
-Let $\delta > 0$ be as in \cref{transverseint}. Then for each $c \in (c_0 - \delta, c_0 + \delta)$, $d''(c) > 0$.
+Let $\delta_0 > 0$ be as in \cref{transverseint}. Then for each $c \in (c_0 - \delta_0, c_0 + \delta_0)$, $d''(c) > 0$.
 \end{hypothesis}
 
-\noi From this point on, we will fix a speed $c \in (c_0 - \delta, c_0 + \delta)$ and suppress the dependence on $c$ for simplicity.
+\noi From this point on, we will fix a speed $c \in (c_0 - \delta_0, c_0 + \delta_0)$ and suppress the dependence on $c$ for simplicity.
 
 \subsection{Eigenvalue problem}\label{sec:EVP}
 
