@@ -43,13 +43,13 @@
 
 \section{Introduction}\label{sec:intro}
 
-Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set, and a spatial dynamics approach can be found in \cite{Sandstede1993,SandstedeStrut}. Of particular interest is the stability of these multi-pulse structures. The spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, which includes reaction-diffusion systems, these eigenvalues are computed in \cite{Sandstede1998}. 
+Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set; a spatial dynamics approach to the same problem is found in \cite{SandstedeStrut}. Of particular interest is the stability of these multi-pulse structures. The spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, which includes reaction-diffusion systems, these eigenvalues are computed in \cite{Sandstede1998}. 
 
 A much more difficult problem, which is not covered by the results of \cite{Sandstede1998}, concerns the spectral stability of multi-pulses in Hamiltonian PDEs. As a concrete example, consider double pulse traveling wave solutions to the fifth-order Korteweg de-Vries equation (KdV5)
 \begin{align}\label{KdV5example}
 u_t &= \partial_x\left( u_{xxxx} - u_{xx} + c u - u^2\right) && c > 1/4,
 \end{align}
-which is the equation studied in \cite{Pelinovsky2007}. Double pulses resemble two copies of the primary solitary wave joined together and separated by oscillatory tails (\cref{fig:KdV5double}, top left). The distance between the two peaks of the double pulse takes values in a discrete set (\cref{fig:KdV5double}, top right) \cite{Pelinovsky2007,SandstedeStrut}. 
+which is the equation studied in \cite{Pelinovsky2007}. Double pulses resemble two copies of the primary solitary wave joined together and separated by oscillatory tails (\cref{fig:KdV5double}, left panel). The distance between the two peaks of the double pulse takes values in a discrete set (\cref{fig:KdV5double}, right panel) \cite{Pelinovsky2007,SandstedeStrut}. 
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
@@ -60,8 +60,7 @@ which is the equation studied in \cite{Pelinovsky2007}. Double pulses resemble t
 \caption{Left panel shows construction of double pulse solution (solid line) from two single pulses (dotted lines). Oscillatory tails are exaggerated. Right panel shows first four double pulse solutions.}
 \label{fig:KdV5double}
 \end{figure} 
-
-The essential spectrum is the entire imaginary axis and depends only on the background state. In addition, there is a set of interaction eigenvalues, which must occur in one of the three patterns in \cref{fig:kdv5inteigpattern} since equation \cref{KdV5example} is Hamiltonian. 
+\noi For the spectral problem, the essential spectrum is the entire imaginary axis and depends only on the background state. In addition, there is a set of interaction eigenvalues, which must occur in one of the three patterns in \cref{fig:kdv5inteigpattern} since equation \cref{KdV5example} is Hamiltonian. 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=8cm]{images/KdV5eigpattern}
@@ -69,45 +68,47 @@ The essential spectrum is the entire imaginary axis and depends only on the back
 \caption{Possible interaction eigenvalue patterns for double pulse solutions to KdV5.}
 \label{fig:kdv5inteigpattern}
 \end{figure}
-\noi The eigenvalue pattern alternates between a pair of real eigenvalues (corresponding to double pulses with dashed lines in \cref{fig:KdV5double}, right panel) and a pair of eigenvalues which are, to leading order, imaginary with negative Krein signature (corresponding to double pulses with solid lines in \cref{fig:KdV5double}, right panel) \cite[Theorem 2.3]{Pelinovsky2007}. Since these imaginary eigenvalues are only located to leading order, this does not rule out the second possibility in \cref{fig:kdv5inteigpattern}. Numerical timestepping verifies that double pulses with real eigenvalues are unstable; when perturbed, the two pulses move away from each other with equal and opposite velocities (\cref{fig:KdV5waterfall}, left panel). For the remaining double pulses, numerical timestepping suggests that the two pulses exhibit oscillatory behavior when perturbed (\cref{fig:KdV5waterfall}, right panel).
+\noi The eigenvalue pattern alternates between a pair of real eigenvalues (corresponding to double pulses with dashed lines in \cref{fig:KdV5double}, right panel) and a pair of eigenvalues which are, to leading order, imaginary with negative Krein signature (corresponding to double pulses with solid lines in \cref{fig:KdV5double}, right panel) \cite[Theorem 2.3]{Pelinovsky2007}. THE MAIN ISSUE HERE IS THAT CHUGONOVA AND PELINOVSKY CLAIM TO HAVE PROVED THESE ARE ACTUALLY ON THE IMAGINARY AXIS, SO WE NEED TO DELICATELY ADDRESS THIS. Since these imaginary eigenvalues are only located to leading order, this does not rule out the second possibility in \cref{fig:kdv5inteigpattern}. 
+
+Numerical timestepping verifies that double pulses with real eigenvalues are unstable; when perturbed, the two pulses move away from each other with equal and opposite velocities (\cref{fig:KdV5waterfall}, left panel). For the remaining double pulses, numerical timestepping suggests that the two pulses exhibit oscillatory behavior when perturbed (\cref{fig:KdV5waterfall}, right panel). Similar timestepping results can be seen in \cite[Figure 9]{Pelinovsky2007}, as well as a reduction of the system to a two-dimensional phase plane \cite[Figure 10]{Pelinovsky2007}.
+
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
-\includegraphics[width=7cm]{images/waterfallunstable.eps} &
-\includegraphics[width=7cm]{images/waterfallstable.eps}
+\includegraphics[width=8cm]{images/waterfallunstable.eps} &
+\includegraphics[width=8cm]{images/waterfallstable.eps}
 \end{tabular}
 \end{center}
 \caption{Results of numerical timestepping simulations using a Crank-Nicolson/Adams-Bashforth 2 IMEX scheme for perturbations of double pulse solutions to \cref{KdV5example}. Chebyshev spectral discretization in space with Dirichlet and Neumann boundary conditions.}
 \label{fig:KdV5waterfall}
-\end{figure} 
-\noi This suggests that the dynamics of perturbed double pulses can be reduced to a 2-dimensional system, where the variables are the peak distance and peak relative velocity (\cref{fig:KdV5reduction}). The phase portrait resembles that of a harmonic oscillator with spatially varying restoring force. Double pulses with real eigenvalues correspond to saddle points, and the remaining double pulses correspond to centers. 
-\begin{figure}[H]
-\begin{center}
-\begin{tabular}{c}
-\includegraphics[width=7cm]{images/reduction.eps}
-\end{tabular}
-\end{center}
-\caption{Plot of peak relative velocity versus peak distance for perturbed double pulses.}
-\label{fig:KdV5reduction}
 \end{figure}
+
+% \noi This suggests that the dynamics of perturbed double pulses can be reduced to a 2-dimensional system, where the variables are the peak distance and peak relative velocity (\cref{fig:KdV5reduction}). The phase portrait resembles that of a harmonic oscillator with spatially varying restoring force. Double pulses with real eigenvalues correspond to saddle points, and the remaining double pulses correspond to centers. 
+% \begin{figure}[H]
+% \begin{center}
+% \begin{tabular}{c}
+% \includegraphics[width=7cm]{images/reduction.eps}
+% \end{tabular}
+% \end{center}
+% \caption{Plot of peak relative velocity versus peak distance for perturbed double pulses.}
+% \label{fig:KdV5reduction}
+% \end{figure}
 
 Although these numerical results suggest that every other double pulse is neutrally stable with purely imaginary interaction eigenvalues, this remains an open question. It is possible, for example, that the interaction eigenvalues have a real part which is sufficiently small that its destabilizing effect is not seen in the timestepping results. Furthermore, the timestepping simulation was performed with separated boundary conditions, which could fundamentally alter the behavior of the system. Since any purely imaginary eigenvalues would be embedded in the essential spectrum and thus not be isolated elements of the spectrum, it is unclear how to locate these eigenvalues.
 
-As an alternative, we will look at multi-pulses on a periodic domain $[-X, X]$. The essential spectrum becomes a discrete set of points on the imaginary axis, and purely imaginary interaction eigenvalues can then lie within gaps in the essential spectrum. As long as the interaction eigenvalues and the essential spectrum do not get too close, we will show that the interaction eigenvalues for double pulses are either real or purely imaginary. However, as the domain size $X$ is increased, the essential spectrum eigenvalues move towards the origin along the imaginary axis. At some point, there will be a collision between one of these eigenvalues and a purely imaginary interaction eigenvalue.  
+As an alternative, we will look at multi-pulses on a periodic domain $[-X, X]$. The essential spectrum becomes a discrete set of points on the imaginary axis, and purely imaginary interaction eigenvalues can then lie within gaps in the essential spectrum. As long as the interaction eigenvalues and the essential spectrum do not get too close, we will show that the interaction eigenvalues for double pulses on a periodic domain are either real or purely imaginary. As the domain size $X$ is increased, however, the essential spectrum eigenvalues move towards the origin along the imaginary axis. At some point, there will be a collision between one of these eigenvalues and a purely imaginary interaction eigenvalue. Since the essential spectrum eigenvalues and interaction eigenvalues have opposite Krein signature, we expect the eigenvalues to leave the imaginary axis after this collision occurs. In fact, what occurs is that a brief instability bubble is formed, where the eigenvalues collide, move off the imaginary axis, trace an approximate circle in the complex plane, and recombine on the imaginary axis in a ``reverse'' Krein collision. This brief instability bubble, which we call a Krein bubble, is shown in cartoon form in \cref{fig:KreinBubbleCartoon}.
+\begin{figure}[H]
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=9cm]{images/KreinBubbleCartoon}
+\end{tabular}
+\end{center}
+\caption{Cartoon showing brief instability bubble which forms as imaginary interaction eigenvalue and first essential spectrum eigenvalue collide on imaginary axis. Eigenvalues are shown in red dots, center of instability bubble is marked with blue X.}
+\label{fig:KreinBubbleCartoon}
+\end{figure}
+Since these Krein bubbles occur at regular intervals as $X$ increases, we will not be able to take $X \rightarrow \infty$ to generalize these results to the spectral problem on the real line. Similar instability bubbles have been observed in other systems. As one example, they are found for dark soliton solutions of the discrete nonlinear Schr{\"o}dinger equation on a finite lattice as the coupling parameter is increased \cite{Johansson1999}; in that case, however, the instability bubbles disappear after a critical value of the coupling parameter (see \cite[Figure 2]{Johansson1999}).
 
-This paper is organized as follows. In \cref{sec:KdV5}, we introduce the fifth-order KdV equation (KdV5), which is our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
-
-
-
-
-
-
-
-
-
-
-
-
+This paper is organized as follows. In \cref{sec:KdV5}, we introduce a generalization of KdV5 as our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
 
 \section{Background and motivation}\label{sec:KdV5}
 
