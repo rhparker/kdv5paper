@@ -43,9 +43,9 @@
 
 \section{Introduction}\label{sec:intro}
 
-Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set; a spatial dynamics approach to the same problem is found in \cite{SandstedeStrut}. Of particular interest is the stability of these multi-pulse structures. The spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, which includes reaction-diffusion systems, these eigenvalues are computed in \cite{Sandstede1998}. 
+Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. The stability of these double pulses was shown in \cite{Yanagida1989}, and the existence result was extended to arbitrary multi-pulses in \cite{Feroe1986}. In \cite{Alexander1994}, the existence of multi-pulse traveling wave solutions to semilinear parabolic equations, which includes reaction-diffusion systems, was established, and the stability of these solutions was determined using the Evans function. In general, the spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Alexander1990,Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, these eigenvalues are computed in \cite{Sandstede1998}. 
 
-A much more difficult problem, which is not covered by the results of \cite{Sandstede1998}, concerns the spectral stability of multi-pulses in Hamiltonian PDEs. As a concrete example, consider double pulse traveling wave solutions to the fifth-order Korteweg de-Vries equation (KdV5)
+A much more difficult problem concerns the spectral stability of multi-pulses in Hamiltonian PDEs. Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set. A spatial dynamics approach to the same problem is found in \cite{SandstedeStrut}. As a concrete example, consider double pulse traveling wave solutions to the fifth-order Korteweg de-Vries equation (KdV5) 
 \begin{align}\label{KdV5example}
 u_t &= \partial_x\left( u_{xxxx} - u_{xx} + c u - u^2\right) && c > 1/4,
 \end{align}
@@ -108,7 +108,7 @@ As an alternative, we will look at multi-pulses on a periodic domain $[-X, X]$. 
 \end{figure}
 Since these Krein bubbles occur at regular intervals as $X$ increases, we will not be able to take $X \rightarrow \infty$ to generalize these results to the spectral problem on the real line. Similar instability bubbles have been observed in other systems. As one example, they are found for dark soliton solutions of the discrete nonlinear Schr{\"o}dinger equation on a finite lattice as the coupling parameter is increased \cite{Johansson1999}; in that case, however, the instability bubbles disappear after a critical value of the coupling parameter (see \cite[Figure 2]{Johansson1999}).
 
-This paper is organized as follows. In \cref{sec:KdV5}, we introduce a generalization of KdV5 as our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. All proofs are deferred to appendices.
+This paper is organized as follows. In \cref{sec:KdV5}, we introduce a generalization of KdV5 as our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms, for which KdV5 is a special case. We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work. Our results are then summarized in \cref{sec:conclusions}, and some possible directions for future work are offered. The remaining sections contain proofs of the main results.
 
 \section{Background and motivation}\label{sec:KdV5}
 
@@ -163,15 +163,7 @@ Linearization of \cref{KdV5eq4} about a solution $u^*(x)$ is the self-adjoint li
 \begin{equation}\label{KdV5hessian}
 \calE''(u^*) = \partial_x^4 + p \partial_x^2 + c - 2 u^* 
 \end{equation}
-where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is a hyperbolic saddle with 2-dimensional stable and unstable manifolds. The primary pulse $q(x)$ corresponds to a homoclinic orbit connecting the stable and unstable manifolds of this equilibrium. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$. For $-2 \sqrt{c} < p < 2 \sqrt{c}$, multi-pulse solutions exist, which resemble multiple, well-separated copies of the primary pulse $q(x)$ \cite{Buffoni1996,Pelinovsky2007}. For our analysis, we will use a spatial dynamics approach and Lin's method as in \cite{Sandstede1993, SandstedeStrut}. From this perspective, a multi-pulse $q_n(x)$ is a multi-loop homoclinic orbit which remains close to the primary homoclinic orbit. Since multi-pulses are constructed by splicing together consecutive copies of the primary pulse using small remainder functions, Lin's method provides not only an existence result but also estimates for these small remainder functions. The distances between consecutive peaks are constrained to be (approximately) an integer multiple of a phase parameter, which depends on $\beta_0$. These represent the number of half-twists made by the multi-pulse between consecutive peaks, and correspond to a specific alignment of the stable and unstable manifolds necessary for multi-pulses to exist. 
-
-By \cite{Grillakis1987}, the primary pulse $q(x)$ is orbitally stable if 
-\begin{equation}\label{KdV5stabhyp}
-\int_{-\infty}^\infty q(x) \partial_c q(x) dx > 0,
-\end{equation}
-which can be checked numerically. To examine the stability of a multi-pulse solution $q_n$, we first study the spectrum of the linear operator $\partial_x \calE''(q_n)$, which is the linearization of the PDE \eqref{KdV5c} about $q_n$. It follows from the Weyl essential spectrum theorem \cite[Theorem 2.2.6]{Kapitula2013} and \cite[Theorem 3.1.11]{Kapitula2013} that the essential spectrum of $\partial_x \calE''(q_n)$ is the entire imaginary axis, which depends only on the rest state and is independent of $q_n$. Spectral stability thus depends on the point spectrum, which must come in quartets $\{ \pm \lambda, \pm \overline{\lambda}\}$ since \cref{KdV5c} is Hamiltonian \cite[Proposition 5.1.2]{Kapitula2013}. Since $\partial_x \calE''(q_n) (\partial_x q_n) = 0$ and $\partial_x \calE''(q_n) (-\partial_c q_n) = \partial_x q_n$, the kernel of $\partial_x \calE''(q_n)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1. For the primary pulse solution $q(x)$, these are the only eigenvalues. For an $n$-pulse solution, there will be $n-1$ additional sets of eigenvalues near 0 \cite{Sandstede1998}, which we will call interaction eigenvalues since they result from nonlinear interactions between the tails of neighboring pulses. For double pulses, there is a pair of interaction eigenvalues which is either real or imaginary (to leading order) with negative Krein signature \cite[Theorem 2.3]{Pelinovsky2007}. Using an exponentially weighted space, we can extend this result to arbitrary multi-pulses through a suitable adaptation of \cite[Theorem 2]{Sandstede1998}. Any potentially imaginary eigenvalues, however, can only be located to leading order. Since the system is no longer Hamiltonian when posed in an exponentially weighted space, we cannot conclude that these eigenvalues are in fact on the imaginary axis.
-
-The presence of the essential spectrum along the entire imaginary axis makes any purely imaginary extremely difficult to locate. To circumvent this problem, we will look instead at multi-pulses on a periodic domain. From a spatial dynamics perspective, a periodic multi-pulse is a multi-loop periodic orbit which remains close to the primary homoclinic orbit. When posed on a periodic domain, the essential spectrum of $\partial_x \calE''(q_n)$ becomes a discrete set of eigenvalues located on the imaginary axis. For simplicity, we will refer to these as essential spectrum eigenvalues, although they are elements of the point spectrum. As in \cite{Sandstede1998}, we will reduce the computation of the spectrum of $\partial_x \calE''(q_n)$ in a ball around the origin to computing the determinant of a matrix $S(\lambda)$. For the periodic case, $S(\lambda)$ is a $2n \times 2n$ matrix, and solving $\det S(\lambda) = 0$ will give us both the interaction eigenvalues and the essential spectrum eigenvalues.
+where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is a hyperbolic saddle with 2-dimensional stable and unstable manifolds. The primary pulse $q(x)$ corresponds to a homoclinic orbit connecting the stable and unstable manifolds of this equilibrium. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$. For $-2 \sqrt{c} < p < 2 \sqrt{c}$, multi-modal homoclinic and periodic orbits exist which lie close to the primary homoclinic orbit. We will adapt Lin's method as in \cite{Sandstede1993, SandstedeStrut} to construct periodic multi-pulse solutions by splicing together consecutive copies of the primary pulse using small remainder functions. This provides not only an existence result but also estimates for these small remainder functions. As with $n$-homoclinic orbits, the distances between neighboring peaks are constrained \cite{SandstedeStrut,Sandstede1998}, but there is an additional degree of freedom in the periodic case. This leads to a pitchfork bifurcation structure for periodic double pulses. To examine the spectral stability of a periodic $n$-pulse $q_n$, we will study the spectrum of the linear operator $\partial_x \calE''(q_n)$, which is the linearization of the PDE \eqref{KdV5c} about $q_n$. As in \cite{Sandstede1998}, we will reduce the computation of the spectrum in a ball around the origin to computing the determinant of a matrix $S(\lambda)$. For a periodic $n$-pulse, $S(\lambda)$ is a $2n \times 2n$ matrix, and solving $\det S(\lambda) = 0$ will give us both the interaction eigenvalues and the essential spectrum eigenvalues. 
 
 \section{Mathematical Setup}\label{sec:setup}
 
@@ -201,7 +193,7 @@ where $f: \R^{2m} \rightarrow \R$ is smooth.
 \[
 \calE'(u) = \rho^*( \calE'(\rho(u) ) = \rho( \calE'(\rho(u) ),
 \]
-since $\rho$ is self-adjoint. This implies that the linear part of $\calE'(u)$ only involves even-order derivatives of $u$. Differentiating the symmetry relation $\calE(T(s)u) = \calE(u)$ with respect to $u$,
+since $\rho$ is self-adjoint. Differentiating the symmetry relation $\calE(T(s)u) = \calE(u)$ with respect to $u$,
 \begin{align}
 \calE'(u) &= T(s)^* \calE'(T(s)u) \label{Eprimesymm} \\
 \calE''(u) &= T(s)^* \calE''(T(s)u) T(s). \label{EHessiansymm}
@@ -218,11 +210,7 @@ for all $u \in X$, since $T'(0) = \partial_x$ is the infinitesimal generator of 
 \end{equation}
 which represents charge in some applications. 
 
-We will consider traveling wave solutions (bound states) of \cref{genPDE}, which are solutions of the form
-\begin{equation}
-u(x, t) = T(ct)\phi(x) = \phi(x - ct).
-\end{equation}
-If $\phi$ satisfies the equilibrium equation $\calE'(\phi) = c \calQ'(\phi)$, then $T(ct)\phi(x)$ is a traveling wave \cite{Grillakis1987}. Since $\calQ'(\phi) = -\phi$, the equilibrium equation becomes
+Traveling waves (bound states) are solutions of \cref{genPDE} of the form $u(x, t) = T(ct)\phi(x) = \phi(x - ct)$. If $\phi$ satisfies the equilibrium equation $\calE'(\phi) = c \calQ'(\phi)$, then $T(ct)\phi(x)$ is a traveling wave \cite{Grillakis1987}. Since $\calQ'(\phi) = -\phi$, the equilibrium equation becomes
 \begin{equation}\label{eqODE}
 \calE'(\phi) + c \phi = 0.
 \end{equation}
@@ -230,36 +218,36 @@ Without loss of generality, we will assume that $\calE'(\phi)$ does not contain 
 
 We take the following hypothesis concerning existence of traveling waves, which is similar to \cite[Assumption 2]{Grillakis1987}. In the next section, we give a condition under which this hypothesis is satisfied. 
 \begin{hypothesis}\label{hyp:cinterval}
-There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\phi_c$ is a traveling wave solution to \cref{genPDE}, i.e. $\calE'(\phi_c) + c \phi_c = 0$.
+There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\calE'(\phi_c) + c \phi_c = 0$, i.e. $\phi_c$ is a traveling wave solution to \cref{genPDE}.
 \end{hypothesis}
 
-The linearization of the PDE \cref{genPDE} about a traveling wave solution $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
+Linearizing the PDE \cref{genPDE} about a traveling wave solution $\phi_c$, we obtain the  linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
 \begin{equation}\label{PDElinearization}
 \calL(\phi_c) = \calE''(\phi_c) + c
 \end{equation}
 and $\calE''(\phi_c)$ is the Hessian of the energy $\calE(\phi_c)$. Differentiating \cref{eqODE} with respect to $x$ and with respect to $c$,
 \begin{equation}\label{Lkernel}
 \begin{aligned}
-\calL(\phi_c) \partial_x \phi_c &= 0, \quad
-\calL(\phi_c) (-\partial_c \phi_c) = \phi_c.
+\calL(\phi_c) \partial_x \phi_c &= 0 \\
+\calL(\phi_c) (-\partial_c \phi_c)& = \phi_c.
 \end{aligned}
 \end{equation}
 Differentiating again with respect to $x$,
 \begin{equation}\label{Ekernel}
 \begin{aligned}
-[\partial_x \calL(\phi_c)] \partial_x \phi_c &= 0, \quad
-[\partial_x \calL(\phi_c)](-\partial_c \phi_c) = \partial_x \phi_c,
+[\partial_x \calL(\phi_c)] \partial_x \phi_c &= 0 \\
+[\partial_x \calL(\phi_c)](-\partial_c \phi_c) &= \partial_x \phi_c,
 \end{aligned}
 \end{equation}
 thus the kernel of $\partial_x \calE''(\phi_c)$ has algebraic multiplicity at least 2 and geometric multiplicity at least 1.
 
 \subsection{Spatial dynamics formulation}\label{sec:spatdym}
 
-We will now reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach by rewriting it as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{hyp:E}(iv), equation \cref{eqODE} is equivalent to the first order system
+We reformulate the equilibrium equation \cref{eqODE} using a spatial dynamics approach by rewriting it as a first-order dynamical system in $\R^{2m}$ evolving in the spatial variable $x$. From this viewpoint, an exponentially localized traveling wave is a homoclinic orbit connecting a saddle point equilibrium to itself. Let $U = (u, \partial_x u, \dots, \partial_x^{2m-1} u)^T \in \R^{2m}$. Using \cref{hyp:E}(iv), equation \cref{eqODE} is equivalent to the first order system
 \begin{equation}\label{genODE}
 U'(x) = F(U(x); c),
 \end{equation}
-where $F: \R^{2m} \times \R \rightarrow \R^{2m}$ is smooth and given by
+where $F: \R^{2m} \times \R \rightarrow \R^{2m}$ is smooth and is given by
 \begin{equation}\label{defF}
 F(u_1, u_2, \dots, u_{2m}; c) = 
 \begin{pmatrix}
@@ -269,8 +257,8 @@ u_2 \\ u_3 \\ \vdots \\ f(u_1, u_2, \dots, u_{2m}) - c u_1
 By reversibility,
 \begin{equation}\label{genODErev}
 \begin{aligned}
-F(RU; c) &= -RF(U; c), \quad
-DF(RU; c) = -RDF(U; c)R,
+F(RU; c) &= -RF(U; c) \\
+DF(RU; c) &= -RDF(U; c)R,
 \end{aligned}
 \end{equation}
 where $R:\R^{2m} \rightarrow \R^{2m}$ is the standard reversor operator on $\R^{2m}$
@@ -296,30 +284,30 @@ For a specific $c_0 \in \R$ with $c_0 > 0$, $U = 0$ is a hyperbolic equilibrium 
 We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium. Both of these manifolds have dimension $m$ by reversibility. Since, in general, the existence of such a solution is unknown, we take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
 
 \begin{hypothesis}\label{Qexistshyp}
-For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0; c_0)$ to \cref{genODE}. In addition,
+For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q_1(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0; c_0)$ to \cref{genODE}. In addition,
 \begin{enumerate}[(i)]
-\item $Q(0; c_0) \neq 0$.
-\item $\nabla_U H(Q(0; c_0); c_0) \neq 0$.
-\item $Q(x; c_0)$ is symmetric with respect to the reversor operator \cref{reverserR2m}, i.e. $Q(-x; c_0) = R Q(x; c_0)$.
+\item $Q_1(0; c_0) \neq 0$.
+\item $\nabla_U H(Q_1(0; c_0); c_0) \neq 0$.
+\item $Q_1(x; c_0)$ is symmetric with respect to the reversor operator \cref{reverserR2m}, i.e. $Q_1(-x; c_0) = R Q_1(x; c_0)$.
 \end{enumerate}
 \end{hypothesis}
 
-\noi It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. In order to prove the  existence of homoclinic orbits $Q(x; c)$ for $c$ near $c_0$, we take the following additional hypothesis.
+\noi It follows from \cref{Qexistshyp} that $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. In order to prove the  existence of homoclinic orbits $Q_1(x; c)$ for $c$ near $c_0$, we take the following additional hypothesis.
 
 \begin{hypothesis}\label{hyp:transverse}
-The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u(0; c_0)$ intersect transversely in $H^{-1}(0; c_0)$ at $Q(0; c_0)$.
+The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u(0; c_0)$ intersect transversely in $H^{-1}(0; c_0)$ at $Q_1(0; c_0)$.
 \end{hypothesis}
 
 \noi Using \cref{hyp:transverse} and a dimension-counting argument, we obtain the nondegeneracy condition
 \begin{equation}\label{nondegencond}
-T_{Q(0; c_0)}W^s(0; c_0) \cap T_{Q(0; c_0)}W^u(0; c_0) = \R Q'(0; c_0),
+T_{Q_1(0; c_0)}W^s(0; c_0) \cap T_{Q_1(0; c_0)}W^u(0; c_0) = \R Q_1'(0; c_0),
 \end{equation}
-from which it follows that the variational equation $V' = DF(Q(x))V$ has a unique bounded solution $Q'(x)$. We then have the following existence theorem.
+from which it follows that the variational equation $V'(x) = DF(Q_1(x))V(x)$ has a unique bounded solution $Q_1'(x)$. We then have the following existence theorem. The proof is given in \cref{sec:transverseintproof}.
 
 \begin{theorem}\label{transverseint}
-Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta_0 > 0$ such that for $c \in (c_0 - \delta_0, c_0 + \delta_0)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q(x; c)$. $Q(-x; c) = R Q(x; c)$, the map $c \rightarrow Q(x; c)$ is smooth, and $\partial_c Q(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 \leq \delta_0$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
+Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta_0 > 0$ such that for $c \in (c_0 - \delta_0, c_0 + \delta_0)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q_1(x; c)$. $Q_1(-x; c) = R Q_1(x; c)$, the map $c \rightarrow Q_1(x; c)$ is smooth, and $\partial_c Q_1(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 \leq \delta_0$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
 \begin{equation}\label{Qcbound}
-|\partial_c Q(x; c)| \leq C e^{-(\alpha_0 - \epsilon)|x|}
+|\partial_c Q_1(x; c)| \leq C e^{-(\alpha_0 - \epsilon)|x|}
 \end{equation}
 \end{theorem}
 
@@ -338,14 +326,14 @@ Let $\delta_0 > 0$ be as in \cref{transverseint}. Then for each $c \in (c_0 - \d
 
 \subsection{Eigenvalue problem}\label{sec:EVP}
 
-Let $U^*(x) = (u^*(x), \partial_x u^*(x), \dots, \partial_x^{2m-1}u^*(x) )^T$ be any solution to \cref{genODE}, so that the first component $u^*(x)$ is a traveling wave solution to \cref{genPDE}. Then $u^*$ also solves the equation $\partial_x(\calE'(u) + cu) = 0$, which is equivalent to the system
+Let $U^*(x) = (u^*(x), \partial_x u^*(x), \dots, \partial_x^{2m-1}u^*(x) )^T$ be any solution to \cref{genODE}, so that $u^*(x)$ is a traveling wave solution to \cref{genPDE}. Then $u^*(x)$ also solves the equation $\partial_x(\calE'(u) + cu) = 0$, which is equivalent to the system
 \begin{equation}\label{eqsystem2}
 \begin{aligned}
 \calE'(u) + cu &= k \\
-\partial_x k &= 0,
+\partial_x k &= 0.
 \end{aligned}
 \end{equation}
-Again using a spatial dynamics approach, we rewrite \cref{eqsystem2} as
+Using a spatial dynamics approach, we rewrite \cref{eqsystem2} as
 \begin{equation}\label{spsystem2}
 \begin{pmatrix}
 U \\ k
@@ -354,15 +342,11 @@ U \\ k
 F(U(x)) + k e_{2m} \\ 0
 \end{pmatrix},
 \end{equation}
-where $e_{2m} = (0, \dots, 0, 1)^T \in \R^{2m}$ is the standard unit vector. Since $U^*(x)$ solves \cref{genODE}, $(U^*(x), 0)$ is a solution to \cref{spsystem2}. We similarly reformulate the PDE eigenvalue problem 
-\begin{equation}\label{genPDEeig}
-\partial_x \calL(u^*) v = \lambda v
-\end{equation}
-as the system
+where $e_{2m} = (0, \dots, 0, 1)^T \in \R^{2m}$ is the standard unit vector. Since $U^*(x)$ solves \cref{genODE}, $(U^*(x), 0)^T$ is a solution to \cref{spsystem2}. We similarly reformulate the PDE eigenvalue problem $\partial_x \calL(u^*) v = \lambda v$ as the system
 \begin{equation}\label{genPDEeig2}
 \begin{aligned}
 \calL(u^*) v &= k \\
-\partial_x k &= \lambda v,
+\partial_x k &= \lambda v.
 \end{aligned}
 \end{equation}
 Using a spatial dynamics approach, this is equivalent to the first order system 
@@ -380,7 +364,7 @@ B = \begin{pmatrix}0 & 0 & 0 & 0 \\ &
 \vdots & \vdots & \\0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix}.
 \end{equation}
 
-The rest state $(U, k) = (0, 0)$ is an equilibrium of \cref{spsystem2}, but it is not a hyperbolic equilibrium since the matrix $A(0)$ is non-hyperbolic. $A(0)$ has a one-dimensional kernel, which is characterized in the following lemma. 
+The rest state $(U, k) = (0, 0)$ is a non-hyperbolic equilibrium of \cref{spsystem2}. $A(0)$ has a one-dimensional kernel, which is characterized in the following lemma. 
 
 \begin{lemma}\label{eigA0lemma}
 The matrix $A(0)$ has a simple eigenvalue at 0 and a quartet of eigenvalues at $\pm \alpha_0 \pm \beta_0 i$. For any other eigenvalue $\nu$ of $A(0)$, $|\text{Re }\nu| > \alpha_0$. The kernel of $A(0)$ is spanned by $V_0$ and the kernel of $A^*(0)$ is spanned by $W_0$, where
@@ -389,16 +373,32 @@ V_0 = \left(\frac{1}{c}, 0, \dots, 0, 1\right)^T, \quad
 W_0 = (0, 0, \dots, 0, 1)^T
 \end{equation}
 and $\langle V_0, W_0 \rangle = 1$. The projection on $\R V_0$ is given by $P_{V_0} = \langle W_0, \cdot \rangle$.
+\begin{proof}
+Let $p_1(\nu)$ and $p_2(\nu)$ be the characteristic polynomials of $DF(0)$ and $A(0)$ (respectively). Since
+\begin{align*}
+p_2(\nu) &= \det(A(0) - \nu I) = -\nu \det(DF(0) - \nu I) = -\nu p_1(\nu),
+\end{align*}
+$A(0)$ has the same eigenvalues as $DF(0)$ as well as an additional eigenvalue at 0, thus part (i) follows from \cref{hyp:hypeq}. The kernel eigenvectors $V_0$ and $W_0$ can be verified directly, and the projection on $V_0$ is a standard result from linear algebra.
+\end{proof}
 \end{lemma}
 
-Since $A(0)$ is not hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium at $(U, k) = (0, 0)$. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The one-dimensional center manifold $W^c(0)$ is the span of $V_0$. Let $Q_1(x)$ be the primary pulse solution from \cref{sec:spatdym}, and let $Q(x) = (Q_1(x), 0)$. Since $Q(x)$ is exponentially localized, $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{hyp:transverse} that these are equal, which we state in the following lemma.
+Since $A(0)$ is non-hyperbolic, the results of \cite{Sandstede1998} do not apply. Let $W^s(0)$, $W^u(0)$, and $W^c(0)$ be the stable, unstable, and center manifolds of the equilibrium $(U, k) = (0, 0)$. By reversibility, $\dim W^s(0) = m$ and $\dim W^u(0) = m$. The one-dimensional center manifold $W^c(0)$ is the span of $V_0$. Let $Q_1(x)$ be the primary pulse solution from \cref{transverseint}, and let $Q(x) = (Q_1(x), 0)$. The associated variational and adjoint variational equations are
+\begin{align}
+V'(x) &= A(Q(x)) V(x) \label{vareq2} \\
+W'(x) &= -A(Q(x))^* W(x) \label{adjvareq2},
+\end{align}
+and $Q'(x)$ is an exponentially localized solution to \cref{vareq2}. Since $Q(x)$ is exponentially localized, $\R Q'(0) \subset T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0)$. It follows from \cref{hyp:transverse} that these are in fact equal.
 
 \begin{lemma}\label{nondegenlemma}
 We have the nondegeneracy condition
 \begin{equation}\label{nondegen2}
 T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0) = \R Q'(0)
 \end{equation}
+\begin{proof}
+If the intersection were more than one-dimensional, there would exist another exponentially localized solution $V(x) = (v_1, \dots, v_{2m}, v_{2m+1})^T$ to \eqref{vareq2}. By the definition of $A(Q(x))$, $v_{2m+1}$ is a constant, which must be 0 since $V(x)$ is exponentially localized. Then $(v_1, \dots, v_{2m})^T$ would be an exponentially localized solution to $V'(x) = DF(Q(x)) V(x)$, which contradicts \eqref{nondegencond}.
+\end{proof}
 \end{lemma}
+
 \noi Using \cref{nondegen2}, we can decompose the tangent spaces of the stable and unstable manifolds at $Q(0)$ as
 \begin{equation}\label{TQ0decomp}
 \begin{aligned}
@@ -406,21 +406,11 @@ T_{Q(0)}W^s(0) &= \R Q'(0) \oplus Y^+ \\
 T_{Q(0)}W^u(0) &= \R Q'(0) \oplus Y^-
 \end{aligned}
 \end{equation}
-Since $\dim \R Q'(0) \oplus Y^+ \oplus Y^- = 2m-1$, there we need two more directions to span $\R^{2m+1}$. To find these, we will look at the associated variational and adjoint variational equations
-\begin{align}
-V'(x) = A(Q(x)) V(x) \label{vareq2} \\
-W'(x) = -A(Q(x))^* W(x) \label{adjvareq2}.
-\end{align}
-It follows from \cref{Ekernel} that 
-\begin{align}
-[\partial_x Q(x)]' &= A(Q(x))\partial_x Q(x) \label{Qprimevarsol} \\
-[\partial_c Q(x)]' &= A(Q(x))\partial_c Q(x) + B \partial_x Q(x), \label{Qcvarsol}
-\end{align}
-The following lemma characterizes bounded solutions to \eqref{vareq2} and \eqref{adjvareq2}.
+Since $\dim \R Q'(0) \oplus Y^+ \oplus Y^- = 2m-1$, we need two more directions to span $\R^{2m+1}$, which we obtain from the following lemma.
 
 \begin{lemma}\label{varadjsolutions}\leavevmode
 \begin{enumerate}[(i)]
-	\item There exist two linearly independent, bounded solutions $\partial_x Q(x)$ and $V^c(x)$ to \eqref{vareq2}. $V^c(x)$ is bounded,
+	\item There exist two linearly independent, bounded solutions $Q'(x)$ and $V^c(x)$ to \eqref{vareq2}. $V^c(x)$ is bounded,
 	\begin{equation}
 	V^c(x) \rightarrow V_0 \text{ as }|x| \rightarrow \infty,
 	\end{equation}
@@ -432,13 +422,21 @@ The following lemma characterizes bounded solutions to \eqref{vareq2} and \eqref
 	\end{equation}
 	with $\Psi(-x) = R \Psi(x)$. Any other bounded solution to \eqref{adjvareq2} is a linear combination of these.
 \end{enumerate}
+\begin{proof}
+For part (i), the existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below after \cref{lemma:Vpm}. The equation $V^c(x)' = A(Q(x))V^c(x)$ then reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$. For part (ii), equation \cref{adjvareq2} can be written in block form as
+\[
+W'(x) = - 
+\begin{pmatrix}DF(Q(x))^* & 0 \\ e_{2m}^T & 0 \end{pmatrix} W(x),
+\]
+for which $W_0 = (0, \dots, 0, 1)^T$ is a constant solution. Using \cref{psiform} below, $\Psi(x) = ( \nabla H(Q(x)), q(x) )^T$ is an exponentially localized solution. $\Psi(0)$ and $W_0$ are perpendicular to $\R Q'(0) \oplus Y^+ \oplus Y^-$ at $x = 0$ by \cref{eigadjoint} below. Since $\Psi(0)$ and $\Psi^c(0)$ are linearly independent, there can be no other bounded, linearly independent solutions to \eqref{adjvareq2}.
+\end{proof}
 \end{lemma}
 
 \begin{remark}\label{remark:computeVc}
 Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution to $\calL(q) v^c = 1$, which provides a convenient way of computing $V^c(x)$ numerically.
 \end{remark}
 
-Using \cref{nondegenlemma} and \cref{varadjsolutions}, we can decompose $\R^{2m+1}$ as 
+\noi Using \cref{nondegenlemma} and \cref{varadjsolutions}, we can decompose $\R^{2m+1}$ as 
 \begin{equation}\label{DSdecomp}
 \R^{2m+1} = \R Q'(0) \oplus Y^+ \oplus Y^- \oplus \R \Psi(0) \oplus \R \Psi^c(0).
 \end{equation}
@@ -453,7 +451,7 @@ In this section, we prove the existence of periodic multi-pulse solutions to \cr
 \caption[Construction of a periodic $n$-pulse solution]{Construction of a periodic $n-$pulse solution from the primary pulse.}
 \label{fig:permultipulse}
 \end{figure}
-A periodic $n$-pulse can be described by $n$ pulse distances $\{X_0, \dots, X_{n-1} \}$, as shown in \cref{fig:permultipulse}, where the distance between consecutive copies of the primary pulse $Q(x)$ is $2 X_i$. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more pulse distance than an $n$-homoclinic orbit, since we need one more connection to ``close the loop''.  
+\noi A periodic $n$-pulse can be described by $n$ pulse distances $\{X_0, \dots, X_{n-1} \}$, as shown in \cref{fig:permultipulse}, where the distance between consecutive copies of the primary pulse $Q(x)$ is $2 X_i$. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more pulse distance than an $n$-homoclinic orbit, since we need one more connection to ``close the loop''.  
 
 Rather than describing a periodic multi-pulse by the pulse distances $X_i$, we will adopt an alternative parameterization which is both more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
 \begin{equation}\label{defrho}
@@ -495,7 +493,7 @@ where $L_0$ is a constant. The functions $\theta^*(\theta; m): [-\pi + p^*, p^*]
 \end{enumerate}
 The last property is a matching condition which ``links up'' the parameterizations corresponding to different $m_i$. These properties, together with the restriction of $\theta$ to the half-open interval $\theta \in (\pi + -p^*, p^*]$, guarantee that each periodic parameterization corresponds to a unique periodic multi-pulse. The proof that the functions $\theta^*(\theta; m)$ exist and have these properties is given in Lemma \ref{thetaparamlemma} below.
 
-We can now state the main theorem of this section, which gives conditions for the existence of periodic multi-pulses. The requirement that the scaling parameter $r$ be sufficiently small means that the individual pulses must be well-separated.
+We can now state the main theorem of this section, which gives conditions for the existence of periodic multi-pulses. The requirement that the scaling parameter $r$ be sufficiently small means that the individual pulses must be well-separated. The proof is given in \cref{sec:existproof}. 
 
 \begin{theorem}[Existence of $n$-periodic solutions]\label{th:perexist}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$:
@@ -526,7 +524,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 It follows from the proof of \cref{2pulsebifurcation} that periodic single pulse solutions exist on domain $[-X, X]$ for all sufficiently large $X$. These are single-loop periodic orbits which lie close to the primary homoclinic orbit.
 \end{remark}
 
-The condition that $\theta \notin \{-\pi + p^*, p^*) \}$ in \cref{th:perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:2pitch}, left panel). \cref{2pulsebifurcation} uses a different parameterization than \cref{th:perexist} (\cref{fig:2pitch}, right panel).
+The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:2pitch}, left panel). \cref{2pulsebifurcation} uses a different parameterization than \cref{th:perexist} (\cref{fig:2pitch}, right panel). The proof is given in \cref{sec:existproof}. 
 
 \begin{figure}[H]
 \begin{center}
@@ -564,7 +562,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 
 \section{Spectrum of periodic multi-pulses}\label{sec:perstab}
 
-We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x) = (q_n(x), \partial_x q_n(x), \dots, \partial_x^{2m} q_n(x), 0)$ be any periodic $n$-pulse solution constructed according to \cref{th:perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
+We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q(x)$ be the primary pulse solution, and let $Q_n(x) = (q_n(x), \partial_x q_n(x), \dots, \partial_x^{2m} q_n(x), 0)$ be any periodic $n$-pulse solution constructed according to \cref{th:perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig2} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
 \[
 H^{2m}_{\text{per}}[-X,X] = \left\{ f \in H^{2m}(\R) : f^{(k)}(-X) = f^{(k)}(X) \text{ for } k = 0, \dots, 2m \right\} .
 \]
@@ -572,12 +570,20 @@ By \cref{Ekernel}, $\partial_x \calL(q_n)$ has a kernel with algebraic multiplic
 
 \begin{lemma}\label{qnkernel}
 The linear operator $\partial_x \calL(q_n)$ on $H^{2m}_{\text{per}}[-X,X]$ has a kernel eigenfunction $v_n^c$, which is a solution to $\calL(q_n)v_n^c = 1$.
+\begin{proof}
+Since $1 \in H^{2m}_{\text{per}}[-X,X]$, $\calL(q_n) 1 = c \neq 0$, and $\calL(q_n)$ is self-adjoint, for any $v \in \ker \calL(q_n)$,
+\begin{align*}
+\langle 1, v \rangle = \frac{1}{c} \langle \calL(q_n) 1, v \rangle
+= \frac{1}{c} \langle  1, \calL(q_n)^* v \rangle = \frac{1}{c} \langle  1, \calL(q_n) v \rangle = 0,
+\end{align*}
+thus $1 \perp \ker \calL(q_n)^*$. By the Fredholm alternative, the equation $\calL(q_n) v_n^c = 1$ has a solution $v_n^c \in H^{2m}_{\text{per}}[-X,X]$. Differentiating with respect to $x$, $\partial_x \calL(q_n) v_n^c = 0$.
+\end{proof}
 \end{lemma}
 
-Following the spatial dynamics approach from \cref{sec:EVP}, equation \cref{genPDEeig} on $H^{2m}_{\text{per}}[-X,X]$ is equivalent to the first order system with periodic boundary conditions
+Following the spatial dynamics approach from \cref{sec:EVP}, equation \cref{genPDEeig2} on $H^{2m}_{\text{per}}[-X,X]$ is equivalent to the first order system with periodic boundary conditions
 \begin{equation}\label{PDEeigsystemper3}
 \begin{aligned}
-V'(x) &= A(Q_n^*(x))V(x) + \lambda B V(x) \\
+V'(x) &= A(Q_n(x))V(x) + \lambda B V(x) \\
 V(-X) &= V(X),
 \end{aligned}
 \end{equation}
@@ -589,9 +595,12 @@ There exists $\delta_0 > 0$ such that for $|\lambda| < \delta_0$, the matrix $A(
 \nu(\lambda) = \frac{1}{c} \lambda + \mathcal{O}(|\lambda|^3)
 \end{equation}
 In addition, $\nu(-\lambda) = -\nu(\lambda)$ and $\nu(\overline{\lambda}) = \overline{\nu(\lambda)}$.
+\begin{proof}
+Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(\lambda)$. Since $p(0; 0) = 0$ and $\partial_\nu p(0; 0) = -c \neq 0$, by the implicit function theorem there exists $\delta_0 > 0$ and a smooth function $\nu(\lambda)$ such that $\nu(0) = 0$ and for $|\lambda| < \delta$, $\nu(\lambda)$ is the unique solution to $p(\nu; \lambda) = 0$, and $\nu'(0) = 1/c$. By reversibility, $p(\nu; \lambda)$ only involves odd powers of $\nu$, thus $p(\nu; \lambda) = 0$ if and only if $p(-\nu; -\lambda) = 0$. Since the solution $\nu(\lambda)$ is unique, $\nu(-\lambda) = -\nu(\lambda)$. Conjugate symmetry follows similarly since $p(\nu; \lambda) = 0$ if and only if $p(\overline{\nu}; \overline{\lambda}) = 0$. Equation \cref{nulambda} follows from a Taylor expansion of $\nu(\lambda)$ about $\lambda = 0$. 
+\end{proof}
 \end{lemma}
 
-We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix.
+We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig2}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix. The proof is given in \cref{sec:blockmatrixproof}.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
@@ -669,7 +678,7 @@ where $v^c(y)$ is the first component of $V^c(y)$, which is defined in \cref{var
 
 \subsection{Spectrum of periodic single pulse}\label{sec:persingle}
 
-The simplest case is the periodic single pulse. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the following lemma.
+The simplest case is the periodic single pulse. Proofs of all results are given in \cref{sec:singlepulse}. There is a only single length parameter $X_0$, which is the same as the domain length $X$. The block matrix $S(\lambda)$ is a $2\times 2$ matrix, the form of which is given in the following lemma.
 
 \begin{lemma}\label{lemma:1blockmatrix}
 For a periodic single pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is 
@@ -697,7 +706,7 @@ In addition,
 and $\det S(-\lambda) = -\det S(\lambda)$.
 \end{lemma}
 
-Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse. 
+Using this, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse.
 
 \begin{theorem}\label{theorem:1pess}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{th:perexist}, and let $\delta(r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
@@ -709,7 +718,7 @@ is on the imaginary axis.
 
 \subsection{Spectrum of periodic double pulse}\label{sec:perdouble}
 
-For the periodic double pulse, the block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next lemma.
+The next simplest case is the periodic double pulse. Proofs of all results are given in \cref{sec:doublepulse}. In this case, the block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next lemma.
 
 \begin{lemma}\label{lemma:2blockmatrix}
 For a periodic 2-pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is the $4 \times 4$ matrix
@@ -787,17 +796,7 @@ Next, we consider the symmetric periodic 2-pulse. As long as we are away from th
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
 \end{theorem}
 
-Finally, we consider what happens when the first essential spectrum eigenvalue collides with an imaginary interaction eigenvalue. Choose $m_0 = 1$, so that the interaction eigenvalues will be purely imaginary by \cref{theorem:2peigsassym}, and let $Q_2(x; s_1, r)$ be the periodic double pulse constructed according to \cref{2pulsebifurcation}. The interaction eigenvalues scale like $r^{1/2}$, and the first essential spectrum eigenvalue scales like $1/X(r, s_1)$. For fixed $r$, there will be a collision between these two eigenvalues on the imaginary axis at a specific value of $s_1$. As $s_1$ is increased, the eigenvalues, collide, move off the imaginary axis, trace an approximate circle in the complex plane, and finally recombine on the imaginary axis in a ``reverse'' Krein collision. This brief instability bubble is shown in cartoon form in \cref{fig:KreinBubbleCartoon}.
-\begin{figure}
-\begin{center}
-\begin{tabular}{cc}
-\includegraphics[width=7.5cm]{images/KreinBubbleCartoon}
-\end{tabular}
-\end{center}
-\caption{Cartoon showing brief instability bubble which forms as imaginary interaction eigenvalue and first essential spectrum eigenvalue collide on imaginary axis. Eigenvalues are shown in red dots, center of instability bubble is marked with blue X.}
-\label{fig:KreinBubbleCartoon}
-\end{figure}
-The existence of these Krein bubbles is given in the following theorem, which also provides numerically verifiable estimates for their size and location.
+Finally, we consider what happens when the first essential spectrum eigenvalue collides with an imaginary interaction eigenvalue. Choose $m_0 = 1$, so that the interaction eigenvalues will be purely imaginary by \cref{theorem:2peigsassym}, and let $Q_2(x; s_1, r)$ be the periodic double pulse constructed according to \cref{2pulsebifurcation}. The interaction eigenvalues scale like $r^{1/2}$, and the first essential spectrum eigenvalue scales like $1/X(r, s_1)$. For fixed $r$, there will be a collision between these two eigenvalues on the imaginary axis at a specific value of $s_1$. As $s_1$ is increased, the eigenvalues, collide, move off the imaginary axis, trace an approximate circle in the complex plane, and finally recombine on the imaginary axis in a ``reverse'' Krein collision, which is shown in \cref{fig:KreinBubbleCartoon}. The existence of these Krein bubbles is given in the following theorem, which also provides numerically verifiable estimates for their size and location.
 
 \begin{theorem}\label{th:Kreinbubble}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
@@ -812,7 +811,7 @@ Define $T_0 > 0$ by
 \begin{align}\label{defT0}
 T_0(r) = \frac{M_c^2 }{2 \pi M^2 c } |\lambda_*|^5 X_0^2.
 \end{align}
-For $s \in [-2\sqrt{T_0}, 2 \sqrt{T_0}]$, let $Q_2(x; s, r)$ be the periodic 2-pulse solution with domain size $X = X(r, s)$, where
+For $s \in [-2\sqrt{T_0}, 2 \sqrt{T_0}]$, let $Q_2(x; s, r)$ be the periodic 2-pulse solution with domain size $X = X(s, r)$, where
 \begin{equation}
 X(s,r) = X_*(r) + \frac{2 c \pi s}{|\lambda_*(r)|^2} = \mathcal{O}(s^2).
 \end{equation}
@@ -914,15 +913,11 @@ then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. W
 \label{fig:kreinerrors}
 \end{figure}
 
-
-
 \section{Conclusions}\label{sec:conclusions}
 
-\appendix
+Awesome conclusions go here!
 
-\section{Proof of results from Section \ref{sec:setup}}
-
-\subsection{Proof of Theorem \ref{transverseint}}
+\section{Proof of Theorem \ref{transverseint}}\label{sec:transverseintproof}
 
 By \cref{Qexistshyp}, $Q(0; c_0) \neq 0$, $H(Q(0; c_0); c_0) = 0$, and $\nabla_U H(Q(0; c_0); c_0) \neq 0$. By the implicit function theorem, for $c$ close to $c_0$, the 0-level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$, with $K(c_0)$ containing $Q(0; c_0)$. The existence result and the smoothness of the map $c \rightarrow Q(x; c)$ follow from the transverse intersection of $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$ in $K(c_0) \subset H^{-1}(0; c_0)$, the implicit function theorem, and the smoothness of $F$. Symmetry with respect to the reversor $R$ follows from symmetry of $Q(0; c_0)$ and the symmetry of $H$ from \cref{hyp:H}.
 
@@ -949,35 +944,6 @@ where the last term on the RHS is bounded. Define the weighted linear operator $
 \calL_{\alpha - \epsilon} = \frac{d}{dx} - D_U F(Q(x;c); c) - (\alpha - \epsilon) r'(x) \calI.
 \end{equation}
 Since $B Q(x;c) \in \ran \calL$, $e^{(\alpha - \epsilon)r(x)} B Q(x;c) \in \ran \calL_{\alpha - \epsilon}$. Since $D_U F(0; c)-(\alpha-\epsilon)\calI$ is still hyperbolic with the same unstable dimension as $D_U F(0; c)$, it follows again from \cite[Lemma 4.2]{Palmer1984} that $\calL_{\alpha - \epsilon}$ is Fredholm with index 0. Since $Q'(x; c)$ is exponentially localized by the stable manifold theorem, $e^{(\alpha - \epsilon)r(x)} Q'(x; c)$ is bounded, thus since $Q'(x; c) \in \ker \calL$, $e^{(\alpha - \epsilon)r(x)} Q'(x; c) \in \ker \calL_{\alpha - \epsilon}$. Since any element in $\ker \calL_{\alpha - \epsilon}$ gives an element of $\ker \calL$ via \cref{defQZ}, $\ker \calL_{\alpha - \epsilon} = \R e^{(\alpha - \epsilon)r(x)} Q'(x; c)$. Since $e^{(\alpha - \epsilon)r(x)} B Q(x;c) \in \ran \calL_{\alpha - \epsilon}$, the set of all bounded solutions to \cref{Zcprime} is given by $\{ \partial_c Z(x; c) + \R e^{(\alpha - \epsilon)r(x)} Q'(x;c) \}$, which implies that $\partial_c Q(x; c) = \partial_c Z (x; c) e^{-(\alpha - \epsilon)r(x)}$ is exponentially localized.
-
-\subsection{Proof of Lemma \ref{eigA0lemma}}
-
-Let $p_1(\nu)$ and $p_2(\nu)$ be the characteristic polynomials of $DF(0)$ and $A(0)$ (respectively). From equation \cref{defAB},
-\begin{equation*}
-A(0) = 
-\begin{pmatrix}
-DF(U^*(x)) & e_{2m}\\
-0 & 0
-\end{pmatrix}.
-\end{equation*}
-Expanding the determinant by minors using the bottom row, we have for $p_2(\nu)$,
-\begin{align*}
-p_2(\nu) &= \det(A_0 - \nu I) = -\nu \det(DF(0) - \nu I) = -\nu p_1(\nu),
-\end{align*}
-thus $A(0)$ has the same eigenvalues as $DF(0)$ as well as an additional eigenvalue at 0. The eigenvalues of $DF(0)$ are characterized in \cref{hyp:hypeq}, from which (i) follows. The eigenvectors $V_0$ and $W_0$ can be verified directly. The projection on $V_0$ is a standard result from linear algebra.
-
-\subsection{Proof of Lemma \ref{nondegenlemma}}
-
-Since $Q(x)$ is a homoclinic orbit in the intersection of $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$, $\R Q'(0) \subset T_{Q(0)}\tilde{W}^s(0) \cap T_{Q(0)}\tilde{W}^u(0)$. If the intersection were more than one-dimensional, there would exist another exponentially localized solution $V(x) = (v_1, \dots, v_{2m}, v_{2m+1})^T$ to \eqref{vareq2}. It follows from \eqref{vareq2} that $v_{2m+1}$ is a constant, which must be 0 since $V(x)$ is exponentially localized. Then $(v_1, \dots, v_{2m})^T$ would be an exponentially localized solution to $V'(x) = DF(Q(x)) V(x)$, which contradicts \eqref{nondegencond}.
-
-\subsection{Proof of Lemma \ref{varadjsolutions}}
-
-For part (i), we can verify directly that $Q'(x)$ is a solution to \cref{vareq2}. The existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below after \cref{lemma:Vpm}. Letting $V^c = (\tilde{V}^c, 1)$, $V^c(x)' = A(Q(x))V^c(x)$ reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$, thus the first component $v^c(x)$ formally satisfies $\calL(q)v^c = 1$. For part (ii), equation \cref{adjvareq2} can be written in block form as
-\[
-W'(x) = - 
-\begin{pmatrix}DF(Q(x))^* & 0 \\ e_{2m}^T & 0 \end{pmatrix} W(x).
-\]
-One solution is $\Psi^c(x) = W_0 = (0, \dots, 0, 1)^T$, which is constant. It follows from \cref{psiform} below that another bounded solution is given by $\Psi(x) = ( \nabla H(Q(x)), q(x) )^T$, which is exponetially localized. $\Psi(0)$ and $\Psi^c(0)$ are linearly independent, and by Lemma \ref{eigadjoint} below, $\Psi(0)$ and $\Psi^c(0)$ are perpendicular to $\R Q'(0) \oplus Y^+ \oplus Y^-$ at $x = 0$, thus there can be no other bounded, linearly independent solutions to \eqref{adjvareq2}.
 
 \section{Proof of existence results}\label{sec:existproof}
 
@@ -1726,22 +1692,13 @@ which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we
 \]
 from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, the pitchfork bifurcation point is reached when $s_1 = p^*$.
 
-\section{Proofs of stability results}
+\section{Proof of Theorem \ref{blockmatrixtheorem}}\label{sec:blockmatrixproof}
 
-As in \cite{Sandstede1998}, we will use Lin's method to construct eigenfunctions, which are solutions to \cref{PDEeigsystemper3}. We will take a piecewise linear combination of the kernel eigenfunctions $\partial_x Q_n(x)$ and $\partial_c Q_n(x)$ and a ``center'' eigenfunction as our ansatz, and we will join these together with small remainder functions. As long as the individual pulses in $Q_n(x)$ are well-separated, we will use Lin's method to construct a unique function which solves \cref{PDEeigsystemper3} but which has $n$ discontinuities. In contrast to \cite{Sandstede1998}, these $n$ jumps are in the two-dimensional space spanned by $\Psi(0)$ and $\Psi^c(0)$, which gives us $2n$ jump conditions. Finding the eigenvalues amounts to solving these $2n$ jump conditions. 
+As in \cite{Sandstede1998}, we will use Lin's method to construct eigenfunctions, which are solutions to \cref{PDEeigsystemper3}. We will take a piecewise linear combination of the kernel eigenfunctions $\partial_x Q_n(x)$ and $\partial_c Q_n(x)$ and a ``center'' eigenfunction as our ansatz, and we will join these together with small remainder functions. As long as the individual pulses in $Q_n(x)$ are well-separated, we will use Lin's method to construct a unique function which solves \cref{PDEeigsystemper3} but which has $n$ discontinuities. In contrast to \cite{Sandstede1998}, these $n$ jumps are in the two-dimensional space spanned by $\Psi(0)$ and $\Psi^c(0)$, which gives us $2n$ jump conditions. Finding the eigenvalues amounts to solving these $2n$ jump conditions.
 
-\subsection{Proof of Lemma \ref{qnkernel}}
+\subsection{Preliminary results}
 
-First, note that $1 \in H^{2m}_{\text{per}}[-X,X]$ and $\calL(q_n) 1 = c \neq 0$. For any $v \in \ker \calL(q_n)$
-\begin{align*}
-\langle 1, v \rangle = \frac{1}{c} \langle \calL(q_n) 1, v \rangle
-= \frac{1}{c} \langle  1, \calL(q_n)^* v \rangle = \frac{1}{c} \langle  1, \calL(q_n) v \rangle = 0,
-\end{align*}
-since $\calL(q_n)$ is self-adjoint, thus $1 \perp \ker \calL(q_n)^*$. By the Fredholm alternative, the equation $\calL(q_n) v_n^c = 1$ has a solution $v_n^c \in H^{2m}_{\text{per}}[-X,X]$. Differentiating with respect to $x$, $\partial_x \calL(q_n) v_n^c = 0$.
-
-\subsection{Proof of Lemma \ref{nulambdalemma}}
-
-Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(\lambda)$. Since $p(0; 0) = 0$ and $\partial_\nu p(0; 0) = -c \neq 0$, by the implicit function theorem there exists $\delta_0 > 0$ and a smooth function $\nu(\lambda)$ such that $\nu(0) = 0$ and for $|\lambda| < \delta$, $\nu(\lambda)$ is the unique solution to $p(\nu; \lambda) = 0$ and $\nu'(0) = 1/c$. By reversibility, $p(\nu; \lambda)$ only involves odd powers of $\nu$, thus $p(\nu; \lambda) = 0$ if and only if $p(-\nu; -\lambda) = 0$. Since the solution $\nu(\lambda)$ is unique, $\nu(-\lambda) = -\nu(\lambda)$, and conjugate symmetry similarly follows since $p(\nu; \lambda) = 0$ if and only if $p(\overline{\nu}; \overline{\lambda}) = 0$. Equation \cref{nulambda} then follows from a Taylor expansion of $\nu(\lambda)$ about $\lambda = 0$. The next lemma collects some useful facts about the matrix $A(\lambda)$.
+The next lemma collects some useful facts about the matrix $A(\lambda)$.
 
 \begin{lemma}\label{lemma:Afacts}\leavevmode
 \begin{enumerate}[(i)]
@@ -1763,7 +1720,7 @@ For part (iv), let $W$ be an eigenvector of $-A(0)^*$ with nonzero eigenvalue $\
 \langle W, V \rangle = \frac{1}{\overline{\mu}} \langle \mu W, V \rangle
 = \frac{1}{\overline{\mu}}\langle -A(0)^* W, V \rangle = -\frac{1}{\overline{\mu}}\langle W, A(0) V \rangle = -\frac{1}{\overline{\mu}}\langle W, \tilde{\mu} V_0 \rangle = -\frac{\tilde{\mu}}{\overline{\mu}}\langle W, V \rangle,
 \end{align*}
-thus $\langle W, V \rangle = 0$ unless $\tilde{\mu} = -\overline{\mu}$. For the stable eigenprojection, $\ker [P^s(0)]^* = (\ran P^s(0))^\perp$ and $\ran [P^s(0)]^* = (\ker P^s(0))^\perp = (E^u(0) \oplus E^c(0))^\perp$. Let $W$ be in the unstable eigenspace of $-A(0)^*$, and let $\mu$ be the corresponding eigenvalue with $\Re \mu > 0$. Then $W$ is perpendicular to all eigenvectors in $E^c(0) \oplus E^u(0)$, thus $W \in \ran [P^s(0)]^*$. Similarly, if $W$ is in the unstable or center eigenspace of $-A(0)^*$, then $W \in \ker [P^s(0)]^*$. This proves (iv) for $P^{u,*}(0)$. The result $P^{s,*}(0)$ is similar.
+thus $\langle W, V \rangle = 0$ unless $\tilde{\mu} = -\overline{\mu}$. For the stable eigenprojection, $\ker [P^s(0)]^* = (\ran P^s(0))^\perp$ and $\ran [P^s(0)]^* = (\ker P^s(0))^\perp = (E^u(0) \oplus E^c(0))^\perp$. Let $W$ be in the unstable eigenspace of $-A(0)^*$, and let $\mu$ be the corresponding eigenvalue with $\Re \mu > 0$. Then $W$ is perpendicular to all eigenvectors in $E^c(0) \oplus E^u(0)$, thus $W \in \ran [P^s(0)]^*$. Similarly, if $W$ is in the unstable or center eigenspace of $-A(0)^*$, then $W \in \ker [P^s(0)]^*$. This proves (iv) for $P^{u,*}(0)$. The result for $P^{s,*}(0)$ is similar.
 \end{proof}
 \end{lemma}
 
@@ -2038,7 +1995,7 @@ We can now construct our piecewise ansatz. It follows from \cref{Ekernel} and \c
 \begin{equation}\label{PDEeigkernel}
 \begin{aligned}
 {[\partial_x Q_n]}'(x) &= A(Q_n(x))\partial_x Q_n(x), \qquad
-{[\partial_c Q_n]}'(x) = A(Q_n(x))\partial_c Q_n(x) - \lambda B \partial_x Q_n(x).
+{[\partial_c Q_n]}'(x) = A(Q_n(x))\partial_c Q_n(x) - B \partial_x Q_n(x).
 \end{aligned}
 \end{equation}
 To exploit the relations \eqref{PDEeigkernel} and \eqref{PDEeigcenter}, we take the piecewise ansatz
@@ -2688,7 +2645,7 @@ We can write this in matrix form as in the statement of the lemma, using \cref{d
 
 Theorem \ref{blockmatrixtheorem} combines the results of Lemma \ref{jumpcenteradj} and Lemma \ref{jumpadj} into a single block matrix equation.
 
-\section{Proof of results for periodic single pulse }
+\section{Proof of results for periodic single pulse }\label{sec:singlepulse}
 
 \subsection{Proof of Lemma \ref{lemma:1blockmatrix} }
 
@@ -2759,7 +2716,7 @@ Changing variables back to $\lambda$ and using \cref{lambdamu},
 \]
 By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m(r)$ is pure imaginary and there is another essential spectrum eigenvalue $\lambda_{-m}(r) = -\lambda_m(r)$. 
 
-\section{Proof of results for periodic double pulse}
+\section{Proof of results for periodic double pulse}\label{sec:doublepulse}
 
 \subsection{Proof of Lemma \ref{lemma:2blockmatrix} }
 
@@ -2928,7 +2885,7 @@ D_{(\tilde{\mu}, h)}K(0, 0, 0) =
 \end{equation*}
 which is nonsingular. Using the implicit function theorem, there exists $r_1 \leq r_0$ and a unique smooth function $(\tilde{\mu}(r), h(r))$ with $(\tilde{\mu}, h)(0) = (0, 0)$ such that for all $r \leq r_1$, $K(\tilde{\mu}(r), h(r), r) = 0$, i.e. $\tilde{\mu}(r)$ is a double root of $G(\tilde{\mu}, r, h)$ when $h = h(r)$. By Hamiltonian symmetry, we must have $\tilde{\mu}(r) = 0$, thus for $r \leq r_1$, when $s_0 = p^* + h(r)$, there are two more eigenvalues at 0, which brings the total of eigenvalues at 0 to five. Since the pitchfork bifurcation in the family of periodic 2-pulses occurs near $p^*$ at $p^*(r)$, it follows from standard PDE bifurcation theory that this quintuple zero must occur at the pitchfork bifurcation point, i.e. $p^* + h(r) = p^*(r)$.
 
-\subsection{Proof of Theorem \cref{th:Kreinbubble}}
+\subsection{Proof of Theorem \ref{th:Kreinbubble}}
 
 Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s_1, r)$ be the family of periodic 2-pulse solutions parameterized by $s_1$. By \cref{theorem:2peigsassym}, there is a pair of purely imaginary interaction eigenvalues for sufficiently small $r$. Define
 \begin{align*}
@@ -2974,20 +2931,20 @@ M \tilde{\mu} \tilde{h} X_0 r^{7/4}
 \end{equation}
 Since
 \[
-\left( M + \frac{c K}{X} \right) X  = MX + c K = \frac{M \pi}{c \mu_1} = \frac{M \pi}{c(\mu_* - 2 k i)}
-= \frac{M \pi}{c \tilde{\mu}r^{1/2}} + \mathcal{O}(r^{1/4}),
+\left( M + \frac{c K}{X} \right) X  = MX + c K = \frac{M \pi i}{c \mu_1} = \frac{M \pi i}{c(\mu_* - 2 k i)}
+= \frac{M \pi i}{c \tilde{\mu}r^{1/2}} + \mathcal{O}(r^{1/4}),
 \]
 equation \cref{det3} simplifies to
 \begin{equation}\label{det4}
 \begin{aligned}
-2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) - 2 M M_c^2 c^3 \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
+2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) - 2 M M_c^2 c^3 | \tilde{\mu}|^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
 \end{aligned}
 \end{equation}
 Dividing by $X_0^2 r^{5/2}$ and noting that $X_0 = \mathcal{O}(|\log r|)$, we obtain the equation
 \begin{equation}\label{det5}
 \begin{aligned}
 G(\tilde{h}, \tilde{k}, r) = \tilde{h}^2 + 2 \tilde{k}  i \tilde{h}
-- T + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0, \quad T = \frac{M_c^2 }{2 \pi M^2 } c^2 \tilde{\mu}^5 > 0.
+- T + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0, \quad T = \frac{M_c^2 }{2 \pi M^2 } c^2 |\tilde{\mu}|^5 > 0.
 \end{aligned}
 \end{equation}
 When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if 
@@ -3019,7 +2976,7 @@ D_{(\tilde{h}, \tilde{k})}H(-\sqrt{T}i, \sqrt{T}, 0) =
 \end{equation*}
 which is nonsingular. Using the implicit function theorem, there exists $r_2 \leq r_1$ and a unique smooth function $(\tilde{h}_1(r), \tilde{k}_1(r))$ with $(\tilde{h}_1(0), \tilde{k}_1(0)) = (-\sqrt{T}i, \sqrt{T})$ and $(\tilde{h}_1(r), \tilde{k}_1(r)) = (-\sqrt{T}i, \sqrt{T}) + \mathcal{O}(\frac{1}{|\log r|})$ such that for all $r \leq r_2$, $H(\tilde{h}_1(r), \tilde{k}_1(r), r) = 0$, i.e. $\tilde{h}_1(r)$ is a double root of $G(\tilde{h}, \tilde{k}, r)$ when $\tilde{k} = \tilde{k}(r)$. By Hamiltonian symmetry, $\tilde{h}(r)$ must lie on the imaginary axis. We have a similar result for $(\tilde{h}, \tilde{k}) = (\sqrt{T}i, -\sqrt{T})$.
 
-Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues at
+Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues
 \begin{align*}
 \lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_0 -  s^2} + \mathcal{O}(r^{5/4}|\log r|), \quad T_0 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
 \end{align*}
