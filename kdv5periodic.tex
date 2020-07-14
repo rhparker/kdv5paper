@@ -43,9 +43,9 @@
 
 \section{Introduction}\label{sec:intro}
 
-Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. The stability of these double pulses was shown in \cite{Yanagida1989}, and the existence result was extended to arbitrary multi-pulses in \cite{Feroe1986}. In \cite{Alexander1994}, the existence of multi-pulse traveling wave solutions to semilinear parabolic equations, which includes reaction-diffusion systems, was established, and the stability of these solutions was determined using the Evans function. In general, the spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Alexander1990,Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, these eigenvalues are computed in \cite{Sandstede1998}. 
+Solitary waves, localized disturbances that maintain their shape as they propagate at a constant velocity, have been an object of mathematical and experimental interest since the nineteenth century and have applications not only in fluid mechanics but also nonlinear optics \cite{Taylor1992}, Bose-Einstein condensates \cite{Panos2008BEC}, and ferromagnetics \cite{Kosevich1998}. Of more recent interest are multi-pulses, which are multi-modal solitary waves resembling multiple, well-separated copies of a single solitary wave. The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. The stability of these double pulses was shown in \cite{Yanagida1989}, and the existence result was extended to arbitrary multi-pulses in \cite{Feroe1986}. In \cite{Alexander1994}, the existence of multi-pulse traveling wave solutions to semilinear parabolic equations, which includes reaction-diffusion systems, was established, and the stability of these solutions was determined using the Evans function. Existence of multi-pulse solutions to a family of Hamiltonian equations, which includes the 5th order KdV equation (KdV5), was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set, and spatial dynamics approach to the same problem is found in \cite{SandstedeStrut}. Existence and stability of multi-pulses have since been studied in diverse systems, including a pair nonlinearly coupled Schr\"{o}dinger equations \cite{Yew2001,Yew2000}, coupled nonlinear Schr\"{o}dinger equations \cite{Pelinovsky2001,Pelinovsky2005}, the vector nonlinear Schr\"{o}dinger equations equation \cite{Kapitula2007}, and the complex cubic-quintic Ginzburg-Landau equation \cite{Manukian2009}. In general, the spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Alexander1990,Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we will call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends the interaction eigenvalues. For semilinear parabolic equations, these eigenvalues are computed in \cite{Sandstede1998}. 
 
-A much more difficult problem concerns the spectral stability of multi-pulses in Hamiltonian PDEs. Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set. A spatial dynamics approach to the same problem is found in \cite{SandstedeStrut}. As a concrete example, consider double pulse traveling wave solutions to the fifth-order Korteweg de-Vries equation (KdV5) 
+A much more difficult problem concerns the spectral stability of multi-pulses in Hamiltonian PDEs in the case where the essential spectrum consists of the entire imaginary axis. (If the essential spectrum is imaginary but bounded away from the origin, the spectral problem is considerably easier, e.g. an application to a fourth-order beam equation \cite[Secton 6]{Kapitula2020}). As a concrete example, consider double pulse traveling wave solutions to KdV5
 \begin{align}\label{KdV5example}
 u_t &= \partial_x\left( u_{xxxx} - u_{xx} + c u - u^2\right) && c > 1/4,
 \end{align}
@@ -125,7 +125,7 @@ is the energy, and $f$ in \cref{kawahara} is the variational derivative of the t
 \[
 u_t + \frac{2}{15}u_{xxxxx} - b u_{xxx} + 3 u u_x + 2 u_x u_{xx} + u u_{xxx} = 0,
 \]
-which is a weakly nonlinear long-wave approximation for capillary-gravity water waves \cite{Champneys1998,Champneys1997,Sandstede2013}. We will consider the simpler equation 
+which is a weakly nonlinear long-wave approximation for capillary-gravity water waves \cite{Champneys1998,Champneys1997}. We will consider the simpler equation 
 \begin{equation}\label{KdV5}
 u_t = u_{xxxxx} + p u_{xxx} - 2 u u_x,
 \end{equation}
@@ -300,9 +300,9 @@ The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u
 
 \noi Using \cref{hyp:transverse} and a dimension-counting argument, we obtain the nondegeneracy condition
 \begin{equation}\label{nondegencond}
-T_{Q_1(0; c_0)}W^s(0; c_0) \cap T_{Q_1(0; c_0)}W^u(0; c_0) = \R Q_1'(0; c_0),
+T_{Q_1(0; c_0)}W^s(0; c_0) \cap T_{Q_1(0; c_0)}W^u(0; c_0) = \R Q_1'(0; c_0).
 \end{equation}
-from which it follows that the variational equation $V'(x) = DF(Q_1(x))V(x)$ has a unique bounded solution $Q_1'(x)$. We then have the following existence theorem. The proof is given in \cref{sec:transverseintproof}.
+We then have the following existence theorem. The proof is given in \cref{sec:transverseintproof}.
 
 \begin{theorem}\label{transverseint}
 Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta_0 > 0$ such that for $c \in (c_0 - \delta_0, c_0 + \delta_0)$, the stable and unstable manifolds $\tilde{W}^s(0; c)$ and $\tilde{W}^u(0; c)$ have a one-dimensional transverse intersection in $H^{-1}(0; c)$ which is a homoclinic orbit $Q_1(x; c)$. $Q_1(-x; c) = R Q_1(x; c)$, the map $c \rightarrow Q_1(x; c)$ is smooth, and $\partial_c Q_1(x; c)$ is exponentially localized, i.e. for any $\epsilon > 0$ there exists $\delta_1 > 0$ with $\delta_1 \leq \delta_0$ such that for $c \in (c_0 - \delta_1, c_0 + \delta_1)$,
@@ -311,15 +311,15 @@ Assume \cref{hyp:H} and \cref{hyp:transverse}. There exists $\delta_0 > 0$ such 
 \end{equation}
 \end{theorem}
 
-Finally, as in \cite{Grillakis1987}, define the scalar $d(c) = \calE(q(x, c)) - \omega\calQ(q(x, c))$. By \cite[Theorem 3.5]{Grillakis1987}, the traveling wave $q(x, c)$ is orbitally stable if $d''(c) > 0$, where
+Finally, as in \cite{Grillakis1987}, define the scalar $d(c) = \calE(q(x, c)) - \omega\calQ(q(x, c))$. By \cite{Bona1987,Grillakis1987}, the traveling wave $q(x, c)$ is orbitally stable if $d''(c) > 0$, where
 \begin{align}\label{ddoubleprime}
 d''(c) = \langle \calQ'(q(x, c)), \partial_c q(x, c) \rangle
-= \int_{-\infty}^\infty q(x, c) \partial_c q(x, c) dx
+= \int_{-\infty}^\infty q(x, c) \partial_c q(x, c) dx.
 \end{align}
 This quantity can be computed numerically, and we take this stability criterion as a hypothesis.
 
 \begin{hypothesis}\label{hyp:dccpos}
-Let $\delta_0 > 0$ be as in \cref{transverseint}. Then for each $c \in (c_0 - \delta_0, c_0 + \delta_0)$, $d''(c) > 0$.
+For each $c \in (c_0 - \delta_0, c_0 + \delta_0)$, where $\delta_0$ is defined in \cref{transverseint}, $d''(c) > 0$.
 \end{hypothesis}
 
 \noi From this point on, we will fix a speed $c \in (c_0 - \delta_0, c_0 + \delta_0)$ and suppress the dependence on $c$ for simplicity.
@@ -796,7 +796,7 @@ Next, we consider the symmetric periodic 2-pulse. As long as we are away from th
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(r), r)$.
 \end{theorem}
 
-Finally, we consider what happens when the first essential spectrum eigenvalue collides with an imaginary interaction eigenvalue. Choose $m_0 = 1$, so that the interaction eigenvalues will be purely imaginary by \cref{theorem:2peigsassym}, and let $Q_2(x; s_1, r)$ be the periodic double pulse constructed according to \cref{2pulsebifurcation}. The interaction eigenvalues scale like $r^{1/2}$, and the first essential spectrum eigenvalue scales like $1/X(r, s_1)$. For fixed $r$, there will be a collision between these two eigenvalues on the imaginary axis at a specific value of $s_1$. As $s_1$ is increased, the eigenvalues, collide, move off the imaginary axis, trace an approximate circle in the complex plane, and finally recombine on the imaginary axis in a ``reverse'' Krein collision, which is shown in \cref{fig:KreinBubbleCartoon}. The existence of these Krein bubbles is given in the following theorem, which also provides numerically verifiable estimates for their size and location.
+Finally, we consider what happens when the first essential spectrum eigenvalue collides with an imaginary interaction eigenvalue. Choose $m_0 = 1$, so that the interaction eigenvalues will be purely imaginary by \cref{theorem:2peigsassym}, and let $Q_2(x; s_1, r)$ be the periodic double pulse constructed according to \cref{2pulsebifurcation}. The interaction eigenvalues scale like $r^{1/2}$, and the first essential spectrum eigenvalue scales like $1/X(r, s_1)$. For fixed $r$, there will be a collision between these two eigenvalues on the imaginary axis at a specific value of $s_1$. As $s_1$ is increased, the eigenvalues, collide, move off the imaginary axis, trace an approximate circle in the complex plane, and finally recombine on the imaginary axis in a ``reverse'' Krein collision, which is shown in \cref{fig:KreinBubbleCartoon}. The existence of the first Krein bubble is given in the following theorem, which also provides numerically verifiable estimates for its size and location. Results for subsequent Krein bubbles can be similarly obtained.
 
 \begin{theorem}\label{th:Kreinbubble}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
