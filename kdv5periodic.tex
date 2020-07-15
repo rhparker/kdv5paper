@@ -1667,6 +1667,26 @@ from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, 
 
 We will use Lin's method as \cite{Sandstede1998} to construct eigenfunctions which are solutions to \cref{PDEeigsystemper3}. We will take a piecewise linear combination of the kernel eigenfunctions $\partial_x Q_n(x)$ and $\partial_c Q_n(x)$ and a ``center'' eigenfunction as our ansatz, and we will join these together with small remainder functions. As long as the individual pulses in $Q_n(x)$ are well-separated, Lin's method will yield a unique solution which solves \cref{PDEeigsystemper3} but which has $n$ discontinuities. In contrast to \cite{Sandstede1998}, these $n$ jumps line in the two-dimensional space spanned by $\Psi(0)$ and $W_0$, which gives us $2n$ jump conditions. Finding the eigenvalues near 0 amounts to solving these $2n$ jump conditions. This will give us both the interaction eigenvalues and the essential spectrum eigenvalues.
 
+\subsection{Preliminaries}
+
+Define
+\begin{equation}
+\begin{aligned}
+A(Q(x); \lambda) &= A(Q(x)) + \lambda B \\
+A(\lambda) &= A(0) + \lambda B.
+\end{aligned}
+\end{equation}
+Let $\alpha_0, \beta_0$ be defined as in \cref{hyp:hypeq}. Choose any $\eta > 0$ with $4 \eta < \alpha_0$, and let $\alpha = \alpha_0 - 2 \eta$. Choose $\delta > 0$ sufficiently small so that for all $|\lambda| < \delta$,
+\begin{enumerate}[(i)]
+\item $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ is the simple eigenvalue of $A(\lambda)$ close to 0 which is defined in \cref{nulambdalemma}.
+\item For any other eigenvalue $\nu$ of $A(\lambda)$, $|\Re \nu| > \alpha$.
+\end{enumerate} 
+Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed, 
+\begin{align}\label{nubound}
+|e^{\nu(\lambda)X_i}| \leq C e^{\eta X^*},
+\end{align}
+where $X^*$ is defined in \cref{Xstar}. The result of \cref{blockmatrixtheorem} will hold for $|\lambda| < \delta$, and as we proceed, we may need to decrease $\delta$.
+
 \subsection{Conjugation lemma}
 
 The conjugation lemma allows us to make a smooth change of coordinates to convert certain linear ODEs of the form $W'(x) = A(x) W(x)$ into a constant coefficient system. The statement of the lemma is identical to that in \cite{Zumbrun2009}, except the parameter vector $\Lambda$ lives in an arbitrary Banach space. The proofs of \cref{conjlemma} and \cref{corr:adjconj} are straightforward modifications of the proof of \cite[Corollary 2.3]{Zumbrun2009}.
@@ -1714,13 +1734,6 @@ Take the same hypotheses as in \cref{conjlemma}, and let $P^\pm(x; \Lambda)$ be 
 
 \subsection{Solutions in center subspace}\label{sec:conjvareq}
 
-Define
-\begin{equation}
-\begin{aligned}
-A(Q(x); \lambda) &= A(Q(x)) + \lambda B \\
-A(\lambda) &= A(0) + \lambda B.
-\end{aligned}
-\end{equation}
 First, we apply the conjugation lemma to
 \begin{equation}\label{vareqlambda}
 V'(x) = A(Q(x); \lambda) V'(x).
@@ -1729,7 +1742,7 @@ For all $\lambda$, $A(Q(x); \lambda)$ decays exponentially to the constant-coeff
 \[
 |A(Q(x); \lambda) - A(\lambda)| \leq C e^{-\alpha_0 |x|}
 \]
-Choose $\alpha > 0$ with $\alpha_0/2 < \alpha < \alpha_0$, and let $\eta = \alpha_0 - \alpha$. Using the conjugation lemma on $\R^+$ with $\Lambda = \lambda$ and $\Lambda_0 = 0$, there exists $\delta_1 > 0$ and an invertible linear transformation 
+Using the conjugation lemma on $\R^+$ with $\Lambda = \lambda$ and $\Lambda_0 = 0$, there exists $\delta_1 > 0$ and an invertible linear transformation 
 \begin{equation}\label{defPplus}
 P^+(x; \lambda) = I + \Theta^+(x; \Lambda)
 \end{equation}
@@ -1747,7 +1760,7 @@ P^-(x; \lambda) = RP^+(-x; -\lambda)R.
 \end{equation}
 By a straightforward adaptation of the proof of the conjugation lemma in \cite{Zumbrun2009}, the change of coordinates $V(x) = P^-(x; \lambda) Z^-(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^-)'(x) = A(\lambda) Z^-(x)$.
 
-Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, and $P^{u/s/c}(0)$ be their respective eigenprojections. Let $E^{u/s/c}(\lambda)$ and $P^{u/s/c}(\lambda)$ be the corresponding eigenspaces and eigenprojections for $A(\lambda)$. $E^s(\lambda)$ and $E^u(\lambda)$ are $m$-dimensional, and $E^c(\lambda)$ is 1-dimensional. In the next lemma, we prove some useful results about the matrix $A(\lambda)$.
+Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, and $P^{u/s/c}(0)$ be their respective eigenprojections. Let $E^{u/s/c}(\lambda)$ and $P^{u/s/c}(\lambda)$ be the corresponding eigenspaces and eigenprojections for $A(\lambda)$, which are smooth in $\lambda$. $E^s(\lambda)$ and $E^u(\lambda)$ are $m$-dimensional, and $E^c(\lambda)$ is 1-dimensional. In the next lemma, we prove some useful results about the matrix $A(\lambda)$.
 
 \begin{lemma}\label{lemma:Afacts}\leavevmode
 \begin{enumerate}[(i)]
@@ -1773,19 +1786,15 @@ thus $\langle W, V \rangle = 0$ unless $\tilde{\mu} = -\overline{\mu}$. For the 
 \end{proof}
 \end{lemma}
 
-Let $\Phi(x, y; \lambda) = e^{A(\lambda)(x-y)}$ be the evolution of the constant-coefficient equation
-\begin{equation}\label{constcoeffZ}
-Z'(x) = A(\lambda) Z(x).
-\end{equation}
-Then the evolution of \cref{vareqlambda} on $\R^\pm$ is given by
+Let $\Phi(x, y; \lambda) = e^{A(\lambda)(x-y)}$ be the evolution of the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. Then the evolution of \cref{vareqlambda} on $\R^\pm$ is given by
 \begin{align}\label{deftildephi}
 \tilde{\Phi}^\pm(x, y; \lambda) &= P^\pm(x; \lambda) \Phi(x, y; \lambda) P^+(y; \lambda)^{-1} && x, y \in \R^\pm,
 \end{align}
 which we can decompose in an exponential trichotomy on $\R^\pm$ via the evolution operators
 \begin{align}\label{tildephitrich}
-\tilde{\Phi}^{s/u/c, \pm}(x, y; \lambda) &= P^\pm(x; \lambda) \Phi(x, y; \lambda) P^{s/u/c}(\lambda) P^\pm(x; \lambda)^{-1} && x, y \in \R^\pm
+\tilde{\Phi}^{s/u/c, \pm}(x, y; \lambda) &= P^\pm(x; \lambda) \Phi(x, y; \lambda) P^{s/u/c}(\lambda) P^\pm(x; \lambda)^{-1} && x, y \in \R^\pm.
 \end{align}
-Equation \cref{constcoeffZ} has a solution $Z(x) = V_0(\lambda)e^{\nu(\lambda)x}$ which lies in the eigenspace spanned by $V_0(\lambda)$. In the next lemma, we show that \cref{vareqlambda} has solutions $V^\pm(x; \lambda)$ on $\R^+$ and $\R^-$ which approach $V_0(\lambda)e^{\nu(\lambda)x}$ as $x \rightarrow \pm \infty$. 
+The equation $Z'(x) = A(\lambda) Z(x)$ has a solution $Z(x) = V_0(\lambda)e^{\nu(\lambda)x}$ which lies in the eigenspace spanned by $V_0(\lambda)$. In the next lemma, we show that equation \cref{vareqlambda} has solutions $V^\pm(x; \lambda)$ on $\R^+$ and $\R^-$ which approach $V_0(\lambda)e^{\nu(\lambda)x}$ as $x \rightarrow \pm \infty$. 
 
 \begin{lemma}\label{lemma:Vpm}
 For sufficiently small $|\lambda|$, equation \cref{vareqlambda} has solutions
@@ -1814,7 +1823,7 @@ and we let $V_1^-(x; \lambda) = R\Theta_+(-x; -\lambda) V_0(-\lambda)$. The deca
 \end{proof}
 \end{lemma}
 
-We now use this result to prove the existence of $V^c(x)$ in part (i) of Lemma \ref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, so $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by Lemma \ref{nondegenlemma}, there exists $Y_0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$, and $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Define $V^\pm(x; 0)$ as in \cref{lemma:Vpm}. Then since $V^-(0; 0) = R V^+(0; 0)$ and $V^\pm(0; 0) \in \Span \{Y^0 \}$, we must have $V^+(0; 0) = V^-(0; 0)$, thus we define 
+We use this result to prove the existence of $V^c(x)$ in part (i) of Lemma \ref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, so $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by Lemma \ref{nondegenlemma}, there exists $Y_0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$, and $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Define $V^\pm(x; 0)$ as in \cref{lemma:Vpm}. Then since $V^-(0; 0) = R V^+(0; 0)$ and $V^\pm(0; 0) \in \Span \{Y^0 \}$, we must have $V^+(0; 0) = V^-(0; 0)$, thus we define 
 \[
 V^c(x) = \begin{cases}
 V^+(x; 0) & x \geq 0 \\
@@ -2041,16 +2050,7 @@ The jump conditions become
 
 \subsection{Exponential trichotomy}\label{sec:trichotomy}
 
-We will now define exponential trichotomies on $\R^\pm$ for the conjugated system. Since there is some freedom in choosing subspaces for the trichotomy, we will make a choice that allows us to best satisfy \cref{systemmiddle}. By \cref{th:perexist}, \cref{def:perparam}, and \cref{Xstar}, for $i = 0, \dots, n-1$,
-\[
-X_i \leq X^* + \frac{\pi}{2 \beta_0}(m_{n-1} + 1) + C.
-\]
-Thus we can find $\delta = \delta(X_*) \leq \min\{ \delta_0, \delta_1, \delta_2 \}$ such that whenever $|\lambda| < \delta(X^*)$, $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ defined in Lemma \ref{nulambdalemma}, the real part of any eigenvalue of $A(\lambda)$ besides $\nu(\lambda)$ lies strictly outside the interval $[-\alpha, \alpha]$, and
-\begin{align}\label{nubound}
-|\nu(\lambda)|X_i &\leq 1 && i = 0, \dots, n-1.
-\end{align}
-
-The range of the stable projection on $\R^+$ is unique and given by $E^s(\lambda)$, but we can choose any complement of $E^s(\lambda)$ as the complement of the range of the stable projection at $X_i$. For sufficiently small $\lambda$, since the eigenvectors of $A(\lambda)$ are smooth in $\lambda$, $E^u(0)\oplus E^c(0)$ is a complement of $E^s(\lambda)$. Since $P_i^+(X_i; \lambda) = I + \mathcal{O}(e^{-\alpha X_i})$ and $X_i \geq X^*$, for sufficiently small $\lambda$ and sufficiently large $X^*$, $P_i^+(X_i, \lambda)^{-1} ( E^u(0)\oplus E^c(0) ) P_i^+(X_i, \lambda)$ is a complement of $E^s(\lambda)$. A similar result holds for the complement of the unstable projection on $\R^-$ at $-X_{i-1}$. For $i = 0, \dots, n-1$, we decompose the evolution operator $\Phi(x,y; \lambda)$ on $\R^\pm$ as
+We will now define exponential trichotomies on $\R^\pm$ for the conjugated system. Since there is some freedom in choosing subspaces for the trichotomy, we will make a choice that allows us to best satisfy \cref{systemmiddle}. The range of the stable projection on $\R^+$ is unique and given by $E^s(\lambda)$, but we can choose any complement of $E^s(\lambda)$ as the complement of the range of the stable projection at $X_i$. For sufficiently small $\lambda$, since the eigenvectors of $A(\lambda)$ are smooth in $\lambda$, $E^u(0)\oplus E^c(0)$ is a complement of $E^s(\lambda)$. Since $P_i^+(X_i; \lambda) = I + \mathcal{O}(e^{-\alpha X_i})$ and $X_i \geq X^*$, for sufficiently small $\lambda$ and sufficiently large $X^*$, $P_i^+(X_i, \lambda)^{-1} ( E^u(0)\oplus E^c(0) ) P_i^+(X_i, \lambda)$ is a complement of $E^s(\lambda)$. A similar result holds for the complement of the unstable projection on $\R^-$ at $-X_{i-1}$. For $i = 0, \dots, n-1$, we decompose the evolution operator $\Phi(x,y; \lambda)$ on $\R^\pm$ as
 \begin{equation}\label{Phidecomp}
 \Phi(x, y; \lambda) = \Phi_i^{s,\pm}(x, y; \lambda) + \Phi_i^{u,\pm}(x, y; \lambda) + \Phi_i^{c,\pm}(x, y; \lambda),
 \end{equation}
