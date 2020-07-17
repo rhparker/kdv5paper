@@ -2265,10 +2265,10 @@ There exist operators
 B_1: &V_\lambda \times V_c \times V_d \rightarrow V_b \\
 A_3: &V_\lambda \times V_c \times V_d \rightarrow V_a \\
 \end{align*}
-such that $( a, b ) = ( A_3(\lambda)(c, d), B_1(\lambda)(c, d) )$ solves \eqref{systemmiddle} and \eqref{systemcenter} for any $(c, d)$. These operators are analytic in $\lambda$ and linear in $(c, d)$. Bounds for $B_1$ and $A_3$ are given by
+such that $( a, b ) = ( A_3(\lambda)(c, d), B_1(\lambda)(c, d) )$ solves \eqref{systemmiddle} and \eqref{systemcenter} for any $(c, d)$. These operators are analytic in $\lambda$ and linear in $(c, d)$. Uniform bounds for $B_1$ and $A_3$ are given by
 \begin{align}
-|B_1(\lambda)(c, d)| &\leq C\left( (|\lambda|+e^{-\alpha X^*})|c| + (|\lambda| + e^{-\alpha X^*})^2 |d| \right) \label{B1bound} \\
-|A_3(\lambda)(b, c, d)| &\leq C \left( (e^{-\alpha X^*} + |\lambda|^2) |c| + |\lambda|^2 |d| + |D||d| \right) \label{A3bound} 
+|B_1(\lambda)(c, d)| &\leq C\left( (e^{-\alpha_0 X^*} + |\lambda|)|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \right) \label{B1bound} \\
+|A_3(\lambda)(b, c, d)| &\leq C \left( (e^{-\alpha_0 X^*} + |\lambda|) |c| + |\lambda|^2 |d| + |D||d| \right) \label{A3bound} 
 \end{align} 
 In addition, we can write
 \begin{align*}
@@ -2279,8 +2279,8 @@ a_i^c &= \tilde{A}_4(\lambda)_i(c, d)
 where $A_4$ and $\tilde{A}_4$ are linear in $(c, d)$, and have bounds
 \begin{align}
 |A_4(\lambda)_i(b, c, d)|
-&\leq C \left( (e^{-\alpha X^*} + |\lambda|^2)|c| + |\lambda|^2|d| \right) \label{A4bound} \\
-|\tilde{A}_4(\lambda)_i(b, c, d) &\leq C |\lambda| \left( (e^{-\alpha X^*} + |\lambda|^2) |c| +|\lambda|^2 |d| \right) \label{tildeA4bound}
+&\leq C \left( (e^{-\alpha_0 X_i} + |\lambda|)|c_i| + |\lambda|^2|d| \right) \label{A4bound} \\
+|\tilde{A}_4(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha_0 X_i} |c_i| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right) \label{tildeA4bound}
 \end{align}
 
 \begin{proof}
@@ -2317,7 +2317,7 @@ y_i^+ - y_i^- \end{pmatrix}
 where $L_4(\lambda)_i(b, c, d)$ consists of the projections in \cref{centercond2} applied to the remaining terms in \cref{PipmZ0} as well as the term $P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) )$ in the final component. To obtain a bound on $L_4$, we will bound the individual terms involved. For the $a_i^\pm$ terms, we use the estimate \cref{A1bound} and the trichotomy bounds \cref{Zevolbounds} to get
 \begin{align*}
 |P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+| 
-&\leq C e^{-\alpha X_i} \left( e^{-\alpha X^*} |b| + (e^{-\alpha X^*} + |\lambda|)|c| + |\lambda|^2 |d| + |D||d| \right).
+&\leq C e^{-\alpha X_i} \left( e^{-\alpha X^*} |b| + (e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| + |D||d| \right).
 \end{align*}
 For the $a_i^c$ terms, we use \cref{Zevolbounds} and the expression from Lemma \ref{lemma:aipm} to get
 \begin{align*}
@@ -2331,19 +2331,19 @@ For the term involving $c$, we recall from the discussion following \cref{lemma:
 \begin{align*}
 | P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) ) | \leq C |\lambda| |c|
 \end{align*}
-The bound on the integral terms is determined by the integral involving the center subspace, since the other integral will have a stronger bound. Using the bounds from \cref{stabestimateslemma} together with the trichotomy bound \cref{Zevolbounds} and \cref{nubound}, 
+The bound on the integral terms is determined by the integral involving the center subspace, since the other integral will have a stronger bound. Using the bounds from \cref{stabestimateslemma} together with the trichotomy bound \cref{Zevolbounds}, 
 \begin{align*}
-&\left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \right| \leq C \left( |\lambda|(e^{-\alpha X^*} + |\lambda|)|c| + |\lambda|^2 |d| \right)
+&\left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \right| \leq C \left( |\lambda|(e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| \right)
 \end{align*}
 The terms from $P_i^-(0; \lambda) Z_i^-(0)$ have similar bounds. Combining these and simplifying,
 \begin{align*}
 L_4(\lambda)(b, c, d) \leq 
-C\Big( (|\lambda| + e^{-\alpha X^*})|b| + (|\lambda|+e^{-\alpha X^*})|c| + (|\lambda| + e^{-\alpha X^*})^2 |d|  \Big).
+C\Big( (|\lambda| + e^{-\alpha X^*})|b| + (|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \Big).
 \end{align*}
 Since $|\lambda| < \delta$ and we can choose $X^*$ sufficiently large so that $e^{-\alpha X^*} < \delta$, this becomes
 \begin{align*}
 L_4(\lambda)(b, c, d) \leq 
-C\Big( \delta |b| + (|\lambda|+e^{-\alpha X^*})|c| + (|\lambda| + e^{-\alpha X^*})^2 |d| \Big) 
+C\Big( \delta |b| + (|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \Big) 
 \end{align*}
 which is uniform in $|b|$. Define the map
 \[
