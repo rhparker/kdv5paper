@@ -2153,7 +2153,7 @@ a = A_1(\lambda)(b, c, d)
 \]
 solves \eqref{systemmiddle} for any $(b, c, d)$ and $\lambda$. This operator is analytic in $\lambda$ and linear in $(b, c, d)$. Bounds for $A_1$ are given by
 \begin{align}\label{A1bound}
-|A_1(\lambda)(b, c, d)| \leq C \left( e^{-\alpha X^*} |b| + (e^{-\alpha X^*} + |\lambda|^2)|c| + |\lambda|^2 |d| + |D||d| \right)
+|A_1(\lambda)(b, c, d)| \leq C \left( e^{-\alpha X^*} |b| + (e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| + |D||d| \right)
 \end{align} 
 
 \begin{proof}
@@ -2184,19 +2184,19 @@ where $L_3(\lambda)_i(b, c, d)$ is defined by the RHS of \cref{Didexpansion}, is
 For the integral terms, using \eqref{Zevolbounds} and the estimates from Lemma \ref{stabestimateslemma},
 \begin{align*}
 &\left| P_i^+(X_i; \lambda) \int_0^{X_i} \Phi_i^{s,+}(X_i, y; \lambda)P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \right| \\
-&\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right) \int_0^{X_i} e^{\eta X_i} e^{-\alpha(X_i - y)} e^{-\alpha_0 y} dy \\
-&\qquad \leq C \left( |\lambda|(e^{-\alpha X_0^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right).
+&\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right) \int_0^{X_i} e^{\eta X_i} e^{-\alpha(X_i - y)} e^{-\alpha_0 y} dy 
+\leq C \left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right).
 \end{align*}
-The other integral is similar. Combining these, we have the bound for $L_3$
+The other integral is similar. Combining these, we have the uniform bound for $L_3$
 \begin{equation}\label{L3bound}
-|L_3(\lambda)_i(b, c, d)| \leq C \left( e^{-\alpha X_i} |b| + |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right).
+|L_3(\lambda)(b, c, d)| \leq C \left( e^{-\alpha X^*} |b| + |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right).
 \end{equation}
 Define
 \[
 J_1: \bigoplus_{j=1}^n (E^s(\lambda) \times E^u(
 \lambda) \times E^c(\lambda) ) \rightarrow \bigoplus_{j=1}^n \rightarrow \C^{2m+1}
 \]
-by $(J_1)_i(a_i^+, a_i^-, 2 a_i^c) = a_i^+ - a_i^- + 2 a_i^c$, which is a linear isomorphism since $E^s(0) \oplus E^u(0) \oplus E^c(0) = \C^{2m+1}$. Then from \cref{Dideq1}, we can solve for $a$ using  
+by $(J_1)_i(a_i^+, a_i^-, 2 a_i^c) = a_i^+ - a_i^- + 2 a_i^c$, which is a linear isomorphism since $E^s(0) \oplus E^u(0) \oplus E^c(0) = \C^{2m+1}$. From \cref{Dideq1}, we can solve for $a$ using  
 \[
 a = A_1(\lambda)(b, c, d) = J_1^{-1} \left(D_i d + C_i c - L_3(\lambda)(b, c, d)\right)
 \]
@@ -2219,7 +2219,7 @@ $A_2$ and $\tilde{A}_2$ are linear in $(b, c, d)$, and have bounds
 \begin{align}
 |A_2(\lambda)_i(b, c, d)|
 &\leq C \left(e^{-\alpha X_i}|b| + (e^{-\alpha X_i} + |\lambda|^2)|c_i| + |\lambda|^2|d| \right) \label{A2bound} \\
-|\tilde{A}_2(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha X_i} |b| + (e^{-\alpha X_i} + |\lambda|^2) |c_i| +|\lambda|^2 |d| \right) \label{tildeA2bound}
+|\tilde{A}_2(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha_0 X_i} |b| + (e^{-\alpha X_i} + |\lambda|^2) |c_i| +|\lambda|^2 |d| \right) \label{tildeA2bound}
 \end{align}
 
 \begin{proof}
@@ -2235,14 +2235,14 @@ where $A_2(\lambda)_i^\pm(b, c, d)$ has bound \cref{A2bound}. For $a_i^c$, we ap
 \end{align*}
 we have $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha X^*}|c_i|$. For a bound on $\langle W_0, L_3(\lambda)_i(b,c,d) \rangle$, using \cref{W0conjeq} we have
 \begin{align*}
-\langle W_0, &P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} U \rangle
+\langle W_0, &P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \rangle
 \\
-&= \langle [P_i^+(X_i; 0)^{-1}]^* W_0, P_i^+(X_i; 0)\Phi^s(X_i, 0; 0) P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||U|) \\
-&= \langle W_0, \Phi^s(X_i, 0; 0)  P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||U|) = \mathcal{O}(e^{-\alpha X_i} |\lambda||U|).
+&= \langle [P_i^+(X_i; 0)^{-1}]^* W_0, P_i^+(X_i; 0)\Phi^s(X_i, 0; 0) P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||b_i^+|) \\
+&= \langle W_0, \Phi^s(X_i, 0; 0)  P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||b_i^+|) = \mathcal{O}(e^{-\alpha X_i} |\lambda||b_i^+|).
 \end{align*}
-Using this and a similar bound for $\langle W_0, P_{i+1}^-(-X_i; \lambda)\Phi_i^{u,-}(-X_i, 0; \lambda) P_i^-(0; \lambda)^{-1} U \rangle$ with the terms in $L_3(\lambda)_i(b, c, d)$, we obtain the bound
+Handling the other terms in $L_3(\lambda)_i(b, c, d)$ similarly, we obtain the bound
 \begin{equation}\label{W0L3bound}
-|\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + |\lambda|(e^{-\alpha X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right)
+|\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right)
 \end{equation}
 Combining the above bounds and dividing by 2, $a_i^c = \tilde{A}_2(\lambda)_i(b, c, d)$, where $\tilde{A}_2(\lambda)_i(b, c, d)$ has bound \cref{tildeA2bound}.
 \end{proof}
