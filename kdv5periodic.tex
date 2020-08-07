@@ -1711,11 +1711,11 @@ where $R$ is standard reversor operator. Let $\alpha_0, \beta_0$ be defined as i
 \item $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ is the simple eigenvalue of $A(\lambda)$ close to 0 which is defined in \cref{nulambdalemma}.
 \item For any other eigenvalue $\nu$ of $A(\lambda)$, $|\Re \nu| > \alpha$.
 \end{enumerate} 
-% Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed, 
-% \begin{align}\label{nubound}
-% |e^{\nu(\lambda)X_i}| \leq C e^{\eta X^*} && i = 0, \dots, n-1,
-% \end{align}
-% where $X^*$ is defined in \cref{Xstar}. 
+Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed, 
+\begin{align}\label{nubound}
+|e^{\nu(\lambda)X_i}| \leq C e^{\eta X^*} && i = 0, \dots, n-1,
+\end{align}
+where $X^*$ is defined in \cref{Xstar}. 
 
 \subsection{Conjugation lemma}
 
@@ -2029,7 +2029,7 @@ As in \cite{Sandstede1998}, we will not be able to find a solution to this syste
 (W_i^+)'(x) &= A(Q_i^+(x); \lambda) W_i^+(x) + c_i e^{-\nu(\lambda)X_i}  G_i^+(x; \lambda) + d_i \lambda^2 \tilde{H}_i^+(x) \\
 W_i^+(X_i) &- W_{i+1}^-(-X_i) = D_i d + C_i c \\
 W_i^\pm(0) &\in \C \Psi(0) \oplus \C W_0 \oplus Y^+ \oplus Y^- \\
-W_i^+(0) - W_i^-(0) &+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0(0) 
+W_i^+(0) - W_i^-(0) &+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$. The fourth equation states that the remainder functions $W_i^\pm(x)$ have no component in $\C Q'(0)$. The other terms in the ansatz do not appear by \cref{klambdaIP}. The final equation states that the jumps can only be in the directions of $W_0$ and $\Psi(0)$. The terms involving $Q'(0)$ in the ansatz do not appear since $Q'(0) \perp W_0\oplus\Psi(0)$. A solution to \eqref{eigsystem} solves the \cref{eigsystem} if and only if $n$ jump conditions at $x = 0$ in the direction of $\C \Psi(0) \oplus \C W_0$ are satisfied, i.e.  
@@ -2169,18 +2169,20 @@ As in \cite{Sandstede1998}, we will solve the eigenvalue problem in a series of 
 
 % first inversion lemma : match at \pm X_i
 \begin{lemma}\label{Zinv1}
-There exists an operator
-\begin{align*}
-A_1: V_\lambda \times V_b \times V_c \times V_d \rightarrow V_a
-\end{align*}
-such that 
-\[
-a = A_1(\lambda)(b, c, d)
-\]
-solves \eqref{systemmiddle} for any $(b, c, d)$ and $\lambda$. This operator is analytic in $\lambda$ and linear in $(b, c, d)$. Bounds for $A_1$ are given by
-\begin{align}\label{A1bound}
-|A_1(\lambda)(b, c, d)| \leq C \left( e^{-\alpha X^*} |b| + (e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| + |D||d| \right)
-\end{align} 
+For $i = 0, \dots, n-1$, there is a unique set of initial conditions $(a_i^+, a_i^-, a_i^c)$, such that \eqref{systemmiddle} is satisfied for any $(b, c, d)$ and $\lambda$. These are given by
+\begin{equation}\label{aipmexp1}
+\begin{aligned}
+a_i^+ &= P_0^u(\lambda) D_i d + A_2(\lambda)_i^+(b, c, d) \\
+a_i^- &= -P_0^s(\lambda) D_i d + A_2(\lambda)_i^-(b, c, d) \\
+a_i^c &= \tilde{A}_2(\lambda)_i(b, c, d),
+\end{aligned}
+\end{equation}
+where $A_2$ and $\tilde{A}_2$ are analytic in $\lambda$, linear in $(b, c, d)$, and have bounds
+\begin{align}
+|A_2(\lambda)_i(b, c, d)|
+&\leq C \left(e^{-\alpha X_i}|b| + (e^{-\alpha_0 X_i} + |\lambda|)|c_i| + |\lambda|^2|d| \right) \label{A2bound} \\
+|\tilde{A}_2(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |c_i| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right) \label{tildeA2bound}
+\end{align}
 
 \begin{proof}
 It follows from \cref{Zevolmod} that
@@ -2196,14 +2198,14 @@ Substituting \cref{Zfpeq} into \cref{systemmiddle} and using \cref{PhiXiProj}, w
 D_i &d + C_i c = a_i^+ - a_i^- + 2 a_i^c \\
 &+ P_i^+(X_i; \lambda)\Phi_i^{s,+}(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ - P_{i+1}^-(-X_i; \lambda)\Phi_i^{u,-}(-X_i, 0; \lambda) P_i^-(0; \lambda)^{-1} b_{i+1}^- \\
 &+ P_i^+(X_i; \lambda) \int_0^{X_i} \Phi_i^{s,+}(X_i, y; \lambda)P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\ 
-&- P_{i+1}^-(-X_i; \lambda) \int_0^{-X_i} \Phi_i^{u,-}(-X_i, y; \lambda) P_{i+1}^-(y; \lambda)^{-1}(c_i e^{\nu(\lambda)X_i} G_{i+1}^-(y; \lambda) + \lambda^2 d_{i+1} \tilde{H}_{i+1}^-(y)) dy.
+&- P_{i+1}^-(-X_i; \lambda) \int_0^{-X_i} \Phi_i^{u,-}(-X_i, y; \lambda) P_{i+1}^-(y; \lambda)^{-1}(c_i e^{\nu(\lambda)X_i} G_{i+1}^-(y; \lambda) + \lambda^2 d_{i+1} \tilde{H}_{i+1}^-(y)) dy,
 \end{aligned}
 \end{equation}
-This is of the form
+which is of the form
 \begin{align}\label{Dideq1}
-D_i d + C_i c &= a_i^+ - a_i^- + 2 a_i^c + L_3(\lambda)_i(b, d),
+D_i d + C_i c &= a_i^+ - a_i^- + 2 a_i^c + L_3(\lambda)_i(b, d).
 \end{align}
-where $L_3(\lambda)_i(b, c, d)$ is defined by the RHS of \cref{Didexpansion}, is linear in $(b,c,d)$ and analytic in $\lambda$, and is independent of $a$. To obtain a bound on $L_3$, we will bound the individual terms involved. For the terms involving $b$, we use trichotomy estimates \eqref{Zevolbounds} to get
+$L_3(\lambda)_i(b, c, d)$ is defined by the RHS of \cref{Didexpansion}, is linear in $(b,c,d)$ and analytic in $\lambda$, and is independent of $a$. To obtain a bound on $L_3$, we will bound the individual terms involved. For the terms involving $b$, we use trichotomy estimates \eqref{Zevolbounds} to get
 \[
 | P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} P_i^+(0; \lambda)^{-1} b_i^+ - P_{i+1}^-(-X_i; \lambda) \Phi^u(-X_i, 0; \lambda) P_i^-(0; \lambda)^{-1} b_{i+1}^-| \leq C e^{-\alpha X^*} |b|.
 \]
@@ -2217,39 +2219,7 @@ The other integral is similar. Combining these, we have the bound for $L_3$
 \begin{equation}\label{L3bound}
 |L_3(\lambda)_i(b, c, d)| \leq C \left( e^{-\alpha X_i} |b| + e^{-(\alpha - \eta)X_i} |\lambda| (e^{-\alpha_0 X_i } + |\lambda|) |c| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right).
 \end{equation}
-Define
-\[
-J_1: \bigoplus_{j=1}^n (E^s(\lambda) \times E^u(
-\lambda) \times E^c(\lambda) ) \rightarrow \bigoplus_{j=1}^n \rightarrow \C^{2m+1}
-\]
-by $(J_1)_i(a_i^+, a_i^-, 2 a_i^c) = a_i^+ - a_i^- + 2 a_i^c$, which is a linear isomorphism since $E^s(0) \oplus E^u(0) \oplus E^c(0) = \C^{2m+1}$. From \cref{Dideq1}, we can solve for $a$ using  
-\[
-a = A_1(\lambda)(b, c, d) = J_1^{-1} \left(D_i d + C_i c - L_3(\lambda)(b, c, d)\right)
-\]
-Using the bound on $L_3$ and the estimate on $C_i c$ from \cref{stabestimateslemma}, $A_1$ has uniform bound given by \cref{A1bound}.
-\end{proof}
-\end{lemma}
-
-Next, we derive expressions for $a_i^\pm$ and $a_i^c$ which we will use in evaluating the jump conditions.
-
-\begin{lemma}\label{lemma:aipm}
-For the initial conditions $a_i^\pm$ and $a_i^c$, we have the expressions
-\begin{equation}\label{aipmexp1}
-\begin{aligned}
-a_i^+ &= P_0^u(\lambda) D_i d + A_2(\lambda)_i^+(b, c, d) \\
-a_i^- &= -P_0^s(\lambda) D_i d + A_2(\lambda)_i^-(b, c, d) \\
-a_i^c &= \tilde{A}_2(\lambda)_i(b, c, d).
-\end{aligned}
-\end{equation}
-$A_2$ and $\tilde{A}_2$ are linear in $(b, c, d)$, and have bounds
-\begin{align}
-|A_2(\lambda)_i(b, c, d)|
-&\leq C \left(e^{-\alpha X_i}|b| + (e^{-\alpha_0 X_i} + |\lambda|)|c_i| + |\lambda|^2|d| \right) \label{A2bound} \\
-|\tilde{A}_2(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |c_i| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right) \label{tildeA2bound}
-\end{align}
-
-\begin{proof}
-Applying the projections $P^{s/u}(0)$ on the eigenspaces $E^{s/u}(0)$ to \eqref{Dideq1}, and using the bound \cref{L3bound} for $L_3(\lambda)(b, c, d)$ and the estimate for $C_i c$ from \cref{stabestimateslemma},
+To solve for $a_i^+$, $a_i^-$, and $a_i^c$, we apply the projections on $P^{s/u/c}(0)$ on the eigenspaces $E^{s/u/c}(0)$ to \eqref{Dideq1}. For $a_i^\pm$, jusing the bound \cref{L3bound} for $L_3(\lambda)(b, c, d)$ and the estimate for $C_i c$ from \cref{stabestimateslemma},
 \begin{align*}
 a_i^+ &= P_0^u(0) D_i d + A_2(\lambda)_i^+(b, c, d) \\
 a_i^- &= -P_0^s(0) D_i d + A_2(\lambda)_i^-(b, c, d),
@@ -2262,7 +2232,7 @@ where $A_2(\lambda)_i^\pm(b, c, d)$ has bound \cref{A2bound}. For $a_i^c$, we ap
 we have $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For a bound on $\langle W_0, L_3(\lambda)_i(b,c,d) \rangle$, using \cref{W0conjeq} we have
 \begin{align*}
 \langle W_0, &P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \rangle
-\\
+\\ 
 &= \langle [P_i^+(X_i; 0)^{-1}]^* W_0, P_i^+(X_i; 0)\Phi^s(X_i, 0; 0) P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||b_i^+|) \\
 &= \langle W_0, \Phi^s(X_i, 0; 0)  P_i^+(0; \lambda)^{-1} b_i^+ \rangle + \mathcal{O}(e^{-\alpha X_i} |\lambda||b_i^+|) = \mathcal{O}(e^{-\alpha X_i} |\lambda||b_i^+|).
 \end{align*}
@@ -2282,7 +2252,7 @@ P(\C Q'(0) ) &P_i^+(0; \lambda) Z_i^+(0) = 0 \\
 P(Y^+ \oplus Y^-) &( P_i^+(0; \lambda)Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) = 0,
 \end{aligned}
 \end{equation}
-where the kernel of each projection is the remaining spaces in the direct sum decomposition \eqref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \eqref{centercond2} by \cref{klambdaIP} and since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
+where the kernel of each projection is the remaining spaces in the direct sum decomposition \eqref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \eqref{centercond2} by \cref{klambdaIP} since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
 
 % second inversion lemma
 \begin{lemma}\label{Zinv2}
@@ -2353,9 +2323,9 @@ For the remainder terms involving $b_i$, we use \cref{Ripmbound} to get
 \begin{align*}
 |R_i^+(\lambda) b_i^+|\leq C \left(|\lambda| + e^{-2 \alpha X^*}\right)|b|.
 \end{align*}
-For the terms involving $c$ in the third equation in \cref{centercond2}, we recall from the discussion following \cref{lemma:Vpm} that $V^c(0)$ contains no component in $Y^+ \oplus Y^-$. Expanding $V_i^\pm(0; \lambda)$ in Taylor series about $\lambda = 0$,
+For the terms involving $c$ in the third equation in \cref{centercond2}, it follows from \cref{Vipmest} that $V_i^\pm(0; \lambda) = V^c(0) + \mathcal{O}(|\lambda| + e^{-2 \alpha_0 X^*})$. From the discussion following \cref{lemma:Vpm}, $V^c(0)$ contains no component in $Y^+ \oplus Y^-$, thus we have
 \begin{align*}
-| P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) | \leq C |\lambda| |c|
+|P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) | \leq C |\lambda| \left( | e^{-\nu(\lambda)X_i} c_i | + | e^{\nu(\lambda)X_{i-1}} c_{i-1} |\right).
 \end{align*}
 The bound on the integral terms is determined by the integral involving the center subspace, since the other integral will have a stronger bound. Using the bounds from \cref{stabestimateslemma} together with the trichotomy bound \cref{Zevolbounds}, 
 \begin{align*}
@@ -2363,7 +2333,7 @@ The bound on the integral terms is determined by the integral involving the cent
 \end{align*}
 The terms from $P_i^-(0; \lambda) Z_i^-(0)$ have similar bounds. Combining these and simplifying,
 \begin{align*}
-L_4(\lambda)(b, c, d) \leq 
+|L_4(\lambda)_i(b, c, d)| \leq 
 C\Big( (|\lambda| + e^{-\alpha X^*})|b| + (|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \Big).
 \end{align*}
 Since $|\lambda| < \delta$ and we can choose $X^*$ sufficiently large so that $e^{-\alpha X^*} < \delta$, this becomes
