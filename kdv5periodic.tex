@@ -606,7 +606,7 @@ We can now state the main theorem of this section, which provides a condition fo
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from \cref{Qexistshyp}, and let $Q(x) = (Q_1(x), 0)$. Let $\Psi(x)$ and $V^c(x)$ be defined as in \cref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, and let $Q_n(x; r)$ be the corresponding periodic $n$-pulse solution. Then there exists $\delta > 0$ with the following property. There exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta$ if and only if
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from \cref{Qexistshyp}, and let $Q(x) = (Q_1(x), 0)$. Let $\Psi(x)$ and $V^c(x)$ be defined as in \cref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$. Let $r_*$ be defined as in \cref{th:perexist}, and for $r \leq r_*$, let $Q_n(x; r)$ be the corresponding periodic $n$-pulse solution. Then there exists $r_1 \leq r_*$ and $\delta > 0$ with the following property. For $r \leq r_1$, there exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta$ and $|\Re \lambda| < r^{1/4}$ if and only if
 \begin{equation}\label{blockmatrixcond}
 E(\lambda) = \det S(\lambda) = 0.
 \end{equation}
@@ -614,8 +614,8 @@ $S(\lambda)$ is the $2n \times 2n$ block matrix
 \begin{equation}\label{blockeq}
 S(\lambda) = 
 \begin{pmatrix}
-K(\lambda) & \lambda^2 M_c I \\
-\tilde{K}(\lambda) & A - \lambda^2 MI + D_2
+K(\lambda) - \frac{1}{2} \lambda \tilde{M} K^+(\lambda) & \lambda^2 M_c I \\
+-\frac{1}{2} \lambda M_c K^+(\lambda) & A - \lambda^2 MI + D_2
 \end{pmatrix} +
 \begin{pmatrix}C_1 & D_1 \\ C_2 & D_2
 \end{pmatrix},
@@ -627,29 +627,19 @@ and the individual terms in $S(\lambda)$ are as follows.
 \begin{align*}
 K(\lambda) &=  
 \begin{pmatrix}
-k_1^+(\lambda) & k_0^-(\lambda) \\
-k_1^-(\lambda) & k_0^+(\lambda) \\
+e^{-\nu(\lambda)X_1} & -e^{\nu(\lambda)X_0} \\
+-e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} \\
 \end{pmatrix} && n = 2\\
 K(\lambda) &=  
 \begin{pmatrix}
-k_1^+(\lambda) & & & & & k_0^-(\lambda) \\
-k_1^-(\lambda) & k_2^+(\lambda) \\
-& k_2^-(\lambda) & k_3^+(\lambda) \\
+e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
+-e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_2} \\
+& -e^{\nu(\lambda)X_2} & e^{-\nu(\lambda)X_3} \\
   & & \ddots & && \\
-& & & & k_{n-1}^-(\lambda) & k_0^+(\lambda)
+& & & & -e^{\nu(\lambda)X_{n-1}} & e^{-\nu(\lambda)X_0}
 \end{pmatrix} && n > 2,
 \end{align*}
-where 
-\begin{align*}
-k_i^+(\lambda) &= e^{-\nu(\lambda)X_i} \left( 1 - \frac{1}{2}\lambda \tilde{M} + \mathcal{O}(e^{-\alpha_0 X^*} + |\lambda|)^2 \right) \\
-k_i^-(\lambda) &= -e^{\nu(\lambda)X_i} \left( 1 + \frac{1}{2}\lambda \tilde{M} + \mathcal{O}(e^{-\alpha_0 X^*} + |\lambda|)^2 \right),
-\end{align*}
-and $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemma}. $\tilde{K}(\lambda)$ has the same form as $K(\lambda)$ with entries
-\begin{align*}
-\tilde{k}_i^+(\lambda) &= -e^{-\nu(\lambda)X_i} \left( \frac{1}{2}\lambda M_c + \mathcal{O}(e^{-\alpha_0 X^*} + |\lambda|)^2 \right) \\
-\tilde{k}_i^-(\lambda) &= -e^{\nu(\lambda)X_i} \left( \frac{1}{2}\lambda M_c + \mathcal{O}(e^{-\alpha_0 X^*} + |\lambda|)^2 \right).
-\end{align*}
-The remainder terms are analytic in $\lambda$.
+where $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemma}. $K^+(\lambda)$ is the same matrix as $K(\lambda)$ with all terms positive.
 
 \item $A$ is the symmetric banded matrix
 \begin{align}\label{Asymm}
@@ -674,7 +664,7 @@ a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
 \begin{align*}
 M &= \int_{-\infty}^\infty q(y) \partial_c q(y) dy, \quad
 M_c = \int_{-\infty}^\infty \partial_c q(y) dy, \quad
-\tilde{M} = \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy
+\tilde{M} = \int_{-\infty}^{\infty} \left(v^c(y) - \frac{1}{c}\right) dy,
 \end{align*}
 where $v^c(y)$ is the first component of $V^c(y)$, and $q(y)$ is the first component of $Q(y)$.
 
@@ -687,6 +677,8 @@ where $v^c(y)$ is the first component of $V^c(y)$, and $q(y)$ is the first compo
 \end{align*}
 \end{enumerate}
 \end{theorem}
+
+The condition $|\Re \lambda| < r^{1/4}$ is used to simplify the analysis. We will see in \cref{sec:perdouble} that this condition is satisfied for sufficiently small $r$.
 
 \subsection{Spectrum of periodic single pulse}\label{sec:persingle}
 
@@ -797,6 +789,8 @@ $a$ is defined in \cref{2pa} and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambd
 \end{enumerate}
 \end{theorem}
 
+We note that the interaction eigenvalues are order $r^{1/2}$ and the essential spectrum eigenvalues are purely imaginary, thus the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
+
 \begin{remark}The essential spectrum eigenvalues are not identical for the periodic single pulse and the periodic double pulse. In particular, note the additional factor of 2 in the denominator of \cref{1pess}.
 \end{remark}
 
@@ -817,11 +811,11 @@ and let $Q_2^*(x; r)$ be the periodic 2-pulse solution from \cref{2pulsebifurcat
 \begin{align}\label{defXstar}
 X_*(r) &= c \left( \frac{\pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right).
 \end{align}
-Define $T_1 > 0$ by 
+Define $T_1(r) > 0$ by 
 \begin{align}\label{defT0}
 T_1(r) = \frac{M_c^2 }{2 \pi M^2 c } |\lambda_*|^5 X_0^2.
 \end{align}
-For $s \in [-2\sqrt{T_1}, 2 \sqrt{T_1}]$, let $Q_2(x; s, r)$ be the periodic 2-pulse solution with domain size $X = X(s, r)$, where
+For $s \in [-2\sqrt{T_1(r)}, 2 \sqrt{T_1(r)}]$, let $Q_2(x; s, r)$ be the periodic 2-pulse solution with domain size $X = X(s, r)$, where
 \begin{equation}
 X(s,r) = X_*(r) + \frac{2 c \pi s}{|\lambda_*(r)|^2} + \mathcal{O}(s^2).
 \end{equation}
@@ -829,24 +823,26 @@ Then there exists $r_0 \leq r_*$ such that the following holds for the lineariza
 \begin{enumerate}[(i)]
 	\item There is a pair of eigenvalues located at
 	\begin{align}\label{Kreineigs}
-	\lambda = \lambda_*(r) - s i \pm \sqrt{ T_1(r) -  s^2} + \mathcal{O}\left(r^{5/4}|\log r| \right)
+	\lambda = \lambda_*(r) - s i \pm \sqrt{ T_1(r) -  s^2} + \mathcal{O}\left(r^{5/4}|\log r|^{1/2} \right)
 	\end{align}
 
 	\item For
 	\[
-	s = s_\pm(r) = \pm \sqrt{T_1(r)} + \mathcal{O}\left(r^{5/4}|\log r| \right),
+	s = s_\pm(r) = \pm \sqrt{T_1(r)} + \mathcal{O}\left(r^{5/4}|\log r|^{1/2} \right),
 	\]
-	there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_*(r) - s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which occurs when 
+	there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_*(r) + s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which occurs when 
 	\begin{equation}\label{KreinDeltaX}
 	X(s, r) = X_*(r) \pm \Delta X_1(r) + \mathcal{O}(s^2), \qquad \Delta X_1(r) = \frac{2 c \pi}{|\lambda_*(r)|^2}\sqrt{T_1(r)} 
 	\end{equation}
-\item For $s \in (s_-, s+)$, equation \cref{Kreineigs} describes, to leading order, a circle of radius $\sqrt{T_1}$ in the complex plane, and the pair of eigenvalues is symmetric across the imaginary axis.
-\item For $s \in [-2\sqrt{T_1}, s_-) \cup (s_+, 2 \sqrt{T_1}]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
+\item For $s \in (s_-, s+)$, equation \cref{Kreineigs} describes, to leading order, a circle of radius $\sqrt{T_1(r)}$ in the complex plane, and the pair of eigenvalues is symmetric across the imaginary axis.
+\item For $s \in [-2\sqrt{T_1(r)}, s_-) \cup (s_+, 2 \sqrt{T_1(r)}]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
 \end{enumerate}
 \end{theorem}
 
+We note that maximum real part of the Krein bubble is order $r^{5/4}|\log r|$, thus the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
+
 \begin{remark}\label{remark:kreinbubbles}
-It is straightforward to adapt \cref{th:Kreinbubble} to locate more Krein bubbles. For any positive integer $N$, there exists $r_0 \leq r_*$ such that for $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The $m$-th Krein bubble has radius $\sqrt{T_1(r) / m}$ in the complex plane, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
+It is straightforward to adapt \cref{th:Kreinbubble} to locate more Krein bubbles. For any positive integer $N$, there exists $r_0 \leq r_*$ such that for $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The radius of $m$-th Krein bubble in the complex plane is approximately $\sqrt{T_1(r) / m}$, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
 \[
 X^m_*(r) = c \left( \frac{m \pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right), \qquad \Delta X^m(r) = \sqrt{m} \Delta X_1(r).
 \]
@@ -916,7 +912,7 @@ then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. C
 \caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Parameters $p = 5.3$, $c = 11.2225$.}
 \label{fig:kreinerrors}
 \end{figure}
-\noi The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles from \cref{remark:kreinbubbles} can similarly be verified numerically.
+\noi The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles mentioned in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \section{Proof of Theorem \ref{transverseint}}\label{sec:transverseintproof}
 
@@ -1706,16 +1702,23 @@ It follows from \cref{defAB} and the symmetry relations \cref{genODErev} that
 \begin{equation}\label{AQsymmetry}
 A(Q(x); \lambda) = -R A(Q(-x); -\lambda)R,
 \end{equation}
-where $R$ is standard reversor operator. Let $\alpha_0, \beta_0$ be defined as in \cref{hyp:hypeq}. Choose any $\eta > 0$ with $3 \eta < \alpha_0$, and let $\alpha = \alpha_0 - \eta$. Let $\delta_1$ be as in \cref{nulambdalemma}, and choose $\delta_2 \leq \delta_1$ sufficiently small so that for all $|\lambda| < \delta_2$,
+where $R$ is standard reversor operator. Let $\alpha_0, \beta_0$ be defined as in \cref{hyp:hypeq}. Choose any $\eta > 0$ with $2 \eta < \alpha_0$, and let $\alpha = \alpha_0 - \eta$. Let $\delta_1$ be as in \cref{nulambdalemma}, and choose $\delta_2 \leq \delta_1$ sufficiently small so that for all $|\lambda| < \delta_2$,
 \begin{enumerate}[(i)]
 \item $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ is the simple eigenvalue of $A(\lambda)$ close to 0 which is defined in \cref{nulambdalemma}.
 \item For any other eigenvalue $\nu$ of $A(\lambda)$, $|\Re \nu| > \alpha$.
 \end{enumerate} 
-Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed, 
-\begin{align}\label{nubound}
-|e^{\nu(\lambda)X_i}| \leq C e^{\eta X^*} && i = 0, \dots, n-1,
+To greatly simplify our analysis, we place an additional assumption on the real part of $\lambda$
+\begin{equation}\label{relambdabound}
+|\Re \lambda| \leq r^{1/4} = C e^{-\alpha X^* / 2},
+\end{equation}
+where the scaling parameter $r$ is defined in \cref{defr} and $X^*$ is defined in \cref{Xstar}. When we consider the periodic 2-pulse in \cref{sec:perdouble}, we will verify that this assumption is reasonable. It follows from \cref{relambdabound} and \cref{nulambdalemma} that 
+\begin{equation}
+|e^{\nu(\lambda)X^*}| \leq e^{|\Re \nu(\lambda)| X^*} \leq \exp \left( C X^* e^{-\alpha_0 X^* / 2} \right) \leq C.
+\end{equation}
+Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed, it follows that
+\begin{align}\label{expnubound}
+|e^{\nu(\lambda)X_i}| \leq C  && i = 0, \dots, n-1.
 \end{align}
-where $X^*$ is defined in \cref{Xstar}. 
 
 \subsection{Conjugation lemma}
 
@@ -2181,7 +2184,7 @@ where $A_2$ and $\tilde{A}_2$ are analytic in $\lambda$, linear in $(b, c, d)$, 
 \begin{align}
 |A_2(\lambda)_i(b, c, d)|
 &\leq C \left(e^{-\alpha X_i}|b| + (e^{-\alpha_0 X_i} + |\lambda|)|c_i| + |\lambda|^2|d| \right) \label{A2bound} \\
-|\tilde{A}_2(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |c_i| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right) \label{tildeA2bound}
+|\tilde{A}_2(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |c_i| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right). \label{tildeA2bound}
 \end{align}
 
 \begin{proof}
@@ -2209,15 +2212,15 @@ $L_3(\lambda)_i(b, c, d)$ is defined by the RHS of \cref{Didexpansion}, is linea
 \[
 | P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} P_i^+(0; \lambda)^{-1} b_i^+ - P_{i+1}^-(-X_i; \lambda) \Phi^u(-X_i, 0; \lambda) P_i^-(0; \lambda)^{-1} b_{i+1}^-| \leq C e^{-\alpha X^*} |b|.
 \]
-For the integral terms, using \eqref{Zevolbounds} and the estimates from Lemma \ref{stabestimateslemma},
+For the integral terms, using \eqref{Zevolbounds}, the bound \cref{expnubound}, and the estimates from Lemma \ref{stabestimateslemma},
 \begin{align*}
 &\left| P_i^+(X_i; \lambda) \int_0^{X_i} \Phi_i^{s,+}(X_i, y; \lambda)P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \right| \\
-&\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right) \int_0^{X_i} e^{\eta X_i} e^{-\alpha(X_i - y)} e^{-\alpha_0 y} dy \\
-&\qquad \leq C e^{-(\alpha - \eta)X_i}\left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right).
+&\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right) \int_0^{X_i} e^{-\alpha(X_i - y)} e^{-\alpha_0 y} dy \\
+&\qquad \leq C e^{-\alpha_0 X_i}\left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right).
 \end{align*}
 The other integral is similar. Combining these, we have the bound for $L_3$
 \begin{equation}\label{L3bound}
-|L_3(\lambda)_i(b, c, d)| \leq C \left( e^{-\alpha X_i} |b| + e^{-(\alpha - \eta)X_i} |\lambda| (e^{-\alpha_0 X_i } + |\lambda|) |c| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right).
+|L_3(\lambda)_i(b, c, d)| \leq C \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |\lambda| (e^{-\alpha_0 X_i } + |\lambda|) |c| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right).
 \end{equation}
 To solve for $a_i^+$, $a_i^-$, and $a_i^c$, we apply the projections on $P^{s/u/c}(0)$ on the eigenspaces $E^{s/u/c}(0)$ to \eqref{Dideq1}. For $a_i^\pm$, jusing the bound \cref{L3bound} for $L_3(\lambda)(b, c, d)$ and the estimate for $C_i c$ from \cref{stabestimateslemma},
 \begin{align*}
@@ -2238,7 +2241,7 @@ we have $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For 
 \end{align*}
 Bounding the other terms in $L_3(\lambda)_i(b, c, d)$ similarly, we obtain the bound
 \begin{equation}\label{W0L3bound}
-|\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-(\alpha - \eta)X_i} |\lambda|(e^{-\alpha_0 X_i} + |\lambda|) |c| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right)
+|\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |\lambda|(e^{-\alpha_0 X_i} + |\lambda|) |c| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right)
 \end{equation}
 Combining the above bounds and dividing by 2, $a_i^c = \tilde{A}_2(\lambda)_i(b, c, d)$, where $\tilde{A}_2(\lambda)_i(b, c, d)$ has bound \cref{tildeA2bound}.
 \end{proof}
@@ -2256,27 +2259,21 @@ where the kernel of each projection is the remaining spaces in the direct sum de
 
 % second inversion lemma
 \begin{lemma}\label{Zinv2}
-There exist operators
-\begin{align*}
-B_1: &V_\lambda \times V_c \times V_d \rightarrow V_b \\
-A_3: &V_\lambda \times V_c \times V_d \rightarrow V_a \\
-\end{align*}
-such that $( a, b ) = ( A_3(\lambda)(c, d), B_1(\lambda)(c, d) )$ solves \eqref{systemmiddle} and \eqref{systemcenter} for any $(c, d)$. These operators are analytic in $\lambda$ and linear in $(c, d)$. Uniform bounds for $B_1$ and $A_3$ are given by
+There is a unique set of initial conditions $(a_i^+, a_i^-, a_i^c)$ for $i = 0, \dots, n-1$ and an operator $B_1: V_\lambda \times V_c \times V_d \rightarrow V_b$ such that for $a = (a_i^+, a_i^-, a_i^c)$ and $b = B_1(\lambda)(c,d)$, equations \cref{systemmiddle} and \cref{systemcenter} are satisfied for any $(c, d)$. $B_1(\lambda)(c, d)$ is analytic in $\lambda$, linear in $(c, d)$, and has uniform bounds
 \begin{align}
 |B_1(\lambda)(c, d)| &\leq C\left( (e^{-\alpha_0 X^*} + |\lambda|)|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \right) \label{B1bound} \\
-|A_3(\lambda)(b, c, d)| &\leq C \left( (e^{-\alpha_0 X^*} + |\lambda|) |c| + |\lambda|^2 |d| + |D||d| \right) \label{A3bound} 
 \end{align} 
-In addition, we can write
+The initial conditions $a_i^+$, $a_i^-$, and $a_i^c$ are given by
 \begin{align*}
 a_i^+ &= P_0^u(0) D_i d + A_4(\lambda)_i^+(c, d) \\
 a_i^- &= -P_0^s(0) D_i d + A_4(\lambda)_i^-(c, d) \\
-a_i^c &= \tilde{A}_4(\lambda)_i(c, d) 
+a_i^c &= \tilde{A}_4(\lambda)_i(c, d),
 \end{align*}
-where $A_4$ and $\tilde{A}_4$ are linear in $(c, d)$, and have bounds
+where $A_2$ and $\tilde{A}_2$ are analytic in $\lambda$, linear in $(c, d)$, and have bounds
 \begin{align}
 |A_4(\lambda)_i(b, c, d)|
 &\leq C \left( (e^{-\alpha_0 X_i} + |\lambda|)|c_i| + |\lambda|^2|d| \right) \label{A4bound} \\
-|\tilde{A}_4(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha_0 X_i} |c_i| + e^{-(\alpha - \eta)X_i} |\lambda|^2 |d| \right) \label{tildeA4bound}
+|\tilde{A}_4(\lambda)_i(b, c, d) &\leq C |\lambda| \left( e^{-\alpha_0 X_i} |c_i| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right). \label{tildeA4bound}
 \end{align}
 
 \begin{proof}
@@ -2310,14 +2307,14 @@ Applying the projections in \eqref{centercond2}, we obtain an expression of the 
 y_i^+ - y_i^- \end{pmatrix} 
 + L_4(\lambda)_i(b, c, d) = 0,
 \end{equation}
-where $L_4(\lambda)_i(b, c, d)$ consists of the projections in \cref{centercond2} applied to the remaining terms in \cref{PipmZ0} as well as the term $P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) )$ in the final component. To obtain a bound on $L_4$, we will bound the individual terms involved. For the $a_i^\pm$ terms, we use the estimate \cref{A1bound} and the trichotomy bounds \cref{Zevolbounds} to get
+where $L_4(\lambda)_i(b, c, d)$ consists of the projections in \cref{centercond2} applied to the remaining terms in \cref{PipmZ0} as well as the term $P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) )$ in the final component. To obtain a bound on $L_4$, we will bound the individual terms involved. For the $a_i^\pm$ terms, we use the expression from \cref{Zinv1}, the estimate \cref{A2bound}, and the trichotomy bounds \cref{Zevolbounds} to get
 \begin{align*}
 |P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+| 
 &\leq C e^{-\alpha X_i} \left( e^{-\alpha X^*} |b| + (e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| + |D||d| \right).
 \end{align*}
-For the $a_i^c$ terms, we use \cref{Zevolbounds} and the expression from Lemma \ref{lemma:aipm} to get
+For the $a_i^c$ terms, we use \cref{Zevolbounds}, the estimate \cref{expnubound}, and the expression from \cref{Zinv1} to get
 \begin{align*}
-| P_i^+(0; \lambda) \Phi_i^{c,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^c | &\leq C |\lambda| \left( e^{-(\alpha-\eta) X_i} |b| + e^{-\alpha X_i} |c_i| +|\lambda|^2 |d| \right).
+| P_i^+(0; \lambda) \Phi_i^{c,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^c | &\leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha X_i} |c_i| +|\lambda|^2 |d| \right).
 \end{align*}
 For the remainder terms involving $b_i$, we use \cref{Ripmbound} to get
 \begin{align*}
@@ -2325,13 +2322,13 @@ For the remainder terms involving $b_i$, we use \cref{Ripmbound} to get
 \end{align*}
 For the terms involving $c$ in the third equation in \cref{centercond2}, it follows from \cref{Vipmest} that $V_i^\pm(0; \lambda) = V^c(0) + \mathcal{O}(|\lambda| + e^{-2 \alpha_0 X^*})$. From the discussion following \cref{lemma:Vpm}, $V^c(0)$ contains no component in $Y^+ \oplus Y^-$, thus we have
 \begin{align*}
-|P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) | \leq C |\lambda| \left( | e^{-\nu(\lambda)X_i} c_i | + | e^{\nu(\lambda)X_{i-1}} c_{i-1} |\right).
+|P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) | \leq C (|\lambda| + e^{-2 \alpha_0 X^*})|c|,
 \end{align*}
-The bound on the integral terms is determined by the integral involving the center subspace, since the other integral will have a stronger bound. Using the bounds from \cref{stabestimateslemma} together with the trichotomy bound \cref{Zevolbounds}, 
+where we also used the estimate \cref{expnubound}. The bound on the integral terms is determined by the integral involving the center subspace, since the other integral will have a stronger bound. Using the bounds from \cref{stabestimateslemma} together with the trichotomy bound \cref{Zevolbounds} and the bound \cref{expnubound}, 
 \begin{align*}
-&\left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \right| \leq C \left( |\lambda|(e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| \right)
+&\left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \right| \leq C \left( |\lambda|(e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| \right)
 \end{align*}
-The terms from $P_i^-(0; \lambda) Z_i^-(0)$ have similar bounds. Combining these and simplifying,
+The terms from $P_i^-(0; \lambda) Z_i^-(0)$ have similar bounds. Combining these and simplifying, we obtain the bound
 \begin{align*}
 |L_4(\lambda)_i(b, c, d)| \leq 
 C\Big( (|\lambda| + e^{-\alpha X^*})|b| + (|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \Big).
@@ -2370,7 +2367,7 @@ Decreasing $\delta$ if necessary, the operator $S_2(b)$ is invertible. Thus we c
 b = B_1(\lambda)(c,d) 
 = -S_2^{-1} L_4(\lambda)(0, c, d),
 \end{align}
-which has bound given by \cref{B1bound}. Substituting \cref{B1bound} into the bounds \cref{A1bound}, \cref{A2bound}, and \cref{tildeA2bound} and using the estimates for $C_i c$ and $D_i d $ from \cref{stabestimateslemma}, we obtain the bounds \cref{A3bound}, \cref{A4bound}, and \cref{tildeA4bound}.
+which has bound given by \cref{B1bound}. Substituting \cref{B1bound} into the bounds \cref{A2bound}, and \cref{tildeA2bound} and using the estimates for $C_i c$ and $D_i d$ from \cref{stabestimateslemma}, we obtain the bounds \cref{A4bound} and \cref{tildeA4bound}.
 \end{proof}
 \end{lemma}
 
@@ -2383,9 +2380,8 @@ We have constructed a unique solution to \cref{eigsystem0} which will have $n$ j
 The jumps in the direction of $W_0$ are given 
 \begin{equation}\label{jumpW0}
 \begin{aligned}
-\xi^c_i &= e^{-\nu(\lambda)X_i}c_i\left( 1 - \frac{1}{2}\lambda \tilde{M} + \mathcal{O}(e^{-\alpha_0 X^*} + |\lambda|)^2 \right) 
-+ e^{\nu(\lambda)X_{i-1}}c_{i-1}\left( -1 - \frac{1}{2}\lambda \tilde{M} + \mathcal{O}(e^{-\alpha_0 X^*} + |\lambda|)^2 \right) \\
-&\qquad+ \mathcal{O}\Big( (e^{-\alpha_0 X^*} + |\lambda|)^2 |c| + |\lambda| (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \Big),
+\xi^c_i &= e^{-\nu(\lambda)X_i}c_i\left( 1 - \frac{1}{2}\lambda \tilde{M} \right) 
+- e^{\nu(\lambda)X_{i-1}}c_{i-1}\left( 1 + \frac{1}{2}\lambda \tilde{M} \right) + \mathcal{O}\Big( (e^{-\alpha_0 X^*} + |\lambda|)^2 |c| + |\lambda| (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \Big),
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$, where
@@ -2400,11 +2396,11 @@ The jumps in the center direction are given by
 \xi_i^c = 
 \langle W_0, P_i^+(0; \lambda) Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle 
 \]
-Using \cref{lemma:VpmPsiIP},
+Using \cref{lemma:VpmPsiIP} and the bound \cref{expnubound},
 \begin{align*}
 \langle W_0, &c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle \\
-&= e^{-\nu(\lambda)X_i}c_i\left( 1 - \frac{1}{2}\lambda \tilde{M} + \mathcal{O}\left( (e^{-\alpha_0 X^*} +|\lambda|)^2 \right) \right) 
-- e^{\nu(\lambda)X_{i-1}}c_{i-1}\left( 1 + \frac{1}{2}\lambda \tilde{M} + \mathcal{O}\left( (e^{-\alpha_0 X^*} +|\lambda|)^2 \right) \right).
+&= e^{-\nu(\lambda)X_i}c_i\left( 1 - \frac{1}{2}\lambda \tilde{M} \right) 
+- e^{\nu(\lambda)X_{i-1}}c_{i-1}\left( 1 + \frac{1}{2}\lambda \tilde{M} \right) + \mathcal{O}\left( (e^{-\alpha_0 X^*} +|\lambda|)^2 |c| \right).
 \end{align*}
 The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. The only leading order term involves the integral of $\tilde{H}_i^\pm$ in the center subspace. Using \cref{Zevolmod}, \cref{Pipmest}, \cref{deftildephi}, and \cref{lemma:Afacts},
 \begin{equation*}
@@ -2432,26 +2428,24 @@ Similarly,
 = \lambda^2 d_i \int_0^{\infty} \partial_c q(y)dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|)
 \end{align*}
 
-The rest of the terms are higher order. For the terms involving $a_i^\pm$, we use \cref{Zevolmod}, \cref{Zevolbounds}, and the bound \cref{A3bound} to get
+The rest of the terms are higher order. For the terms involving $a_i^\pm$, we substitute the expressions from \cref{Zinv2} and use \cref{Zevolmod}, \cref{Zevolbounds}, and \cref{A4bound} to get
 \begin{align*}
 \langle W_0, &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ \rangle = \langle W_0, \tilde{\Phi}_i^+(0, X_i; \lambda) 
 P^u(0) \tilde{\Phi}_i^+(X_i, X_i; \lambda)a_i^+ \rangle \\
 &= \langle \tilde{\Phi}_i^+(X_i, 0; 0)^* W_0, P^u(0) a_i^+ \rangle + \mathcal{O}(|\lambda|e^{-\alpha X^*}|a_i^+|) = \langle W_0, P^u(0) a_i^+ \rangle + \mathcal{O}(|\lambda|e^{-\alpha X^*}|a_i^+|) \\
 &= \mathcal{O}\left(|\lambda|e^{-\alpha X^*} \left( (e^{-\alpha_0 X^*} + |\lambda|^2) |c| + |\lambda|^2 |d| + |D||d| \right) \right),
 \end{align*}
-since $W_0$ is a constant solution to $W'(x) = -A(Q_i^\pm(x)) W(x)$. Similarly, for the terms involving $a_i^c$, we use \cref{Zevolmod}, \cref{Zevolbounds}, and \cref{tildeA4bound}
- to get
+since $W_0$ is a constant solution to $W'(x) = -A(Q_i^\pm(x)) W(x)$. For the terms involving $a_i^c$, we substitute the expressions from \cref{Zinv2} and use \cref{Zevolmod}, \cref{Zevolbounds}, \cref{tildeA4bound}, and the bound \cref{expnubound} to get
 \begin{align*}
 \langle W_0, &P_i^+(0; \lambda) \Phi_i^{c,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^c \rangle = \langle W_0, \tilde{\Phi}_{i,+}(0, X_i; \lambda) 
 P^c(0) \tilde{\Phi}_i^{+}(X_i, X_i; \lambda)a_i^c \rangle \\
-&= \langle \tilde{\Phi}_i^+(X_i, 0; 0)^* W_0, P^c(0) a_i^c \rangle + \mathcal{O}(|\lambda||a_i^c|) = \langle W_0, a_i^c \rangle + \mathcal{O}(e^{\eta X_i} |\lambda||a_i^c|) \\
-&= \mathcal{O}\left( |\lambda| (e^{-\alpha_0 X^*} + |\lambda|) |c| +|\lambda|^3 |d| \right)
+&= \langle \tilde{\Phi}_i^+(X_i, 0; 0)^* W_0, P^c(0) a_i^c \rangle + \mathcal{O}(|\lambda||a_i^c|) = \mathcal{O}\left( |\lambda| (e^{-\alpha_0 X^*} + |\lambda|) |c| +|\lambda|^3 |d| \right)
 \end{align*}
 For the terms involving $b$, the terms $b_i^\pm = x_i^\pm + y_i^\pm$ vanish when we take the inner product with $W_0$. For the remaining terms, we use the estimate \cref{B1bound} to get
 \begin{align*}
 |\langle W_0, R_i^+(\lambda) b_i^+ \rangle |\leq C \left(|\lambda| + e^{-2 \alpha_0 X^*}\right)\left((|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \right)
 \end{align*}
-For the center integral involving $G_i^\pm(y, \lambda)$, we use \cref{stabestimateslemma} as in \cref{Zinv2} to get
+For the center integral involving $G_i^\pm(y, \lambda)$, we use \cref{stabestimateslemma} as in \cref{Zinv2} as well as the bound \cref{expnubound} to get
 \begin{align*}
 \left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda)  dy \right| \leq C |\lambda| (e^{-\alpha_0 X^*} + |\lambda|) |c|
 \end{align*}
@@ -2469,8 +2463,7 @@ The jumps in the direction of $\Psi(0)$ are given
 \begin{equation}\label{jumpPsi0}
 \begin{aligned}
 \xi_i = \langle \Psi&(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) - \langle \Psi(X_{i-1}), Q'(-X_{i-1}) \rangle (d_i - d_{i-1} ) - \lambda^2 d_i M  \\
-&-e^{-\nu(\lambda)X_i}c_i \left( \frac{1}{2}\lambda M_c + \mathcal{O}\left( (e^{-\alpha_0 X^*} +|\lambda|)^2 \right)\right) - e^{\nu(\lambda)X_{i-1}}c_{i-1}\left( \frac{1}{2}\lambda M_c + \mathcal{O}\left( (e^{-\alpha_0 X^*} +|\lambda|)^2 \right)\right) \\
-&+ \mathcal{O}\left( (e^{-\alpha_0 X^*} + |\lambda|)^2 |c| + (e^{-\alpha_0 X^*} + |\lambda|)^3 |d| \right).
+&-\frac{1}{2}\lambda M_c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_{i-1}}c_{i-1} \right) + \mathcal{O}\left( (e^{-\alpha_0 X^*} + |\lambda|)^2 |c| + (e^{-\alpha_0 X^*} + |\lambda|)^3 |d| \right).
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$, where
@@ -2485,10 +2478,10 @@ The jumps in the direction of $\Psi(0)$ are given by
 \xi_i = 
 \langle \Psi(0), P_i^+(0; \lambda) Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle 
 \]
-Using \cref{lemma:VpmPsiIP},
+Using \cref{lemma:VpmPsiIP} and the bound \cref{expnubound},
 \begin{align*}
 \langle \Psi(0), &c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) \rangle \\
-&\qquad = -e^{-\nu(\lambda)X_i}c_i \left( \frac{1}{2}\lambda M_c + \mathcal{O}\left( (e^{-\alpha X^*} +|\lambda|)^2 \right)\right) - e^{\nu(\lambda)X_{i-1}}c_{i-1}\left( \frac{1}{2}\lambda M_c + \mathcal{O}\left( (e^{-\alpha X^*} +|\lambda|)^2 \right)\right) 
+&= -\frac{1}{2}\lambda M_c e^{-\nu(\lambda)X_i}c_i - \frac{1}{2}\lambda M_c e^{\nu(\lambda)X_{i-1}}c_{i-1} + \mathcal{O}\left( (e^{-\alpha X^*} +|\lambda|)^2 |c| \right). 
 \end{align*}
 The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. As in Lemma \ref{jumpcenteradj}, we begin by computing the leading order terms. For the non-center integral involving $\tilde{H}_i^\pm$, following the same procedure as in \cref{jumpcenteradj},
 \begin{align*}
@@ -2510,7 +2503,7 @@ Similarly,
 \begin{align*}
 &\langle \Psi(0), P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^+(y) dy \rangle = -\lambda^2 d_i \int_0^\infty q(y) \partial_c q(y) dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|)
 \end{align*}
-For the terms involving $a_i^\pm$, we use \cref{Zevolmod}, \cref{Zevolbounds}, and the expressions for $a_i^\pm$ from \cref{Zinv2} together with the bound \cref{A4bound} to get
+For the terms involving $a_i^\pm$, we substitute the expression from \cref{Zinv2} and use \cref{Zevolmod} and \cref{A4bound} to get
 \begin{align*}
 \langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ \rangle = \langle \Psi(0), P_i^+(0; \lambda) \Phi^+(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1}
 P^u(0) a_i^+ \rangle \\
@@ -2537,9 +2530,9 @@ The remaining terms will be higher order. For the terms involving $a_i^c$, simil
 \end{align*}
 For the terms involving $b$, the terms $b_i^\pm = x_i^\pm + y_i^\pm$ vanish when we take the inner product with $\Psi(0)$. For the remaining terms, similar to \cref{jumpcenteradj}, we have
 \begin{align*}
-|\langle \Psi(0), R_i^+(\lambda) b_i^+ \rangle |\leq C \left(|\lambda| + e^{-2 \alpha X_0^*}\right)\left((|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha X_0^*})^2 |d| \right)
+|\langle \Psi(0), R_i^+(\lambda) b_i^+ \rangle |\leq C \left(|\lambda| + e^{-2 \alpha X^*}\right)\left((|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha X^*})^2 |d| \right)
 \end{align*}
-For the center integral term, using \cref{stabestimateslemma} we have
+For the center integral term, using the bounds from \cref{stabestimateslemma} we have
 \begin{align*}
 \langle \Psi(0), &P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \rangle \\
 &= \int_{-X_{i-1}}^0 \langle \Psi(-X_{i-1}), P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) 
@@ -2891,9 +2884,9 @@ which is nonsingular. Using the implicit function theorem, there exists $r_2 \le
 
 Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues
 \begin{align*}
-\lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_1 -  s^2} + \mathcal{O}(r^{5/4}|\log r|), \quad T_1 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
+\lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_1 -  s^2} + \mathcal{O}(r^{5/4}|\log r|^{1/2}), \quad T_1 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
 \end{align*}
-which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_1}$. For $s = s_\pm(r) = \pm \sqrt{T_1}\left( 1 + \mathcal{O}(\frac{1}{|\log r|} \right)$, there is a double eigenvalue at $\lambda = \lambda_* - s i \pm + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_1}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
+which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_1}$. For $s = s_\pm(r) = \pm \sqrt{T_1}\left( 1 + \mathcal{O}(\frac{1}{|\log r|} \right)$, there are double eigenvalues at $\lambda = \lambda_* + s_\pm(r) + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_1}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
 \begin{equation}
 X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} + \mathcal{O}(s^2).
 \end{equation}
