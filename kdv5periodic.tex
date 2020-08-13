@@ -370,7 +370,7 @@ which is equivalent to the first order system in $\C^{2m+1}$
 \begin{equation}\label{PDEeigsystem}
 V'(x) = A(U^*(x))V(x) + \lambda B V(x),
 \end{equation}
-where $A(U^*(x))$ and $B$ are the $(2m+1) \times (2m+1)$ matrices
+where $V(x) \in C^0(\R,\C^{2m+1})$, and $A(U^*(x))$ and $B$ are the $(2m+1) \times (2m+1)$ matrices
 \begin{equation}\label{defAB}
 A(U^*(x)) = 
 \begin{pmatrix}
@@ -535,7 +535,7 @@ The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is
 \includegraphics[width=8cm]{images/2pitchparam1}
 \end{tabular}
 \end{center}
-\caption[Pitchfork bifurcation structure for periodic 2-pulses]{Pitchfork bifurcation structure for periodic 2-pulses (right panel). Parameterization from \cref{2pulsebifurcation} (left panel). Blue represents symmetric periodic 2-pulses, and orange represents asymmetric periodic 2-pulses are in orange. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
+\caption[Pitchfork bifurcation structure for periodic 2-pulses]{Pitchfork bifurcation structure for periodic 2-pulses (right panel). Parameterization for periodic 2-pulses (left panel). Blue represents symmetric periodic 2-pulses, and orange represents asymmetric periodic 2-pulses are in orange. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
 \label{fig:2pitch}
 \end{figure} 
 
@@ -562,16 +562,18 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 \end{enumerate}
 \end{theorem}
 
+\noi We note that in \cref{2pulsebifurcation}(ii), $X_1 > X_0$, which gives us the lower arms of the pitchforks in \cref{fig:2pitch}. For the upper arms, we swap $X_0$ and $X_1$, which we can do by symmetry.
+
 \section{Spectrum of periodic multi-pulses}\label{sec:perstab}
 
 We now look at the spectrum of the periodic multi-pulses which we constructed in the previous section. Let $Q_n(x) = (q_n(x), \partial_x q_n(x), \dots, \partial_x^{2m} q_n(x), 0)$ be any periodic $n$-pulse solution constructed according to \cref{th:perexist} on periodic domain $[-X, X]$. It is natural to pose the PDE eigenvalue problem \cref{genPDEeig2} on the space of periodic functions $H^{2m}_{\text{per}}[-X,X]$, where
 \[
 H^{2m}_{\text{per}}[-X,X] = \left\{ f \in H^{2m}(\R) : f^{(k)}(-X) = f^{(k)}(X) \text{ for } k = 0, \dots, 2m \right\},
 \]
-although we note that in doing so, we are restricting ourselves to co-periodic perturbations. By \cref{Ekernel}, $\partial_x \calL(q_n)$ has a kernel with algebraic multiplicity at least 2 and geometric multiplicity at least 1. In the next lemma, we show that there is another kernel eigenfunction when the eigenvalue problem is posed on $H^{2m}_{\text{per}}[-X,X]$. 
+although we note that in doing so, we are restricting ourselves to co-periodic perturbations. By \cref{Ekernel}, the linear operator $\partial_x \calL(q_n)$ has a kernel with algebraic multiplicity at least 2 and geometric multiplicity at least 1. In the next lemma, we show that $\partial_x \calL(q_n)$ has another kernel eigenfunction on $H^{2m}_{\text{per}}[-X,X]$. 
 
 \begin{lemma}\label{qnkernel}
-The linear operator $\partial_x \calL(q_n)$ on $H^{2m}_{\text{per}}[-X,X]$ has a kernel eigenfunction $v_n^c$, which is a solution to $\calL(q_n)v_n^c = 1$.
+The linear operator $\partial_x \calL(q_n)$ posed on $H^{2m}_{\text{per}}[-X,X]$ has a kernel eigenfunction $v_n^c$, which is a solution to $\calL(q_n)v_n^c = 1$.
 \begin{proof}
 Since $1 \in H^{2m}_{\text{per}}[-X,X]$, $\calL(q_n) 1 = c \neq 0$, and $\calL(q_n)$ is self-adjoint, for any $v \in \ker \calL(q_n)$,
 \begin{align*}
@@ -582,23 +584,23 @@ thus $1 \perp \ker \calL(q_n)^*$. By the Fredholm alternative, the equation $\ca
 \end{proof}
 \end{lemma}
 
-\noi Using a spatial dynamics approach from \cref{sec:EVP}, the PDE eigenvalue problem on $H^{2m}_{\text{per}}[-X,X]$ is equivalent to the first order system with periodic boundary conditions
+\noi Using the same formulation as in \cref{sec:EVP}, the PDE eigenvalue problem \cref{genPDEeig2} on $H^{2m}_{\text{per}}[-X,X]$ is equivalent to the first order system with periodic boundary conditions
 \begin{equation}\label{PDEeigsystemper3}
 \begin{aligned}
 V'(x) &= A(Q_n(x))V(x) + \lambda B V(x) \\
 V(-X) &= V(X),
 \end{aligned}
 \end{equation}
-where $V(x) \in C^0(\R,\R^{2m+1})$. Let $A(\lambda) = A(0) + \lambda B$. In next lemma we show that for small $\lambda$, $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0.
+where $V(x) \in C^0(\R,\C^{2m+1})$. Let $A(\lambda) = A(0) + \lambda B$. In next lemma we show that for small $\lambda$, $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$ near 0.
 
 \begin{lemma}\label{nulambdalemma}
 There exists $\delta_1 > 0$ such that for $|\lambda| < \delta_1$, the matrix $A(\lambda)$ has a simple eigenvalue $\nu(\lambda)$. $\nu(\lambda)$ is smooth in $\lambda$, $\nu(0) = 0$, $\nu'(0) = 1/c$, and for $|\lambda| < \delta_1$,
 \begin{equation}\label{nulambda}
-\nu(\lambda) = \frac{1}{c} \lambda + \mathcal{O}(|\lambda|^3)
+\nu(\lambda) = \frac{1}{c} \lambda + \mathcal{O}(|\lambda|^3).
 \end{equation}
 In addition, $\nu(-\lambda) = -\nu(\lambda)$ and $\nu(\overline{\lambda}) = \overline{\nu(\lambda)}$.
 \begin{proof}
-Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(\lambda)$. Since $p(0; 0) = 0$ and $\partial_\nu p(0; 0) = -c \neq 0$, by the implicit function theorem there exists $\delta_1 > 0$ and a smooth function $\nu(\lambda)$ such that $\nu(0) = 0$ and for $|\lambda| < \delta_1$, $\nu(\lambda)$ is the unique solution to $p(\nu; \lambda) = 0$, and $\nu'(0) = 1/c$. By reversibility, $p(\nu; \lambda)$ only involves odd powers of $\nu$, thus $p(\nu; \lambda) = 0$ if and only if $p(-\nu; -\lambda) = 0$. Since the solution $\nu(\lambda)$ is unique, $\nu(-\lambda) = -\nu(\lambda)$. Conjugate symmetry follows similarly since $p(\nu; \lambda) = 0$ if and only if $p(\overline{\nu}; \overline{\lambda}) = 0$. Equation \cref{nulambda} follows from a Taylor expansion of $\nu(\lambda)$ about $\lambda = 0$. 
+Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(\lambda)$. Since $p(0; 0) = 0$ and $\partial_\nu p(0; 0) = -c \neq 0$, by the implicit function theorem there exists $\delta_1 > 0$ and a smooth function $\nu(\lambda)$ with $\nu(0) = 0$ such that for $|\lambda| < \delta_1$, $\nu(\lambda)$ is the unique solution to $p(\nu; \lambda) = 0$. The derivative $\nu'(0) = 1/c$ also follows from the implicit function theorem. By reversibility, $p(\nu; \lambda)$ only involves odd powers of $\nu$, thus $p(\nu; \lambda) = 0$ if and only if $p(-\nu; -\lambda) = 0$. Since the solution $\nu(\lambda)$ is unique, $\nu(-\lambda) = -\nu(\lambda)$. Conjugate symmetry follows similarly since $p(\nu; \lambda) = 0$ if and only if $p(\overline{\nu}; \overline{\lambda}) = 0$. Equation \cref{nulambda} follows from a Taylor expansion of $\nu(\lambda)$ about $\lambda = 0$. 
 \end{proof}
 \end{lemma}
 
@@ -639,7 +641,7 @@ e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
 & & & & -e^{\nu(\lambda)X_{n-1}} & e^{-\nu(\lambda)X_0}
 \end{pmatrix} && n > 2,
 \end{align*}
-where $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemma}. $K^+(\lambda)$ is the same matrix as $K(\lambda)$ with all terms positive.
+where $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemma}. $K^+(\lambda)$ is the same matrix with all terms positive.
 
 \item $A$ is the symmetric banded matrix
 \begin{align}\label{Asymm}
@@ -657,7 +659,7 @@ a_{n-1} & & & & a_{n-2} & -a_{n-2} - a_{n-1} \\
 \end{align}
 where
 \begin{align*}
-a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle
+a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle.
 \end{align*}
 
 \item $M$, $M_c$, and $\tilde{M}$ are the Melnikov-type integrals
@@ -673,12 +675,12 @@ where $v^c(y)$ is the first component of $V^c(y)$, and $q(y)$ is the first compo
 |C_1| &\leq C (|\lambda| + r^{1/2})^2, \quad
 |D_1| \leq C |\lambda|(|\lambda| + r^{1/2})^2 \\
 |C_2| &\leq C (|\lambda| + r^{1/2})^2, \quad
-|D_2| \leq C (|\lambda| + r^{1/2})^3 
+|D_2| \leq C (|\lambda| + r^{1/2})^3.
 \end{align*}
 \end{enumerate}
 \end{theorem}
 
-The condition $|\Re \lambda| < r^{1/4}$ is used to simplify the analysis. We will see in \cref{sec:perdouble} that this condition is satisfied for sufficiently small $r$.
+\noi The condition $|\Re \lambda| < r^{1/4}$ is used to simplify the analysis. We will see when we apply the theorem in \cref{sec:perdouble} that this condition is satisfied for sufficiently small $r$.
 
 \subsection{Spectrum of periodic single pulse}\label{sec:persingle}
 
@@ -703,7 +705,8 @@ where the remainder terms are scalars with bounds
 In addition, $\det S(-\lambda) = -\det S(\lambda)$, and 
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
-\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} + M_c^2 )\cosh(\nu(\lambda)X) + \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} ) \Big),
+\det S(\lambda, r) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} + M_c^2 )\cosh(\nu(\lambda)X) \\
+&\qquad+ \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} ) \Big).
 \end{aligned}
 \end{equation}
 \end{lemma}
@@ -711,7 +714,7 @@ In addition, $\det S(-\lambda) = -\det S(\lambda)$, and
 \noi Using this lemma, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse.
 
 \begin{theorem}\label{theorem:1pess}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{th:perexist}, and let $\delta(r)$ be as in Theorem \ref{blockmatrixtheorem}. Then there exists $r_1 \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_1$ and $\delta$ be as in \cref{blockmatrixtheorem}. Then there exists $r_2 \leq r_1$ such that for any $r \in \mathcal{R}$ with $r \leq r_2$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $N c \pi/X < \delta$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{1pess}
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} + M_c^2 }{2 M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
@@ -720,7 +723,7 @@ is on the imaginary axis.
 
 \subsection{Spectrum of periodic double pulse}\label{sec:perdouble}
 
-Next, we consider the periodic double pulse. In this case, the block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the next lemma. Proofs of all results in this section are given in \cref{sec:doublepulse}. 
+For the next application, we consider the periodic double pulse. In this case, the block matrix $S(\lambda)$ is a $4\times 4$ matrix, the form of which is given in the following lemma. Proofs of all results in this section are given in \cref{sec:doublepulse}. 
 
 \begin{lemma}\label{lemma:2blockmatrix}
 For a periodic 2-pulse, the block matrix $S(\lambda)$ from \cref{blockmatrixtheorem} is the $4 \times 4$ matrix
@@ -731,7 +734,7 @@ e^{-\nu(\lambda)X_1} -\frac{1}{2}\lambda \tilde{M} e^{-\nu(\lambda)X_1} & -e^{\n
 -e^{\nu(\lambda)X_1} -\frac{1}{2}\lambda \tilde{M} e^{\nu(\lambda)X_1} & e^{-\nu(\lambda)X_0} -\frac{1}{2}\lambda \tilde{M} e^{-\nu(\lambda)X_0} & 0 & M_c \lambda^2 \\
 -\frac{1}{2}\lambda M_c e^{-\nu(\lambda)X_1} & -\frac{1}{2}\lambda M_c e^{\nu(\lambda)X_0} &-a-\lambda^2 M & a \\
 -\frac{1}{2}\lambda M_c e^{\nu(\lambda)X_1} & -\frac{1}{2}\lambda M_c e^{-\nu(\lambda)X_0}  & a & -a-\lambda^2 M
-\end{pmatrix} + R(\lambda)
+\end{pmatrix} + R(\lambda),
 \end{align}
 where
 \begin{equation}\label{2pa}
@@ -747,33 +750,33 @@ c_2(\lambda) & \tilde{c}_2(\lambda) & d_0 + \lambda d_2(\lambda) & -d_0 + \lambd
 -c_2(-\lambda) & -\tilde{c}_2(-\lambda) & -d_0 - \lambda \tilde{d}_2(-\lambda) & d_0 - \lambda d_2(-\lambda)
 \end{pmatrix},
 \end{align}
-where the individual entries have bounds
+where the individual entries are scalars with bounds
 \begin{align*}
 |d_0| &\leq C r^{3/2} \\
-|c_i|, |\tilde{c}_i|, |d_i|, |\tilde{d}_i| &\leq C (|\lambda| + r^{1/2})^2 && i = 1, 2
+|c_i|, |\tilde{c}_i|, |d_i|, |\tilde{d}_i| &\leq C (|\lambda| + r^{1/2})^2 && i = 1, 2.
 \end{align*}
-In addition,
+In addition, $\det S(-\lambda) = -\det S(\lambda)$, and 
 \begin{equation}\label{2pblockmatrixdet}
 \begin{aligned}
-\det S(&\lambda, r) = -2 \lambda^2 (2a + \lambda^2 M + R_1) \left( M \sinh(\nu(\lambda)X) + \lambda (M \tilde{M} + M_c^2 ) \cosh(\nu(\lambda)X) \right) \\
+\det &S(\lambda, r) = -2 \lambda^2 (2a + \lambda^2 M + R_1) \left( M \sinh(\nu(\lambda)X) + \lambda (M \tilde{M} + M_c^2 ) \cosh(\nu(\lambda)X) \right) \\
 &+4 a \lambda^3 M_c^2 \sinh(\nu(\lambda)X_1)\sinh(\nu(\lambda)X_0) 
-+ R_2 \lambda^2 \sinh(\nu(\lambda)(X_1 - X_0)) + \lambda^2 R_3 \sinh(\nu(\lambda)X)) + \lambda^3 R_4,
++ R_2 \lambda^2 \sinh(\nu(\lambda)(X_1 - X_0)) \\
+&+ \lambda^2 R_3 \sinh(\nu(\lambda)X)) + \lambda^3 R_4,
 \end{aligned}
 \end{equation}
 where the $R_i$ are scalars with bounds 
 \begin{equation*}
-|R_1| \leq C r^{3/2}, \quad |R_2|, |R_3|, |R_4| \leq C(|\lambda| + r^{1/2})^4,
+|R_1| \leq C r^{3/2}, \quad |R_2|, |R_3|, |R_4| \leq C(|\lambda| + r^{1/2})^4.
 \end{equation*}
-and $\det S(-\lambda) = -\det S(\lambda)$.
 \end{lemma}
 
-We will consider first the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale as $r^{1/2}$ and the essential spectrum eigenvalues scale as $1/|\log r|$, we can always choose $r$ sufficiently small so that this is the case. We will state the result separately for asymmetric and symmetric periodic 2-pulses. First, we locate the eigenvalues for asymmetric periodic 2-pulses. As long as $r$ is chosen sufficiently small, the interaction eigenvalue pattern is determined by the parameter $m_0$, and the essential spectrum eigenvalues do not interfere.
+We will first consider the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale as $r^{1/2}$ and the essential spectrum eigenvalues scale as $1/|\log r|$, we can always choose $r$ sufficiently small so that this occurs. Provided we do this, the interaction eigenvalue pattern for asymmetric periodic 2-pulses is determined by the parameter $m_0$.
 
 \begin{theorem}\label{theorem:2peigsassym}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_*$ be as in \cref{2pulsebifurcation}, and let $\delta(r)$ be as in Theorem \ref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_1 = r_1(m_0, s_1) \leq r_*$ such that for any $r \in \mathcal{R}$ with $r \leq r_1$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_1$ and $\delta$ be as in \cref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_2 = r_2(m_0, s_1) \leq r_1$ such that for any $r \in \mathcal{R}$ with $r \leq r_2$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
 
 \begin{enumerate}[(i)]
-\item Let $N$ be any positive integer such that $\frac{N \pi}{X} < \delta(r)$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
+\item Let $N$ be any positive integer such that $N c \pi/X < \delta$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{2pess}
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X + c \frac{M\tilde{M} + M_c^2}{M}} +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
@@ -781,7 +784,7 @@ is on the imaginary axis.
 
 \item There is a pair of interaction eigenvalues located at $\lambda = \pm \lambda^{\text{int}}(r)$, where
 \begin{align*}
-\lambda^{\text{int}}(r) = \sqrt{-\frac{2a}{M}} + \mathcal{O}\left( r \right).
+\lambda^{\text{int}}(r) = \sqrt{-\frac{2a}{M}} + \mathcal{O}\left( r \right),
 \end{align*}
 $a$ is defined in \cref{2pa} and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambda_1^{\text{ess}}(r)|$. These are real when $m_0 = 0$ and purely imaginary when $m_0 = 1$.
 \item There is an eigenvalue at 0 with algebraic multiplicity 3. 
@@ -789,21 +792,21 @@ $a$ is defined in \cref{2pa} and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambd
 \end{enumerate}
 \end{theorem}
 
-We note that the interaction eigenvalues are order $r^{1/2}$ and the essential spectrum eigenvalues are purely imaginary, thus the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
+\noi We note that since interaction eigenvalues scale as $r^{1/2}$, and the essential spectrum eigenvalues are purely imaginary, the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
 
 \begin{remark}The essential spectrum eigenvalues are not identical for the periodic single pulse and the periodic double pulse. In particular, note the additional factor of 2 in the denominator of \cref{1pess}.
 \end{remark}
 
-Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points, i.e. as long as $a \neq 0$, the results of \cref{theorem:2peigsassym} hold in the symmetric case as well; the only difference is that the eigenvalue pattern is determined by the sign of $a$ rather than by $m_0$ (see \cref{lemma:chara} below). Thus we only need to consider what happens at the pitchfork bifurcation point.
+Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points, i.e. as long as $a \neq 0$, the results of \cref{theorem:2peigsassym} hold; the only difference is that the eigenvalue pattern is determined by the sign of $a$ rather than by $m_0$ (see \cref{lemma:chara} below). Thus we only need to consider what happens at the pitchfork bifurcation point.
 
 \begin{theorem}\label{theorem:2peigssym}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Then there exists $r_1 \leq r_*$ such that for all $r \in \mathcal{R}$ with $r \leq r_1$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(m_0; r), r)$, where $p^*(m_0; r)$ is defined in \cref{2pulsebifurcation}.
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}, and let $r_1$ be defined as in \cref{blockmatrixtheorem}. Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \leq r_2$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(m_0; r), r)$, where $p^*(m_0; r)$ is the pitchfork bifurcation point defined in \cref{2pulsebifurcation}.
 \end{theorem}
 
-Finally, we consider what happens when essential spectrum eigenvalues collide with an interaction eigenvalue on the imaginary axis. For simplicity, we will only show what happens for the first collision. The existence of the first Krein bubble is given in the following theorem, which also provides numerically verifiable estimates for its size and location. 
+Finally, we consider what happens when an essential spectrum eigenvalue collides with an interaction eigenvalue on the imaginary axis. For simplicity, we will only prove the result for the first collision. The existence of the first Krein bubble is given in the following theorem, which also provides numerically verifiable estimates for its size and location. 
 
 \begin{theorem}\label{th:Kreinbubble}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_*$ be as in \cref{2pulsebifurcation}. Let 
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_1$ be as in \cref{blockmatrixtheorem}. Let 
 \begin{align}\label{deflambdastar}
 \lambda_*(r) &= \sqrt{ \frac{-2a(r) - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a(r)}{M} } + \mathcal{O}(r),
 \end{align}
@@ -819,7 +822,7 @@ For $s \in [-2\sqrt{T_1(r)}, 2 \sqrt{T_1(r)}]$, let $Q_2(x; s, r)$ be the period
 \begin{equation}
 X(s,r) = X_*(r) + \frac{2 c \pi s}{|\lambda_*(r)|^2} + \mathcal{O}(s^2).
 \end{equation}
-Then there exists $r_0 \leq r_*$ such that the following holds for the linearization about $Q_2(x; s, r)$.
+Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \leq r_2$, the following holds for the linearization about $Q_2(x; s, r)$.
 \begin{enumerate}[(i)]
 	\item There is a pair of eigenvalues located at
 	\begin{align}\label{Kreineigs}
@@ -832,17 +835,17 @@ Then there exists $r_0 \leq r_*$ such that the following holds for the lineariza
 	\]
 	there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_*(r) + s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which occurs when 
 	\begin{equation}\label{KreinDeltaX}
-	X(s, r) = X_*(r) \pm \Delta X_1(r) + \mathcal{O}(s^2), \qquad \Delta X_1(r) = \frac{2 c \pi}{|\lambda_*(r)|^2}\sqrt{T_1(r)} 
+	X(s, r) = X_*(r) \pm \Delta X(r) + \mathcal{O}(s^2), \qquad \Delta X(r) = \frac{2 c \pi}{|\lambda_*(r)|^2}\sqrt{T_1(r)} 
 	\end{equation}
 \item For $s \in (s_-, s+)$, equation \cref{Kreineigs} describes, to leading order, a circle of radius $\sqrt{T_1(r)}$ in the complex plane, and the pair of eigenvalues is symmetric across the imaginary axis.
 \item For $s \in [-2\sqrt{T_1(r)}, s_-) \cup (s_+, 2 \sqrt{T_1(r)}]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
 \end{enumerate}
 \end{theorem}
 
-We note that maximum real part of the Krein bubble is order $r^{5/4}|\log r|$, thus the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
+\noi We note that maximum real part of the Krein bubble is order $r^{5/4}|\log r|$, thus the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
 
 \begin{remark}\label{remark:kreinbubbles}
-It is straightforward to adapt \cref{th:Kreinbubble} to locate more Krein bubbles. For any positive integer $N$, there exists $r_0 \leq r_*$ such that for $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The radius of $m$-th Krein bubble in the complex plane is approximately $\sqrt{T_1(r) / m}$, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
+It is straightforward to adapt \cref{th:Kreinbubble} to locate more Krein bubbles. For any positive integer $N$, there exists $r_2 \leq r_1$ such that for $r \leq r_2$ and $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The radius of $m$-th Krein bubble in the complex plane is approximately $\sqrt{T_1(r) / m}$, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
 \[
 X^m_*(r) = c \left( \frac{m \pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right), \qquad \Delta X^m(r) = \sqrt{m} \Delta X_1(r).
 \]
@@ -854,9 +857,9 @@ In this section, we present numerical results for the existence and spectrum of 
 \begin{equation}\label{KdV5exactsol}
 q(x) = \frac{105}{338}\sech^4\left(\frac{x}{2\sqrt{13}} \right).
 \end{equation}
-We use AUTO for parameter continuation in $c$ and $p$ until $-2 \sqrt{c} < p < 2 \sqrt{c}$, so that \cref{hyp:hypeq} is satisfied. Following the AUTO demo \texttt{kdv}, we formulate the problem using \cref{KdV5ham2} with a small parameter $\epsilon$ to break the Hamiltonian structure. We impose periodic boundary conditions and rescale the domain from $[-X, X]$ to $[0, 1]$, using the domain size $X$ as a parameter. 
+We use AUTO for parameter continuation in $c$ and $p$ until $-2 \sqrt{c} < p < 2 \sqrt{c}$, so that \cref{hyp:hypeq} is satisfied. Following the AUTO demo \texttt{kdv}, we formulate the problem using equation \cref{KdV5ham2}, and use a small parameter $\epsilon$ to break the Hamiltonian structure. We impose periodic boundary conditions and rescale the domain from $[-X, X]$ to $[0, 1]$, using the domain size $X$ as a parameter. 
 
-To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5eq4} using Fourier spectral differentiation matrices to enforce periodic boundary conditions. As an initial ansatz, we take two copies of the primary pulse spliced together at the distances predicted by \cref{2pulsebifurcation}. We then solve for the periodic double pulse using Matlab's \texttt{fsolve} function. This same procedure can also be used to construct arbitrary periodic multi-pulses. We can also vary the domain size $X$ by parameter continuation in AUTO, from which verify that asymmetric solutions bifurcate from symmetric solutions in a series of pitchfork bifurcations (\cref{fig:KdV5eigs1}, left panel). Next, we compute the spectrum of $\partial_x \calE''(q_n)$ by discretizing the linear operator using Fourier spectral differentiation matrices and using Matlab's \texttt{eig} function (\cref{fig:KdV5eigs1}). 
+To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5eq4} using Fourier spectral differentiation matrices to enforce periodic boundary conditions. As an initial ansatz, we take two copies of the primary pulse spliced together at the distances predicted by \cref{2pulsebifurcation}. We then solve for the periodic double pulse using Matlab's \texttt{fsolve} function. This same procedure can also be used to construct arbitrary periodic multi-pulses. We can also vary the domain size $X$ by parameter continuation in AUTO, from which verify that asymmetric solutions bifurcate from symmetric solutions in a series of pitchfork bifurcations (\cref{fig:periodiceigbif}, left panel). Next, we compute the spectrum of $\partial_x \calE''(q_n)$ by discretizing the linear operator using Fourier spectral differentiation matrices and using Matlab's \texttt{eig} function (\cref{fig:KdV5eigs1}). 
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
@@ -867,7 +870,7 @@ To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5
 \caption[Spectrum of double pulse solutions]{Spectrum of first two double pulse solutions for KdV5, $X = 30$. Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Interaction eigenvalues in red, essential spectrum eigenvalues in blue, kernel eigenvalues in black. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 30$.}
 \label{fig:KdV5eigs1}
 \end{figure}
-For $m_0 = 1$ and $r$ sufficiently small, the interaction eigenvalues are purely imaginary; the real part of the eigenvalues computed with \texttt{eig} is order $10^{-9}$. We can also compute the interaction eigenvalues for symmetric periodic double pulses with equal pulse distances (\cref{fig:periodiceigbif}, right panel), which shows that at each pitchfork bifurcation point, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern (up to the first Krein bubble) is shown in the left panel of \cref{fig:periodiceigbif}.
+For $m_0 = 0$, the interaction eigenvalues are real, and for $m_0 = 1$, the interaction eigenvalues are purely imaginary (the real part of the eigenvalues computed with \texttt{eig} is less than $10^{-9}$). We can also compute the interaction eigenvalues for periodic double pulses with equal pulse distances (\cref{fig:periodiceigbif}, right panel), which shows that at each pitchfork bifurcation point, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern (up to the first Krein bubble) is shown in the left panel of \cref{fig:periodiceigbif}.
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
@@ -903,7 +906,7 @@ Finally, we look at what happens when we increase the period $X$. As predicted b
 \begin{align}\label{KdVpabc}
 p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too fast, we can construct the first four periodic double pulses with $m_0 = 1$, together with their interaction eigenfunctions, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$. 
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$. 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=7.5cm]{images/KreinRadiusError.eps}
@@ -912,7 +915,7 @@ then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. C
 \caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Parameters $p = 5.3$, $c = 11.2225$.}
 \label{fig:kreinerrors}
 \end{figure}
-\noi The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles mentioned in \cref{remark:kreinbubbles} can similarly be verified numerically.
+\noi The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \section{Proof of Theorem \ref{transverseint}}\label{sec:transverseintproof}
 
