@@ -316,7 +316,7 @@ The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u
 
 \noi Using \cref{hyp:transverse} and a dimension-counting argument, we obtain the nondegeneracy condition
 \begin{equation}\label{nondegencond}
-T_{Q_1(0; c_0)}W^s(0; c_0) \cap T_{Q_1(0; c_0)}W^u(0; c_0) = \R Q_1'(0; c_0).
+T_{Q_1(0; c_0)}\tilde{W}^s(0; c_0) \cap T_{Q_1(0; c_0)}\tilde{W}^u(0; c_0) = \R Q_1'(0; c_0).
 \end{equation}
 We then have the following existence theorem. The proof is given in \cref{sec:transverseintproof}.
 
@@ -919,9 +919,9 @@ then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. C
 
 \section{Proof of Theorem \ref{transverseint}}\label{sec:transverseintproof}
 
-The proof is similar to that of \cite[Lemma 6.2 and Lemma 6.4]{Kapitula2020}. By \cref{Qexistshyp}, $Q(0; c_0) \neq 0$, $H(Q(0; c_0); c_0) = 0$, and $\nabla_U H(Q(0; c_0); c_0) \neq 0$. By the implicit function theorem, for $c$ close to $c_0$, the 0-level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$, with $K(c_0)$ containing $Q(0; c_0)$. The existence result and the smoothness of the map $c \rightarrow Q(x; c)$ follow from the transverse intersection of $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$ in $K(c_0) \subset H^{-1}(0; c_0)$, the implicit function theorem, and the smoothness of $F$. Symmetry with respect to the reversor $R$ follows from symmetry of $Q(0; c_0)$ and the symmetry of $H$ from \cref{hyp:H}.
+The proof is similar to that of \cite[Lemma 6.2 and Lemma 6.4]{Kapitula2020}. By \cref{Qexistshyp}, $Q(0; c_0) \neq 0$, $H(Q(0; c_0); c_0) = 0$, and $\nabla_U H(Q(0; c_0); c_0) \neq 0$. By the implicit function theorem, there exists $\delta_0 > 0$ such that for $c \in (c_0 - \delta_0, c_0 + \delta_0)$, the 0-level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$, with $K(c_0)$ containing $Q(0; c_0)$. The existence result and the smoothness of the map $c \mapsto Q(x; c)$ for $c \in (c_0 - \delta_0, c_0 + \delta_0)$ follow from the transverse intersection of $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$ in $K(c_0) \subset H^{-1}(0; c_0)$, the implicit function theorem, and the smoothness of $F$. Symmetry with respect to the reversor $R$ follows from the symmetry of $Q(0; c_0)$ and $H$.
 
-Fix $c \in (c_0 - \delta, c_0 + \delta)$. Since $Q(x; c)$ solves \ref{genODE}, $Q(x; c) \in C^1(\R, \R^{2m})$. By the stable manifold theorem, $Q(x; c)$ is exponentially localized, i.e. for every $\epsilon > 0$ there exists a constant $C$ such that for all $x \in \R$, $|Q(x; c)| \leq C e^{-(\alpha - \epsilon)|x|}$. Substituting $Q(x; c)$ into \cref{genODE} and differentiating with respect to $c$, $\partial_c Q(x; c)$ satisfies
+Fix $c \in (c_0 - \delta_0, c_0 + \delta_0)$. Since $Q(x; c)$ solves \ref{genODE}, $Q(x; c) \in C^1(\R, \R^{2m})$. By the stable manifold theorem, $Q(x; c)$ is exponentially localized, i.e. for every $\epsilon > 0$ there exists a constant $C$ such that for all $x \in \R$, $|Q(x; c)| \leq C e^{-(\alpha - \epsilon)|x|}$. Substituting $Q(x; c)$ into \cref{genODE} and differentiating with respect to $c$, $\partial_c Q(x; c)$ satisfies
 \begin{equation}\label{Qcprime}
 [\partial_c Q(x; c)]' = D_U F(Q(x;c); c) \partial_c Q(x; c) - B Q(x;c),
 \end{equation}
@@ -929,13 +929,13 @@ where $B$ is defined in \cref{defAB}. Define the linear operator $\calL: C^1(\R,
 \begin{equation}\label{defLtv}
 \calL = \frac{d}{dx} - D_U F(Q(x;c); c).
 \end{equation}
-By equation \cref{Qcprime}, $B Q(x;c) \in \ran \calL$ and is exponentially localized. Since $DF(0; c)$ is hyperbolic, it follows from \cite[Lemma~4.2]{Palmer1984} and the roughness theorem for exponential dichotomies \cite{Coppel1978} that $\calL$ is Fredholm with index 0. By \cref{Qexistshyp}, $\ker \calL = \R \partial_x Q'(x; c)$, thus the set of all bounded solutions to \cref{Qcprime} is given by $\{\partial_c Q(x; c) + \R Q'(x; c)\}$.
+By equation \cref{Qcprime}, $B Q(x;c) \in \ran \calL$ and is exponentially localized. Since $DF(0; c)$ is hyperbolic, it follows from \cite[Lemma~4.2]{Palmer1984} and the roughness theorem for exponential dichotomies \cite{Coppel1978} that $\calL$ is Fredholm with index 0. By \cref{Qexistshyp}, $\ker \calL = \R Q'(x; c)$, thus the set of all bounded solutions to \cref{Qcprime} is given by $\{\partial_c Q(x; c) + \R Q'(x; c)\}$.
 
 To show that $\partial_c Q(x; c)$ is exponentially localized, we reformulate equation \cref{Qcprime} in an exponentially weighted space. Choose $\epsilon \in (0,\alpha_0)$ and let $\eta(x)$ be a standard mollifier function \cite[Section~C.5]{Evans2010}. Let
 \begin{equation}\label{defQZ}
 Q(x; c) = Z(x; c) e^{-(\alpha - \epsilon)r(x)},
 \end{equation}
-where $r(x) = \eta(x) * |x|$ is smooth, and $r(x) = |x|$ and $r'(x) = 1$ for $|x| > 1$. Substituting \cref{defQZ} into \cref{Qcprime} and simplifying, we obtain the weighted equation
+where $r(x) = \eta(x) * |x|$ is smooth, and for $|x| > 1$, $r(x) = |x|$ and $r'(x) = 1$. Substituting \cref{defQZ} into \cref{Qcprime} and simplifying, we obtain the weighted equation
 \begin{equation}\label{Zcprime}
 [\partial_c Z(x; c)]' = [D_U F(Q(x;c); c) + (\alpha - \epsilon) r'(x) ] Z(x; c) - e^{(\alpha - \epsilon)r(x)} B Q(x;c),
 \end{equation}
@@ -951,7 +951,7 @@ We will construct a periodic $n$-pulse $U(x)$ using Lin's method. For convenienc
 \[
 U_i^\pm(x) = Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x),
 \]
-where the functions $Q^\pm(x; \beta_i^\pm)$ parameterize the stable and unstable manifolds $\tilde{W}^s(0)$ and $\tilde{W}^u(0)$ near $Q(0)$, and $\tilde{Q}_i^\pm$ are small remainder functions. In essence, we use the small parameters $\beta_i^\pm$ to break the homoclinic orbit $Q(x)$, and then the remainder functions $\tilde{Q}_i^\pm$ to glue the pieces back together. We will show that we can find a unique piecewise solution $U_i^\pm(x)$ which generically has $n$ jumps in a specified direction. A periodic multi-pulse solution exists if and only if these $n$ jumps are all 0.
+where the $\beta_i^\pm$ parameterize the stable and unstable manifolds $\tilde{W}^s(0)$ and $\tilde{W}^u(0)$ near $Q(0)$ so that the functions $Q^\pm(x; \beta_i^\pm)$ lie in these manifolds, and the $\tilde{Q}_i^\pm$ are small remainder functions. In essence, we use the small parameters $\beta_i^\pm$ to break the homoclinic orbit $Q(x)$, and then the remainder functions $\tilde{Q}_i^\pm$ to glue the pieces back together. We will show that we can find a unique piecewise solution $U_i^\pm(x)$ which generically has $n$ jumps in a specified direction. A periodic multi-pulse solution exists if and only if these $n$ jumps are all 0.
 
 \subsection{Setup}
 
@@ -959,29 +959,32 @@ Using \cref{nondegencond}, we decompose the tangent spaces of the stable and uns
 \begin{equation*}
 \begin{aligned}
 T_{Q(0)}\tilde{W}^u(0) &= \R Q'(0) \oplus Y^- \\
-T_{Q(0)}\tilde{W}^s(0) &= \R Q'(0) \oplus Y^+
+T_{Q(0)}\tilde{W}^s(0) &= \R Q'(0) \oplus Y^+.
 \end{aligned}
 \end{equation*}
-The variational and adjoint variational equations associated with \cref{genODE} are
-\begin{align}
-V' = DF(Q(x)) V \label{vareq1} \\
-W' = -DF(Q(x))^* W \label{adjvareq1}.
-\end{align}
-It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to \cref{vareq1}, and that there exists a unique bounded solution $\Psi(x)$ to \cref{adjvareq1}. (In both cases, uniqueness is up to scalar multiples). Since we have a conserved quantity $H$, the following lemma gives the exact form of $\Psi(x)$.
+It follows from \cref{nondegencond} that $Q'(x)$ is the unique bounded solution to the variational equation
+\begin{equation}\label{vareq1}
+V' = DF(Q(x)) V,
+\end{equation}
+and that there exists a unique bounded solution $\Psi(x)$ to the adjoint variational equations associated with \cref{genODE} are
+\begin{equation}\label{adjvareq1}
+W' = -DF(Q(x))^* W.
+\end{equation}
+(In both cases, uniqueness is up to scalar multiples). Since we have a conserved quantity $H$, the following lemma gives the exact form of $\Psi(x)$.
 
 \begin{lemma}\label{psiform}
-We can take $\Psi(x) = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{hyp:H}. In addition, $\Psi(-x) = R \Psi(x)$, where $R$ is the standard reversor operator, and the last component of $\Psi(x)$ is $q'(x)$.
+$\Psi(x) = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{hyp:H}. In addition, $\Psi(-x) = R \Psi(x)$, where $R$ is the standard reversor operator, and the last component of $\Psi(x)$ is $q'(x)$.
 \begin{proof}
 Taking the gradient of $\langle F(U; c), \nabla_U H(U; c) \rangle = 0$, $0 = D F(Q(x))^* \nabla H(Q(x)) + D^2 H(Q(x))^* F(Q(x))$. Using standard vector calculus identities, equation \cref{eqODE}, and the fact that the Hessian is self-adjoint,
 \begin{align*}
 -D F(Q(x))^* \nabla H(Q(x)) &= D^2 H(Q(x)) Q'(x) = \frac{d}{dx} \nabla H(Q(x)),
 \end{align*}
-thus $\nabla H(Q(x))$ is a solution to \eqref{adjvareq1}. Since $\nabla H$ is continuous and $Q(x)$ is exponentially localized, $\nabla H(Q(x))$ is bounded as well, thus by uniqueness we can take $\Psi(x) = \nabla H(Q(x))$. Using \eqref{genODErev} and the symmetry relation $Q(-x) = R Q(x)$, 
+thus $\nabla H(Q(x))$ is a solution to \eqref{adjvareq1}. Since $\nabla H$ is continuous and $Q(x)$ is exponentially localized, $\nabla H(Q(x))$ is bounded, thus by uniqueness we can take $\Psi(x) = \nabla H(Q(x))$. Using \eqref{genODErev} and the symmetry relation $Q(-x) = R Q(x)$, 
 \begin{align*}
 [R \Psi(-x)]' = -R DF(Q(-x)) \Psi(-x) 
 = -R [-RDF(Q(x))R] \Psi(-x) = DF(Q(x))[ R \Psi(-x) ].
 \end{align*}
-By uniqueness, $\Psi(x) = R \Psi(-x)$, thus $\Psi(-x) = R \Psi(x)$. By the definition of $F$, if $\Psi(x) = (\psi_1(x), \dots, \psi_{2m}(x))$ is a solution to \cref{adjvareq1}, then $\psi_{2m}(x)$ solves $\calL(q)^* w = [\calE''(q) + c]^* w = 0$. Since $\calL(q)$ is self-adjoint and $\calL(q)q' = 0$, by uniqueness we must have $\psi_{2m}(x) = q'(x)$.
+By uniqueness, $\Psi(x) = R \Psi(-x)$, thus $\Psi(-x) = R \Psi(x)$. By the definition of $F$, if $\Psi(x) = (\psi_1(x), \dots, \psi_{2m}(x))$ is a solution to \cref{adjvareq1}, then $\psi_{2m}(x)$ solves $\calL(q)^* w = [\calE''(q) + c]^* w = 0$. Since $\calL(q)$ is self-adjoint and $\calL(q)q' = 0$, $\psi_{2m}(x) = q'(x)$ by uniqueness.
 \end{proof}
 \end{lemma}
 
@@ -1014,26 +1017,28 @@ Rearrange and take the transpose of both sides to get
 \end{proof}
 \end{lemma}
 
-\noi Using \cref{eigadjoint}(ii), $\Psi(0) \perp \R Q'(0) \oplus Y^+ \oplus Y^-$, thus we can decompose $\R^{2m}$ as
+\noi By \cref{eigadjoint}(ii), $\Psi(0) \perp \R Q'(0) \oplus Y^+ \oplus Y^-$, thus we can decompose $\R^{2m}$ as
 \begin{equation}\label{R2mdecomp}
 \R^{2m} = \R Q'(0) \oplus Y^+ \oplus Y^- \oplus \R \Psi(0).
 \end{equation}
 
 \subsection{Piecewise ansatz}
 
-First, we write the manifolds $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$ as graphs over their tangent spaces near $Q(0)$. Following \cite{Sandstede1997}, we can parameterize the unstable and stable manifolds near $Q(0)$ by the smooth functions $Q^-(\gamma, \beta^-)$ and $Q^+(\gamma, \beta^+)$, where $\gamma \in \R$, $\beta^\pm \in Y^\pm$. These functions are chosen so that $Q^+(\gamma, 0) - Q^-(\gamma, 0) \in \R \Psi(0)$, and $Q^+(0, 0) = Q^-(0, 0) = Q(0)$. We will always take $\gamma = 0$. Let $Q^\pm(x; \beta^\pm)$ be the unique solutions to \eqref{genODE} on $\R^\pm$ with initial conditions $Q^\pm(0, \beta^\pm)$ at $x = 0$. We will look for a $n-$periodic solution $U(n)$ to \eqref{genODE} which is piecewise of the form
+First, we write the unstable and stable manifolds as graphs over their tangent spaces. Following \cite{Sandstede1997}, we can parameterize $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$ near $Q(0)$ by the smooth functions $Q^-(\gamma, \beta^-)$ and $Q^+(\gamma, \beta^+)$, where $\gamma \in \R$ and $\beta^\pm \in Y^\pm$. These functions are chosen so that $Q^+(\gamma, 0) - Q^-(\gamma, 0) \in \R \Psi(0)$, and $Q^+(0, 0) = Q^-(0, 0) = Q(0)$. We will always take $\gamma = 0$. Let $Q^\pm(x; \beta^\pm)$ be the unique solutions to \eqref{genODE} on $\R^\pm$ with initial conditions $Q^\pm(0, \beta^\pm)$ at $x = 0$. $Q^-(x; \beta^-)$ lies in the unstable manifold and $Q^+(x; \beta^+)$ lies in the stable manifold. 
+
+We will look for a $n-$periodic solution $U(n)$ to \eqref{genODE} which is piecewise of the form
 \begin{equation}\label{Upiecewise}
 \begin{aligned}
 U_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
 U_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) && x \in [0, X_i]
 \end{aligned}
 \end{equation}
-for $i = 0, \dots, n-1$, where $U_i^-: [-X_{i-1}, 0] \rightarrow \R$ and $U_i^+: [0, X_i] \rightarrow \R$ are continuous. The subscripts $i$ are taken $\Mod n$ since we are on a periodic domain, and the pieces are glued together end-to-end as in \cite{Sandstede1998}, with one additional join to ``close the loop''. Since $Q^\pm(0; \beta_i^\pm) \in \R Q'(0) \oplus Y^\pm$, we can choose $\tilde{Q}_i^\pm(x)$ so that
+for $i = 0, \dots, n-1$, where $U_i^-: [-X_{i-1}, 0] \rightarrow \R$ and $U_i^+: [0, X_i] \rightarrow \R$ are continuous. The subscripts $i$ are taken $\Mod n$ since we are on a periodic domain, and the pieces are glued together end-to-end as in \cite{Sandstede1998}, with one additional join needed to ``close the loop''. Since $Q^\pm(0; \beta_i^\pm) \in \R Q'(0) \oplus Y^\pm$, we are free to choose $\tilde{Q}_i^\pm(x)$ so that
 \begin{align*}
 \tilde{Q}_i^-(0) &\in \R \Psi(0) \oplus Y^- \\
 \tilde{Q}_i^+(0) &\in \R \Psi(0) \oplus Y^+.
 \end{align*}
-In order to construct a periodic $n$-pulse, we will solve the following system of equations
+To construct a periodic $n$-pulse, we will solve the following system of equations
 \begin{align}
 (U_i^\pm(x))' - F(U_i^\pm(x)) &= 0 \label{exsystem1} \\
 U_i^+(X_i) - U_{i+1}^-(-X_i) &= 0 \label{exsystem2} \\
@@ -1056,12 +1061,12 @@ There exist projections
 &P_+^s(y; \beta^+), \quad P_+^u(y; \beta^+) = I - P_+^s(y; \beta^+) && y \geq 0 \\
 &P_-^u(y; \beta^-), \quad P_-^s(y; \beta^-) = I - P_-^u(y; \beta^-) && y \leq 0 
 \end{align*}
-on $\R^\pm$ such that the evolution operators $\Phi_\pm(x, y; \beta^\pm)$ can be decomposed as
+on $\R^\pm$ such that the evolution operators $\Phi_\pm(x, y; \beta^\pm)$ can be decomposed as $\Phi_\pm(x, y; \beta^\pm) = \Phi^s_\pm(x, y; \beta^\pm) + \Phi^u_\pm(x, y; \beta^\pm)$, where
 \begin{align*}
 \Phi^s_\pm(x, y; \beta^\pm) &= \Phi_\pm(x, y; \beta^\pm) P^s_\pm(y; \beta^\pm) \\
-\Phi^u_\pm(x, y; \beta^\pm) &= \Phi_\pm(x, y; \beta^\pm) P^u_\pm(y; \beta^\pm),
+\Phi^u_\pm(x, y; \beta^\pm) &= \Phi_\pm(x, y; \beta^\pm) P^u_\pm(y; \beta^\pm).
 \end{align*}
-and we have the estimates
+We have the estimates
 \begin{align*}
 |\Phi^s_+(x, y, \beta^+)| &\leq C e^{-\alpha(x - y)} && 0 \leq y \leq x \\
 |\Phi^u_+(x, y, \beta^+)| &\leq C e^{-\alpha(y - x)} && 0 \leq x \leq y \\
@@ -1073,7 +1078,7 @@ which also hold for derivatives with respect to the initial conditions $\beta^\p
 \Phi_\pm(x, y; \beta^\pm) P^{s/u}_\pm(y; \beta^\pm) 
 = P^{s/u}_\pm(x; \beta^\pm) \Phi_\pm(x, y; \beta^\pm).
 \end{align*}
-The projections can be chosen such that at $y = 0$ we have, independent of $\beta^+$ and $\beta^-$
+The projections can be chosen so that at $y = 0$ we have, independent of $\beta^+$ and $\beta^-$
 \begin{align*}
 \ker P^s_+(0; \beta^+) &= \R \Psi(0) \oplus Y^-, \qquad
 \ker P^u_-(0; \beta^-) = \R \Psi(0) \oplus Y^+ \\
@@ -1097,19 +1102,15 @@ Since $DF(0)$ is hyperbolic by \cref{hyp:hypeq} and $|\Re \nu| \geq \alpha_0$ fo
 
 \subsection{Fixed Point Formulation}
 
-Next, we formulate equation \eqref{exsystem1} as a fixed point problem. Plug in the piecewise ansatz \eqref{Upiecewise} into \eqref{genODE} and using the fact that $Q^\pm(x; \beta_i^\pm)$ solves \eqref{genODE} on $\R^\pm$,
+Next, we formulate equation \eqref{exsystem1} as a fixed point problem. Substituting the piecewise ansatz \eqref{Upiecewise} into \eqref{exsystem1} and using the fact that $Q^\pm(x; \beta_i^\pm)$ solves \eqref{exsystem1} on $\R^\pm$,
 \begin{align*}
-(\tilde{Q}_i^\pm(x))' &= F\left(Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x) \right) - F(Q^\pm(x; \beta_i^\pm)) && i = 0, \dots, n-1
+(\tilde{Q}_i^\pm(x))' &= F\left(Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x) \right) - F(Q^\pm(x; \beta_i^\pm)) && i = 0, \dots, n-1.
 \end{align*}
-Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, we obtain the ODE for $\tilde{Q}_i^\pm$
+Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, we obtain an ODE for $\tilde{Q}_i^\pm$
 \begin{align}\label{Vpiecewise1}
-(\tilde{Q}_i^\pm(x))' &= DF(Q^\pm(x; \beta_i^\pm)) \tilde{Q}_i^\pm(x) + G_i^\pm(x; \beta_i^\pm) && i = 0, \dots, n-1
+(\tilde{Q}_i^\pm(x))' &= DF(Q^\pm(x; \beta_i^\pm)) \tilde{Q}_i^\pm(x) + G_i^\pm(x; \beta_i^\pm) && i = 0, \dots, n-1,
 \end{align}
-where $G_i^\pm$ depends on $\tilde{Q}_i^\pm$ and
-\begin{equation}\label{Gquadratic}
-G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2).
-\end{equation}
-As in \cite{Sandstede1997}, derivatives of $G_i^\pm$ with respect to the parameters $\beta_i^\pm$ are also quadratic in $\tilde{Q}_i^\pm$. We rewrite \eqref{Vpiecewise1} in integrated form to get the fixed point problem
+where $G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2)$. As in \cite{Sandstede1997}, derivatives of $G_i^\pm$ with respect to the parameters $\beta_i^\pm$ are also quadratic in $\tilde{Q}_i^\pm$. Using the exponential dichotomy, we rewrite \eqref{Vpiecewise1} in integrated form to obtain the fixed point equations
 \begin{equation}\label{FPequations}
 \begin{aligned}
 \tilde{Q}_i^+(x) &= \Phi^u_+(x, X_i; \beta_i^+) a_i^+  
@@ -1131,24 +1132,19 @@ and let $K_{X, \pm}$ be the Banach spaces of continuous functions on $[0, X]$ an
 
 \subsection{Inversion}
 
-As in \cite{Sandstede1997}, we will solve for the remainder functions $\tilde{Q}_i^\pm$ and parameters $\beta_i^\pm$ in a series of lemmas. First, we will solve equation \cref{exsystem1} for $\tilde{Q}_i^\pm(x)$.
+As in \cite{Sandstede1997}, we will solve for the remainder functions $\tilde{Q}_i^\pm$ and parameters $\beta_i^\pm$ in a series of lemmas. First, we will solve equation \cref{FPequations}for $\tilde{Q}_i^\pm$.
 
 \begin{lemma}\label{solveforV}
-There exist $\delta, \rho > 0$ such that for $|X_i|, |X_{i-1}| > 1/\delta$ and $|a_{i-1}^-|, |a_i^+|, |\beta_i^\pm| < \delta$, there exist unique solutions
-\begin{align*}
-\tilde{Q}_i^-(a_{i-1}^-, \beta_i^-) &\in B_{X_{i-1}, -}(\rho) \\
-\tilde{Q}_i^+(a_i^+, \beta_i^+) &\in B_{X_i, +}(\rho) \\
-\end{align*}
-to \eqref{FPequations}. $\tilde{Q}_i^-(a_{i-1}, \beta_i^-)$ depends smoothly on $(a_{i-1}^-, \beta_i^-)$, and $\tilde{Q}_i^+(a_i, \beta_i^+)$ depends smoothly on $(a_i^+, \beta_i^+)$, and we have the estimates
+There exist $\delta, \rho > 0$ such that for $|X_i| > 1/\delta$ and $|a_i^\pm|, |\beta_i^\pm| < \delta$, $i = 0, \dots, n-1$, there exist unique solutions $\tilde{Q}_i^- \in B_{X_{i-1}, -}(\rho)$ and $\tilde{Q}_i^+ \in B_{X_i, +}(\rho)$ to \eqref{FPequations}. These depend smoothly on $(a_{i-1}^-, \beta_i^-)$ and $(a_i^+, \beta_i^+)$, respectively, and we have the estimates
 \begin{equation}\label{Vest}
 \begin{aligned}
 \|\tilde{Q}_i^-\|_{X_{i-1}, -} &\leq C |a_{i-1}^-| \\
-\|\tilde{Q}_i^+\|_{X_i, +} &\leq C |a_i^+|
+\|\tilde{Q}_i^+\|_{X_i, +} &\leq C |a_i^+|,
 \end{aligned}
 \end{equation}
 where the constant $C$ depends only on $\delta$. The estimates hold for derivatives of $\tilde{Q}_i^\pm$ with respect to $\beta_i^\pm$.
 \begin{proof}
-The proof follows \cite[Lemma 5.2]{Sandstede1997}. For the first term on the RHS of \eqref{FPequations} on $\R^+$,
+The proof follows \cite[Lemma 5.2]{Sandstede1997}. For the first term on the RHS of \eqref{FPequations},
 \begin{align*}
 e^{\alpha(X_i - x)} | \Phi^u_+(x, X_i; \beta_i^+) a_i^+ | 
 &\leq C e^{\alpha(X_i - x)} e^{-\alpha(X_i - x)} |a_i^+| = C |a_i^+|,
@@ -1160,19 +1156,19 @@ e^{\alpha(X_i - x)} &\left| \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \bet
 &\leq C e^{\alpha(X_i - x)} \int_x^{X_i} 
 e^{-\alpha(y - x)}(e^{-\alpha(X_i - y)})^2|e^{\alpha(X_i - y)} \tilde{Q}_i^+(y)|^2 dy \leq C
 \end{align*}
-The third term is similarly bounded. Thus the RHS of the fixed point equation \eqref{FPequations} on $\R^+$ is a smooth map $K_{X_i, +} \mapsto K_{X_i, +}$. Define $H: K_{X_i, +} \times E_0^s \times Y^+ \rightarrow K_{X_i, +}$ by
+The third term is similarly bounded. Thus the RHS of the fixed point equation \eqref{FPequations}is a smooth map $K_{X_i, +} \mapsto K_{X_i, +}$. Define $H_i^+: K_{X_i, +} \times E_0^s \times Y^+ \rightarrow K_{X_i, +}$ by
 \begin{align*}
-H(\tilde{Q}_i^+(x), &a_i^+, \beta_i^+) = \tilde{Q}_i^+(x) - \Phi^u_+(x, X_i; \beta_i^+) a_i^+ - \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\
+H_i^+(\tilde{Q}_i^+(x), &a_i^+, \beta_i^+) = \tilde{Q}_i^+(x) - \Phi^u_+(x, X_i; \beta_i^+) a_i^+ - \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\
 &- \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy.
 \end{align*}
-Since $Q(x)$ satisfies \eqref{genODE}, $H(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \eqref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from Lemma \ref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these do as well. We can similary solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
+Since $Q(x)$ satisfies \eqref{genODE}, $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \eqref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from Lemma \ref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
 \end{proof}
 \end{lemma}
 
-Next, we will solve equation \cref{exsystem2} to match the pieces \cref{Upiecewise} at $\pm X_i$, which will solve for the initial conditions $a_i^\pm$.
+Next, we will solve equation \cref{exsystem2} to match the pieces \cref{Upiecewise} at $\pm X_i$ and obtain initial conditions $a_i^\pm$.
 
 \begin{lemma}\label{solvefora}
-For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
+For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, and for $i = 0, \dots, n-1$, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
 \begin{equation}\label{aest}
 |a_i^\pm| \leq C e^{-\alpha X_i},
 \end{equation}
@@ -1180,62 +1176,61 @@ which holds as well for derivatives with respect to $\beta_i^\pm$. In addition,
 \begin{equation}\label{aiformula}
 \begin{aligned}
 a_i^+ &= -P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}( e^{-2 \alpha X_i} ) \\
-a_i^- &= P^s_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}\left( e^{-2 \alpha X_i} \right)
+a_i^- &= P^s_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}\left( e^{-2 \alpha X_i} \right).
 \end{aligned}
 \end{equation}
 
 \begin{proof}
-Evaluating the fixed point equations \cref{FPequations} at $\pm X_i$ and substituting them into \cref{Upiecewise}, the matching condition \cref{exsystem2} becomes $H(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$, where $H: E_0^s \times E_0^u \times Y^+ \times Y^- \rightarrow \R^{2m}$ is defined by
+Evaluating the fixed point equations \cref{FPequations} at $\pm X_i$ and substituting them into \cref{Upiecewise}, the matching condition \cref{exsystem2} can be written as $H_i(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$, where $H_i: E_0^s \times E_0^u \times Y^+ \times Y^- \rightarrow \R^{2m}$ is defined by
 \begin{align*}
-H(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-) 
+H_i(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-) 
 = a_i^+ - a_i^- + (P^u_+(X_i; \beta_i^+) -  P^u_0)a_i^+ - (P^s_-(-X_i; \beta_{i+1}^-) - P^s_0) a_i^-  \\
 &+ Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)\\
 &+ \int_0^{X_i} \Phi_+^s(X_i, y; \beta_i^+) G_i^+(y,\beta_i^+)dy
 - \int_0^{-X_i} \Phi_-^u(-X_i, y; \beta_{i+1}^-) G_{i+1}^-(y,\beta_{i+1}^-)dy,
 \end{align*}
-where we substutited $\tilde{Q}_i^\pm(x)$ from Lemma \ref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \eqref{genODE}, $H(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by Lemma \ref{solveforV},
+where we substutited $\tilde{Q}_i^\pm(x)$ from Lemma \ref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \eqref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by Lemma \ref{solveforV},
 \[
-\frac{\partial}{\partial a_i^\pm} H(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
+\frac{\partial}{\partial a_i^\pm} H_i(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
 \]
-where we also used the estimate \cref{projdiffest}. For sufficiently large $X_i$, $D_{a_i^\pm} H(0, 0, 0, 0)$ is invertible in a neighborhood of $(0, 0, 0, 0)$, thus we can use the implicit function theorem to solve for $a_i^\pm$ in terms of $\beta_i^\pm$. The estimate \cref{aest} then comes from the stable manifold theorem, since $Q^\pm(\pm X_i; \beta_i^\pm) = \mathcal{O}(e^{-\alpha X_i})$. To obtain the expressions \cref{aiformula}, we apply the eigenprojections $P^u_0$ and $P^s_0$ (respectively) to $H(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$. The bound on the remainder term comes from the bound \cref{aest}, together with the estimates from Lemma \ref{solveforV} and equation \cref{projdiffest}. 
+where we also used the estimate \cref{projdiffest}. For sufficiently large $X_i$, $D_{a_i^\pm} H_i(0, 0, 0, 0)$ is invertible in a neighborhood of $(0, 0, 0, 0)$, thus we can use the implicit function theorem to solve for $a_i^\pm$ in terms of $\beta_i^\pm$. The estimate \cref{aest} then comes from the stable manifold theorem, since $Q^\pm(\pm X_i; \beta_i^\pm) = \mathcal{O}(e^{-\alpha X_i})$. To obtain the expressions \cref{aiformula}, we apply the eigenprojections $P^u_0$ and $P^s_0$ (respectively) to $H_i(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$. The bound on the remainder term comes from the bound \cref{aest}, together with the estimates from Lemma \ref{solveforV} and equation \cref{projdiffest}. 
 \end{proof}
 \end{lemma}
 
-It only remains to solve equation \eqref{exsystem3}, which will match the pieces \eqref{Upiecewise} at $0$. Before we do that, we will use the the flow-box method to make a smooth change of coordinates to ``straighten out'' the stable and unstable manifolds near $Q(0)$ so that their non-intersecting directions are $Y^+$ and $Y^-$.
+It remains to solve equation \eqref{exsystem3}, which will match the pieces \eqref{Upiecewise} at $x = 0$. Before doing that, we will use the the flow-box method to make a smooth change of coordinates which will ``straighten out'' the stable and unstable manifolds near $Q(0)$ so that their non-intersecting directions are $Y^+$ and $Y^-$.
 
 \begin{lemma}\label{straightenW}
-There exists a differentiable map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ such that $S(0, 0, 0, 0) = Q(0)$, $S$ is invertible in a neighborhood of $Q(0)$, and
+There exists a differentiable map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ such that $S(0, 0, 0, 0) = Q(0)$, $S$ is invertible in a neighborhood of $Q(0)$, and for sufficiently small $\beta^\pm$,
 \begin{align*}
 S^{-1}(Q^-(0; \beta^-)) &= \beta^-  \\
-S^{-1}(Q^+(0; \beta^+)) &= \beta^+ 
+S^{-1}(Q^+(0; \beta^+)) &= \beta^+.
 \end{align*}
-for sufficiently small $\beta^\pm$.
 \begin{proof}
 Let $\Theta_x(U_0)$ be the solution operator which maps $U_0 \in \R^{2m}$ to the point $U(x)$, where $U(\cdot)$ is the unique solution to \eqref{genODE} with $U(0) = U_0$. Define the map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ by 
 \begin{equation}\label{flowboxdefS}
-S(x; \beta^-, \beta^+, \gamma) = \Theta_x\left(Q(0) + Q^-(0; \beta^-) + Q^-(0; \beta^+) + \gamma \Psi(0)\right)
+S(x; \beta^-, \beta^+, \gamma) = \Theta_x\left(Q(0) + Q^-(0; \beta^-) + Q^-(0; \beta^+) + \gamma \Psi(0)\right).
 \end{equation}
-For small $x$ and $\beta^\pm$ the stable and unstable manifolds are the surfaces
+For small $x$ and $\beta^\pm$, the stable and unstable manifolds are the surfaces
 \begin{align*}
 \tilde{W}^u &= S(x; \beta^-, 0, 0) \\
-\tilde{W}^s &= S(x; 0, \beta^+, 0) 
+\tilde{W}^s &= S(x; 0, \beta^+, 0).
 \end{align*}
 Their one-dimensional intersection is the homoclinic orbit $Q(x) = S(x; 0, 0, 0)$, whose tangent space is $Q'(x)$, and $S(0, 0, 0, 0) = Q(0) \neq 0$. The partial derivatives of $S$ are
 \begin{align*}
 S_x(0, 0, 0, 0) &= F(Q(0)) = Q'(0) \\
 S_{\beta^-}(0, 0, 0, 0) &= (Q^-)_{\beta^-}(0; 0) = Y^- \\
 S_{\beta^+}(0, 0, 0, 0) &= (Q^+)_{\beta^+}(0; 0) = Y^+ \\
-S_{\gamma}(0, 0, 0, 0) &= \Psi(0)
+S_{\gamma}(0, 0, 0, 0) &= \Psi(0),
 \end{align*}
 which span $\R^{2m}$ by \cref{R2mdecomp}. Since the Jacobian of $S$ is invertible at the origin, $S$ is invertible near $Q(0)$ by the inverse function theorem.
 \end{proof}
 \end{lemma}
 
-Applying this coordinate change near $Q(0)$, the matching condition \cref{exsystem3} is equivalent to projecting $U_i^+(0) - U_i^-(0) = 0$ onto $\R \Q'(0)$, $Y^+$, $Y^-$, and $\R \Psi(0)$ and solving separately on each subspace. Since $P_{\R Q'(0)}(Q^\pm(0; \beta^\pm)) = 0$ and $\tilde{Q}_i^\pm(0) \in \R \Psi(0) \oplus Y^+ \oplus Y^-$, $P_{\R Q'(0)}(U_i^+(0) - U_i^-(0)) = 0$ is automatically satisfied. Since $P_{Y^\pm}(Q^\pm(0; \beta^\pm)) = \beta^\pm$ and $P_{\R \Psi(0)}(Q^\pm(0; \beta^\pm)) = 0$, it remains to solve the equations
+After applying this coordinate change near $Q(0)$, the matching condition \cref{exsystem3} is equivalent to projecting the equation $U_i^+(0) - U_i^-(0) = 0$ onto $\R \Q'(0)$, $Y^+$, $Y^-$, and $\R \Psi(0)$ and solving separately on each subspace. Since $P_{\R Q'(0)}(Q^\pm(0; \beta^\pm)) = 0$ and $\tilde{Q}_i^\pm(0) \in \R \Psi(0) \oplus Y^+ \oplus Y^-$, $P_{\R Q'(0)}(U_i^+(0) - U_i^-(0)) = 0$ is automatically satisfied. Since $P_{Y^\pm}(Q^\pm(0; \beta^\pm)) = \beta^\pm$ and $P_{\R \Psi(0)}(Q^\pm(0; \beta^\pm)) = 0$ due to the change of coordinates, it remains to solve the equations
 \begin{align}
 P_{Y^+}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) + \beta_i^+  &= 0 \label{PY+match} \\
 P_{Y^-}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) - \beta_i^- &= 0 \label{PY-match} \\
-P_{\R \Psi(0)}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) &= 0 \label{PZmatch}
+P_{\R \Psi(0)}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) &= 0. \label{PZmatch}
 \end{align}
 In the next lemma we solve \cref{PY+match} and \cref{PY-match} to obtain the parameters $\beta_i^\pm$.
 
@@ -1244,11 +1239,11 @@ For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, and for $i = 0, 
 \begin{equation}\label{betaest}
 \begin{aligned}
 |\beta_i^+| &\leq C e^{-2 \alpha X_{i-1}} \\
-|\beta_i^-| &\leq C e^{-2 \alpha X_i}
+|\beta_i^-| &\leq C e^{-2 \alpha X_i}.
 \end{aligned}
 \end{equation}
 \begin{proof}
-Evaluating the fixed point equations \cref{FPequations} at $0$ and substituting them into \cref{Upiecewise}, equations \cref{PY+match} and \cref{PY-match} become $H_i(\beta_i^+, \beta_i^-) = 0$, where $H: Y^+ \oplus Y^- \rightarrow Y^+ \oplus Y^-$ is defined by
+Evaluating the fixed point equations \cref{FPequations} at $0$ and substituting them into \cref{Upiecewise}, equations \cref{PY+match} and \cref{PY-match} can be written as $H_i(\beta_i^+, \beta_i^-) = 0$, where $H_i: Y^+ \oplus Y^- \rightarrow Y^+ \oplus Y^-$ is defined by
 \begin{equation}\label{defHPY}
 H_i(\beta_i^+, \beta_i^-) = 
 \begin{pmatrix}
@@ -1282,7 +1277,7 @@ U_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
 U_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) && x \in [0, X_i]
 \end{aligned}
 \end{equation}
-where the pieces are glued together end-to-end in a loop. We have the estimates
+where the pieces are glued together end-to-end in a loop, and we have the estimates
 \begin{enumerate}[(i)]
 \item
 \begin{equation}\label{tildeQbounds}
@@ -1302,15 +1297,15 @@ where the pieces are glued together end-to-end in a loop. We have the estimates
 \begin{equation}\label{VQpm}
 \begin{aligned}
 \tilde{Q}_i^+(X_i) &= Q^-(-X_i; \beta_{i+1}^-) + \mathcal{O}(e^{-2 \alpha X_i}) \\
-\tilde{Q}_{i+1}^-(-X_i) &= Q^+(X_i; \beta_i^+) + \mathcal{O}(e^{-2 \alpha X_i})
+\tilde{Q}_{i+1}^-(-X_i) &= Q^+(X_i; \beta_i^+) + \mathcal{O}(e^{-2 \alpha X_i}),
 \end{aligned}
 \end{equation}
 \end{enumerate}
 which hold in addition for derivatives with respect to $x$.
 \begin{proof}
-Part (i) follows from the estimates \cref{Vest} and \cref{aest} together with the definition of the exponentially weighted norm \cref{expwtnorm}. Part (ii) follows from estimate \eqref{betaest}, smooth dependence on initial conditions, and the stable manifold theorem. For part (iii), in \cref{solvefora} we solved the matching condition at $\pm X_i$
+Part (i) follows from the estimates \cref{Vest} and \cref{aest} together with the definition of the exponentially weighted norm \cref{expwtnorm}. Part (ii) follows from the estimate \eqref{betaest}, smooth dependence on initial conditions, and the stable manifold theorem. For part (iii), in \cref{solvefora} we solved the matching condition
 \begin{equation}\label{matchpmXi}
-Q^+(X_i; \beta_i^+) + \tilde{Q}_i^+(X_i) = Q^-(-X_i; \beta_{i+1}^-) + \tilde{Q}_i^-(-X_i)
+Q^+(X_i; \beta_i^+) + \tilde{Q}_i^+(X_i) = Q^-(-X_i; \beta_{i+1}^-) + \tilde{Q}_i^-(-X_i).
 \end{equation}
 Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)$ in turn to \cref{matchpmXi} and using \cref{projdiffest}, the fixed point equations \cref{FPequations}, and the estimates from the previous lemmas in this section, we obtain the estimates \cref{VQpm}.
 \end{proof}
@@ -1318,19 +1313,19 @@ Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)
 
 \subsection{Jump conditions}
 
-Equation \eqref{PZmatch} will give us jump conditions in the direction of the adjoint solution $\Psi(0)$. As in \cite{SandstedeStrut,Sandstede1998} these will only be satisfied for certain values of the lengths $X_i$. 
+Equation \eqref{PZmatch} gives us $n$ jump conditions in the direction of $\Psi(0)$. As in \cite{SandstedeStrut,Sandstede1998} these will only be satisfied for certain values of the lengths $X_i$. Since we have a conservative system, we only need to satisfy $n-1$ of these jump conditions, which are given in the following lemma.
 
 \begin{lemma}\label{jumplemma1}
 A periodic $n$-pulse solution exists if and only if for $i = 0, \dots, n-2$,
 \begin{align}\label{jumpcond2}
-\xi_i = \langle \Psi(-X_i), Q(X_i) \rangle - \langle \Psi(-X_{i-1}), Q(X_{i-1}) \rangle + R_i = 0
+\xi_i = \langle \Psi(-X_i), Q(X_i) \rangle - \langle \Psi(-X_{i-1}), Q(X_{i-1}) \rangle + R_i = 0,
 \end{align}
 where the remainder term has bound
 \begin{align*}
-|R_i| \leq C ( e^{-3 \alpha X_i} +  e^{-3 \alpha X_{i-1}})
+|R_i| \leq C ( e^{-3 \alpha X_i} +  e^{-3 \alpha X_{i-1}}).
 \end{align*}
 \begin{proof}
-Evaluating the fixed point equations \eqref{FPequations} at $x = 0$ and substituting them into \eqref{PZmatch},
+Evaluating the fixed point equations \eqref{FPequations} at $0$ and substituting them into \eqref{PZmatch},
 \begin{equation}\label{PZmatch2}
 \begin{aligned}
 \langle \Psi(0), &\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0) \rangle = \langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle
@@ -1338,23 +1333,28 @@ Evaluating the fixed point equations \eqref{FPequations} at $x = 0$ and substitu
 &+ \int_{X_i}^0 \langle \Psi(0), \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+) \rangle dy - \int_{-X_{i-1}}^0 \langle \Psi(0), \Phi_-^s(0, y, \beta_i^-) G_i^-(y; \beta_i^-) \rangle dy
 \end{aligned}
 \end{equation}
-Using Lemma \ref{dichotomy1} together with smooth dependence on initial conditions and the bound \eqref{betaest},
+Using Lemma \ref{dichotomy1}, smooth dependence on initial conditions, and the bound \eqref{betaest},
 \begin{equation}\label{phibetaest}
 \begin{aligned}
 |(\Phi_+^u(0, x; \beta_i^+) - \Phi_+^u(0, x; 0)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x} && x \geq 0\\
-|(\Phi_-^s(0, x; \beta_i^-) - \Phi_-^s(0, x; 0)| &\leq C e^{-2 \alpha X_i}e^{\alpha x} &&  x \leq 0\\
+|(\Phi_-^s(0, x; \beta_i^-) - \Phi_-^s(0, x; 0)| &\leq C e^{-2 \alpha X_i}e^{\alpha x} &&  x \leq 0.
 \end{aligned}
 \end{equation}
-To evaluate the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from Lemma \ref{solvefora} for $a_i^+$. Using \eqref{phibetaest}, the estimate \eqref{Qpmbounds}, and Lemma \ref{eigadjoint}(iii),
+For the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from \cref{solvefora} for $a_i^+$. Using \eqref{phibetaest}, the estimate \eqref{Qpmbounds}, and \cref{eigadjoint}(iii),
 \begin{align*}
 \langle \Psi(0), &\Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = -\langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+)\left( P^u_0 ( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)) + \mathcal{O}( e^{-2 \alpha X_i} ) \right) \rangle \\
 &= -\langle \Psi(0), \Phi^u_+(0, X_i; 0) P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-2\alpha X_{i-1}}e^{-\alpha X_i} ) \\
-&= -\langle \Psi(X_i), P^u_+(X_i; 0) P^u_0 \left( Q(X_i) - Q(-X_i) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}})
+&= -\langle \Psi(X_i), P^u_+(X_i; 0) P^u_0 \left( Q(X_i) - Q(-X_i) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}}).
 \end{align*}
-Using \cref{projdiffest}, $P^u_+(X_i; 0) P^u_0 ( Q(X_i) - Q(-X_i)) = Q(-X_i) + \mathcal{O}(e^{-2\alpha X_i})$.
+By \cref{projdiffest}, $P^u_+(X_i; 0) P^u_0 ( Q(X_i) - Q(-X_i)) = Q(-X_i) + \mathcal{O}(e^{-2\alpha X_i})$, thus we have
 \begin{align*}
 \langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = 
-\langle \Psi(X_i), Q(-X_i) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}})
+\langle \Psi(X_i), Q(-X_i) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}}).
+\end{align*}
+Similarly,
+\begin{align*}
+\langle \Psi(0), \Phi^s_-(0, -X_{i-1}, \beta_i^-) a_{i-1}^- \rangle = 
+\langle \Psi(-X_{i-1}), Q(-X_{i-1}) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}}).
 \end{align*}
 Using the reversibility relations $Q(-x) = RQ(x)$ and $\Psi(-x) = R\Psi(x)$ from \cref{varadjsolutions},
 \begin{align*}
@@ -1362,11 +1362,11 @@ Using the reversibility relations $Q(-x) = RQ(x)$ and $\Psi(-x) = R\Psi(x)$ from
 &= \langle R\Psi(-X_i), R Q(X_i) \rangle 
 = \langle \Psi(-X_i), Q(X_i) \rangle.
 \end{align*}
-Combining everything, we obtain equation \cref{jumpcond2} and the remainder bound for $R_i$. By \cite[p. 2093]{SandstedeStrut}, since \cref{eqODE} is a conservative system, if $n-1$ of the jump conditions are satisfied, the final jump condition must automatically be satisfied. Since we are on a periodic domain, it does not matter which condition we eliminate, so choose to eliminate the last one. 
+Combining everything, we obtain equation \cref{jumpcond2} and the remainder bound for $R_i$. By \cite[p. 2093]{SandstedeStrut}, since \cref{eqODE} is a conservative system, if $n-1$ of the jump conditions are satisfied, the final jump condition must automatically be satisfied. Since it does not matter which condition we eliminate, so choose to eliminate the last one. 
 \end{proof}
 \end{lemma}
 
-As a corollary, periodic single pulse solutions exist for sufficiently large $X_0$ since for that case there are no jump conditions. These are periodic orbits which are close to the primary homoclinic orbit $Q(x)$.
+As a corollary, periodic single pulse solutions exist for sufficiently large $X_0$, since for that case there are no jump conditions. These are periodic orbits which are close to the primary homoclinic orbit $Q(x)$.
 
 \begin{corollary}\label{corr:1pexists}
 Periodic single pulse solutions exist for sufficiently large $X_0$.
@@ -1380,7 +1380,7 @@ Following \cite[Section 6]{Sandstede1998}, we will introduce a change of variabl
 \end{align}
 where $\rho = \beta_0 / \alpha_0$. Since $\mathcal{R}$ is closed and bounded, it is compact, thus complete. For $r \in \mathcal{R}$, let
 \begin{equation}\label{Xstar}
-X^* = -\frac{1}{2\alpha_0}\log r - \frac{\phi}{2\beta_0}
+X^* = -\frac{1}{2\alpha_0}\log r - \frac{\phi}{2\beta_0},
 \end{equation}
 so that
 \begin{equation}\label{defr}
@@ -1392,33 +1392,36 @@ b_i = e^{-2 \alpha_0 (X_i - X^*)},
 \end{equation}
 where $X_i \geq X^*$ for $i = 0, \dots, n-1$. The quantities $b_i$ are length parameters for the system. In terms of $r$ and $b_i$,
 \begin{equation}\label{Xiscale}
-X_i = -\frac{1}{2\alpha_0}\log(b_i r) - \frac{\phi}{2 \beta_0}
+X_i = -\frac{1}{2\alpha_0}\log(b_i r) - \frac{\phi}{2 \beta_0}.
 \end{equation}
 In the next lemma, we rewrite the system \eqref{jumpcond2} using this rescaling.
 
 \begin{lemma}\label{jumplemma3}
 A periodic multi-pulse solution exists if and only if for $i = 0, \dots, n-2$
 \begin{equation}\label{Geq}
-G_i(b_1, \dots, b_{n-1}, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1} \sin \left( -\rho \log b_{n-1} \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0
+G_i(b_1, \dots, b_{n-1}, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1} \sin \left( -\rho \log b_{n-1} \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0,
 \end{equation}
-where $r \in \mathcal{R}$. All derivatives of the remainder term with respect to $b_i$ are also $\mathcal{O}(r^{\gamma / 2 \alpha})$. 
+where $r \in \mathcal{R}$ and $0 < \gamma \leq 1$. All derivatives of the remainder term with respect to $b_i$ are also $\mathcal{O}(r^{\gamma / 2 \alpha})$. 
 \begin{proof}
 Using \cite[Lemma 6.1(i)]{Sandstede1998}, for $x > 0$ sufficiently large,
 \begin{equation}\label{IPalphabeta}
 \langle \Psi(-x), Q(x) \rangle
-= p_0 e^{-2 \alpha_0 x} \sin(2 \beta_0 x + \phi) + \mathcal{O}(e^{-(2 \alpha_0 + \gamma) x})
+= p_0 e^{-2 \alpha_0 x} \sin(2 \beta_0 x + \phi) + \mathcal{O}\left(e^{-(2 \alpha_0 + \gamma) x}\right),
 \end{equation}
-where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. We do not have a parameter $\mu$ in this system, so the $\mu$-dependent terms in \cite[Lemma 6.1(i)]{Sandstede1998} are constant and $\beta(\mu) = \beta_0$. We will always take $\gamma \leq 1$. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{Xiscale} and \cref{bjscale},
-\begin{align}\label{diff2}
-\langle \Psi(-x), Q(x) \rangle = p_0 e^{\alpha \phi / \beta_0 } b_i r \sin \left( - \rho \log (b_i r) \right) - p_0 e^{\alpha \phi / \beta_0 } b_{i-1} r \sin \left( -\rho \log (b_{i-1} r) \right) + \mathcal{O}(r^{1 + \gamma / 2 \alpha}) &= 0.
-\end{align}
-Dividing both sides by $r > 0$ and $p_0 e^{\alpha \phi / \beta_0 } > 0$ and simplifying, we obtain the jump conditions
+where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{Xiscale} and \cref{bjscale},
+\begin{equation}\label{diff2}
+\begin{aligned}
+p_0 e^{\alpha \phi / \beta_0 } b_i r \sin \left( - \rho \log (b_i r) \right) 
+- p_0 e^{\alpha \phi / \beta_0 } b_{i-1} r \sin \left( -\rho \log (b_{i-1} r) \right) + \mathcal{O}(r^{1 + \gamma / 2 \alpha}) = 0.
+\end{aligned}
+\end{equation}
+Dividing both sides by $r p_0 e^{\alpha \phi / \beta_0 } > 0$ and simplifying, we obtain the jump conditions
 \begin{align}\label{diff3}
 \xi_i = b_i \sin \left( -\rho \log b_i \right) - b_{i-1} \sin \left( -\rho \log b_{i-1} \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) &= 0,
 \end{align} 
-where we used the fact that $\sin \left( -\rho \log (b_i r) \right) = \sin \left( -\rho \log b_i \right)$ for $r \in \mathcal{R}$. For $i = 0, \dots, n-2$, let
+since $\sin \left( -\rho \log (b_i r) \right) = \sin \left( -\rho \log b_i \right)$ for $r \in \mathcal{R}$. For $i = 0, \dots, n-2$, let
 \begin{equation}\label{Gidef}
-G_i(b_1, \dots, b_{n-1}, r) = \sum_{k = 0}^i \xi_k
+G_i(b_1, \dots, b_{n-1}, r) = \sum_{k = 0}^i \xi_k.
 \end{equation}
 After canceling terms, we obtain the equations \cref{Geq}, which are equivalent to \cref{jumpcond2} since they are a linear combination of the jumps $\xi_i$.
 \end{proof}
@@ -1430,7 +1433,7 @@ In \cref{jumplemma3}, we rewrote \cref{jumpcond2} so that equation $i$ inolves $
 
 When $r = 0$, the equations \eqref{Geq} all have the same form. Let
 \begin{equation}\label{defH}
-H(b_0, b_1) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right)
+H(b_0, b_1) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right).
 \end{equation}
 In the next lemma, we will show that pitchfork bifurcations occur on the diagonal in the zero set of $H(b_0, b_1)$.
 
@@ -1438,14 +1441,14 @@ In the next lemma, we will show that pitchfork bifurcations occur on the diagona
 \begin{lemma}\label{pitchforkH}
 A discrete family of pitchfork bifurcations occurs along the diagonal in the zero set of $H(b_0, b_1)$ at $(b_0, b_1) = (b_k^*, b_k^*)$ for $k \in \Z$, where
 \begin{align}\label{pkstar}
-b^*_k = e^{-\frac{1}{\rho} (p^* + k \pi) }, \quad p^* = \arctan \rho 
+b^*_k = e^{-\frac{1}{\rho} (p^* + k \pi) }, \quad p^* = \arctan \rho.
 \end{align}
 Locally, the arms of the pitchfork bifurcations open upwards along the diagonal.
 \begin{proof}
 First, we note that the partial derivative $H_{b_0}(b_0, b_1) = 0$ if and only if $b_0 = b_k^*$ for integer $k$, which gives the locations of the bifurcation points. Next, we change coordinates so that the pitchfork bifurcation will occur along the horizontal axis. Let $b_0 = y-x$ and $b_1 = y+x$, which is a rotation by $-\pi/4$. Making this substitution yields
 \begin{equation}\label{Hxy}
 H(x, y) = 
-(y - x) \sin \left( -\rho \log(y - x) \right) - (y + x) \sin \left( - \rho \log (y + x) \right)
+(y - x) \sin \left( -\rho \log(y - x) \right) - (y + x) \sin \left( - \rho \log (y + x) \right).
 \end{equation}
 For all $y$, $H(-x, y) = -H(x, y)$, which is the required odd symmetry for a pitchfork bifurcation. Let $(x_0, y_0) = \left(0, b^*_k \right)$. Evaluating the relevant partial derivatives of $H$ at $(x_0, y_0)$,
 \begin{align*}
@@ -1458,13 +1461,13 @@ thus a pitchfork bifurcation occurs at $(0, b^*_k)$ for all $k \in \Z$. To leadi
 \begin{equation*}
 c_k = \frac{1}{6}\exp{\left(\frac{1}{\rho} (\arctan \rho - k \pi) \right)} > 0
 \end{equation*}
-The result follows upon returning to the $(b_0, b_1)$ coordinate system.
+The result follows upon reverting to the $(b_0, b_1)$ coordinate system.
 \end{proof}
 \end{lemma}
 
 Now that we have located the pitchfork bifurcations, we will construct a natural parameterization for the zero set of $H(b_0, b_1)$. We only need to consider $b_0 \geq b_1$ since the zero set is symmetric across the diagonal. For any nonnegative integers $m_1 \geq m_0$, the point
 \[
-(b_0, b_1) = \left( e^{\frac{-m_0 \pi}{\rho}}, e^{\frac{-m_1 \pi}{\rho}}\right)
+(b_0, b_1) = \left( \exp\left( \frac{-m_0 \pi}{\rho} \right), \exp \left( \frac{-m_1 \pi}{\rho} \right) \right)
 \]
 is in the zero set of $H$. We will use these points to anchor our parameterization, and will use a phase parameter $\theta$ to connect these anchor points. 
 
@@ -1480,7 +1483,7 @@ b_0( m_0, m_1, \theta) = \exp\left( -\frac{1}{\rho}(m_0 \pi + \theta^*(\theta, m
 b_1( m_0, m_1, \theta) = \exp\left( -\frac{1}{\rho}(m_1 \pi + \theta) \right),
 \end{aligned}
 \end{equation}
-where $\theta^*(\theta, m) : [-\pi + p^*, p^*] \rightarrow \R$ is smooth in $\theta$ for all $m$ and has the following properties.
+where the functions $\theta^*(\theta, m) : [-\pi + p^*, p^*] \rightarrow \R$ are smooth in $\theta$ for all nonnegative integers $m$ and have the following properties.
 \begin{enumerate}[(i)]
 \item $\theta^*(\theta; 0) = \theta $
 \item $\theta^*(0; m) = 0 \text{ for all } m$
@@ -1490,16 +1493,9 @@ where $\theta^*(\theta, m) : [-\pi + p^*, p^*] \rightarrow \R$ is smooth in $\th
 \end{enumerate}
 In particular, $\theta^*(p^*, 0) = \theta^*(\pi - p^*, 1) = p^*$.
 \begin{proof}
-The proof is routine computation. Let $I = [-\pi + p^*, p^*]$. We will substitute the ansatz 
-\begin{equation}\label{thetaansatz}
-\begin{aligned}
-b_0( m_0, m_1, \theta) &= \exp\left(-\frac{1}{\rho}(m_0 \pi + \theta^*) \right), \quad
-b_1( m_0, m_1, \theta) &= \exp\left(-\frac{1}{\rho}(m_1 \pi + \theta) \right)
-\end{aligned}
-\end{equation}
-into $H(b_0, b_1) = 0$ and then solve for $\theta^*$ in terms of $\theta$.
+We will substitute \cref{thetaparam} into $H(b_0, b_1) = 0$ and solve for $\theta^*$ in terms of $\theta$.
 \begin{enumerate}
-\item First, we show that $\theta^*$ only depends on the difference $m_1 - m_0$. Substituting \cref{thetaansatz} into $H(b_0, b_1) = 0$ and simplifying,
+\item First, we show that $\theta^*$ only depends on the difference $m_1 - m_0$. Substituting \cref{thetaparam} into $H(b_0, b_1) = 0$ and simplifying,
 \begin{align*}
 e^{-\frac{1}{\rho}m_0 \pi} (-1)^{m_0} \left( e^{-\frac{1}{\rho}\theta^*}\sin \theta^* - e^{-\frac{1}{\rho}(m_1 - m_0) \pi} (-1)^{m_1 - m_0} e^{-\frac{1}{\rho}\theta}\sin \theta \right) = 0.
 \end{align*}
@@ -1518,7 +1514,7 @@ g(\theta) = e^{-\frac{1}{\rho}\theta}\sin \theta, \quad t(m) = (-1)^m e^{-\frac{
 
 \item For $m = 0$, $t(0) = 1$, thus $\theta^*(\theta, 0) = \theta$.
 
-\item For $m \geq 1$, we first show that $g(\theta)$ is invertible on $I$. Since
+\item Let $I = [-\pi + p^*, p^*]$. For $m \geq 1$, we first show that $g(\theta)$ is invertible on $I$. Since
 \begin{equation}\label{gprime}
 g'(\theta) = e^{ -\frac{1}{\rho} \theta } \left( \cos \theta - \frac{1}{\rho} \sin \theta \right),
 \end{equation}
@@ -1531,10 +1527,10 @@ Then $g: I \rightarrow g(I)$ is a bijection and $g^{-1}: g(I) \rightarrow I$ is 
 	t(m)g(\theta) \in
 	\begin{cases}
 	[-e^{-\frac{1}{\rho}(m-1) \pi} T, e^{-\frac{1}{\rho}m \pi} T] & m \text{ even }\\
-	[-e^{-\frac{1}{\rho}m \pi} T, e^{-\frac{1}{\rho}(m-1) \pi} T] & m \text{ odd }
-	\end{cases}.
+	[-e^{-\frac{1}{\rho}m \pi} T, e^{-\frac{1}{\rho}(m-1) \pi} T] & m \text{ odd.}
+	\end{cases}
 \end{equation}
-Since $t(m)g(\theta) \subset g(I)$ for all $\theta \in I$, we define
+Since $t(m)g(\theta) \subset g(I)$ for all $\theta \in I$, define
 \begin{align}\label{solvethetastar}
 \theta^*(\theta, m) &= g^{-1}\left( t(m) g(\theta) \right) && \theta \in I, m \geq 1
 \end{align}
@@ -1560,40 +1556,38 @@ which are equal. In particular, $\theta^*(p^*, 0) = \theta^*(\pi - p^*, 1) = p^*
 
 \subsection{Proof of Theorem \ref{th:perexist}}
 
-By \cref{jumplemma3}, a periodic $n$-pulse exists if and only if $G_i(b_0, \dots, b_{n-1}, r) = 0$ for $i = 0, \dots, n-2$. When $r = 0$, $G_i(b_0, \dots, b_{n-1}, 0) = H(b_i, b_{n-1})$, and we can use the parameterization from \cref{thetaparamlemma}. Choose any periodic parameterization according to \cref{def:perparam}. Using \cref{thetaparamlemma}, let
+By \cref{jumplemma3}, a periodic $n$-pulse exists if and only if $G_i(b_0, \dots, b_{n-1}, r) = 0$ for $i = 0, \dots, n-2$. When $r = 0$, $G_i(b_0, \dots, b_{n-1}, 0) = H(b_i, b_{n-1})$, and we can use the parameterization from \cref{thetaparamlemma}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ and define
 \begin{equation}\label{thetaparammulti}
 \begin{aligned}
 b_i( m_i, m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_i \pi + \theta^*(\theta, m_{n-1} - m_i) \right) && i = 0, \dots, n-2 \\
-b_{n-1}( m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_{n-1} \pi + \theta) \right) \\
-b^* &= (b_0( m_0, m_{n-1}, \theta), \dots, b_{n-2}( m_{n-2}, m_{n-1}, \theta) ) \in \R^{n-1}
+b_{n-1}( m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_{n-1} \pi + \theta) \right),
 \end{aligned}
 \end{equation}
-so that
+so that by \cref{thetaparamlemma},
 \begin{align*}
-H(b_i( m_i, m_{n-1}, \theta), b_{n-1}( m_{n-1}, \theta) ) &= 0 && i = 0, \dots, n-2
+H(b_i( m_i, m_{n-1}, \theta), b_{n-1}( m_{n-1}, \theta) ) &= 0 && i = 0, \dots, n-2.
 \end{align*}
 Substituting $b_{n-1}(m_{n-1}, \theta)$ for $b_{n-1}$ in \eqref{Geq}, define $G: \R^{n-1} \times \mathcal{R} \rightarrow \R^{n-1}$ by $G = (G_0, \dots, G_{n-2})^T$, where 
 \begin{equation*}
 G_i(b, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1}(m_{n-1}, \theta) \sin \left( -\rho \log b_{n-1}(m_{n-1}, \theta) \right) + \mathcal{O}(r^{\gamma / 2 \alpha})
 \end{equation*}
-and $b = (b_0, \dots, b_{n-1})$. $G(b^*, 0) = 0$, and the Jacobian matrix $D_b G(b^*,0)$ is diagonal, with
+and $b = (b_0, \dots, b_{n-1}) \in \R^{n-1}$. Let $b^* = (b_0( m_0, m_{n-1}, \theta), \dots, b_{n-2}( m_{n-2}, m_{n-1}, \theta) )$. Then $G(b^*, 0) = 0$, and the Jacobian matrix $D_b G(b^*,0)$ is diagonal, with
 \begin{align*}
 \partial_{b_i} G_i(b^*, 0)
-&= \sin \left( -\rho \log b_i(m_i, \theta) \right) - \rho \cos \left( -\rho \log b_i(m_i, \theta) \right)
+&= \sin \left( -\rho \log b_i(m_i, \theta) \right) - \rho \cos \left( -\rho \log b_i(m_i, \theta) \right).
 \end{align*}
-From Lemma \ref{pitchforkH}, $\partial_{b_i} G_i(b, 0) = 0$ if and only if $b_i$ is one of the pitchfork bifurcation points $b_k^*$. By \cref{thetaparamlemma}, if we exclude $\theta \in \{ -\pi + p^*, p^* \}$, the Jacobian $D_b G(b^*,0)$ is invertible, and we can use the implicit function theorem to solve for $b$ in terms of $r$ near $b^*$. Specifically, there exists $r_* > 0$ and a continuous function $b: \mathcal{R} \cap [0, r_*] \rightarrow \R^{n-1}$ given by $b(r) = \left( b_0(r), \dots, b_{n-2}(r) \right)$ such that $b(0) = b^*$ and $G(b(r),r) = 0$. For $i = 0, \dots, n-2$, define $t_i(r; m_i, \theta): \mathcal{R} \rightarrow \R$ by
+From Lemma \ref{pitchforkH}, $\partial_{b_i} G_i(b, 0) = 0$ if and only if $b_i$ is one of the pitchfork bifurcation points $b_k^*$. By \cref{thetaparamlemma}, if we exclude $\theta \in \{ -\pi + p^*, p^* \}$, the Jacobian $D_b G(b^*,0)$ is invertible, thus we can use the implicit function theorem to solve for $b$ in terms of $r$ near $b^*$. Specifically, there exists $r_* > 0$ and a unique continuous function $b: \mathcal{R} \cap [0, r_*] \rightarrow \R^{n-1}$ given by $b(r) = \left( b_0(r), \dots, b_{n-2}(r) \right)$ such that $b(0) = b^*$ and $G(b,r) = 0$ if and only if $b = b(r)$. For $i = 0, \dots, n-2$, define $t_i(r; m_i, \theta): \mathcal{R} \rightarrow \R$ by
 \begin{equation}\label{defti}
-t_i(r; m_i, m_{n-1}, \theta) = -\rho \log b_i(r)
+t_i(r; m_i, m_{n-1}, \theta) = -\rho \log b_i(r),
 \end{equation}
-The functions $t_i(r; m_i, m_{n-1}, \theta)$ are continuous in $r$, and from \cref{thetaparammulti} we have $t_i(0; m_i, m_{n-1}, \theta) = m_i \pi + \theta^*(\theta, m_{n-1} - m_i)$. Equations \cref{Xi} are obtained by substituting $b_i(r)$, $i = 0, \dots, n-2$, and $b_{n-1}(m_{n-1}, \theta)$ for $b_i$ in \cref{Xiscale} and using \cref{defti}.
+which is continuous in $r$, and $t_i(0; m_i, m_{n-1}, \theta) = m_i \pi + \theta^*(\theta, m_{n-1} - m_i)$ by \cref{thetaparammulti}. Equations \cref{Xi} are obtained by substituting $b_i(r)$, $i = 0, \dots, n-2$, and $b_{n-1}(m_{n-1}, \theta)$ for $b_i$ in \cref{Xiscale} and using \cref{defti}.
 
 \subsection{Periodic 2-pulse}
 
 For the periodic 2-pulse, we have a single jump condition
 \begin{equation}\label{2pulsedefG}
-G(b_0, b_1, r) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0 \\
+G(b_0, b_1, r) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0.
 \end{equation}
-
 First, we will show that that the pitchfork bifurcations along the diagonal persist for small $r$. Recall that by \cref{def:perparam}, $m_0 \in \{0, 1\}$ for a periodic 2-pulse.
 
 \begin{lemma}\label{pitchpersist}
@@ -1607,9 +1601,9 @@ Take $m_0 = 0$. The proof is identical for $m_0 = 1$. First, we show the require
 \xi_0(X_0, X_1) = \langle \Psi(0), U_0^+(0) - U_0^-(0) \rangle, \quad
 \xi_1(X_0, X_1) = \langle \Psi(0), U_1^+(0) - U_1^-(0) \rangle 
 \end{equation}
-in the direction of $\Psi(0)$. By symmetry, $(U_1^+(-x), U_1^-(-x), U_0^+(-x), U_0^-(-x))$ is also a solution for $(X_0, X_1)$, thus it must be the same solution by uniqueness. In particular, $U_1^+(0) = U_0^-(0)$ and $U_1^-(0) = U_0^+(0)$, thus $\xi_0(X_0, X_1) = -\xi_1(X_0, X_1) = -\xi_0(X_1, X_0)$. Since swapping $X_0$ and $X_1$ is equivalent to swapping $b_0$ and $b_1$ in \cref{2pulsedefG}, $G(b_0, b_1, r) = -G(b_1, b_0, r)$ for sufficiently small $r$. Making the change of coordinates $(b_0, b_1) \mapsto (x, y)$ as in Lemma \ref{pitchforkH}, $G(-x, y, r) = -G(x, y, r)$ for sufficiently small $r$. 
+in the direction of $\Psi(0)$. By symmetry, $(U_1^+(-x), U_1^-(-x), U_0^+(-x), U_0^-(-x))$ is also a solution for $(X_0, X_1)$, thus it must be the same solution by uniqueness. In particular, $U_1^+(0) = U_0^-(0)$ and $U_1^-(0) = U_0^+(0)$, thus $\xi_0(X_0, X_1) = -\xi_1(X_0, X_1) = -\xi_0(X_1, X_0)$. Since swapping $X_0$ and $X_1$ is equivalent to swapping $b_0$ and $b_1$ in \cref{2pulsedefG}, $G(b_0, b_1, r) = -G(b_1, b_0, r)$ for sufficiently small $r$. 
 
-The persistence of the pitchfork bifurcation follows from a Lyapunov-Schmidt reduction.  By Lemma \ref{pitchforkH}, $G_x(0, b_0^*, 0) = 0$ and $G_{xy}(0, b_0^*, 0) \neq 0$, thus by the implicit function theorem there exists $r_2 > 0$, an open interval $(-a, a)$, and a unique smooth function $y = y^*(x, r)$ such that $y^*(0, 0) = b_0^*$ and $G_x(x, y^*(x, r), r) = 0$ for all $x \in (-a, a)$ and $r < r_2$. It follows that a pitchfork bifurcation occurs at $(x, y, r) = (0, y^*(0, r), r)$ by evaluating the appropriate partial derivatives of $G$ as in Lemma \ref{pitchforkH}. Let $b_0^*(r) = y^*(0, r)$. The result follows upon reverting to the original $(b_0, b_1)$ coordinates.
+Making the change of coordinates $(b_0, b_1) \mapsto (x, y)$ as in Lemma \ref{pitchforkH}, $G(-x, y, r) = -G(x, y, r)$ for sufficiently small $r$. The persistence of the pitchfork bifurcation follows from a Lyapunov-Schmidt reduction.  By Lemma \ref{pitchforkH}, $G_x(0, b_0^*, 0) = 0$ and $G_{xy}(0, b_0^*, 0) \neq 0$, thus by the implicit function theorem there exists $r_2 > 0$, an open interval $(-a, a)$, and a unique smooth function $y = y^*(x, r)$ such that $y^*(0, 0) = b_0^*$ and $G_x(x, y^*(x, r), r) = 0$ for all $x \in (-a, a)$ and $r < r_2$. It follows that a pitchfork bifurcation occurs at $(x, y, r) = (0, y^*(0, r), r)$ by evaluating the appropriate partial derivatives of $G$ as in Lemma \ref{pitchforkH}. Letting $b_0^*(r) = y^*(0, r)$, the result follows upon reverting to the original $(b_0, b_1)$ coordinates.
 \end{proof} 
 \end{lemma}
 
@@ -1629,11 +1623,11 @@ b_1(s) &= e^{-\frac{1}{\rho}s}
 As in the previous lemma, take $m_0 = 0$. The proof is identical for $m_0 = 1$. For every positive integer $m_1$ with $m_1 \geq 1$, let
 \begin{equation}\label{thetaparam2}
 \begin{aligned}
-\tilde{b}_0( m_1, \theta) = \exp\left[ -\frac{1}{\rho}\theta^*(\theta, m_1) \right], \quad
-\tilde{b}_1( m_1, \theta) = \exp\left[ -\frac{1}{\rho}(m_1 \pi + \theta) \right]
+\tilde{b}_0( m_1, \theta) = \exp\left( -\frac{1}{\rho}\theta^*(\theta, m_1) \right), \quad
+\tilde{b}_1( m_1, \theta) = \exp\left( -\frac{1}{\rho}(m_1 \pi + \theta) \right),
 \end{aligned}
 \end{equation}
-Since these families connect together at their endpoints by \cref{thetaparamlemma}, define $b_1(s)$ by \cref{defb1}. For $s > p^*$, let
+where $\theta^*$ is defined in \cref{thetaparamlemma}. Since these families connect at their endpoints, define $b_1(s)$ by \cref{defb1}. For $s > p^*$, let
 \begin{equation}\label{defmsthetas}
 \begin{aligned}
 m(s) = \left\lceil \frac{s - p^*}{\pi} \right\rceil, \quad
@@ -1648,7 +1642,7 @@ so that the continuous curve $(\tilde{b}_0(s), b_1(s))$, $s > p^*$, parameterize
 \begin{align*}
 [\tilde{G}(b, r)](s) &= G(b(s), b_1(s), r) = b(s) \sin(-\log b(s) ) - e^{-\frac{1}{\rho}s} \sin s + \mathcal{O}(r^{\gamma/2\alpha}).
 \end{align*}
-Then $\tilde{G}(\tilde{b}_0(s), r) = 0$, and the Fr\'echet derivative $D_{b_0} \tilde{G}(b, 0) = G_{b_0}(b(s), b_1(s), 0)$.
+Then $\tilde{G}(\tilde{b}_0(s), r) = 0$, and $D_{b_0} \tilde{G}(b, 0) = G_{b_0}(b(s), b_1(s), 0)$.
 
 By Lemma \ref{pitchforkH}, $G_{b_0}(b_0, b_1, 0) = 0$ if and only if $(b_0, b_1)$ is one of the pitchfork bifurcation points; by \cref{thetaparamlemma}, these occur on the curve $(\tilde{b}_0(s), b_1(s))$ only when $s = p^*$. From the proof of \cref{thetaparamlemma}, $|G_{b_0}(\tilde{b}_0(s), b_1(s), 0)|$ is bounded below for $s \geq p^* + \delta$, thus $D_{b_0} \tilde{G}(\tilde{b}_0, 0)$ is invertible with bounded inverse. Using the implicit function theorem for Banach spaces, there exists $r_3 > 0$ and a unique smooth function $b: \mathcal{R} \rightarrow X$ with $b(0) = \tilde{b}_0$ such that for all $r \leq r_3$, $\tilde{G}(b(r), r) = 0$. It follows from the definition of $\tilde{G}$ that $G([b(r)](s), b_1(s), r) = 0$ for all $r \leq r_3$ and $s \in [p^* + \delta, \infty)$. The result follows by taking $b_0(s; m_0, r) = [b(r)](s)$.
 \end{proof}
