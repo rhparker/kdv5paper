@@ -180,7 +180,7 @@ Linearization of \cref{KdV5eq4} about a solution $u^*(x)$ is the self-adjoint li
 \begin{equation}\label{KdV5hessian}
 \calE''(u^*) = \partial_x^4 + p \partial_x^2 + c - 2 u^*,
 \end{equation}
-where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is a hyperbolic saddle with 2-dimensional stable and unstable manifolds. The primary pulse $q(x)$ corresponds to a homoclinic orbit connecting the stable and unstable manifolds of this equilibrium. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$, and multi-modal homoclinic and periodic orbits exist which lie close to the primary homoclinic orbit. We adapt Lin's method as in \cite{Sandstede1993, SandstedeStrut} to construct periodic multi-pulse solutions by gluing together consecutive copies of the primary pulse in a loop using small remainder functions. This provides not only an existence result but also estimates for these small remainder functions. As opposed to $n$-homoclinic solutions, which require $n-1$ joins at the pulse tails, these $n$-periodic solutions require $n$ joins at the tails, which provides an additional degree of freedom. For periodic double pulses, this leads to a pitchfork bifurcation structure, whereby solutions with unequal pulse distances bifurcate from those with equal pulse distances. For spectral stability, as in \cite{Sandstede1998}, we reduce the computation of the spectrum of the linearization of the PDE \eqref{KdV5c} about a periodic $n$-pulse to a matrix equation. In contrast to \cite{Sandstede1998}, we obtain a $2n \times 2n$ block matrix which encodes both the interaction eigenvalues and the essential spectrum eigenvalues near the origin.
+where $\calE''(u^*)$ is the Hessian of the energy. The rest state $u = 0$ corresponds to the equilibrium point $U = 0$ of the first order system \cref{KdV5ham2}. When $p < 2 \sqrt{c}$, this equilibrium is a hyperbolic saddle with 2-dimensional stable and unstable manifolds. The primary pulse $q(x)$ corresponds to a homoclinic orbit connecting the stable and unstable manifolds of this equilibrium. If $-2 \sqrt{c} < p < 2 \sqrt{c}$, the eigenvalues of $DF(0)$ are a complex quartet $\pm \alpha_0 \pm \beta i_0$, and multi-modal homoclinic and periodic orbits exist which lie close to the primary homoclinic orbit. We adapt Lin's method as in \cite{Sandstede1993, SandstedeStrut} to construct periodic multi-pulse solutions by gluing together consecutive copies of the primary pulse in a loop using small remainder functions. This provides not only an existence result but also estimates for these small remainder functions. As opposed to $n$-homoclinic solutions, which require $n-1$ joins at the pulse tails, these $n$-periodic solutions require $n$ joins at the tails, which provides an additional degree of freedom. For periodic double pulses, this leads to a pitchfork bifurcation structure, whereby solutions with unequal pulse distances bifurcate from those with equal pulse distances. For spectral stability, as in \cite{Sandstede1998}, we reduce the computation of the spectrum of the linearization of the PDE \cref{KdV5c} about a periodic $n$-pulse to a matrix equation. In contrast to \cite{Sandstede1998}, we obtain a $2n \times 2n$ block matrix which encodes both the interaction eigenvalues and the essential spectrum eigenvalues near the origin.
 
 
 \section{Mathematical Setup}\label{sec:setup}
@@ -411,7 +411,7 @@ We have the nondegeneracy condition
 T_{Q(0)}W^s(0) \cap T_{Q(0)}W^u(0) = \R Q'(0).
 \end{equation}
 \begin{proof}
-If the intersection were more than one-dimensional, there would exist another exponentially localized solution $V(x) = (v_1, \dots, v_{2m}, v_{2m+1})^T$ to \eqref{vareq2}. By the definition of $A(Q(x))$, $v_{2m+1}$ is a constant, which must be 0 since $V(x)$ is exponentially localized. Then $(v_1, \dots, v_{2m})^T$ would be an exponentially localized solution to $V'(x) = DF(Q(x)) V(x)$, which contradicts \eqref{nondegencond}.
+If the intersection were more than one-dimensional, there would exist another exponentially localized solution $V(x) = (v_1, \dots, v_{2m}, v_{2m+1})^T$ to \cref{vareq2}. By the definition of $A(Q(x))$, $v_{2m+1}$ is a constant, which must be 0 since $V(x)$ is exponentially localized. Then $(v_1, \dots, v_{2m})^T$ would be an exponentially localized solution to $V'(x) = DF(Q(x)) V(x)$, which contradicts \cref{nondegencond}.
 \end{proof}
 \end{lemma}
 
@@ -427,13 +427,13 @@ Since $\dim \R Q'(0) \oplus Y^+ \oplus Y^- = 2m-1$, we need two more directions 
 \begin{lemma}\label{varadjsolutions}
 We have the following bounded solutions to the variational and adjoint variational equations.
 \begin{enumerate}[(i)]
-	\item There are two linearly independent, bounded solutions $Q'(x)$ and $V^c(x)$ to \eqref{vareq2}. $V^c(x) \rightarrow V_0$ as $|x| \rightarrow \infty$, and	$V^c(-x) = R V^c(x)$, where $R$ is the standard reversor operator. Furthermore, $V^c = (\tilde{V}^c, 1)$, where $\tilde{V}^c$ solves $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$. Any other bounded solution to \eqref{vareq2} is a linear combination of these.
+	\item There are two linearly independent, bounded solutions $Q'(x)$ and $V^c(x)$ to \cref{vareq2}. $V^c(x) \rightarrow V_0$ as $|x| \rightarrow \infty$, and	$V^c(-x) = R V^c(x)$, where $R$ is the standard reversor operator. Furthermore, $V^c = (\tilde{V}^c, 1)$, where $\tilde{V}^c$ solves $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$. Any other bounded solution to \cref{vareq2} is a linear combination of these.
 
-	\item There are two linearly independent, bounded solutions $\Psi(x)$ and $W_0$ to \eqref{adjvareq2}. $\Psi(x)$ is the exponentially localized solution
+	\item There are two linearly independent, bounded solutions $\Psi(x)$ and $W_0$ to \cref{adjvareq2}. $\Psi(x)$ is the exponentially localized solution
 	\begin{equation}\label{psicomponents}
 	\Psi(x) = (\nabla H(Q(x)), q(x))^T, 
 	\end{equation}
-	and $\Psi(-x) = R \Psi(x)$. $W_0$ is a constant solution. Any other bounded solution to \eqref{adjvareq2} is a linear combination of these.
+	and $\Psi(-x) = R \Psi(x)$. $W_0$ is a constant solution. Any other bounded solution to \cref{adjvareq2} is a linear combination of these.
 \end{enumerate}
 \begin{proof}
 For part (i), the existence of $V^c(x)$ is a consequence of the geometry of the system, and will be proved below after \cref{lemma:Vpm}. The equation $V^c(x)' = A(Q(x))V^c(x)$ then reduces to $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$. For part (ii), equation \cref{adjvareq2} can be written in block form as
@@ -495,7 +495,7 @@ The functions $\theta^*(\theta; m): [-\pi + p^*, p^*] \rightarrow \R$ are define
 \item $\theta^*(\theta; 0) = \theta $
 \item $\theta^*(p^*; m) = \theta^*(-\pi+p^*; m+1)$
 \end{enumerate}
-The last property is a matching condition which ``links up'' the parameterizations corresponding to adjacent $m_i$. \cref{fig:thetastarcartoon} shows a cartoon of first four $\theta^*(\theta; m)$ plotted consecutively to illustrate these properties. Together with the restriction of $\theta$ to the half-open interval $\theta \in (-\pi + p^*, p^*]$, these guarantee that each periodic parameterization corresponds to a unique periodic multi-pulse. The proof that the functions $\theta^*(\theta; m)$ exist and have these properties is given in Lemma \ref{thetaparamlemma} below.
+The last property is a matching condition which ``links up'' the parameterizations corresponding to adjacent $m_i$. \cref{fig:thetastarcartoon} shows a cartoon of first four $\theta^*(\theta; m)$ plotted consecutively to illustrate these properties. Together with the restriction of $\theta$ to the half-open interval $\theta \in (-\pi + p^*, p^*]$, these guarantee that each periodic parameterization corresponds to a unique periodic multi-pulse. The proof that the functions $\theta^*(\theta; m)$ exist and have these properties is given in \cref{thetaparamlemma} below.
 
 \begin{figure}[H]
 \begin{center}
@@ -508,7 +508,7 @@ The last property is a matching condition which ``links up'' the parameterizatio
 We can now state the main theorem of this section, which gives conditions for the existence of periodic multi-pulses. The requirement that the scaling parameter $r$ be sufficiently small means that the individual pulses must be well-separated. The proof is given in \cref{sec:existproof}. 
 
 \begin{theorem}[Existence of $n$-periodic solutions]\label{th:perexist}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from \cref{transverseint}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$, there exists a periodic $n$-pulse solution $U(x) = U(x; m_0, \dots, m_{n-1}, \theta, r)$ to \eqref{genODE}. The distances between consecutive copies of $Q_1(x)$ in $U(x)$ are $2X_i$, where
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \cref{genODE} from \cref{transverseint}. For any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$, there exists $r_* = r_*(m_0, \dots, m_{n-1}, \theta) > 0$ such that for any $r \in \mathcal{R}$ with $r \leq r_*$, there exists a periodic $n$-pulse solution $U(x) = U(x; m_0, \dots, m_{n-1}, \theta, r)$ to \cref{genODE}. The distances between consecutive copies of $Q_1(x)$ in $U(x)$ are $2X_i$, where
 \begin{equation}\label{Xi}
 \begin{aligned}
 	X_i(r; m_i, m_{n-1},\theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_i(r; m_i,m_{n-1}, \theta) + L_0 && i = 0, \dots, n-2 \\
@@ -519,7 +519,7 @@ The functions $t_i(r; m_i, m_{n-1}, \theta): \mathcal{R} \rightarrow \R$ are con
 \[
 t_i(0; m_i, \theta) = m_i \pi + \theta^*(\theta; m_{n-1} - m_i) = m_i \pi + \mathcal{O}\left( e^{-\frac{\pi}{\rho}(m_{n-1} - m_i)} \right),
 \]
-and $L_0$ is a constant. Estimates for $U(x)$ in terms of the primary pulse $Q_1(x)$ are given below in Lemma \ref{solvewithjumps}.
+and $L_0$ is a constant. Estimates for $U(x)$ in terms of the primary pulse $Q_1(x)$ are given below in \cref{solvewithjumps}.
 \end{theorem}
 
 \begin{remark}
@@ -531,8 +531,8 @@ The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
-\includegraphics[width=8cm]{images/2pitchfork.eps}
-\includegraphics[width=8cm]{images/2pitchparam1}
+\includegraphics[width=8cm]{images/2pitchforkrev.eps}
+\includegraphics[width=8cm]{images/2pitchparamrev.eps}
 \end{tabular}
 \end{center}
 \caption[Pitchfork bifurcation structure for periodic 2-pulses]{Pitchfork bifurcation structure for periodic 2-pulses (right panel). Parameterization for periodic 2-pulses (left panel). Blue represents symmetric periodic 2-pulses, and orange represents asymmetric periodic 2-pulses are in orange. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
@@ -540,7 +540,7 @@ The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is
 \end{figure} 
 
 \begin{theorem}\label{2pulsebifurcation}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from Hypothesis \ref{Qexistshyp}. Then there exists $r_* > 0$ such that for all $r \in \mathcal{R}$ with $r \leq r_*$ and $m_0 \in \{0, 1\}$,
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \cref{genODE} from \cref{Qexistshyp}. Then there exists $r_* > 0$ such that for all $r \in \mathcal{R}$ with $r \leq r_*$ and $m_0 \in \{0, 1\}$,
 \begin{enumerate}[(i)]
 	\item There exists a family of symmetric periodic 2-pulses $\tilde{Q}_2(x; m_0, s_0, r)$ parameterized by $s_0 \in [0, \pi)$. The pulse distances $\tilde{X}_i$ are given by
 	\begin{equation}\label{2psymmdist}
@@ -608,7 +608,7 @@ We can now state the main theorem of this section, which provides a condition fo
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \eqref{genODE} from \cref{Qexistshyp}, and let $Q(x) = (Q_1(x), 0)$. Let $\Psi(x)$ and $V^c(x)$ be defined as in \cref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$. Let $r_*$ be defined as in \cref{th:perexist}, and for $r \leq r_*$, let $Q_n(x; r)$ be the corresponding periodic $n$-pulse solution. Then there exists $r_1 \leq r_*$ and $\delta > 0$ with the following property. For $r \leq r_1$, there exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta$ and $|\Re \lambda| < r^{1/4}$ if and only if
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $Q_1(x)$ be the transversely constructed, symmetric primary pulse solution to \cref{genODE} from \cref{Qexistshyp}, and let $Q(x) = (Q_1(x), 0)$. Let $\Psi(x)$ and $V^c(x)$ be defined as in \cref{varadjsolutions}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ with $\theta \notin \{-\pi + p^*, p^* \}$. Let $r_*$ be defined as in \cref{th:perexist}, and for $r \leq r_*$, let $Q_n(x; r)$ be the corresponding periodic $n$-pulse solution. Then there exists $r_1 \leq r_*$ and $\delta > 0$ with the following property. For $r \leq r_1$, there exists a bounded, nonzero solution $V(x)$ of \cref{PDEeigsystemper3} for $|\lambda| < \delta$ and $|\Re \lambda| < r^{1/4}$ if and only if
 \begin{equation}\label{blockmatrixcond}
 E(\lambda) = \det S(\lambda) = 0.
 \end{equation}
@@ -641,7 +641,7 @@ e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
 & & & & -e^{\nu(\lambda)X_{n-1}} & e^{-\nu(\lambda)X_0}
 \end{pmatrix} && n > 2,
 \end{align*}
-where $\nu(\lambda)$ is defined in Lemma \ref{nulambdalemma}. $K^+(\lambda)$ is the same matrix with all terms positive.
+where $\nu(\lambda)$ is defined in \cref{nulambdalemma}. $K^+(\lambda)$ is the same matrix with all terms positive.
 
 \item $A$ is the symmetric banded matrix
 \begin{align}\label{Asymm}
@@ -867,7 +867,7 @@ To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5
 \includegraphics[width=7.5cm]{images/dp2spec.eps}
 \end{tabular}
 \end{center}
-\caption[Spectrum of double pulse solutions]{Spectrum of first two double pulse solutions for KdV5, $X = 30$. Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Interaction eigenvalues in red, essential spectrum eigenvalues in blue, kernel eigenvalues in black. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 30$.}
+\caption[Spectrum of double pulse solutions]{Spectrum of first two double pulse solutions for KdV5, $X = 30$. Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Interaction eigenvalues in red, essential spectrum eigenvalues in blue, kernel eigenvalues in black. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 20$, $X = 30$.}
 \label{fig:KdV5eigs1}
 \end{figure}
 For $m_0 = 0$, the interaction eigenvalues are real, and for $m_0 = 1$, the interaction eigenvalues are purely imaginary (the real part of the eigenvalues computed with \texttt{eig} is less than $10^{-9}$). We can also compute the interaction eigenvalues for periodic double pulses with equal pulse distances (\cref{fig:periodiceigbif}, right panel), which shows that at each pitchfork bifurcation point, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern (up to the first Krein bubble) is shown in the left panel of \cref{fig:periodiceigbif}.
@@ -906,7 +906,8 @@ Finally, we look at what happens when we increase the period $X$. As predicted b
 \begin{align}\label{KdVpabc}
 p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$. 
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$. The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
+
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=7.5cm]{images/KreinRadiusError.eps}
@@ -915,13 +916,12 @@ then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. C
 \caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Parameters $p = 5.3$, $c = 11.2225$.}
 \label{fig:kreinerrors}
 \end{figure}
-\noi The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \section{Proof of Theorem \ref{transverseint}}\label{sec:transverseintproof}
 
 The proof is similar to that of \cite[Lemma 6.2 and Lemma 6.4]{Kapitula2020}. By \cref{Qexistshyp}, $Q(0; c_0) \neq 0$, $H(Q(0; c_0); c_0) = 0$, and $\nabla_U H(Q(0; c_0); c_0) \neq 0$. By the implicit function theorem, there exists $\delta_0 > 0$ such that for $c \in (c_0 - \delta_0, c_0 + \delta_0)$, the 0-level set $H^{-1}(0; c)$ contains a smooth $(2m-1)$-dimensional manifold $K(c)$, with $K(c_0)$ containing $Q(0; c_0)$. The existence result and the smoothness of the map $c \mapsto Q(x; c)$ for $c \in (c_0 - \delta_0, c_0 + \delta_0)$ follow from the transverse intersection of $\tilde{W}^s(0; c_0)$ and $\tilde{W}^u(0; c_0)$ in $K(c_0) \subset H^{-1}(0; c_0)$, the implicit function theorem, and the smoothness of $F$. Symmetry with respect to the reversor $R$ follows from the symmetry of $Q(0; c_0)$ and $H$.
 
-Fix $c \in (c_0 - \delta_0, c_0 + \delta_0)$. Since $Q(x; c)$ solves \ref{genODE}, $Q(x; c) \in C^1(\R, \R^{2m})$. By the stable manifold theorem, $Q(x; c)$ is exponentially localized, i.e. for every $\epsilon > 0$ there exists a constant $C$ such that for all $x \in \R$, $|Q(x; c)| \leq C e^{-(\alpha - \epsilon)|x|}$. Substituting $Q(x; c)$ into \cref{genODE} and differentiating with respect to $c$, $\partial_c Q(x; c)$ satisfies
+Fix $c \in (c_0 - \delta_0, c_0 + \delta_0)$. Since $Q(x; c)$ solves \cref{genODE}, $Q(x; c) \in C^1(\R, \R^{2m})$. By the stable manifold theorem, $Q(x; c)$ is exponentially localized, i.e. for every $\epsilon > 0$ there exists a constant $C$ such that for all $x \in \R$, $|Q(x; c)| \leq C e^{-(\alpha - \epsilon)|x|}$. Substituting $Q(x; c)$ into \cref{genODE} and differentiating with respect to $c$, $\partial_c Q(x; c)$ satisfies
 \begin{equation}\label{Qcprime}
 [\partial_c Q(x; c)]' = D_U F(Q(x;c); c) \partial_c Q(x; c) - B Q(x;c),
 \end{equation}
@@ -979,7 +979,7 @@ Taking the gradient of $\langle F(U; c), \nabla_U H(U; c) \rangle = 0$, $0 = D F
 \begin{align*}
 -D F(Q(x))^* \nabla H(Q(x)) &= D^2 H(Q(x)) Q'(x) = \frac{d}{dx} \nabla H(Q(x)),
 \end{align*}
-thus $\nabla H(Q(x))$ is a solution to \eqref{adjvareq1}. Since $\nabla H$ is continuous and $Q(x)$ is exponentially localized, $\nabla H(Q(x))$ is bounded, thus by uniqueness we can take $\Psi(x) = \nabla H(Q(x))$. Using \eqref{genODErev} and the symmetry relation $Q(-x) = R Q(x)$, 
+thus $\nabla H(Q(x))$ is a solution to \cref{adjvareq1}. Since $\nabla H$ is continuous and $Q(x)$ is exponentially localized, $\nabla H(Q(x))$ is bounded, thus by uniqueness we can take $\Psi(x) = \nabla H(Q(x))$. Using \cref{genODErev} and the symmetry relation $Q(-x) = R Q(x)$, 
 \begin{align*}
 [R \Psi(-x)]' = -R DF(Q(-x)) \Psi(-x) 
 = -R [-RDF(Q(x))R] \Psi(-x) = DF(Q(x))[ R \Psi(-x) ].
@@ -1024,9 +1024,9 @@ Rearrange and take the transpose of both sides to get
 
 \subsection{Piecewise ansatz}
 
-First, we write the unstable and stable manifolds as graphs over their tangent spaces. Following \cite{Sandstede1997}, we can parameterize $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$ near $Q(0)$ by the smooth functions $Q^-(\gamma, \beta^-)$ and $Q^+(\gamma, \beta^+)$, where $\gamma \in \R$ and $\beta^\pm \in Y^\pm$. These functions are chosen so that $Q^+(\gamma, 0) - Q^-(\gamma, 0) \in \R \Psi(0)$, and $Q^+(0, 0) = Q^-(0, 0) = Q(0)$. We will always take $\gamma = 0$. Let $Q^\pm(x; \beta^\pm)$ be the unique solutions to \eqref{genODE} on $\R^\pm$ with initial conditions $Q^\pm(0, \beta^\pm)$ at $x = 0$. $Q^-(x; \beta^-)$ lies in the unstable manifold and $Q^+(x; \beta^+)$ lies in the stable manifold. 
+First, we write the unstable and stable manifolds as graphs over their tangent spaces. Following \cite{Sandstede1997}, we can parameterize $\tilde{W}^u(0)$ and $\tilde{W}^s(0)$ near $Q(0)$ by the smooth functions $Q^-(\gamma, \beta^-)$ and $Q^+(\gamma, \beta^+)$, where $\gamma \in \R$ and $\beta^\pm \in Y^\pm$. These functions are chosen so that $Q^+(\gamma, 0) - Q^-(\gamma, 0) \in \R \Psi(0)$, and $Q^+(0, 0) = Q^-(0, 0) = Q(0)$. We will always take $\gamma = 0$. Let $Q^\pm(x; \beta^\pm)$ be the unique solutions to \cref{genODE} on $\R^\pm$ with initial conditions $Q^\pm(0, \beta^\pm)$ at $x = 0$. $Q^-(x; \beta^-)$ lies in the unstable manifold and $Q^+(x; \beta^+)$ lies in the stable manifold. 
 
-We will look for a $n-$periodic solution $U(n)$ to \eqref{genODE} which is piecewise of the form
+We will look for a $n-$periodic solution $U(n)$ to \cref{genODE} which is piecewise of the form
 \begin{equation}\label{Upiecewise}
 \begin{aligned}
 U_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
@@ -1102,7 +1102,7 @@ Since $DF(0)$ is hyperbolic by \cref{hyp:hypeq} and $|\Re \nu| \geq \alpha_0$ fo
 
 \subsection{Fixed Point Formulation}
 
-Next, we formulate equation \eqref{exsystem1} as a fixed point problem. Substituting the piecewise ansatz \eqref{Upiecewise} into \eqref{exsystem1} and using the fact that $Q^\pm(x; \beta_i^\pm)$ solves \eqref{exsystem1} on $\R^\pm$,
+Next, we formulate equation \cref{exsystem1} as a fixed point problem. Substituting the piecewise ansatz \cref{Upiecewise} into \cref{exsystem1} and using the fact that $Q^\pm(x; \beta_i^\pm)$ solves \cref{exsystem1} on $\R^\pm$,
 \begin{align*}
 (\tilde{Q}_i^\pm(x))' &= F\left(Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x) \right) - F(Q^\pm(x; \beta_i^\pm)) && i = 0, \dots, n-1.
 \end{align*}
@@ -1110,7 +1110,7 @@ Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, we obtain an
 \begin{align}\label{Vpiecewise1}
 (\tilde{Q}_i^\pm(x))' &= DF(Q^\pm(x; \beta_i^\pm)) \tilde{Q}_i^\pm(x) + G_i^\pm(x; \beta_i^\pm) && i = 0, \dots, n-1,
 \end{align}
-where $G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2)$. As in \cite{Sandstede1997}, derivatives of $G_i^\pm$ with respect to the parameters $\beta_i^\pm$ are also quadratic in $\tilde{Q}_i^\pm$. Using the exponential dichotomy, we rewrite \eqref{Vpiecewise1} in integrated form to obtain the fixed point equations
+where $G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2)$. As in \cite{Sandstede1997}, derivatives of $G_i^\pm$ with respect to the parameters $\beta_i^\pm$ are also quadratic in $\tilde{Q}_i^\pm$. Using the exponential dichotomy, we rewrite \cref{Vpiecewise1} in integrated form to obtain the fixed point equations
 \begin{equation}\label{FPequations}
 \begin{aligned}
 \tilde{Q}_i^+(x) &= \Phi^u_+(x, X_i; \beta_i^+) a_i^+  
@@ -1135,7 +1135,7 @@ and let $K_{X, \pm}$ be the Banach spaces of continuous functions on $[0, X]$ an
 As in \cite{Sandstede1997}, we will solve for the remainder functions $\tilde{Q}_i^\pm$ and parameters $\beta_i^\pm$ in a series of lemmas. First, we will solve equation \cref{FPequations}for $\tilde{Q}_i^\pm$.
 
 \begin{lemma}\label{solveforV}
-There exist $\delta, \rho > 0$ such that for $|X_i| > 1/\delta$ and $|a_i^\pm|, |\beta_i^\pm| < \delta$, $i = 0, \dots, n-1$, there exist unique solutions $\tilde{Q}_i^- \in B_{X_{i-1}, -}(\rho)$ and $\tilde{Q}_i^+ \in B_{X_i, +}(\rho)$ to \eqref{FPequations}. These depend smoothly on $(a_{i-1}^-, \beta_i^-)$ and $(a_i^+, \beta_i^+)$, respectively, and we have the estimates
+There exist $\delta, \rho > 0$ such that for $|X_i| > 1/\delta$ and $|a_i^\pm|, |\beta_i^\pm| < \delta$, $i = 0, \dots, n-1$, there exist unique solutions $\tilde{Q}_i^- \in B_{X_{i-1}, -}(\rho)$ and $\tilde{Q}_i^+ \in B_{X_i, +}(\rho)$ to \cref{FPequations}. These depend smoothly on $(a_{i-1}^-, \beta_i^-)$ and $(a_i^+, \beta_i^+)$, respectively, and we have the estimates
 \begin{equation}\label{Vest}
 \begin{aligned}
 \|\tilde{Q}_i^-\|_{X_{i-1}, -} &\leq C |a_{i-1}^-| \\
@@ -1144,7 +1144,7 @@ There exist $\delta, \rho > 0$ such that for $|X_i| > 1/\delta$ and $|a_i^\pm|, 
 \end{equation}
 where the constant $C$ depends only on $\delta$. The estimates hold for derivatives of $\tilde{Q}_i^\pm$ with respect to $\beta_i^\pm$.
 \begin{proof}
-The proof follows \cite[Lemma 5.2]{Sandstede1997}. For the first term on the RHS of \eqref{FPequations},
+The proof follows \cite[Lemma 5.2]{Sandstede1997}. For the first term on the RHS of \cref{FPequations},
 \begin{align*}
 e^{\alpha(X_i - x)} | \Phi^u_+(x, X_i; \beta_i^+) a_i^+ | 
 &\leq C e^{\alpha(X_i - x)} e^{-\alpha(X_i - x)} |a_i^+| = C |a_i^+|,
@@ -1156,19 +1156,19 @@ e^{\alpha(X_i - x)} &\left| \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \bet
 &\leq C e^{\alpha(X_i - x)} \int_x^{X_i} 
 e^{-\alpha(y - x)}(e^{-\alpha(X_i - y)})^2|e^{\alpha(X_i - y)} \tilde{Q}_i^+(y)|^2 dy \leq C
 \end{align*}
-The third term is similarly bounded. Thus the RHS of the fixed point equation \eqref{FPequations}is a smooth map $K_{X_i, +} \mapsto K_{X_i, +}$. Define $H_i^+: K_{X_i, +} \times E_0^s \times Y^+ \rightarrow K_{X_i, +}$ by
+The third term is similarly bounded. Thus the RHS of the fixed point equation \cref{FPequations}is a smooth map $K_{X_i, +} \mapsto K_{X_i, +}$. Define $H_i^+: K_{X_i, +} \times E_0^s \times Y^+ \rightarrow K_{X_i, +}$ by
 \begin{align*}
 H_i^+(\tilde{Q}_i^+(x), &a_i^+, \beta_i^+) = \tilde{Q}_i^+(x) - \Phi^u_+(x, X_i; \beta_i^+) a_i^+ - \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\
 &- \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy.
 \end{align*}
-Since $Q(x)$ satisfies \eqref{genODE}, $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \eqref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from Lemma \ref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
+Since $Q(x)$ satisfies \cref{genODE}, $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \cref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from \cref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
 \end{proof}
 \end{lemma}
 
 Next, we will solve equation \cref{exsystem2} to match the pieces \cref{Upiecewise} at $\pm X_i$ and obtain initial conditions $a_i^\pm$.
 
 \begin{lemma}\label{solvefora}
-For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, and for $i = 0, \dots, n-1$, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
+For $X_i$ and $\beta_i^\pm$ chosen as in \cref{solveforV}, and for $i = 0, \dots, n-1$, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
 \begin{equation}\label{aest}
 |a_i^\pm| \leq C e^{-\alpha X_i},
 \end{equation}
@@ -1189,15 +1189,15 @@ H_i(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-)
 &+ \int_0^{X_i} \Phi_+^s(X_i, y; \beta_i^+) G_i^+(y,\beta_i^+)dy
 - \int_0^{-X_i} \Phi_-^u(-X_i, y; \beta_{i+1}^-) G_{i+1}^-(y,\beta_{i+1}^-)dy,
 \end{align*}
-where we substutited $\tilde{Q}_i^\pm(x)$ from Lemma \ref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \eqref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by Lemma \ref{solveforV},
+where we substutited $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
 \[
 \frac{\partial}{\partial a_i^\pm} H_i(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
 \]
-where we also used the estimate \cref{projdiffest}. For sufficiently large $X_i$, $D_{a_i^\pm} H_i(0, 0, 0, 0)$ is invertible in a neighborhood of $(0, 0, 0, 0)$, thus we can use the implicit function theorem to solve for $a_i^\pm$ in terms of $\beta_i^\pm$. The estimate \cref{aest} then comes from the stable manifold theorem, since $Q^\pm(\pm X_i; \beta_i^\pm) = \mathcal{O}(e^{-\alpha X_i})$. To obtain the expressions \cref{aiformula}, we apply the eigenprojections $P^u_0$ and $P^s_0$ (respectively) to $H_i(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$. The bound on the remainder term comes from the bound \cref{aest}, together with the estimates from Lemma \ref{solveforV} and equation \cref{projdiffest}. 
+where we also used the estimate \cref{projdiffest}. For sufficiently large $X_i$, $D_{a_i^\pm} H_i(0, 0, 0, 0)$ is invertible in a neighborhood of $(0, 0, 0, 0)$, thus we can use the implicit function theorem to solve for $a_i^\pm$ in terms of $\beta_i^\pm$. The estimate \cref{aest} then comes from the stable manifold theorem, since $Q^\pm(\pm X_i; \beta_i^\pm) = \mathcal{O}(e^{-\alpha X_i})$. To obtain the expressions \cref{aiformula}, we apply the eigenprojections $P^u_0$ and $P^s_0$ (respectively) to $H_i(a_i^+, a_i^-, \beta_i^+, \beta_{i+1}^-) = 0$. The bound on the remainder term comes from the bound \cref{aest}, together with the estimates from \cref{solveforV} and equation \cref{projdiffest}. 
 \end{proof}
 \end{lemma}
 
-It remains to solve equation \eqref{exsystem3}, which will match the pieces \eqref{Upiecewise} at $x = 0$. Before doing that, we will use the the flow-box method to make a smooth change of coordinates which will ``straighten out'' the stable and unstable manifolds near $Q(0)$ so that their non-intersecting directions are $Y^+$ and $Y^-$.
+It remains to solve equation \cref{exsystem3}, which will match the pieces \cref{Upiecewise} at $x = 0$. Before doing that, we will use the the flow-box method to make a smooth change of coordinates which will ``straighten out'' the stable and unstable manifolds near $Q(0)$ so that their non-intersecting directions are $Y^+$ and $Y^-$.
 
 \begin{lemma}\label{straightenW}
 There exists a differentiable map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ such that $S(0, 0, 0, 0) = Q(0)$, $S$ is invertible in a neighborhood of $Q(0)$, and for sufficiently small $\beta^\pm$,
@@ -1206,7 +1206,7 @@ S^{-1}(Q^-(0; \beta^-)) &= \beta^-  \\
 S^{-1}(Q^+(0; \beta^+)) &= \beta^+.
 \end{align*}
 \begin{proof}
-Let $\Theta_x(U_0)$ be the solution operator which maps $U_0 \in \R^{2m}$ to the point $U(x)$, where $U(\cdot)$ is the unique solution to \eqref{genODE} with $U(0) = U_0$. Define the map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ by 
+Let $\Theta_x(U_0)$ be the solution operator which maps $U_0 \in \R^{2m}$ to the point $U(x)$, where $U(\cdot)$ is the unique solution to \cref{genODE} with $U(0) = U_0$. Define the map $S: \R \times Y^- \times Y^+ \times \R \Psi(0) \rightarrow \R^{2m}$ by 
 \begin{equation}\label{flowboxdefS}
 S(x; \beta^-, \beta^+, \gamma) = \Theta_x\left(Q(0) + Q^-(0; \beta^-) + Q^-(0; \beta^+) + \gamma \Psi(0)\right).
 \end{equation}
@@ -1235,7 +1235,7 @@ P_{\R \Psi(0)}(\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0)) &= 0. \label{PZmatch}
 In the next lemma we solve \cref{PY+match} and \cref{PY-match} to obtain the parameters $\beta_i^\pm$.
 
 \begin{lemma}\label{solveforbeta}
-For $X_i$ and $\beta_i^\pm$ chosen as in Lemma \ref{solveforV}, and for $i = 0, \dots, n-1$, there exist $(\beta_i^+, \beta_i^-) \in Y^+ \times Y^-$ such that $P_{Y^+ \oplus Y^-}(U_i^+(0) - U_i^-(0)) = 0$. In addition,
+For $X_i$ and $\beta_i^\pm$ chosen as in \cref{solveforV}, and for $i = 0, \dots, n-1$, there exist $(\beta_i^+, \beta_i^-) \in Y^+ \times Y^-$ such that $P_{Y^+ \oplus Y^-}(U_i^+(0) - U_i^-(0)) = 0$. In addition,
 \begin{equation}\label{betaest}
 \begin{aligned}
 |\beta_i^+| &\leq C e^{-2 \alpha X_{i-1}} \\
@@ -1265,12 +1265,12 @@ which is independent of $\beta_i^\pm$, thus $D H_i(\beta_i^+, \beta_i^-)$ is inv
 \end{proof}
 \end{lemma}
 
-We have found a unique solution to \eqref{exsystem1} and \eqref{exsystem2} such that \eqref{exsystem3} is satisfied except for $n$ jumps in the direction of $\Psi(0)$. We summarize what we have obtained so far in the following lemma.
+We have found a unique solution to \cref{exsystem1} and \cref{exsystem2} such that \cref{exsystem3} is satisfied except for $n$ jumps in the direction of $\Psi(0)$. We summarize what we have obtained so far in the following lemma.
 
 % bounds in this lemma
 
 \begin{lemma}\label{solvewithjumps}
-There exists $X^* > 0$ such that for $|X_i| \geq X^*$, $i = 0, \dots, n-1$, there is a unique solution $U(x)$ to equations \eqref{exsystem1}, \eqref{exsystem2}, and \eqref{exsystem3} which is continuous except for $n$ jumps in the direction of $\Psi(0)$. $U(x)$ can be written piecewise in the form 
+There exists $X^* > 0$ such that for $|X_i| \geq X^*$, $i = 0, \dots, n-1$, there is a unique solution $U(x)$ to equations \cref{exsystem1}, \cref{exsystem2}, and \cref{exsystem3} which is continuous except for $n$ jumps in the direction of $\Psi(0)$. $U(x)$ can be written piecewise in the form 
 \begin{equation}\label{Upiecewise2}
 \begin{aligned}
 U_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
@@ -1303,7 +1303,7 @@ where the pieces are glued together end-to-end in a loop, and we have the estima
 \end{enumerate}
 which hold in addition for derivatives with respect to $x$.
 \begin{proof}
-Part (i) follows from the estimates \cref{Vest} and \cref{aest} together with the definition of the exponentially weighted norm \cref{expwtnorm}. Part (ii) follows from the estimate \eqref{betaest}, smooth dependence on initial conditions, and the stable manifold theorem. For part (iii), in \cref{solvefora} we solved the matching condition
+Part (i) follows from the estimates \cref{Vest} and \cref{aest} together with the definition of the exponentially weighted norm \cref{expwtnorm}. Part (ii) follows from the estimate \cref{betaest}, smooth dependence on initial conditions, and the stable manifold theorem. For part (iii), in \cref{solvefora} we solved the matching condition
 \begin{equation}\label{matchpmXi}
 Q^+(X_i; \beta_i^+) + \tilde{Q}_i^+(X_i) = Q^-(-X_i; \beta_{i+1}^-) + \tilde{Q}_i^-(-X_i).
 \end{equation}
@@ -1313,7 +1313,7 @@ Applying the projections $P^u_-(-X_i, \beta_{i+1}^-)$ and $P^s_+(X_i, \beta_i^+)
 
 \subsection{Jump conditions}
 
-Equation \eqref{PZmatch} gives us $n$ jump conditions in the direction of $\Psi(0)$. As in \cite{SandstedeStrut,Sandstede1998} these will only be satisfied for certain values of the lengths $X_i$. Since we have a conservative system, we only need to satisfy $n-1$ of these jump conditions, which are given in the following lemma.
+Equation \cref{PZmatch} gives us $n$ jump conditions in the direction of $\Psi(0)$. As in \cite{SandstedeStrut,Sandstede1998} these will only be satisfied for certain values of the lengths $X_i$. Since we have a conservative system, we only need to satisfy $n-1$ of these jump conditions, which are given in the following lemma.
 
 \begin{lemma}\label{jumplemma1}
 A periodic $n$-pulse solution exists if and only if for $i = 0, \dots, n-2$,
@@ -1325,7 +1325,7 @@ where the remainder term has bound
 |R_i| \leq C ( e^{-3 \alpha X_i} +  e^{-3 \alpha X_{i-1}}).
 \end{align*}
 \begin{proof}
-Evaluating the fixed point equations \eqref{FPequations} at $0$ and substituting them into \eqref{PZmatch},
+Evaluating the fixed point equations \cref{FPequations} at $0$ and substituting them into \cref{PZmatch},
 \begin{equation}\label{PZmatch2}
 \begin{aligned}
 \langle \Psi(0), &\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0) \rangle = \langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle
@@ -1333,14 +1333,14 @@ Evaluating the fixed point equations \eqref{FPequations} at $0$ and substituting
 &+ \int_{X_i}^0 \langle \Psi(0), \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+) \rangle dy - \int_{-X_{i-1}}^0 \langle \Psi(0), \Phi_-^s(0, y, \beta_i^-) G_i^-(y; \beta_i^-) \rangle dy
 \end{aligned}
 \end{equation}
-Using Lemma \ref{dichotomy1}, smooth dependence on initial conditions, and the bound \eqref{betaest},
+Using \cref{dichotomy1}, smooth dependence on initial conditions, and the bound \cref{betaest},
 \begin{equation}\label{phibetaest}
 \begin{aligned}
 |(\Phi_+^u(0, x; \beta_i^+) - \Phi_+^u(0, x; 0)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x} && x \geq 0\\
 |(\Phi_-^s(0, x; \beta_i^-) - \Phi_-^s(0, x; 0)| &\leq C e^{-2 \alpha X_i}e^{\alpha x} &&  x \leq 0.
 \end{aligned}
 \end{equation}
-For the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from \cref{solvefora} for $a_i^+$. Using \eqref{phibetaest}, the estimate \eqref{Qpmbounds}, and \cref{eigadjoint}(iii),
+For the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from \cref{solvefora} for $a_i^+$. Using \cref{phibetaest}, the estimate \cref{Qpmbounds}, and \cref{eigadjoint}(iii),
 \begin{align*}
 \langle \Psi(0), &\Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = -\langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+)\left( P^u_0 ( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)) + \mathcal{O}( e^{-2 \alpha X_i} ) \right) \rangle \\
 &= -\langle \Psi(0), \Phi^u_+(0, X_i; 0) P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-2\alpha X_{i-1}}e^{-\alpha X_i} ) \\
@@ -1394,7 +1394,7 @@ where $X_i \geq X^*$ for $i = 0, \dots, n-1$. The quantities $b_i$ are length pa
 \begin{equation}\label{Xiscale}
 X_i = -\frac{1}{2\alpha_0}\log(b_i r) - \frac{\phi}{2 \beta_0}.
 \end{equation}
-In the next lemma, we rewrite the system \eqref{jumpcond2} using this rescaling.
+In the next lemma, we rewrite the system \cref{jumpcond2} using this rescaling.
 
 \begin{lemma}\label{jumplemma3}
 A periodic multi-pulse solution exists if and only if for $i = 0, \dots, n-2$
@@ -1431,7 +1431,7 @@ After canceling terms, we obtain the equations \cref{Geq}, which are equivalent 
 In \cref{jumplemma3}, we rewrote \cref{jumpcond2} so that equation $i$ inolves $b_i$ and a common parameter $b_{n-1}$. Since we are on a periodic domain, that choice was arbitrary;  the final length parameter $b_{n-1}$ was chosen for notational convenience.
 \end{remark}
 
-When $r = 0$, the equations \eqref{Geq} all have the same form. Let
+When $r = 0$, the equations \cref{Geq} all have the same form. Let
 \begin{equation}\label{defH}
 H(b_0, b_1) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right).
 \end{equation}
@@ -1567,7 +1567,7 @@ so that by \cref{thetaparamlemma},
 \begin{align*}
 H(b_i( m_i, m_{n-1}, \theta), b_{n-1}( m_{n-1}, \theta) ) &= 0 && i = 0, \dots, n-2.
 \end{align*}
-Substituting $b_{n-1}(m_{n-1}, \theta)$ for $b_{n-1}$ in \eqref{Geq}, define $G: \R^{n-1} \times \mathcal{R} \rightarrow \R^{n-1}$ by $G = (G_0, \dots, G_{n-2})^T$, where 
+Substituting $b_{n-1}(m_{n-1}, \theta)$ for $b_{n-1}$ in \cref{Geq}, define $G: \R^{n-1} \times \mathcal{R} \rightarrow \R^{n-1}$ by $G = (G_0, \dots, G_{n-2})^T$, where 
 \begin{equation*}
 G_i(b, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1}(m_{n-1}, \theta) \sin \left( -\rho \log b_{n-1}(m_{n-1}, \theta) \right) + \mathcal{O}(r^{\gamma / 2 \alpha})
 \end{equation*}
@@ -1576,7 +1576,7 @@ and $b = (b_0, \dots, b_{n-1}) \in \R^{n-1}$. Let $b^* = (b_0( m_0, m_{n-1}, \th
 \partial_{b_i} G_i(b^*, 0)
 &= \sin \left( -\rho \log b_i(m_i, \theta) \right) - \rho \cos \left( -\rho \log b_i(m_i, \theta) \right).
 \end{align*}
-From Lemma \ref{pitchforkH}, $\partial_{b_i} G_i(b, 0) = 0$ if and only if $b_i$ is one of the pitchfork bifurcation points $b_k^*$. By \cref{thetaparamlemma}, if we exclude $\theta \in \{ -\pi + p^*, p^* \}$, the Jacobian $D_b G(b^*,0)$ is invertible, thus we can use the implicit function theorem to solve for $b$ in terms of $r$ near $b^*$. Specifically, there exists $r_* > 0$ and a unique continuous function $b: \mathcal{R} \cap [0, r_*] \rightarrow \R^{n-1}$ given by $b(r) = \left( b_0(r), \dots, b_{n-2}(r) \right)$ such that $b(0) = b^*$ and $G(b,r) = 0$ if and only if $b = b(r)$. For $i = 0, \dots, n-2$, define $t_i(r; m_i, \theta): \mathcal{R} \rightarrow \R$ by
+From \cref{pitchforkH}, $\partial_{b_i} G_i(b, 0) = 0$ if and only if $b_i$ is one of the pitchfork bifurcation points $b_k^*$. By \cref{thetaparamlemma}, if we exclude $\theta \in \{ -\pi + p^*, p^* \}$, the Jacobian $D_b G(b^*,0)$ is invertible, thus we can use the implicit function theorem to solve for $b$ in terms of $r$ near $b^*$. Specifically, there exists $r_* > 0$ and a unique continuous function $b: \mathcal{R} \cap [0, r_*] \rightarrow \R^{n-1}$ given by $b(r) = \left( b_0(r), \dots, b_{n-2}(r) \right)$ such that $b(0) = b^*$ and $G(b,r) = 0$ if and only if $b = b(r)$. For $i = 0, \dots, n-2$, define $t_i(r; m_i, \theta): \mathcal{R} \rightarrow \R$ by
 \begin{equation}\label{defti}
 t_i(r; m_i, m_{n-1}, \theta) = -\rho \log b_i(r),
 \end{equation}
@@ -1596,14 +1596,14 @@ There exists $r_2 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_2$, there 
 b_{m_0}^*(r) \rightarrow b_{m_0}^* \text{ as } r \rightarrow 0
 \end{equation*}
 \begin{proof}
-Take $m_0 = 0$. The proof is identical for $m_0 = 1$. First, we show the required odd symmetry relation. By Lemma \ref{solvewithjumps}, for an ordered pair $(X_0, X_1)$ with $X_i$ sufficiently large, there exists a unique piecewise solution $(U_0^-(x), U_0^+(x), U_1^-(x), U_1^+(x))$ which is continuous except for two jumps 
+Take $m_0 = 0$. The proof is identical for $m_0 = 1$. First, we show the required odd symmetry relation. By \cref{solvewithjumps}, for an ordered pair $(X_0, X_1)$ with $X_i$ sufficiently large, there exists a unique piecewise solution $(U_0^-(x), U_0^+(x), U_1^-(x), U_1^+(x))$ which is continuous except for two jumps 
 \begin{equation}\label{xijumps}
 \xi_0(X_0, X_1) = \langle \Psi(0), U_0^+(0) - U_0^-(0) \rangle, \quad
 \xi_1(X_0, X_1) = \langle \Psi(0), U_1^+(0) - U_1^-(0) \rangle 
 \end{equation}
 in the direction of $\Psi(0)$. By symmetry, $(U_1^+(-x), U_1^-(-x), U_0^+(-x), U_0^-(-x))$ is also a solution for $(X_0, X_1)$, thus it must be the same solution by uniqueness. In particular, $U_1^+(0) = U_0^-(0)$ and $U_1^-(0) = U_0^+(0)$, thus $\xi_0(X_0, X_1) = -\xi_1(X_0, X_1) = -\xi_0(X_1, X_0)$. Since swapping $X_0$ and $X_1$ is equivalent to swapping $b_0$ and $b_1$ in \cref{2pulsedefG}, $G(b_0, b_1, r) = -G(b_1, b_0, r)$ for sufficiently small $r$. 
 
-Making the change of coordinates $(b_0, b_1) \mapsto (x, y)$ as in Lemma \ref{pitchforkH}, $G(-x, y, r) = -G(x, y, r)$ for sufficiently small $r$. The persistence of the pitchfork bifurcation follows from a Lyapunov-Schmidt reduction.  By Lemma \ref{pitchforkH}, $G_x(0, b_0^*, 0) = 0$ and $G_{xy}(0, b_0^*, 0) \neq 0$, thus by the implicit function theorem there exists $r_2 > 0$, an open interval $(-a, a)$, and a unique smooth function $y = y^*(x, r)$ such that $y^*(0, 0) = b_0^*$ and $G_x(x, y^*(x, r), r) = 0$ for all $x \in (-a, a)$ and $r < r_2$. It follows that a pitchfork bifurcation occurs at $(x, y, r) = (0, y^*(0, r), r)$ by evaluating the appropriate partial derivatives of $G$ as in Lemma \ref{pitchforkH}. Letting $b_0^*(r) = y^*(0, r)$, the result follows upon reverting to the original $(b_0, b_1)$ coordinates.
+Making the change of coordinates $(b_0, b_1) \mapsto (x, y)$ as in \cref{pitchforkH}, $G(-x, y, r) = -G(x, y, r)$ for sufficiently small $r$. The persistence of the pitchfork bifurcation follows from a Lyapunov-Schmidt reduction.  By \cref{pitchforkH}, $G_x(0, b_0^*, 0) = 0$ and $G_{xy}(0, b_0^*, 0) \neq 0$, thus by the implicit function theorem there exists $r_2 > 0$, an open interval $(-a, a)$, and a unique smooth function $y = y^*(x, r)$ such that $y^*(0, 0) = b_0^*$ and $G_x(x, y^*(x, r), r) = 0$ for all $x \in (-a, a)$ and $r < r_2$. It follows that a pitchfork bifurcation occurs at $(x, y, r) = (0, y^*(0, r), r)$ by evaluating the appropriate partial derivatives of $G$ as in \cref{pitchforkH}. Letting $b_0^*(r) = y^*(0, r)$, the result follows upon reverting to the original $(b_0, b_1)$ coordinates.
 \end{proof} 
 \end{lemma}
 
@@ -1644,22 +1644,22 @@ so that the continuous curve $(\tilde{b}_0(s), b_1(s))$, $s > p^*$, parameterize
 \end{align*}
 Then $\tilde{G}(\tilde{b}_0(s), r) = 0$, and $D_{b_0} \tilde{G}(b, 0) = G_{b_0}(b(s), b_1(s), 0)$.
 
-By Lemma \ref{pitchforkH}, $G_{b_0}(b_0, b_1, 0) = 0$ if and only if $(b_0, b_1)$ is one of the pitchfork bifurcation points; by \cref{thetaparamlemma}, these occur on the curve $(\tilde{b}_0(s), b_1(s))$ only when $s = p^*$. From the proof of \cref{thetaparamlemma}, $|G_{b_0}(\tilde{b}_0(s), b_1(s), 0)|$ is bounded below for $s \geq p^* + \delta$, thus $D_{b_0} \tilde{G}(\tilde{b}_0, 0)$ is invertible with bounded inverse. Using the implicit function theorem for Banach spaces, there exists $r_3 > 0$ and a unique smooth function $b: \mathcal{R} \rightarrow X$ with $b(0) = \tilde{b}_0$ such that for all $r \leq r_3$, $\tilde{G}(b(r), r) = 0$. It follows from the definition of $\tilde{G}$ that $G([b(r)](s), b_1(s), r) = 0$ for all $r \leq r_3$ and $s \in [p^* + \delta, \infty)$. The result follows by taking $b_0(s; m_0, r) = [b(r)](s)$.
+By \cref{pitchforkH}, $G_{b_0}(b_0, b_1, 0) = 0$ if and only if $(b_0, b_1)$ is one of the pitchfork bifurcation points; by \cref{thetaparamlemma}, these occur on the curve $(\tilde{b}_0(s), b_1(s))$ only when $s = p^*$. From the proof of \cref{thetaparamlemma}, $|G_{b_0}(\tilde{b}_0(s), b_1(s), 0)|$ is bounded below for $s \geq p^* + \delta$, thus $D_{b_0} \tilde{G}(\tilde{b}_0, 0)$ is invertible with bounded inverse. Using the implicit function theorem for Banach spaces, there exists $r_3 > 0$ and a unique smooth function $b: \mathcal{R} \rightarrow X$ with $b(0) = \tilde{b}_0$ such that for all $r \leq r_3$, $\tilde{G}(b(r), r) = 0$. It follows from the definition of $\tilde{G}$ that $G([b(r)](s), b_1(s), r) = 0$ for all $r \leq r_3$ and $s \in [p^* + \delta, \infty)$. The result follows by taking $b_0(s; m_0, r) = [b(r)](s)$.
 \end{proof}
 \end{lemma} 
 
-Finally, we show that for sufficiently small $r$, the lower arm of the pitchfork connects to the pitchfork bifurcation point, which extends the parameterization in Lemma \ref{armpersists} to $s \in [p^*, \infty)$.
+Finally, we show that for sufficiently small $r$, the lower arm of the pitchfork connects to the pitchfork bifurcation point, which extends the parameterization in \cref{armpersists} to $s \in [p^*, \infty)$.
 
 \begin{lemma}\label{pitchforkconnects}
-There exists $r_4 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_4$, the parameterization in Lemma \ref{armpersists} can be extended to $s \in [p^*, \infty)$, and 
+There exists $r_4 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_4$, the parameterization in \cref{armpersists} can be extended to $s \in [p^*, \infty)$, and 
 \begin{align*}
 (b_0(p^*; m_0, r), b_1(p^*)) = (b_{m_0}^*(r), b_{m_0}^*(r)),
 \end{align*}
-which is the pitchfork bifurcation point from Lemma \ref{pitchpersist}.
+which is the pitchfork bifurcation point from \cref{pitchpersist}.
 
 \begin{proof}
-For simplicity, take $m_0 = 0$. The proof is identical for $m_0 = 1$. Change variables $(b_0, b_1) \mapsto (x, y)$ as in Lemma \ref{pitchforkH}, so that the pitchfork bifurcation takes place on the horizontal axis. Let $r_2$ be as in Lemma \ref{pitchpersist}. Then there is a nondegenerate pitchfork bifurcation at $(x, y) = (b_0^*(r), 0)$, and there exists $y_1 \geq 0$ such that for $r \leq r_2$, the arm of the pitchfork is uniquely parameterized by $(x, y) = (x_0(y, r), y)$ for $y \in [0, y_1]$, where $x_0(0, r) = b_0^*(r)$. Take $\delta = y_1/2$, and let $r_3$ be as in Lemma \ref{armpersists}. In the $(x, y)$ coordinate system, the lower arm of the pitchfork is uniquely parameterized by 
-$(x, y) = (x_1(y, r), y)$ for  $y \in [y_1/2, \infty)$ for $r < r_3$. Let $r_4 = \min\{ r_2, r_3 \}$. Then by the uniqueness of the two parameterizations, $(x_1(y, r), y) = (x_0(y, r), y)$ for $y \in [y_1/2, y_1]$ and $r \leq r_4$. Since the two parameterizations overlap on an interval, the lower arm of the pitchfork connects to the pitchfork bifurcation point. Returning to the $(b_0, b_1)$ coordinate system, we can extend the parameterization in Lemma \ref{armpersists} to the pitchfork bifurcation point, which occurs when $s = p^*$.
+For simplicity, take $m_0 = 0$. The proof is identical for $m_0 = 1$. Change variables $(b_0, b_1) \mapsto (x, y)$ as in \cref{pitchforkH}, so that the pitchfork bifurcation takes place on the horizontal axis. Let $r_2$ be as in \cref{pitchpersist}. Then there is a nondegenerate pitchfork bifurcation at $(x, y) = (b_0^*(r), 0)$, and there exists $y_1 \geq 0$ such that for $r \leq r_2$, the arm of the pitchfork is uniquely parameterized by $(x, y) = (x_0(y, r), y)$ for $y \in [0, y_1]$, where $x_0(0, r) = b_0^*(r)$. Take $\delta = y_1/2$, and let $r_3$ be as in \cref{armpersists}. In the $(x, y)$ coordinate system, the lower arm of the pitchfork is uniquely parameterized by 
+$(x, y) = (x_1(y, r), y)$ for  $y \in [y_1/2, \infty)$ for $r < r_3$. Let $r_4 = \min\{ r_2, r_3 \}$. Then by the uniqueness of the two parameterizations, $(x_1(y, r), y) = (x_0(y, r), y)$ for $y \in [y_1/2, y_1]$ and $r \leq r_4$. Since the two parameterizations overlap on an interval, the lower arm of the pitchfork connects to the pitchfork bifurcation point. Returning to the $(b_0, b_1)$ coordinate system, we can extend the parameterization in \cref{armpersists} to the pitchfork bifurcation point, which occurs when $s = p^*$.
 \end{proof}
 \end{lemma}
 
@@ -1672,15 +1672,15 @@ b_0(m_0, s_0) = b_1(m_0, s_0) =
 \]
 The pulse distances \cref{2psymmdist} are obtained by substituting this into \cref{Xiscale}. Let $p^*(m_0; r) = -\rho \log(b_{m_0}^*(r))$. Then the pitchfork bifurcation occurs when $s_0 = p^*(m_0; r)$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
 
-For asymmetric 2-pulses, taking $s_1 = s$ in Lemma \ref{pitchforkconnects}, the lower arms of the pitchforks are parameterized by $(b_0, b_1) = (b_0(s_1; m_0, r), b_1(s_1))$ for $s_1 \in [p^*, \infty)$. The formula for $X_1(r, s_1)$ in \cref{2pasymmdist} follows by substituting \cref{defb1} into \cref{Xiscale}. Let 
+For asymmetric 2-pulses, taking $s_1 = s$ in \cref{pitchforkconnects}, the lower arms of the pitchforks are parameterized by $(b_0, b_1) = (b_0(s_1; m_0, r), b_1(s_1))$ for $s_1 \in [p^*, \infty)$. The formula for $X_1(r, s_1)$ in \cref{2pasymmdist} follows by substituting \cref{defb1} into \cref{Xiscale}. Let 
 \begin{equation}\label{deft0}
 t_0(r; m_0, s_1) = -\rho \log\left( b_0(s_1; m_0, r) \right),
 \end{equation}
-which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we obtain the formula for $X_0(r; m_0, s_1)$ in \cref{2pasymmdist}. From Lemma \ref{armpersists}, $t_0(0; m_0, s_1) = m_0 \pi + \theta^*(\theta(s_1); m(s_1) - m_0)$, where $m(s_1) = \lceil \frac{s_1 - p^*}{\pi} \rceil$ and $\theta(s_1) = s_1 - m(s_1) \pi$. Using the estimate for $\theta^*(\theta, m)$ from Lemma \ref{thetaparamlemma},
+which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we obtain the formula for $X_0(r; m_0, s_1)$ in \cref{2pasymmdist}. From \cref{armpersists}, $t_0(0; m_0, s_1) = m_0 \pi + \theta^*(\theta(s_1); m(s_1) - m_0)$, where $m(s_1) = \lceil \frac{s_1 - p^*}{\pi} \rceil$ and $\theta(s_1) = s_1 - m(s_1) \pi$. Using the estimate for $\theta^*(\theta, m)$ from \cref{thetaparamlemma},
 \[
 \theta^*(\theta(s_1); m(s_1) - m_0) \leq C \exp\left(-\frac{1}{\rho} ( m(s_1) - m_0 )\pi \right) \leq C \exp\left(-\frac{1}{\rho} s_1 \right),
 \]
-from which the estimate \cref{t0est} follows. By Lemma \ref{pitchforkconnects}, the pitchfork bifurcation point is reached when $s_1 = p^*$.
+from which the estimate \cref{t0est} follows. By \cref{pitchforkconnects}, the pitchfork bifurcation point is reached when $s_1 = p^*$.
 
 \section{Proof of Theorem \ref{blockmatrixtheorem}}\label{sec:blockmatrixproof}
 
@@ -1746,7 +1746,7 @@ P^-(x, \Lambda) &= I + \Theta^-(x, \Lambda)
 \end{equation}
 defined on $\R^+$ and $\R^-$, respectively, such that
 \begin{enumerate}[(i)]
-\item The change of coordinates $V = P^\pm Z$ reduces \eqref{EVPconj} to the equations on $\R^\pm$
+\item The change of coordinates $V = P^\pm Z$ reduces \cref{EVPconj} to the equations on $\R^\pm$
 \begin{align}\label{conjZ}
 Z'(x) = A^\pm(\Lambda) Z(x) + P^\pm(x, \Lambda)^{-1} F(x).
 \end{align}
@@ -1841,7 +1841,7 @@ Let $Z(x) = e^{\nu(\lambda)x}V_0(\lambda)$, and define
 \begin{equation}\label{defVplus}
 V^+(x; \lambda) = P^+(x; \lambda) Z(x) = e^{\nu(\lambda)x}P^+(x; \lambda)V_0(\lambda).
 \end{equation}
-By the expansion \eqref{conjlemmaP}, $V^+(x; \lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + V_1^+(x; \lambda))$, where we define $V_1^+(x; \lambda) = \Theta_+(x; \lambda) V_0(\lambda)$. Similarly, define 
+By the expansion \cref{conjlemmaP}, $V^+(x; \lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + V_1^+(x; \lambda))$, where we define $V_1^+(x; \lambda) = \Theta_+(x; \lambda) V_0(\lambda)$. Similarly, define 
 \begin{align*}
 V^-(x; \lambda) &= P^-(x; \lambda) Z(x) = RP^+(-x; -\lambda)R e^{\nu(\lambda)x} V_0(\lambda) \\
 &= e^{\nu(\lambda)x} R(I + \Theta_+(-x; -\lambda))R V_0(\lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + R\Theta_+(-x; -\lambda) V_0(-\lambda) ),
@@ -1850,7 +1850,7 @@ and let $V_1^-(x; \lambda) = R\Theta_+(-x; -\lambda) V_0(-\lambda)$. The decay r
 \end{proof}
 \end{lemma}
 
-We use this result to prove the existence of $V^c(x)$ in part (i) of Lemma \ref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, so $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by Lemma \ref{nondegenlemma}, there exists $Y^0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$ with $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Define $V^\pm(x; 0)$ as in \cref{lemma:Vpm}. Since $V^-(0; 0) = R V^+(0; 0)$ and $V^\pm(0; 0) \in \Span \{Y^0 \}$, $V^+(0; 0) = V^-(0; 0)$, thus we define 
+We use this result to prove the existence of $V^c(x)$ in part (i) of \cref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, so $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by \cref{nondegenlemma}, there exists $Y^0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$ with $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Define $V^\pm(x; 0)$ as in \cref{lemma:Vpm}. Since $V^-(0; 0) = R V^+(0; 0)$ and $V^\pm(0; 0) \in \Span \{Y^0 \}$, $V^+(0; 0) = V^-(0; 0)$, thus we define 
 \[
 V^c(x) = \begin{cases}
 V^+(x; 0) & x \geq 0 \\
@@ -1940,7 +1940,7 @@ Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equ
 
 \subsection{Piecewise formulation}
 
-As in \cite{Sandstede1998}, we will write the eigenvalue problem \cref{PDEeigsystemper3} as a piecewise system of equations. From \cref{th:perexist} and Lemma \ref{solvewithjumps}, the periodic $n$-pulse $Q_n(x)$ can be written piecewise as
+As in \cite{Sandstede1998}, we will write the eigenvalue problem \cref{PDEeigsystemper3} as a piecewise system of equations. From \cref{th:perexist} and \cref{solvewithjumps}, the periodic $n$-pulse $Q_n(x)$ can be written piecewise as
 \begin{equation}\label{Qnppiece}
 \begin{aligned}
 Q_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
@@ -1955,11 +1955,11 @@ where $U(x) \in C_b([0, \infty), \R^{2m+1})$ or $U(x) \in C_b((-\infty, 0], \R^{
 \[
 P^\pm(x; U(x), \lambda) = I + \Theta^\pm(x; U(x), \lambda)
 \]
-such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the into the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. By Lemma \ref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
+such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the into the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. By \cref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
 \begin{equation}\label{defPipm}
 P_i^\pm(x; \lambda) = I + \Theta_i^\pm(x; \lambda) = I + \Theta^\pm(x; Q_i^\pm(x), \lambda)).
 \end{equation}
-Expanding \cref{defPipm} in a Taylor series about $Q(x)$, and using \cref{conjthetadecay} and the estimates from Lemma \ref{solvewithjumps}, $\Theta_i^\pm(x; \lambda) = \Theta^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*})$, thus we have the uniform estimates
+Expanding \cref{defPipm} in a Taylor series about $Q(x)$, and using \cref{conjthetadecay} and the estimates from \cref{solvewithjumps}, $\Theta_i^\pm(x; \lambda) = \Theta^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*})$, thus we have the uniform estimates
 \begin{equation}\label{Pipmest}
 P_i^\pm(x; \lambda) = P^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*}).
 \end{equation}
@@ -1998,7 +1998,7 @@ We can now construct our ansatz. It follows from \cref{Ekernel} and \cref{defAB}
 {[\partial_c Q_n]}'(x) &= A(Q_n(x))\partial_c Q_n(x) - B \partial_x Q_n(x).
 \end{aligned}
 \end{equation}
-To exploit the relations \eqref{PDEeigkernel} and \eqref{PDEeigcenter}, we take the piecewise ansatz for the eigenfunction $V(x)$
+To exploit the relations \cref{PDEeigkernel} and \cref{PDEeigcenter}, we take the piecewise ansatz for the eigenfunction $V(x)$
 \begin{equation}\label{Vpiecewise}
 \begin{aligned}
 &d_i (\partial_x Q_i^-(x) - \lambda \partial_c Q_i^-(x)) + c_{i-1} e^{\nu(\lambda)X_{i-1} }( V_i^-(x; \lambda) - k_i^-(\lambda) Q'(x) ) + W_i^-(x) && x \in [-X_{i-1}, 0] \\
@@ -2037,7 +2037,7 @@ W_i^\pm(0) &\in \C \Psi(0) \oplus \C W_0 \oplus Y^+ \oplus Y^- \\
 W_i^+(0) - W_i^-(0) &+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0
 \end{aligned}
 \end{equation}
-for $i = 0, \dots, n-1$. The fourth equation states that the remainder functions $W_i^\pm(x)$ have no component in $\C Q'(0)$. The other terms in the ansatz do not appear by \cref{klambdaIP}. The final equation states that the jumps can only be in the directions of $W_0$ and $\Psi(0)$. The terms involving $Q'(0)$ in the ansatz do not appear since $Q'(0) \perp W_0\oplus\Psi(0)$. A solution to \eqref{eigsystem} solves \cref{eigsystem0} if and only if $n$ jump conditions at $x = 0$ in the direction of $\C \Psi(0) \oplus \C W_0$ are satisfied, i.e.  
+for $i = 0, \dots, n-1$. The fourth equation states that the remainder functions $W_i^\pm(x)$ have no component in $\C Q'(0)$. The other terms in the ansatz do not appear by \cref{klambdaIP}. The final equation states that the jumps can only be in the directions of $W_0$ and $\Psi(0)$. The terms involving $Q'(0)$ in the ansatz do not appear since $Q'(0) \perp W_0\oplus\Psi(0)$. A solution to \cref{eigsystem} solves \cref{eigsystem0} if and only if $n$ jump conditions at $x = 0$ in the direction of $\C \Psi(0) \oplus \C W_0$ are satisfied, i.e.  
 \begin{equation}\label{jumpxi1}
 \begin{aligned}
 \xi_i &= \langle \Psi(0), W_i^+(0) - W_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0  \\
@@ -2094,7 +2094,7 @@ Similarly,
 \begin{align*}
 (Q_i^+)'(X_i) &= Q'(-X_i) + Q'(X_i) + \mathcal{O}(e^{-\alpha_0 X_i}e^{-\alpha_0 X^*})
 \end{align*}
-Substitute these into \cref{defDid} and use (i) to get the estimate (v). For the estimate (vi), by Lemma \ref{lemma:Vpm}, $e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$ and $e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$. Subtracting these and using $k_i^\pm(\lambda) = \mathcal{O}(|\lambda|)$, we obtain the estimate (vi).
+Substitute these into \cref{defDid} and use (i) to get the estimate (v). For the estimate (vi), by \cref{lemma:Vpm}, $e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$ and $e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$. Subtracting these and using $k_i^\pm(\lambda) = \mathcal{O}(|\lambda|)$, we obtain the estimate (vi).
 \end{proof}
 \end{lemma}
 
@@ -2155,7 +2155,7 @@ V_c &= \bigoplus_{i=0}^{n-1} \C \\
 V_d &= \bigoplus_{i=0}^{n-1} \C \\
 V_\lambda &= B_\delta(0) \subset \C
 \end{align*}
-where the subscripts are taken $\Mod n$, since we are on a periodic domain, and the product spaces are endowed with the maximum norm. Using the variation of constants formula and splitting the evolution operator via the exponential trichotomy \cref{Zevolmod}, we write \eqref{systemZ} in integrated form as
+where the subscripts are taken $\Mod n$, since we are on a periodic domain, and the product spaces are endowed with the maximum norm. Using the variation of constants formula and splitting the evolution operator via the exponential trichotomy \cref{Zevolmod}, we write \cref{systemZ} in integrated form as
 \begin{equation}\label{Zfpeq}
 \begin{aligned}
 Z_i^-(x) = \Phi_i^{s,-}(&x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^- + \Phi_i^{u,-}(x, 0; \lambda) P_i^-(0; \lambda)^{-1} b_i^- \\
@@ -2174,7 +2174,7 @@ As in \cite{Sandstede1998}, we will solve the eigenvalue problem in a series of 
 
 % first inversion lemma : match at \pm X_i
 \begin{lemma}\label{Zinv1}
-For $i = 0, \dots, n-1$, there is a unique set of initial conditions $(a_i^+, a_i^-, a_i^c)$ such that \eqref{systemmiddle} is satisfied for any $(b, c, d)$ and $\lambda$. These are given by
+For $i = 0, \dots, n-1$, there is a unique set of initial conditions $(a_i^+, a_i^-, a_i^c)$ such that \cref{systemmiddle} is satisfied for any $(b, c, d)$ and $\lambda$. These are given by
 \begin{equation}\label{aipmexp1}
 \begin{aligned}
 a_i^+ &= P_0^u(\lambda) D_i d + A_2(\lambda)_i^+(b, c, d) \\
@@ -2210,11 +2210,11 @@ which is of the form
 \begin{align}\label{Dideq1}
 D_i d + C_i c &= a_i^+ - a_i^- + 2 a_i^c + L_3(\lambda)_i(b, d).
 \end{align}
-$L_3(\lambda)_i(b, c, d)$ is defined by the RHS of \cref{Didexpansion}, is linear in $(b,c,d)$ and analytic in $\lambda$, and is independent of $a$. To obtain a bound on $L_3$, we will bound the individual terms involved. For the terms involving $b$, we use trichotomy estimates \eqref{Zevolbounds} to get
+$L_3(\lambda)_i(b, c, d)$ is defined by the RHS of \cref{Didexpansion}, is linear in $(b,c,d)$ and analytic in $\lambda$, and is independent of $a$. To obtain a bound on $L_3$, we will bound the individual terms involved. For the terms involving $b$, we use trichotomy estimates \cref{Zevolbounds} to get
 \[
 | P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} P_i^+(0; \lambda)^{-1} b_i^+| \leq C e^{-\alpha X^*} |b|.
 \]
-The term involving $b_{i+1}^-$ is similar. For the integral terms, using \eqref{Zevolbounds}, the bound \cref{expnubound}, and the estimates from Lemma \ref{stabestimateslemma},
+The term involving $b_{i+1}^-$ is similar. For the integral terms, using \cref{Zevolbounds}, the bound \cref{expnubound}, and the estimates from \cref{stabestimateslemma},
 \begin{align*}
 &\left| P_i^+(X_i; \lambda) \int_0^{X_i} \Phi_i^{s,+}(X_i, y; \lambda)P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \right| \\
 &\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*}+ |\lambda|) |c| + |\lambda|^2 |d| \right) \int_0^{X_i} e^{-\alpha(X_i - y)} e^{-\alpha_0 y} dy \\
@@ -2224,12 +2224,12 @@ The other integral is similar. Combining these, we have the bound for $L_3$
 \begin{equation}\label{L3bound}
 |L_3(\lambda)_i(b, c, d)| \leq C \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |\lambda| (e^{-\alpha_0 X_i } + |\lambda|) |c| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right).
 \end{equation}
-To solve for $a_i^+$, $a_i^-$, and $a_i^c$, we apply the projections on $P^{s/u/c}(0)$ on the eigenspaces $E^{s/u/c}(0)$ to \eqref{Dideq1}. For $a_i^\pm$, using the bound \cref{L3bound} for $L_3(\lambda)(b, c, d)$ and the estimate for $C_i c$ from \cref{stabestimateslemma},
+To solve for $a_i^+$, $a_i^-$, and $a_i^c$, we apply the projections on $P^{s/u/c}(0)$ on the eigenspaces $E^{s/u/c}(0)$ to \cref{Dideq1}. For $a_i^\pm$, using the bound \cref{L3bound} for $L_3(\lambda)(b, c, d)$ and the estimate for $C_i c$ from \cref{stabestimateslemma},
 \begin{align*}
 a_i^+ &= P_0^u(0) D_i d + A_2(\lambda)_i^+(b, c, d) \\
 a_i^- &= -P_0^s(0) D_i d + A_2(\lambda)_i^-(b, c, d),
 \end{align*}
-where $A_2(\lambda)_i^\pm(b, c, d)$ has bound \cref{A2bound}. For $a_i^c$, we apply the center projection $P^c(0) = \langle W_0, \cdot \rangle$ to \eqref{Dideq1}, and note that $\langle W_0, D_i d\rangle = 0$. Since $k_i^\pm(\lambda)Q'(\pm X_i) = \mathcal{O}(|\lambda|e^{-\alpha_0 X_i})$, and by reversibility
+where $A_2(\lambda)_i^\pm(b, c, d)$ has bound \cref{A2bound}. For $a_i^c$, we apply the center projection $P^c(0) = \langle W_0, \cdot \rangle$ to \cref{Dideq1}, and note that $\langle W_0, D_i d\rangle = 0$. Since $k_i^\pm(\lambda)Q'(\pm X_i) = \mathcal{O}(|\lambda|e^{-\alpha_0 X_i})$, and by reversibility
 \begin{align*}
 \langle W_0, &e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) - e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) \rangle = \left( P^-(-X_i; \lambda) - P^+(X_i; \lambda) \right) V_0(\lambda) \\
 &= \langle W_0, R \Theta^+(X_i; 0) R - \Theta^+(X_i; 0), V_0 \rangle + \mathcal{O}(|\lambda|e^{-\alpha_0 X_i}) = \mathcal{O}(|\lambda|e^{-\alpha_0 X_i}),
@@ -2257,7 +2257,7 @@ P(\C Q'(0) ) &P_i^+(0; \lambda) Z_i^+(0) = 0 \\
 P(Y^+ \oplus Y^-) &( P_i^+(0; \lambda)Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) = 0,
 \end{aligned}
 \end{equation}
-where the kernel of each projection is the remaining spaces in the direct sum decomposition \eqref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \eqref{centercond2} by \cref{klambdaIP} since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
+where the kernel of each projection is the remaining spaces in the direct sum decomposition \cref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \cref{centercond2} by \cref{klambdaIP} since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
 
 % second inversion lemma
 \begin{lemma}\label{Zinv2}
@@ -2303,7 +2303,7 @@ R_i^+(\lambda) &= P_i^+(0; \lambda) P^s(\lambda) P_i^+(0; \lambda)^{-1}
 - P^+(0; 0) P^s(0) P^+(0; 0)^{-1} = \mathcal{O}(|\lambda| + e^{-2 \alpha X^*}).
 \end{aligned}
 \end{equation}
-Applying the projections in \eqref{centercond2}, we obtain an expression of the form
+Applying the projections in \cref{centercond2}, we obtain an expression of the form
 \begin{equation}\label{projxy}
 \begin{pmatrix}x_i^- \\ x_i^+ \\ 
 y_i^+ - y_i^- \end{pmatrix} 
@@ -2488,7 +2488,7 @@ Using \cref{lemma:VpmPsiIP} and the bound \cref{expnubound},
 \langle \Psi(0), &c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) \rangle \\
 &= -\frac{1}{2}\lambda M_c e^{-\nu(\lambda)X_i}c_i - \frac{1}{2}\lambda M_c e^{\nu(\lambda)X_{i-1}}c_{i-1} + \mathcal{O}\left( (e^{-\alpha X^*} +|\lambda|)^2 |c| \right). 
 \end{align*}
-The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. As in Lemma \ref{jumpcenteradj}, we begin by computing the leading order terms. For the non-center integral involving $\tilde{H}_i^\pm$, following the same procedure as in \cref{jumpcenteradj},
+The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. As in \cref{jumpcenteradj}, we begin by computing the leading order terms. For the non-center integral involving $\tilde{H}_i^\pm$, following the same procedure as in \cref{jumpcenteradj},
 \begin{align*}
 &\langle \Psi(0), P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \rangle \\
 &= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \Psi(0), \tilde{\Phi}^-(0, -X_{i-1}; 0) 
@@ -2554,7 +2554,7 @@ and simplifying, we obtain the jump expressions \cref{jumpPsi0}.
 \end{proof}
 \end{lemma}
 
-Theorem \ref{blockmatrixtheorem} combines the jump conditions from \cref{jumpcenteradj} and \cref{jumpadj} into a single block matrix equation $S(\lambda) = 0$ which is analytic in $\lambda$. A nontrivial solution exists if and only if $\det S(\lambda) = 0$.
+\cref{blockmatrixtheorem} combines the jump conditions from \cref{jumpcenteradj} and \cref{jumpadj} into a single block matrix equation $S(\lambda) = 0$ which is analytic in $\lambda$. A nontrivial solution exists if and only if $\det S(\lambda) = 0$.
 
 \section{Proof of results for periodic single pulse }\label{sec:singlepulse}
 
@@ -2624,9 +2624,9 @@ Let $r_1 = \min\{ r_1^1, \dots, r_1^N \}$. Substituting $h_m(r)$ into \cref{sing
 \end{align*}
 Changing variables back to $\lambda$ and using \cref{lambdamu},
 \[
-\lambda_m^{ess}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right).
+\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right).
 \]
-By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m^{ess}(r)$ is on the imaginary axis, and there is another essential spectrum eigenvalue at $-\lambda_m^{ess}(r)$. 
+By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m^{\text{ess}}(r)$ is on the imaginary axis, and there is another essential spectrum eigenvalue at $-\lambda_m^{\text{ess}}(r)$. 
 
 \section{Proof of results for periodic double pulse}\label{sec:doublepulse}
 
@@ -2910,7 +2910,7 @@ In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions,
 Another avenue for future research is to investigate numerically the effect of Krein bubbles on the stability of periodic double pulse solutions. As a start, it would be useful to perform numerically timestepping for parameter regimes where the eigenvalues in the Krein bubble have maximum real part. (The main difficulty with timestepping for periodic multi-pulses is that the essential spectrum eigenmodes contribute oscillatory behavior of arbitrarily high frequency. Eliminating this behavior motivated the choice of separated boundary conditions for the simulations in \cref{fig:KdV5waterfall}.) Although we expect that solutions in the Krein bubble are unstable due to the presence of an eigenvalue with positive real part, it is unclear what form the instability would take. Finally, we note from \cref{remark:kreinbubbles} that, as the domain size $X$ increases, the centers of the Krein bubbles are approximately equally spaced in $X$, but their widths in $X$ grows with each subsequent bubble. At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}).
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=9cm]{images/KreinBubbleCollision.eps}
+\includegraphics[width=12cm]{images/KreinBubbleCollision.eps}
 \end{center}
 \caption{Overlapping Krein bubbles as $X$ is increased. Parameter continuation with AUTO, second double pulses with $m_0 = 1$, parameters $p = 6.62$, $c = 10.9561$.}
 \label{fig:KreinBubbleCollision}
