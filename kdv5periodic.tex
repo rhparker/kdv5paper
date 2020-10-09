@@ -139,9 +139,9 @@ As in \cite{SandstedeStrut,Sandstede1998}, we will use a spatial dynamics approa
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=8cm]{images/DPperiodic.eps} \hspace{-1cm}
-\includegraphics[width=9cm]{images/2pitchforkcoloreig.eps}
+\includegraphics[width=9cm]{images/2pitchforkcoloreig2.eps}
 \end{center}
-\caption{Left panel is an illustration of a periodic 2-pulse showing the two length parameters $X_0$ and $X_1$. Center panel shows the pitchfork bifurcation structure for periodic 2-pulses as these length parameters are altered. Pitchfork bifurcation points are indicated with black dots. Blue lines correspond to solutions with real interaction eigenvalues, and red lines correspond to solutions with imaginary interaction eigenvalues. Right panel is a schematic of the eigenvalue pattern for a periodic 2-pulse with a pair of imaginary interaction eigenvalues (red dots), a double eigenvalue at the origin from translation invariance (black dot), and essential spectrum eigenvalues (blue open circles).}
+\caption{Left panel is an illustration of a periodic 2-pulse showing the two length parameters $X_0$ and $X_1$. Center panel shows the pitchfork bifurcation structure for periodic 2-pulses as these length parameters are altered. Pitchfork bifurcation points are indicated with black dots. Blue dotted lines correspond to solutions with real interaction eigenvalues, and red solid lines correspond to solutions with imaginary interaction eigenvalues. Right panel is a schematic of the eigenvalue pattern for a periodic 2-pulse with a pair of imaginary interaction eigenvalues (red dots), a double eigenvalue at the origin from translation invariance (black square), and essential spectrum eigenvalues (blue open circles).}
 \label{fig:KdV5periodicMP}
 \end{figure}
 
@@ -562,12 +562,12 @@ It follows from the proof of \cref{2pulsebifurcation} that periodic single pulse
 \end{remark}
 
 The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel). \cref{2pulsebifurcation} uses a different parameterization than \cref{th:perexist}, which is shown in \cref{fig:2pitch}. The proof is given in \cref{sec:existproof}. 
-****
+
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=8cm]{images/2pitchparamrev.eps}
+\includegraphics[width=10cm]{images/2pitchparam}
 \end{center}
-\caption[Parameterization for periodic 2-pulses]{Parameterization for periodic 2-pulses (left panel). Blue represents symmetric periodic 2-pulses, and orange represents asymmetric periodic 2-pulses. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
+\caption[Parameterization for periodic 2-pulses]{Parameterization for periodic 2-pulses (left panel). Red dashed line represents symmetric periodic 2-pulses, and blue solid line represents asymmetric periodic 2-pulses. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
 \label{fig:2pitch}
 \end{figure} 
 
@@ -899,7 +899,7 @@ To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5
 \includegraphics[width=6cm]{images/dp2spec.eps}
 \end{tabular}
 \end{center}
-\caption[Spectrum of periodic 2-pulse solutions]{Spectrum of periodic 2-pulse solutions for KdV5. Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Interaction eigenvalues in red, essential spectrum eigenvalues in blue, kernel eigenvalues in black. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 20$, $X = 30$.}
+\caption[Spectrum of periodic 2-pulse solutions]{Spectrum of periodic 2-pulse solutions for KdV5, showing interaction eigenvalues (red dots), essential spectrum eigenvalues (blue open circles), and double eignenvalue at origin (black square). Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 20$, $X = 30$.}
 \label{fig:KdV5eigs1}
 \end{figure}
 For asymmetric periodic 2-pulses $(X_0 \neq X_1)$, the interaction eigenvalue pattern depends completely on the integer $m_0$ from the periodic parameterization. For $m_0 = 0$, the interaction eigenvalues are real, and for $m_0 = 1$, the interaction eigenvalues are purely imaginary (the real part of the eigenvalues computed with \texttt{eig} is less than $10^{-9}$). We can also compute the interaction eigenvalues for symmetric periodic 2-pulses (\cref{fig:periodiceigbif}, right panel), which shows that at each pitchfork bifurcation point, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern (up to the first Krein bubble) is shown in the center panel of \cref{fig:KdV5periodicMP}.
@@ -907,7 +907,7 @@ For asymmetric periodic 2-pulses $(X_0 \neq X_1)$, the interaction eigenvalue pa
 \begin{center}
 \includegraphics[width=6.5cm]{images/periodicequaleigbif.eps}
 \end{center}
-\caption{Real part (blue line) and imaginary part (red line) of interaction eigenvalues versus pulse distance for symmetric periodic 2-pulses $(X_0 = X_1)$. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, and $c = 20$. }
+\caption{Real part (blue solid line) and imaginary part (red dashed line) of interaction eigenvalues versus pulse distance for symmetric periodic 2-pulses $(X_0 = X_1)$. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, and $c = 20$. }
 \label{fig:periodiceigbif}
 \end{figure}
 For the essential spectrum eigenvalues for periodic single and double pulses, we compare the results from \texttt{eig} to those predicted by the leading order formulas from \cref{theorem:1pess} and \cref{theorem:2peigsassym}. Plotting the log of absolute value of the error vs $\log m$ and constructing a least squares linear regression line (\cref{fig:DP2esslogerror}), the absolute error is proportional to $m^{3.02}$ and $m^{3.05}$ (respectively), which is a relative error of less than 0.02 from the predicted exponent of $3$.
