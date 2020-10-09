@@ -891,7 +891,7 @@ q(x) = \frac{105}{338}\sech^4\left(\frac{x}{2\sqrt{13}} \right).
 \end{equation}
 We use AUTO for parameter continuation in $c$ and $p$ until $-2 \sqrt{c} < p < 2 \sqrt{c}$, so that \cref{hyp:hypeq} is satisfied. Following the AUTO demo \texttt{kdv}, we formulate the problem using equation \cref{KdV5ham2}, and use a small parameter $\epsilon$ to break the Hamiltonian structure. We impose periodic boundary conditions and rescale the domain from $[-X, X]$ to $[0, 1]$, using the domain size $X$ as a parameter. 
 
-To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5eq4} using Fourier spectral differentiation matrices to enforce periodic boundary conditions. As an initial ansatz, we take two copies of the primary pulse spliced together at the distances predicted by \cref{2pulsebifurcation}. We then solve for the periodic double pulse using Matlab's \texttt{fsolve} function. This same procedure can also be used to construct arbitrary periodic multi-pulses. We can also vary the domain size $X$ by parameter continuation in AUTO, from which verify that asymmetric solutions bifurcate from symmetric solutions in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel). Next, we compute the spectrum of $\partial_x \calE''(q_n)$ by discretizing the linear operator using Fourier spectral differentiation matrices and using Matlab's \texttt{eig} function (\cref{fig:KdV5eigs1}). 
+To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5eq4} using Fourier spectral differentiation matrices to enforce periodic boundary conditions. As an initial ansatz, we take two copies of the primary pulse spliced together at the distances predicted by \cref{2pulsebifurcation}. We then solve for the periodic double pulse using Matlab's \texttt{fsolve} function. This same procedure can also be used to construct arbitrary periodic multi-pulses. We can also vary the domain size $X$ by parameter continuation in AUTO, from which verify that asymmetric periodic 2-pulses bifurcate from symmetric periodic 2-pulses in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel). Next, we compute the spectrum of $\partial_x \calE''(q_2)$ by discretizing the linear operator using Fourier spectral differentiation matrices and using Matlab's \texttt{eig} function (\cref{fig:KdV5eigs1}). 
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
@@ -910,7 +910,7 @@ For asymmetric periodic 2-pulses $(X_0 \neq X_1)$, the interaction eigenvalue pa
 \caption{Real part (blue solid line) and imaginary part (red dashed line) of interaction eigenvalues versus pulse distance for symmetric periodic 2-pulses $(X_0 = X_1)$. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, and $c = 20$. }
 \label{fig:periodiceigbif}
 \end{figure}
-For the essential spectrum eigenvalues for periodic single and double pulses, we compare the results from \texttt{eig} to those predicted by the leading order formulas from \cref{theorem:1pess} and \cref{theorem:2peigsassym}. Plotting the log of absolute value of the error vs $\log m$ and constructing a least squares linear regression line (\cref{fig:DP2esslogerror}), the absolute error is proportional to $m^{3.02}$ and $m^{3.05}$ (respectively), which is a relative error of less than 0.02 from the predicted exponent of $3$.
+Next, we compute the essential spectrum eigenvalues for periodic single and double pulses using \texttt{eig} and compare the results to the leading order formulas from \cref{theorem:1pess} and \cref{theorem:2peigsassym}. Plotting the log of absolute value of the error versus $\log m$ and constructing a least squares linear regression line (\cref{fig:DP2esslogerror}), the absolute error is proportional to $m^{3.02}$ and $m^{3.05}$ (respectively), which is a relative error of less than 0.02 from the predicted exponent of $3$.
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
@@ -935,13 +935,14 @@ Finally, we look at what happens when we increase the periodic domain parameter 
 \begin{align}\label{KdVpabc}
 p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$.
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid but do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble size in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=6.5cm]{images/KreinRadiusError.eps}
 \includegraphics[width=6.5cm]{images/KreinRadiusXError.eps}
 \end{center}
-\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Parameters $p = 5.3$, $c = 11.2225$.}
+\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Slopes of regression lines -3.0319 (left) and -1.0332 (right). Parameters $p = 5.3$, $c = 11.2225$.
+}
 \label{fig:kreinerrors}
 \end{figure}
 The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
@@ -2730,7 +2731,7 @@ Let $f(x) = x \sin \left( -\rho \log x \right)$. Then $H(b_0, b_1) = f(b_0) - f(
 We can now characterize $a$ in terms of the parameterization of the periodic double pulse. 
 
 \begin{lemma}\label{lemma:chara}
-Let $r_*$ be as in Theorem \ref{2pulsebifurcation}. Then for any $r \in \mathcal{R}$ with $r \leq r_*$,
+Let $r_*$ be as in \cref{2pulsebifurcation}. Then for any $r \in \mathcal{R}$ with $r \leq r_*$,
 \begin{enumerate}[(i)]
 	\item For a symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, s_0, r)$, $a = r \tilde{a}(r; m_0, s_0)$, where $\tilde{a}(r; m_0, s_0)$ is continuous in $r$. Furthermore $\tilde{a}(0; m_0, s_0) = 0$ if and only if $s_0 = p^*$. For $s_0 \neq p^*$,
 	\begin{equation}\label{symmsigns}
