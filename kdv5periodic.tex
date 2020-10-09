@@ -1,7 +1,7 @@
-\documentclass[12pt,reqno]{amsart}
-% \documentclass[12pt]{elsarticle}
-\usepackage[left=1in,right=1in,top=1in,bottom=1.25in]{geometry}%
-
+% \documentclass[12pt,reqno]{amsart}
+\documentclass[12pt]{elsarticle}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}%
+\let\bibsection\relax
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -16,6 +16,7 @@
 \usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{enumerate}
+\usepackage{bbm}
 \usepackage{float}
 \usepackage{subfiles}
 
@@ -23,6 +24,16 @@
 \usepackage{macros}
 \usepackage{packages}
 \usepackage{style}
+
+\RequirePackage{xcolor}[2.11]
+\colorlet{siaminlinkcolor}{green!50!black}
+\colorlet{siamexlinkcolor}{red!50!black}
+\colorlet{siamreviewcolor}{black!50}
+\hypersetup{
+  colorlinks = false,
+  allcolors = siaminlinkcolor,
+  urlcolor = siamexlinkcolor,
+}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -44,23 +55,28 @@
 
 \begin{document}
 
-\title[Periodic Multi-Pulses to KdV5]{Existence and spectral stability of periodic multi-pulse solutions to the fifth-order Korteweg-de Vries equation}
+\begin{frontmatter}
 
-\author{Ross Parker}
-\address{Department of Mathematics, Southern Methodist University, 
-Dallas, Texas 75275}
-% \email{ross\_parker@brown.edu}
+\title{Existence and spectral stability of periodic multi-pulse solutions to the fifth-order Korteweg-de Vries equation}
 
-\author{Bj\"orn Sandstede}
-\address{Division of Applied Mathematics, Brown University, 
-Providence, RI 02912}
-% \email{bjorn\_sandstede@brown.edu}
+\author[1]{Ross Parker}
+    \ead{rhparker@smu.edu}
+\author[2]{Bj\"{o}rn Sandstede}
+    \ead{bjorn\_sandstede@brown.edu}
+
+\address[1]{Department of Mathematics, Southern Methodist University, 
+Dallas, TX 75275, USA}
+\address[2]{Division of Applied Mathematics, Brown University, Providence, RI 02912, USA}
 
 \begin{abstract}
 We consider the existence and spectral stability of periodic multi-pulse solutions in Hamiltonian systems which are translation invariant and reversible, for which the fifth-order Korteweg-de Vries equation is a prototypical example. We use Lin's method to construct multi-pulses on a periodic domain, and in particular demonstrate a pitchfork bifurcation structure for periodic double pulses. We also use Lin's method to reduce the spectral problem for periodic multi-pulses to computing the determinant of a block matrix, which encodes both eigenvalues resulting from interactions between neighboring pulses and eigenvalues associated with the essential spectrum. We then use this matrix to compute the spectrum associated with periodic single and double pulses. Most notably, we prove that brief instability bubbles form when eigenvalues collide on the imaginary axis as the periodic domain size is altered. These analytical results are all in good agreement with numerical computations.
 \end{abstract}
 
-\maketitle
+\begin{keyword}
+multi-pulse solutions \sep periodic solutions \sep fifth-order Korteweg de-Vries equation \sep nonlinear waves \sep Hamiltonian partial differential equations \sep Lin's method \MSC{37K40, 37K45, 74J30}
+\end{keyword}
+
+\end{frontmatter}
 
 \section{Introduction}\label{sec:intro}
 
@@ -879,8 +895,8 @@ To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
-\includegraphics[width=7.5cm]{images/dp1spec.eps} &
-\includegraphics[width=7.5cm]{images/dp2spec.eps}
+\includegraphics[width=6cm]{images/dp1spec.eps} &
+\includegraphics[width=6cm]{images/dp2spec.eps}
 \end{tabular}
 \end{center}
 \caption[Spectrum of periodic 2-pulse solutions]{Spectrum of periodic 2-pulse solutions for KdV5. Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Interaction eigenvalues in red, essential spectrum eigenvalues in blue, kernel eigenvalues in black. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 20$, $X = 30$.}
@@ -889,7 +905,7 @@ To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5
 For asymmetric periodic 2-pulses $(X_0 \neq X_1)$, the interaction eigenvalue pattern depends completely on the integer $m_0$ from the periodic parameterization. For $m_0 = 0$, the interaction eigenvalues are real, and for $m_0 = 1$, the interaction eigenvalues are purely imaginary (the real part of the eigenvalues computed with \texttt{eig} is less than $10^{-9}$). We can also compute the interaction eigenvalues for symmetric periodic 2-pulses (\cref{fig:periodiceigbif}, right panel), which shows that at each pitchfork bifurcation point, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern (up to the first Krein bubble) is shown in the center panel of \cref{fig:KdV5periodicMP}.
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=7.5cm]{images/periodicequaleigbif.eps}
+\includegraphics[width=6.5cm]{images/periodicequaleigbif.eps}
 \end{center}
 \caption{Real part (blue line) and imaginary part (red line) of interaction eigenvalues versus pulse distance for symmetric periodic 2-pulses $(X_0 = X_1)$. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, and $c = 20$. }
 \label{fig:periodiceigbif}
@@ -898,8 +914,8 @@ For the essential spectrum eigenvalues for periodic single and double pulses, we
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
-\includegraphics[width=7.5cm]{images/SPesslogerror.eps}
-\includegraphics[width=7.5cm]{images/DP2esslogerror.eps} 
+\includegraphics[width=6.5cm]{images/SPesslogerror.eps}
+\includegraphics[width=6.5cm]{images/DP2esslogerror.eps} 
 \end{tabular}
 \end{center}
 \caption{Log of absolute error vs. $\log m$ for the first 15 essential spectrum eigenvalues with least squares linear regression line for periodic single pulse (left panel) and second periodic double pulse (right panel). $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 200$.}
@@ -909,8 +925,8 @@ For the essential spectrum eigenvalues for periodic single and double pulses, we
 Finally, we look at what happens when we increase the periodic domain parameter $X$. As predicted by \cref{th:Kreinbubble}, there is a brief instability bubble when the first essential spectrum eigenvalue collides with the imaginary interaction eigenvalue (\cref{fig:kreinbubble1}).
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=7.5cm]{images/kreinbubble1}
-\includegraphics[width=7.5cm]{images/kreinbubble1zoom.eps}
+\includegraphics[width=6.5cm]{images/kreinbubble1}
+\includegraphics[width=6.5cm]{images/kreinbubble1zoom.eps}
 \end{center}
 \caption{Left panel shows collision of first essential spectrum eigenvalue with purely imaginary interaction eigenvalue as $X$ is increased. Imaginary part of eigenvalues in top panel (red), real part of eigenvalues in bottom panel (blue). Right panel plots the imaginary part vs. the real part of the eigenvalues in the Krein bubble as $X$ varies. Parameter continuation with AUTO in periodic domain length $X$, $p = -1$, $c = 20$.}
 \label{fig:kreinbubble1}
@@ -919,16 +935,16 @@ Finally, we look at what happens when we increase the periodic domain parameter 
 \begin{align}\label{KdVpabc}
 p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$. The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
-
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid and do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane and the Krein bubble radius in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha X_0$.
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=7.5cm]{images/KreinRadiusError.eps}
-\includegraphics[width=7.5cm]{images/KreinRadiusXError.eps}
+\includegraphics[width=6.5cm]{images/KreinRadiusError.eps}
+\includegraphics[width=6.5cm]{images/KreinRadiusXError.eps}
 \end{center}
 \caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) versus $\alpha X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Parameters $p = 5.3$, $c = 11.2225$.}
 \label{fig:kreinerrors}
 \end{figure}
+The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \section{Proof of Theorem \ref{transverseint}}\label{sec:transverseintproof}
 
@@ -1126,11 +1142,11 @@ Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, we obtain an
 where $G_i^\pm(x; \beta_i^\pm) = \mathcal{O}(|\tilde{Q}_i^\pm(x)|^2)$. As in \cite{Sandstede1997}, derivatives of $G_i^\pm$ with respect to the parameters $\beta_i^\pm$ are also quadratic in $\tilde{Q}_i^\pm$. Using the exponential dichotomy, we rewrite \cref{Vpiecewise1} in integrated form to obtain the fixed point equations
 \begin{equation}\label{FPequations}
 \begin{aligned}
-\tilde{Q}_i^+(x) &= \Phi^u_+(x, X_i; \beta_i^+) a_i^+  
-+ \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy 
+\tilde{Q}_i^+(x) &= \Phi^u_+(x, X_i; \beta_i^+) a_i^+ \\
+&\qquad+ \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy 
 + \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\ 
-\tilde{Q}_i^-(x) &= \Phi^s_-(x, -X_{i-1}; \beta_i^-) a_{i-1}^-  
-+\int_{-X_{i-1}}^x \Phi_-^s(x, y; \beta_i^-) G_i^-(y; \beta_i^-)dy 
+\tilde{Q}_i^-(x) &= \Phi^s_-(x, -X_{i-1}; \beta_i^-) a_{i-1}^- \\ 
+&\qquad+\int_{-X_{i-1}}^x \Phi_-^s(x, y; \beta_i^-) G_i^-(y; \beta_i^-)dy 
 + \int_0^x \Phi_-^u(x, y; \beta_i^-) G_i^-(y; \beta_i^-)dy
 \end{aligned}
 \end{equation}
@@ -1174,7 +1190,7 @@ The third term is similarly bounded. Thus the RHS of the fixed point equation \c
 H_i^+(\tilde{Q}_i^+(x), &a_i^+, \beta_i^+) = \tilde{Q}_i^+(x) - \Phi^u_+(x, X_i; \beta_i^+) a_i^+ - \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\
 &- \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy.
 \end{align*}
-Since $Q(x)$ satisfies \cref{genODE}, $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \cref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from \cref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
+Since $Q(x)$ satisfies \cref{genODE}, we have $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \cref{FPequations}, since the remaining terms on the RHS are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from \cref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
 \end{proof}
 \end{lemma}
 
@@ -1202,7 +1218,7 @@ H_i(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-)
 &+ \int_0^{X_i} \Phi_+^s(X_i, y; \beta_i^+) G_i^+(y,\beta_i^+)dy
 - \int_0^{-X_i} \Phi_-^u(-X_i, y; \beta_{i+1}^-) G_{i+1}^-(y,\beta_{i+1}^-)dy,
 \end{align*}
-where we substutited $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
+where we substutited $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, we have $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
 \[
 \frac{\partial}{\partial a_i^\pm} H_i(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
 \]
@@ -1355,7 +1371,8 @@ Using \cref{dichotomy1}, smooth dependence on initial conditions, and the bound 
 \end{equation}
 For the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from \cref{solvefora} for $a_i^+$. Using \cref{phibetaest}, the estimate \cref{Qpmbounds}, and \cref{eigadjoint}(iii),
 \begin{align*}
-\langle \Psi(0), &\Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = -\langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+)\left( P^u_0 ( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)) + \mathcal{O}( e^{-2 \alpha X_i} ) \right) \rangle \\
+\langle \Psi&(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle \\
+&= -\langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+)\left( P^u_0 ( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-)) + \mathcal{O}( e^{-2 \alpha X_i} ) \right) \rangle \\
 &= -\langle \Psi(0), \Phi^u_+(0, X_i; 0) P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-2\alpha X_{i-1}}e^{-\alpha X_i} ) \\
 &= -\langle \Psi(X_i), P^u_+(X_i; 0) P^u_0 \left( Q(X_i) - Q(-X_i) \right) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}}).
 \end{align*}
@@ -2024,7 +2041,8 @@ for $i = 0, \dots, n-1$, where $W_i^-(x) \in C([-X_{i-1}, 0], \C^{2m+1})$, $W_i^
 &(W_i^-)'(x) = A(Q_i^-(x); \lambda) W_i^-(x) + c_{i-1} e^{\nu(\lambda)X_{i-1}}  G_i^-(x; \lambda) + d_i \lambda^2 \tilde{H}_i^-(x) \\
 &(W_i^+)'(x) = A(Q_i^+(x); \lambda) W_i^+(x) + c_i e^{-\nu(\lambda)X_i} G_i^+(x; \lambda) + d_i \lambda^2 \tilde{H}_i^+(x) \\
 &W_i^+(X_i) - W_{i+1}^-(-X_i) = D_i d + C_i c \\
-&W_i^+(0) - W_i^+(0) + c_i e^{-\nu(\lambda)X_i}(V_i^+(0; \lambda) - k_i^+(\lambda) Q'(0) )  - c_{i-1} e^{\nu(\lambda)X_{i-1}} ( V_i^-(0; \lambda) - k_i^-(\lambda) Q'(0) ) = 0
+&W_i^+(0) - W_i^+(0) + c_i e^{-\nu(\lambda)X_i}(V_i^+(0; \lambda) - k_i^+(\lambda) Q'(0) )\\
+&\qquad\qquad\qquad - c_{i-1} e^{\nu(\lambda)X_{i-1}} ( V_i^-(0; \lambda) - k_i^-(\lambda) Q'(0) ) = 0
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$, where
@@ -2073,15 +2091,18 @@ P_i^+(X_i; \lambda) Z_i^+(X_i) - P_{i+1}^-(-X_i; \lambda) Z_{i+1}^-(-X_i; \lambd
 and matching conditions at $x = 0$
 \begin{equation}\label{systemcenter}
 \begin{aligned}
-P_i^\pm(0; \lambda) Z_i^\pm(0) &\in Y^+ \oplus Y^- \oplus \C \Psi(0) \oplus \C W_0 \\
-P_i^+(0; \lambda)Z_i^+(0) &- P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0.
+&P_i^\pm(0; \lambda) Z_i^\pm(0) \in Y^+ \oplus Y^- \oplus \C \Psi(0) \oplus \C W_0 \\
+&P_i^+(0; \lambda)Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) \\
+&\qquad+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0.
 \end{aligned}
 \end{equation}
 The jump conditions become
 \begin{equation}\label{jumpcondZ}
 \begin{aligned}
-\xi_i &= \langle \Psi(0), P_i^+(0; \lambda) Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0  \\
-\xi_i^c &= \langle W_0, P_i^+(0; \lambda) Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0. 
+\xi_i &= \langle \Psi(0), P_i^+(0; \lambda) Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) \\
+&\qquad + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0  \\
+\xi_i^c &= \langle W_0, P_i^+(0; \lambda) Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) \\
+&\qquad + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0. 
 \end{aligned}
 \end{equation}
 
@@ -2171,12 +2192,12 @@ V_\lambda &= B_\delta(0) \subset \C
 where the subscripts are taken $\Mod n$, since we are on a periodic domain, and the product spaces are endowed with the maximum norm. Using the variation of constants formula and splitting the evolution operator via the exponential trichotomy \cref{Zevolmod}, we write \cref{systemZ} in integrated form as
 \begin{equation}\label{Zfpeq}
 \begin{aligned}
-Z_i^-(x) = \Phi_i^{s,-}(&x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^- + \Phi_i^{u,-}(x, 0; \lambda) P_i^-(0; \lambda)^{-1} b_i^- \\
+Z_i^-(x) = \Phi_i^{s,-}&(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^- + \Phi_i^{u,-}(x, 0; \lambda) P_i^-(0; \lambda)^{-1} b_i^- \\
 &- \Phi_i^{c,-}(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^c \\
 &+ \int_0^x \Phi_i^{u,-}(x, y; \lambda)P_i^-(y; \lambda)^{-1}(c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\
 &+ \int_{-X_{i-1}}^x \Phi_i^{s,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) \tilde{H}_i^-(y)) dy \\
 &+ \int_{-X_{i-1}}^x \Phi_i^{c,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) \tilde{H}_i^-(y)) dy  \\ 
-Z_i^+(x) = \Phi_i^{u,+}(&x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ + \Phi_i^{s,+}(x, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \\
+Z_i^+(x) = \Phi_i^{u,+}&(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ + \Phi_i^{s,+}(x, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \\
 &+ \Phi_i^{c,+}(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^c \\
 &+ \int_0^x \Phi_i^{s,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
 &+ \int_{X_i}^x \Phi_i^{u,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
@@ -2265,9 +2286,10 @@ Combining the above bounds and dividing by 2, $a_i^c = \tilde{A}_2(\lambda)_i(b,
 In the next lemma, we solve equations \cref{systemcenter}, which are matching conditions at $x = 0$ in the directions other than $\C \Psi(0) \oplus \C W_0$. Using the decomposition \cref{DSdecomp}, equations \cref{systemcenter} are equivalent to the three projections
 \begin{equation}\label{centercond2}
 \begin{aligned}
-P(\C Q'(0) ) &P_i^-(0; \lambda) Z_i^-(0) = 0 \\
-P(\C Q'(0) ) &P_i^+(0; \lambda) Z_i^+(0) = 0 \\
-P(Y^+ \oplus Y^-) &( P_i^+(0; \lambda)Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) = 0,
+&P(\C Q'(0) ) P_i^-(0; \lambda) Z_i^-(0) = 0 \\
+&P(\C Q'(0) ) P_i^+(0; \lambda) Z_i^+(0) = 0 \\
+&P(Y^+ \oplus Y^-) ( P_i^+(0; \lambda)Z_i^+(0) - P_i^-(0; \lambda) Z_i^-(0) \\
+&\qquad\qquad\qquad + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) = 0,
 \end{aligned}
 \end{equation}
 where the kernel of each projection is the remaining spaces in the direct sum decomposition \cref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \cref{centercond2} by \cref{klambdaIP} since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
@@ -2324,8 +2346,8 @@ y_i^+ - y_i^- \end{pmatrix}
 \end{equation}
 where $L_4(\lambda)_i(b, c, d)$ consists of the projections in \cref{centercond2} applied to the remaining terms in \cref{PipmZ0} as well as the term $P(Y^+ \oplus Y^-) ( c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_i} V_i^-(0; \lambda) )$ in the final component. To obtain a bound on $L_4$, we will bound the individual terms involved. For the $a_i^\pm$ terms, we use the expression from \cref{Zinv1}, the estimate \cref{A2bound}, and the trichotomy bounds \cref{Zevolbounds} to get
 \begin{align*}
-|P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+| 
-&\leq C e^{-\alpha X_i} \left( e^{-\alpha X^*} |b| + (e^{-\alpha_0 X^*} + |\lambda|)|c| + (|\lambda|^2 + |D|)|d| \right).
+&|P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+| \\
+&\qquad\leq C e^{-\alpha X_i} \left( e^{-\alpha X^*} |b| + (e^{-\alpha_0 X^*} + |\lambda|)|c| + (|\lambda|^2 + |D|)|d| \right).
 \end{align*}
 The $a_i^-$ term is similar. For the $a_i^c$ terms, we use \cref{Zevolbounds}, the estimate \cref{expnubound}, and the expression from \cref{Zinv1} to get
 \begin{align*}
@@ -2427,9 +2449,11 @@ The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. The only 
 &\qquad \qquad
 P^c(0) P_i^-(-X_{i-1}, \lambda) \Phi(-X_{i-1}, y; \lambda) P_i^-(y; \lambda)^{-1} \tilde{H}_i^-(y) \rangle dy \\
 &= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle W_0, \tilde{\Phi}^-(0, -X_{i-1}; 0) 
-P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
+P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) H(y) \rangle dy \\
+& \qquad \qquad + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
 &= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^c(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* W_0,
- H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
+ H(y) \rangle dy \\
+& \qquad \qquad+ \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
 &= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle W_0, H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
 &= \lambda^2 d_i \int_{-\infty}^0 \langle W_0, H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|)
 \end{aligned}
@@ -2505,8 +2529,10 @@ The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. As in \cr
 \begin{align*}
 &\langle \Psi(0), P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \rangle \\
 &= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \Psi(0), \tilde{\Phi}^-(0, -X_{i-1}; 0) 
-P^s(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) H(y) \rangle dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|) \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^s(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* \Psi(0), H(y) \rangle dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|).
+P^s(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) H(y) \rangle dy \\
+&\qquad \qquad + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|) \\
+&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^s(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* \Psi(0), H(y) \rangle dy \\
+&\qquad \qquad + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|).
 \end{align*}
 By \cref{lemma:Afacts}, $P^s(0)^* = P^{u,*}(0)$, and $P^{u,*}(0) \Psi(-X_{i-1}) = \Psi(-X_{i-1}) + \mathcal{O}(e^{-2\alpha_0 X_{i-1}})$. Since $\Psi(x)$ is a solution to \cref{adjvareq2}, this becomes
 \begin{align*}
@@ -2525,21 +2551,21 @@ Similarly,
 \end{align*}
 For the terms involving $a_i^\pm$, we substitute the expressions from \cref{Zinv2} and use \cref{Zevolmod} and \cref{A4bound} to get
 \begin{align*}
-\langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ \rangle = \langle \Psi(0), P_i^+(0; \lambda) \Phi^+(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1}
+\langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ \rangle \\
+&= \langle \Psi(0), P_i^+(0; \lambda) \Phi^+(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1}
 P^u(0) a_i^+ \rangle \\
 &= \langle \Psi(0), \tilde{\Phi}^+(0, X_i; 0) P^u(0) a_i^+ \rangle + \mathcal{O}(e^{-\alpha_0 X^*}(|\lambda| + e^{-2 \alpha_0 X^*})|a_i^+|) \\
 &= \langle \Psi(X_i), P^u(0) D_i d \rangle + \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
 \end{align*}
 By \cref{stabestimateslemma}, $P^u(0) D_i d = Q'(-X_i)(d_{i+1} - d_i ) + \mathcal{O}( e^{-\alpha_0 X_i} (e^{-\alpha_0 X^*} + |\lambda| )|d|)$, thus we have
 \begin{align*}
-\langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ \rangle \\
-&= \langle \Psi(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) + \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
+\langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ = \langle \Psi(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) \\
+&+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
 \end{align*}
 Similarly,
 \begin{align*}
-\langle \Psi(0), &P_i^-(0; \lambda) \Phi_i^{s,-}(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} a_{i-1}^- \rangle \\
-&= -\langle \Psi(-X_{i-1}), Q'(X_{i-1}) \rangle (d_i - d_{i-1} )
-+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
+\langle \Psi(0), &P_i^-(0; \lambda) \Phi_i^{s,-}(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} a_{i-1}^- \rangle = -\langle \Psi(-X_{i-1}), Q'(X_{i-1}) \rangle (d_i - d_{i-1} ) \\
+&+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
 \end{align*}
 
 The remaining terms will be higher order. For the terms involving $a_i^c$, similar to \cref{jumpcenteradj}, we have
@@ -2658,7 +2684,7 @@ from which follows that $\det S(-\lambda) = \det K_1 \det S(\lambda) \det K_2 = 
 As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambda = \nu^{-1}(\mu)$ so that $\det S(\lambda)$ becomes 
 \begin{equation}\label{2pdetmu}
 \begin{aligned}
-\det S(&\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
+\det &S(\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
 &+4 a c^3 \mu^3 M_c^2 \sinh(\mu X_1)\sinh(\mu X_0) 
 + R_2 \mu^2 \sinh(\mu(X_1 - X_0)) + R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4,
 \end{aligned}
@@ -2744,7 +2770,7 @@ For part (ii), $a = r \tilde{a}(r; m_0, s_1)$, where
 \begin{align*}
 \tilde{a}(r; m_0, s_1) &= -p_0 \alpha_0 e^{\alpha \phi/\beta_0} H_1( b_0(m_0, s_1), b_1(s_1) ) + \mathcal{O}(r^{\gamma/2\alpha}),
 \end{align*}
-and the parameterization $(b_0(m_0, s_1), b_1(s_1))$ is defined in \cref{armpersists}. Since $(b_0(m_0, s_1), b_1(s_1))$ is contained entirely within the zero set of $H(b_0, b_1)$, where $H$ is defined in \cref{perdefH}, it follows from \cref{lemma:Hoverlaplemma} that $\tilde{a}(0; m_0, s_1) = 0$ if and only if $s_1 = p^*$. By continuity in $s_1$, $\tilde{a}(0; m_0, s_1)$ must have the same sign for all $s_1 > p^*$. It only remains to determine that sign. Sending $s_1 \rightarrow \infty$,
+and the parameterization $(b_0(m_0, s_1), b_1(s_1))$ is defined in \cref{armpersists}. $(b_0(m_0, s_1), b_1(s_1))$ is contained entirely within the zero set of $H(b_0, b_1)$, where $H$ is defined in \cref{perdefH}, thus it follows from \cref{lemma:Hoverlaplemma} that $\tilde{a}(0; m_0, s_1) = 0$ if and only if $s_1 = p^*$. By continuity in $s_1$, $\tilde{a}(0; m_0, s_1)$ must have the same sign for all $s_1 > p^*$. It only remains to determine that sign. Sending $s_1 \rightarrow \infty$,
 \begin{align*}
 \lim_{s_1 \rightarrow \infty}
 \tilde{a}(0; m_0, s_1) = -p_0 \beta_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho} m_0 \pi} \cos(m_0 \pi) = (-1)^{m_0+1} p_0 \beta_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho} m_0 \pi},
@@ -2842,16 +2868,20 @@ Using this rescaling and the fact that $1/X(r) = \mathcal{O}(r^{1/2})$, we subst
 \end{equation}
 It follows from \cref{sinhcoshmuX} that $\sinh(\mu X) =  \mathcal{O}(r^{1/2})$. Furthermore, 
 \begin{align*}
-&\sinh(\mu X_1)\sinh(\mu X_0) = \left( \sinh(\mu X) \cosh( \mu X_0)  - \cosh(\mu X)\sinh(\mu X_0) \right)\sinh(\mu X_0) = \mu_*^2 X_0^2 + \mathcal{O}(r^{1/2}) \\
+\sinh(\mu X_1)\sinh(\mu X_0) &= \left( \sinh(\mu X) \cosh( \mu X_0)  - \cosh(\mu X)\sinh(\mu X_0) \right)\sinh(\mu X_0) \\
+&= \mu_*^2 X_0^2 + \mathcal{O}(r^{1/2})
+\end{align*}
+and
+\begin{align*}
 &\sinh(\mu(X_1 - X_0)) = \sinh(\mu X) \cosh(2 \mu X_0) - \cosh(\mu X)\sinh(2 \mu X_0)
 = \mathcal{O}\left( r^{1/2}|\log r| \right).
 \end{align*}
 Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ since $\mu \neq 0$, using the relation $a = -M c^2 \mu_*^2/2 + \mathcal{O}(r^{3/2})$, and simplifying, we obtain the equation
 \begin{equation}\label{det3}
 \begin{aligned}
-M \tilde{\mu} \tilde{h} X_0 r^{7/4}
-\left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + 2 \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) 
-- 2 M M_c^2 c \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} X_0 ) = 0.
+&M \tilde{\mu} \tilde{h} X_0 r^{7/4}
+\left( \left( M + \frac{c K}{X} \right) X ( \tilde{h} + 2 \tilde{k} i) X_0 r^{5/4} + \mathcal{O}(r^{3/2}) \right) \\
+&\qquad\qquad\qquad\qquad\qquad- 2 M M_c^2 c \tilde{\mu}^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} X_0 ) = 0.
 \end{aligned}
 \end{equation}
 Since
