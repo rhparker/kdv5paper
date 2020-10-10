@@ -908,7 +908,7 @@ For asymmetric periodic 2-pulses $(X_0 \neq X_1)$, the interaction eigenvalue pa
 \caption{Real part (blue solid line) and imaginary part (red dashed line) of interaction eigenvalues versus pulse distance for symmetric periodic 2-pulses $(X_0 = X_1)$. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, and $c = 20$. }
 \label{fig:periodiceigbif}
 \end{figure}
-Next, we compute the essential spectrum eigenvalues for periodic single and double pulses using \texttt{eig} and compare the results to the leading order formulas from \cref{theorem:1pess} and \cref{theorem:2peigsassym}. Plotting the log of absolute value of the error versus $\log m$ and constructing a least squares linear regression line (\cref{fig:DP2esslogerror}), the absolute error is proportional to $m^{3.02}$ and $m^{3.05}$ (respectively), which is a relative error of less than 0.02 from the predicted exponent of $3$.
+Next, we compute the essential spectrum eigenvalues for periodic single and double pulses using \texttt{eig} and compare the results to the leading order formulas from \cref{theorem:1pess} and \cref{theorem:2peigsassym}. Plotting the log of absolute value of the error versus $\log m$ and constructing a least squares linear regression line (\cref{fig:DP2esslogerror}), the absolute error is proportional to $m^3$, with a relative error in the exponent of less than 0.02.
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
@@ -916,7 +916,7 @@ Next, we compute the essential spectrum eigenvalues for periodic single and doub
 \includegraphics[width=8cm]{images/DP2esslogerror.eps} 
 \end{tabular}
 \end{center}
-\caption{Log of absolute error vs. $\log m$ for the first 15 essential spectrum eigenvalues with least squares linear regression line for periodic single pulse (left panel) and second periodic double pulse (right panel). $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 200$.}
+\caption{Log of absolute error vs. $\log m$ for the first 15 essential spectrum eigenvalues with least squares linear regression line for periodic single pulse (left panel) and second periodic double pulse (right panel). Slopes of regression lines -3.02 (left) and -3.05 (right). $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 200$.}
 \label{fig:DP2esslogerror}
 \end{figure}
 
