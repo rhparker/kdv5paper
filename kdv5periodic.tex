@@ -272,7 +272,7 @@ We take the following hypothesis concerning existence of traveling waves, which 
 There exists an open interval $(c_1, c_2) \subset \R$ and a $C^1$ map $c \mapsto \phi_c$ such that for every $c \in (c_1, c_2)$, $\calE'(\phi_c) + c \phi_c = 0$, i.e. $\phi_c$ is a traveling wave solution to \cref{genPDE}.
 \end{hypothesis}
 
-The linearization of the PDE \cref{genPDE} about a traveling wave solution $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
+\noi The linearization of the PDE \cref{genPDE} about a traveling wave solution $\phi_c$ is the linear operator $\partial_x \calL(\phi_c)$, where $\calL(\phi_c)$ is the self-adjoint operator
 \begin{equation}\label{PDElinearization}
 \calL(\phi_c) = \calE''(\phi_c) + c,
 \end{equation}
@@ -332,10 +332,10 @@ There exists a smooth function $H: \R^{2m} \times \R \rightarrow \R$ such that
 For a specific $c_0 > 0$, $U = 0$ is a hyperbolic equilibrium of \cref{genODE}. Furthermore, the spectrum of $DF(0; c_0)$ contains a quartet of simple eigenvalues $\pm \alpha_0 \pm \beta_0 i$, $\alpha_0, \beta_0 > 0$, and for any other eigenvalue $\nu$ of $DF(0; c_0)$, $|\text{Re }\nu| > \alpha_0$.
 \end{hypothesis}
 
-We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium. Both of these manifolds have dimension $m$ by reversibility. Since, in general, the existence of such a solution is unknown, we take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
+We now address the existence of a primary pulse solution, which is a symmetric homoclinic orbit connecting the unstable manifold $\tilde{W}^u(0; c_0)$ and the stable manifold $\tilde{W}^s(0; c_0)$ of the rest state equilibrium $U = 0$. Both of these manifolds have dimension $m$ by reversibility. Since, in general, the existence of such a solution is unknown, we take the existence of a primary pulse solution for a specific wavespeed $c_0$ as a hypothesis.
 
 \begin{hypothesis}\label{Qexistshyp}
-For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q_1(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0) \cap \tilde{W}^u(0) \subset H^{-1}(0; c_0)$ to \cref{genODE}. In addition,
+For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solution $Q_1(x; c_0) = (q(x; c_0), \partial_x q(x; c_0), \dots, \partial_x^{2m-1}q(x; c_0))^T\in \tilde{W}^s(0; c_0) \cap \tilde{W}^u(0; c_0) \subset H^{-1}(0; c_0)$ to \cref{genODE}. In addition,
 \begin{enumerate}[(i)]
 \item $Q_1(0; c_0) \neq 0$.
 \item $\nabla_U H(Q_1(0; c_0); c_0) \neq 0$.
@@ -378,14 +378,14 @@ For each $c \in (c_0 - \delta_0, c_0 + \delta_0)$, where $\delta_0$ is defined i
 \subsection{Eigenvalue problem}\label{sec:EVP}
 
 Let $U^*(x) = (u^*(x), \partial_x u^*(x), \dots, \partial_x^{2m-1}u^*(x) )^T$ be any solution to \cref{genODE}, so that $u^*(x)$ is a traveling wave solution to \cref{genPDE}.
-Then $u^*(x)$ solves the equation $\partial_x(\calE'(u) + cu) = 0$, which is equivalent to the system
+Then $u^*(x)$ also solves the equation $\partial_x(\calE'(u) + cu) = 0$, which is equivalent to the system
 \begin{equation}\label{eqsystem2}
 \begin{aligned}
 \calE'(u) + cu &= k \\
 \partial_x k &= 0.
 \end{aligned}
 \end{equation}
-Using a spatial dynamics approach, we rewrite \cref{eqsystem2} as
+Using a spatial dynamics approach, we rewrite \cref{eqsystem2} as the first order dynamical system in $\R^{2m+1}$ 
 \begin{equation}\label{spsystem2}
 \begin{pmatrix}
 U \\ k
@@ -398,10 +398,10 @@ where $e_{2m} = (0, \dots, 0, 1)^T \in \R^{2m}$ is the standard unit vector. We 
 \begin{equation}\label{genPDEeig2}
 \begin{aligned}
 \calL(u^*) v &= k \\
-\partial_x k &= \lambda v,
+\partial_x k &= \lambda v.
 \end{aligned}
 \end{equation}
-which is equivalent to the first order system in $\C^{2m+1}$
+This is equivalent to the first order dynamical system in $\C^{2m+1}$
 \begin{equation}\label{PDEeigsystem}
 V'(x) = A(U^*(x))V(x) + \lambda B V(x),
 \end{equation}
@@ -418,7 +418,7 @@ B = \begin{pmatrix}0 & 0 & \cdots & 0 \\ &
 $A(0)$ has a one-dimensional kernel, which is characterized in the following lemma. 
 
 \begin{lemma}\label{eigA0lemma}
-The matrix $A(0)$ has a simple eigenvalue at 0 and a quartet of eigenvalues $\pm \alpha_0 \pm \beta_0 i$. For any other eigenvalue $\nu$ of $A(0)$, $|\text{Re }\nu| > \alpha_0$. The kernel of $A(0)$ is spanned by $V_0$ and the kernel of $A^*(0)$ is spanned by $W_0$, where
+The matrix $A(0)$ has a simple eigenvalue at 0 and a quartet of eigenvalues $\pm \alpha_0 \pm \beta_0 i$. For any other eigenvalue $\nu$ of $A(0)$, $|\text{Re }\nu| > \alpha_0$. The kernel of $A(0)$ is spanned by $V_0$ and the kernel of $A(0)^*$ is spanned by $W_0$, where
 \begin{equation}\label{V0W0}
 V_0 = \left(\frac{1}{c}, 0, \dots, 0, 1\right)^T, \quad
 W_0 = (0, 0, \dots, 0, 1)^T,
@@ -460,7 +460,7 @@ T_{Q(0)}W^u(0) &= \R Q'(0) \oplus Y^-.
 Since $\dim \R Q'(0) \oplus Y^+ \oplus Y^- = 2m-1$, we need two more directions to span $\R^{2m+1}$. We obtain these from the following lemma.
 
 \begin{lemma}\label{varadjsolutions}
-We have the following bounded solutions to the variational and adjoint variational equations.
+We have the following bounded solutions to the variational and adjoint variational equations \cref{vareq2} and \cref{adjvareq2}.
 \begin{enumerate}[(i)]
 	\item There are two linearly independent, bounded solutions $Q'(x)$ and $V^c(x)$ to \cref{vareq2}. $V^c(x) \rightarrow V_0$ as $|x| \rightarrow \infty$, and	$V^c(-x) = R V^c(x)$, where $R$ is the standard reversor operator. Furthermore, $V^c = (\tilde{V}^c, 1)$, where $\tilde{V}^c$ solves $\tilde{V}^c(x)' = DF(Q(x)) \tilde{V}^c(x) + e_{2m}$. Any other bounded solution to \cref{vareq2} is a linear combination of these.
 
@@ -476,7 +476,7 @@ For part (i), the existence of $V^c(x)$ is a consequence of the geometry of the 
 W'(x) = - 
 \begin{pmatrix}DF(Q(x))^* & 0 \\ e_{2m}^T & 0 \end{pmatrix} W(x),
 \]
-for which $W_0 = (0, \dots, 0, 1)^T$ is a constant solution. Using \cref{psiform} below, $\Psi(x) = ( \nabla H(Q(x)), q(x) )^T$ is an exponentially localized solution. $\Psi(0)$ and $W_0$ are perpendicular to $\R Q'(0) \oplus Y^+ \oplus Y^-$ at $x = 0$ by \cref{eigadjoint} below. 
+for which $W_0 = (0, \dots, 0, 1)^T$ is a constant solution. Using \cref{psiform} below, $\Psi(x) = ( \nabla H(Q(x)), q(x) )^T$ is an exponentially localized solution. 
 \end{proof}
 \end{lemma}
 
@@ -484,14 +484,14 @@ for which $W_0 = (0, \dots, 0, 1)^T$ is a constant solution. Using \cref{psiform
 Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution to $\calL(q) v^c = 1$, which provides a convenient way of computing $V^c(x)$ numerically.
 \end{remark}
 
-\noi Using \cref{nondegenlemma} and \cref{varadjsolutions}, we can decompose $\R^{2m+1}$ as 
+\noi By \cref{eigadjoint} below, $\Psi(0)$ and $W_0$ are perpendicular to $\R Q'(0) \oplus Y^+ \oplus Y^-$ at $x = 0$, thus we can decompose $\R^{2m+1}$ as 
 \begin{equation}\label{DSdecomp}
 \R^{2m+1} = \R Q'(0) \oplus Y^+ \oplus Y^- \oplus \R \Psi(0) \oplus \R W_0.
 \end{equation}
 
 \section{Existence of periodic multi-pulses}\label{sec:perexist}
 
-In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}, which are multi-modal periodic orbits that remain close to the primary homoclinic orbit. Heuristically, we construct a periodic multi-pulse by gluing together multiple copies of the primary pulse end-to-end in a loop.
+In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}, which are multi-modal periodic orbits that remain close to the primary homoclinic orbit. Heuristically, we construct a periodic multi-pulse by gluing together multiple copies of the primary pulse end-to-end in a loop (\cref{fig:permultipulse}).
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=9cm]{images/multipulseperiodic}
@@ -499,7 +499,7 @@ In this section, we prove the existence of periodic multi-pulse solutions to \cr
 \caption[Construction of a periodic $n$-pulse solution]{Construction of a periodic $n-$pulse solution from the primary pulse.}
 \label{fig:permultipulse}
 \end{figure}
-\noi A periodic $n$-pulse can be described by $n$ pulse distances $2 X_0, \dots, 2 X_{n-1}$, as shown in \cref{fig:permultipulse}. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more distance parameter than $n$-pulse on the real line, since we need one more connection to ``close the loop''.  Rather than describing a periodic multi-pulse by the ``physical'' pulse distances $X_i$, we will use a parameterization which is both more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
+\noi A periodic $n$-pulse can be described by $n$ pulse distances $2 X_0, \dots, 2 X_{n-1}$, as shown in \cref{fig:permultipulse}. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more length parameter than an $n$-pulse on the real line, since we need one more connection to ``close the loop''.  Rather than describing a periodic multi-pulse by the ``physical'' pulse distances $X_i$, we will use a parameterization which is both more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
 \begin{equation}\label{defrho}
 \rho = \frac{\beta_0}{\alpha_0}, \quad p^* = \arctan \rho
 \end{equation}
@@ -518,23 +518,23 @@ For $n \geq 2$, a \emph{periodic parameterization} of a periodic $n$-pulse is a 
 \end{definition}
 \noi The selection of $m_{n-1}$ as the largest of the $m_i$ is made for notational convenience and to allow the parameterization to be unique. Since we are on a periodic domain, there is no loss of generality. The physical pulse distances $X_i$ are determined by these parameters and by the scaling parameter $r$. If $r = \exp\left(-\frac{2 m \pi}{\rho}\right)$, then
 \begin{align*}
-X_i &= \frac{1}{2 \beta_0}\big( (2 m + m_i)\pi + \theta^*(\theta; m_{n-1} - m_i)\big) + L_0 && i = 0, \dots, n-2  \\
+X_i &= \frac{1}{2 \beta_0}\big( (2 m + m_i)\pi + \theta^*(\theta; m_{n-1} - m_i)\big) + L_0 \qquad\qquad i = 0, \dots, n-2  \\
 X_{n-1} &= \frac{1}{2 \beta_0}\big( (2 m + m_{n-1})\pi + \theta \big) + L_0,
 \end{align*}
 where $L_0$ is a constant. 
-The functions $\theta^*(\theta; m): [-\pi + p^*, p^*] \rightarrow \R$ are defined for all nonnegative integers $m$, are continuous in $\theta$, and have the following properties.
+The functions $\theta^*(\theta; m): [-\pi + p^*, p^*] \rightarrow \R$ are defined for all nonnegative integers $m$, are continuous in $\theta$, and have the following properties:
 \begin{enumerate}[(i)]
-\item $\theta^*(0; m) = 0 \text{ for all } m$
-\item $|\theta^*(\theta; m)| \leq |\theta|$
-\item $|\theta^*(\theta; m)| \leq C \exp\left(-\frac{m \pi}{\rho} \right)$
-\item $\theta^*(\theta; 0) = \theta $
-\item $\theta^*(p^*; m) = \theta^*(-\pi+p^*; m+1)$
+\item $\theta^*(0; m) = 0 \text{ for all } m$.
+\item $|\theta^*(\theta; m)| \leq |\theta|$.
+\item $|\theta^*(\theta; m)| \leq C \exp\left(-\frac{m \pi}{\rho} \right)$.
+\item $\theta^*(\theta; 0) = \theta $.
+\item $\theta^*(p^*; m) = \theta^*(-\pi+p^*; m+1)$.
 \end{enumerate}
-The last property is a matching condition which ``links up'' the parameterizations corresponding to adjacent $m_i$. \cref{fig:thetastarcartoon} shows a cartoon of first four $\theta^*(\theta; m)$ plotted consecutively to illustrate these properties. Together with the restriction of $\theta$ to the half-open interval $\theta \in (-\pi + p^*, p^*]$, these guarantee that each periodic parameterization corresponds to a unique periodic multi-pulse. The proof that the functions $\theta^*(\theta; m)$ exist and have these properties is given in \cref{thetaparamlemma} below.
+The last property is a matching condition which ``links up'' the parameterizations corresponding to adjacent $m_i$. \cref{fig:thetastarcartoon} shows a cartoon of the first four functions $\theta^*(\theta; m)$ plotted consecutively to illustrate these properties. Together with the restriction of $\theta$ to the half-open interval $\theta \in (-\pi + p^*, p^*]$ in \cref{def:perparam}, these guarantee that each periodic parameterization corresponds to a unique periodic multi-pulse. The proof that the functions $\theta^*(\theta; m)$ exist and have these properties is given in \cref{thetaparamlemma} below.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=12cm]{images/thetastarcartoon.eps}
+\includegraphics[width=10cm]{images/thetastarcartoon.eps}
 \end{center}
 \caption[Cartoon for $\theta^*(\theta; m)$]{Cartoon showing the first four functions $\theta^*(\theta; m)$ plotted consecutively. The region between each pair of blue dots corresponds to the domain $\theta = [-\pi + p^*, p^*]$.}
 \label{fig:thetastarcartoon}
@@ -558,10 +558,10 @@ and $L_0$ is a constant. Estimates for $U(x)$ in terms of the primary pulse $Q_1
 \end{theorem}
 
 \begin{remark}
-It follows from the proof of \cref{2pulsebifurcation} that periodic single pulse solutions exist on domain $[-X, X]$ for all sufficiently large $X$. These are single-loop periodic orbits which lie close to the primary homoclinic orbit.
+It follows from the proof of \cref{2pulsebifurcation} that periodic single pulse solutions exist on the periodic domain $[-X, X]$ for all sufficiently large $X$. These are single-loop periodic orbits which lie close to the primary homoclinic orbit.
 \end{remark}
 
-The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel). \cref{2pulsebifurcation} uses a different parameterization than \cref{th:perexist}, which is shown in \cref{fig:2pitch}. The proof is given in \cref{sec:existproof}. 
+The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions and the reversibility of the system to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel). \cref{2pulsebifurcation} uses a different parameterization than \cref{th:perexist}, which is shown in \cref{fig:2pitch}. The proof is given in \cref{sec:existproof}. 
 
 \begin{figure}[H]
 \begin{center}
@@ -578,19 +578,19 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 	\begin{equation}\label{2psymmdist}
 		\tilde{X}_0(r, s_0) = \tilde{X}_1(r, s_0) = \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} (m_0 \pi + s_0) + L_0.
 	\end{equation}
-	\item There exists a family of asymmetric periodic 2-pulses $Q_2(x; m_0, s_1, r)$ with distances $X_1 > X_0$ parameterized by $s_1 \in [p^*, \infty)$. The pulse distances $X_i$ are given by
+	\item There exists a family of asymmetric periodic 2-pulses $Q_2(x; m_0, s_1, r)$ with pulse distances $X_1 > X_0$ parameterized by $s_1 \in [p^*, \infty)$. The $X_i$ are given by
 	\begin{equation}\label{2pasymmdist}
 	\begin{aligned}
 		X_0(r, m_0, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_0(r; m_0, s_1) + L_0 \\
 		X_1(r, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} s_1 + L_0, 
 	\end{aligned}
 	\end{equation}
-	where $t_0(r; m_0, s_1)$ is continuous in $r$ and $s_1$, $t_0(0; m_0, k \pi) = m_0 \pi$ for all nonnegative integers $k$, and 
+	where $L_0$ is a constant, $t_0(r; m_0, s_1)$ is continuous in $r$ and $s_1$, $t_0(0; m_0, k \pi) = m_0 \pi$ for all nonnegative integers $k$, and 
 	\begin{align}\label{t0est}
 	t_0(0; m_0, s_1) = m_0 \pi + \mathcal{O}\left(e^{-\frac{1}{\rho} s_1 }\right).
 	\end{align}
 
-	\item The two families meet at a pitchfork bifurcation when $s_0 = p^*(m_0; r)$ and $s_1 = p^*$, where $p^*(m_0; r)$ is continuous in $r$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
+	\item The two families meet at a pitchfork bifurcation when $s_0 = p^*(m_0; r)$ and $s_1 = p^*$, where $p^*$ is defined in \cref{defrho}. The function $p^*(m_0; r)$ is continuous in $r$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
 \end{enumerate}
 \end{theorem}
 
@@ -636,7 +636,7 @@ Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(\lambda)$. Since $p
 \end{proof}
 \end{lemma}
 
-We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the eigenvalues of \cref{genPDEeig2}. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix. The proof is given in \cref{sec:blockmatrixproof}.
+We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the PDE eigenvalues near the origin. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix. The proof is given in \cref{sec:blockmatrixproof}.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
@@ -689,10 +689,7 @@ a_0 & -a_0 - a_1 &  a_1 \\
 a_{n-1} & & & & a_{n-2} & -a_{n-2} - a_{n-1} \\
 \end{pmatrix} && n > 2,
 \end{align}
-where
-\begin{align*}
-a_i &= \langle \Psi(X_i), Q'(-X_i) \rangle.
-\end{align*}
+where $a_i = \langle \Psi(X_i), Q'(-X_i) \rangle$.
 
 \item $M$, $M_c$, and $\tilde{M}$ are the Melnikov-type integrals
 \begin{align*}
@@ -712,7 +709,7 @@ where $v^c(y)$ is the first component of $V^c(y)$, and $q(y)$ is the first compo
 \end{enumerate}
 \end{theorem}
 
-\noi The condition $|\Re \lambda| < r^{1/4}$ is used to simplify the analysis. We will see when we apply the theorem in \cref{sec:perdouble} that this condition is satisfied for sufficiently small $r$.
+\noi The condition $|\Re \lambda| < r^{1/4}$ is used to simplify the analysis. We will see when we apply the theorem in the following sections that this condition is satisfied for sufficiently small $r$.
 
 \subsection{Spectrum of periodic single pulse}\label{sec:persingle}
 
@@ -802,7 +799,7 @@ where the $R_i$ are scalars with bounds
 \end{equation*}
 \end{lemma}
 
-We will first consider the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale as $r^{1/2}$ and the essential spectrum eigenvalues scale as $1/|\log r|$, we can always choose $r$ sufficiently small so that this occurs. Provided we do this, the interaction eigenvalue pattern for asymmetric periodic 2-pulses is determined by the parameter $m_0$.
+We will first consider the case where the interaction eigenvalues are ``out of the way'' of the essential spectrum eigenvalues. Since the interaction eigenvalues scale as $r^{1/2}$ and the essential spectrum eigenvalues scale as $1/|\log r|$, we can always choose $r$ sufficiently small so that this is the case. Provided we do this, the interaction eigenvalue pattern for asymmetric periodic 2-pulses is determined by the parameter $m_0$ used in the construction of the solution.
 
 \begin{theorem}\label{theorem:2peigsassym}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_1$ and $\delta$ be as in \cref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_2 = r_2(m_0, s_1) \leq r_1$ such that for any $r \in \mathcal{R}$ with $r \leq r_2$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
@@ -824,12 +821,12 @@ $a$ is defined in \cref{2pa} and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambd
 \end{enumerate}
 \end{theorem}
 
-\noi We note that since interaction eigenvalues scale as $r^{1/2}$, and the essential spectrum eigenvalues are purely imaginary, the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
+\noi We note that since the interaction eigenvalues scale as $r^{1/2}$, and the essential spectrum eigenvalues are purely imaginary, the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
 
-\begin{remark}The essential spectrum eigenvalues are not identical for the periodic single pulse and the periodic double pulse. In particular, note the additional factor of 2 in the denominator of \cref{1pess}.
+\begin{remark}The essential spectrum eigenvalues are not identical for the periodic single pulse and the periodic double pulse. In particular, note the additional factor of 2 in the denominator of \cref{1pess}. To leading order, however, the nonzero essential spectrum eigenvalues are located at $c \frac{m \pi i}{X}$ for nonzero integer $m$ in both cases.
 \end{remark}
 
-Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points, i.e. as long as $a \neq 0$, the results of \cref{theorem:2peigsassym} hold; the only difference is that the eigenvalue pattern is determined by the sign of $a$ rather than by $m_0$ (see \cref{lemma:chara} below). Thus we only need to consider what happens at the pitchfork bifurcation point.
+Next, we consider the symmetric periodic 2-pulse. As long as we are away from the pitchfork bifurcation points (i.e. as long as $a \neq 0$) the results of \cref{theorem:2peigsassym} hold; the only difference is that the eigenvalue pattern is determined by the sign of $a$ rather than by $m_0$ (see \cref{lemma:chara} below). Thus we only need to consider what happens at the pitchfork bifurcation point.
 
 \begin{theorem}\label{theorem:2peigssym}
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}, and let $r_1$ be defined as in \cref{blockmatrixtheorem}. Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \leq r_2$ and for $m_0 \in \{0, 1\}$, there is eigenvalue at 0 with algebraic multiplicity 5 for the symmetric periodic 2-pulse $\tilde{Q}_2(x; m_0, p^*(m_0; r), r)$, where $p^*(m_0; r)$ is the pitchfork bifurcation point defined in \cref{2pulsebifurcation}.
@@ -842,7 +839,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 \begin{align}\label{deflambdastar}
 \lambda_*(r) &= \sqrt{ \frac{-2a(r) - R_1 }{M} } + \mathcal{O}(r) = \sqrt{ \frac{-2a(r)}{M} } + \mathcal{O}(r),
 \end{align}
-and let $Q_2^*(x; r)$ be the periodic 2-pulse solution from \cref{2pulsebifurcation} with domain length $X = X_*(r)$, where
+and let $Q_2^*(x; r)$ be the periodic 2-pulse solution from \cref{2pulsebifurcation} with domain size $X = X_*(r)$, where
 \begin{align}\label{defXstar}
 X_*(r) &= c \left( \frac{\pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right).
 \end{align}
@@ -854,7 +851,7 @@ For $s \in [-2\sqrt{T_1(r)}, 2 \sqrt{T_1(r)}]$, let $Q_2(x; s, r)$ be the period
 \begin{equation}
 X(s,r) = X_*(r) + \frac{2 c \pi s}{|\lambda_*(r)|^2} + \mathcal{O}(s^2).
 \end{equation}
-Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \leq r_2$, the following holds for the linearization about $Q_2(x; s, r)$.
+Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \leq r_2$, the following holds for the linearization of the PDE about $Q_2(x; s, r)$.
 \begin{enumerate}[(i)]
 	\item There is a pair of eigenvalues located at
 	\begin{align}\label{Kreineigs}
@@ -877,10 +874,11 @@ Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \
 \noi We note that maximum real part of the Krein bubble is order $r^{5/4}|\log r|$, thus the condition $|\Re \lambda| < r^{1/4}$ is satisfied for sufficiently small $r$.
 
 \begin{remark}\label{remark:kreinbubbles}
-It is straightforward to adapt \cref{th:Kreinbubble} to locate more Krein bubbles. For any positive integer $N$, there exists $r_2 \leq r_1$ such that for $r \leq r_2$ and $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The radius of $m$-th Krein bubble in the complex plane is approximately $\sqrt{T_1(r) / m}$, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
+It is straightforward to adapt \cref{th:Kreinbubble} to locate subsequent Krein bubbles. For any positive integer $N$, there exists $r_2 = r_2(N)$ with $r_2 \leq r_1$ such that for $r \leq r_2$ and $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The radius of $m$-th Krein bubble in the complex plane is approximately $\sqrt{T_1(r) / m}$, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
 \[
 X^m_*(r) = c \left( \frac{m \pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right), \qquad \Delta X^m(r) = \sqrt{m} \Delta X_1(r).
 \]
+Note that this requires $N$ to be chosen first, and $r_2$ depends on $N$. See \cref{sec:conclusions} for a discussion on what occurs with subsequent Krein bubbles when $r$ is fixed.
 \end{remark}
 
 \section{Numerical Results}\label{sec:numerics}
