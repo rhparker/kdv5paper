@@ -1220,7 +1220,7 @@ H_i(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-)
 &+ \int_0^{X_i} \Phi_+^s(X_i, y; \beta_i^+) G_i^+(y,\beta_i^+)dy
 - \int_0^{-X_i} \Phi_-^u(-X_i, y; \beta_{i+1}^-) G_{i+1}^-(y,\beta_{i+1}^-)dy,
 \end{align*}
-where we substutited $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
+where we have substutited $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
 \[
 \frac{\partial}{\partial a_i^\pm} H_i(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
 \]
@@ -1277,7 +1277,7 @@ H_i(\beta_i^+, \beta_i^-) =
 + \int_{X_i}^0 \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \right)
 \end{pmatrix},
 \end{equation}
-and we have substituted our expressions for $\tilde{Q}_i^\pm$ and $a_i^\pm$ from \cref{solveforV} and \cref{solvefora}. Using the estimates from these lemmas together with \cref{dichotomy1},
+where we have substituted our expressions for $\tilde{Q}_i^\pm$ and $a_i^\pm$ from \cref{solveforV} and \cref{solvefora}. Using the estimates from these lemmas together with \cref{dichotomy1},
 \begin{equation}\label{DHexp}
 D H_i(\beta_i^+, \beta_i^-) = 
 \begin{pmatrix}
@@ -1350,10 +1350,10 @@ Evaluating the fixed point equations \cref{FPequations} at $0$ and substituting 
 \begin{aligned}
 \langle \Psi(0), &\tilde{Q}_i^+(0) - \tilde{Q}_i^-(0) \rangle = \langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle
 - \langle \Psi(0), \Phi^s_-(0, -X_{i-1}, \beta_i^-) a_{i-1}^- \rangle \\
-&+ \int_{X_i}^0 \langle \Psi(0), \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+) \rangle dy - \int_{-X_{i-1}}^0 \langle \Psi(0), \Phi_-^s(0, y, \beta_i^-) G_i^-(y; \beta_i^-) \rangle dy.
+&+ \int_{X_i}^0 \langle \Psi(0), \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+) \rangle dy - \int_{-X_{i-1}}^0 \langle \Psi(0), \Phi_-^s(0, y, \beta_i^-) G_i^-(y; \beta_i^-) \rangle dy,
 \end{aligned}
 \end{equation}
-Using \cref{dichotomy1}, smooth dependence on initial conditions, and the bound \cref{betaest},
+where we have substituted our expressions for $\tilde{Q}_i^\pm$, $a_i^\pm$, and $\beta_i^\pm$ from \cref{solveforV}, \cref{solvefora}, and \cref{solveforbeta}. Using \cref{dichotomy1}, smooth dependence on initial conditions, and the bound \cref{betaest},
 \begin{equation}\label{phibetaest}
 \begin{aligned}
 |(\Phi_+^u(0, x; \beta_i^+) - \Phi_+^u(0, x; 0)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x} && x \geq 0\\
@@ -1372,18 +1372,22 @@ By \cref{projdiffest}, $P^u_+(X_i; 0) P^u_0 ( Q(X_i) - Q(-X_i)) = Q(-X_i) + \mat
 \langle \Psi(0), \Phi^u_+(0, X_i; \beta_i^+) a_i^+ \rangle = 
 \langle \Psi(X_i), Q(-X_i) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}}).
 \end{align*}
-Similarly,
+Similarly, we have
 \begin{align*}
 \langle \Psi(0), \Phi^s_-(0, -X_{i-1}, \beta_i^-) a_{i-1}^- \rangle = 
 \langle \Psi(-X_{i-1}), Q(-X_{i-1}) \rangle + \mathcal{O}( e^{-3 \alpha X_i} + e^{-3\alpha X_{i-1}}).
 \end{align*}
-Using the reversibility relations $Q(-x) = RQ(x)$ and $\Psi(-x) = R\Psi(x)$ from \cref{varadjsolutions},
+For the integral terms, we use the estimates from \cref{solvewithjumps} and the fact that $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$ to get
+\begin{align*}
+\left| \int_{X_i}^0 \langle \Psi(0), \Phi_+^u(0, y; \beta_i^+) G_i^+(y; \beta_i^+) \rangle dy \right| \leq C e^{-3\alpha X_i}.
+\end{align*}
+The other integral term has a similar bound. By reversibility,
 \begin{align*}
 \langle \Psi(X_i), Q(-X_i) \rangle 
 &= \langle R\Psi(-X_i), R Q(X_i) \rangle 
 = \langle \Psi(-X_i), Q(X_i) \rangle.
 \end{align*}
-Combining everything, we obtain equation \cref{jumpcond2} and the remainder bound for $R_i$. As in \cite[p. 2093]{SandstedeStrut}, since \cref{eqODE} is a conservative system, if $n-1$ of the jump conditions are satisfied, the final jump condition must automatically be satisfied. Since it does not matter which condition we eliminate, we choose to eliminate the last one. 
+Combining everything above, we obtain equation \cref{jumpcond2} and the remainder bound for $R_i$. As in \cite[p. 2093]{SandstedeStrut}, since \cref{eqODE} is a conservative system, if $n-1$ of the jump conditions are satisfied, the final jump condition must automatically be satisfied. Since it does not matter which condition we eliminate, we choose to eliminate the last one. 
 \end{proof}
 \end{lemma}
 
@@ -1399,13 +1403,13 @@ Following \cite[Section 6]{Sandstede1998}, we will introduce a change of variabl
 \begin{align}
 \mathcal{R} &= \left\{ \exp\left(-\frac{2 \pi m}{\rho}\right) : m \in \N_0 \right\} \cup \{ 0 \},
 \end{align}
-where $\rho = \beta_0 / \alpha_0$. Since $\mathcal{R}$ is closed and bounded, it is compact, thus complete. For $r \in \mathcal{R}$, let
+where $\rho = \beta_0 / \alpha_0$. Since $\mathcal{R}$ is closed and bounded, it is compact, thus complete. For $r \in \mathcal{R}$, define $X^* = X^*(r)$ by 
 \begin{equation}\label{Xstar}
 X^* = -\frac{1}{2\alpha_0}\log r - \frac{\phi}{2\beta_0},
 \end{equation}
 so that
 \begin{equation}\label{defr}
-r = e^{-\alpha_0(2X^* + \phi/\beta_0)}
+r = e^{-\alpha_0(2X^* + \phi/\beta_0)}.
 \end{equation}
 We will use $r$ as a scaling parameter for the system. For $i = 0, \dots n-1$, let
 \begin{equation}\label{bjscale}
@@ -1418,7 +1422,7 @@ X_i = -\frac{1}{2\alpha_0}\log(b_i r) - \frac{\phi}{2 \beta_0}.
 In the next lemma, we rewrite the system \cref{jumpcond2} using this rescaling.
 
 \begin{lemma}\label{jumplemma3}
-A periodic multi-pulse solution exists if and only if for $i = 0, \dots, n-2$
+A periodic multi-pulse solution exists if and only if for $i = 0, \dots, n-2$,
 \begin{equation}\label{Geq}
 G_i(b_1, \dots, b_{n-1}, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1} \sin \left( -\rho \log b_{n-1} \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0,
 \end{equation}
@@ -1429,7 +1433,7 @@ Using \cite[Lemma 6.1(i)]{Sandstede1998}, for $x > 0$ sufficiently large,
 \langle \Psi(-x), Q(x) \rangle
 = p_0 e^{-2 \alpha_0 x} \sin(2 \beta_0 x + \phi) + \mathcal{O}\left(e^{-(2 \alpha_0 + \gamma) x}\right),
 \end{equation}
-where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{Xiscale} and \cref{bjscale},
+where $0 < \gamma \leq 1$, $p_0 > 0$, and $\phi$ are constants. Substituting \cref{IPalphabeta} into \cref{jumpcond2} and rescaling using \cref{bjscale} and \cref{Xiscale},
 \begin{equation}\label{diff2}
 \begin{aligned}
 p_0 e^{\alpha \phi / \beta_0 } b_i r \sin \left( - \rho \log (b_i r) \right) 
@@ -1460,13 +1464,11 @@ In the next lemma, we will show that pitchfork bifurcations occur on the diagona
 
 % lemma: pitchforks
 \begin{lemma}\label{pitchforkH}
-A discrete family of pitchfork bifurcations occurs along the diagonal in the zero set of $H(b_0, b_1)$ at $(b_0, b_1) = (b_k^*, b_k^*)$ for $k \in \Z$, where
-\begin{align}\label{pkstar}
-b^*_k = e^{-\frac{1}{\rho} (p^* + k \pi) }, \quad p^* = \arctan \rho.
-\end{align}
-Locally, the arms of the pitchfork bifurcations open upwards along the diagonal.
+A discrete family of pitchfork bifurcations occurs along the diagonal in the zero set of $H(b_0, b_1)$ at $(b_0, b_1) = (b_k^*, b_k^*)$ for $k \in \Z$, where $b^*_k = e^{-\frac{1}{\rho} (p^* + k \pi) }$ and $p^* = \arctan \rho$. Locally, the arms of the pitchfork bifurcations open upwards along the diagonal.
 \begin{proof}
-First, we note that the partial derivative $H_{b_0}(b_0, b_1) = 0$ if and only if $b_0 = b_k^*$ for integer $k$, which gives the locations of the bifurcation points. Next, we change coordinates so that the pitchfork bifurcation will occur along the horizontal axis. Let $b_0 = y-x$ and $b_1 = y+x$, which is a rotation by $-\pi/4$. Making this substitution yields
+First, we note that the partial derivative
+$H_{b_0}(b_0, b_1) = \sin \left( - \rho \log b_0 \right) - \rho \cos \left( - \rho \log b_0 \right)$
+is zero if and only if $b_0 = b_k^*$ for integer $k$, which gives the locations of the bifurcation points. Next, we change coordinates so that the pitchfork bifurcation will occur along the horizontal axis. Let $b_0 = y-x$ and $b_1 = y+x$, which is a rotation by $-\pi/4$. Making this substitution, we have
 \begin{equation}\label{Hxy}
 H(x, y) = 
 (y - x) \sin \left( -\rho \log(y - x) \right) - (y + x) \sin \left( - \rho \log (y + x) \right).
@@ -1478,11 +1480,8 @@ H_{xy}(x_0, y_0) &= (-1)^k 2 \rho \sqrt{1 + \rho^2} \: \exp{\left(\frac{1}{\rho}
 H_{xxx}(x_0, y_0)
 &= -(-1)^k 2 \rho \sqrt{1 + \rho^2} \: \exp{\left(\frac{2}{\rho} (\arctan \rho - k \pi) \right)} \neq 0,
 \end{align*}
-thus a pitchfork bifurcation occurs at $(0, b^*_k)$ for all $k \in \Z$. To leading order, near the bifurcation points $(0, b_k^*)$, the arms of the pitchforks are upwards-opening parabolas of the form $y = b_k^* + c_k x^2$, where
-\begin{equation*}
-c_k = \frac{1}{6}\exp{\left(\frac{1}{\rho} (\arctan \rho - k \pi) \right)} > 0
-\end{equation*}
-The result follows upon reverting to the $(b_0, b_1)$ coordinate system.
+thus a pitchfork bifurcation occurs at $(0, b^*_k)$ for all $k \in \Z$. To leading order, near the bifurcation points $(0, b_k^*)$, the arms of the pitchforks are upwards-opening parabolas of the form $y = b_k^* + c_k x^2$, where $c_k = \frac{1}{6}\exp{\left(\frac{1}{\rho} (\arctan \rho - k \pi) \right)} > 0
+$. The result follows upon reverting to the $(b_0, b_1)$ coordinate system.
 \end{proof}
 \end{lemma}
 
@@ -1500,38 +1499,31 @@ For any nonnegative integers $m_0$, $m_1$ with $m_1 \geq m_0$, there is a smooth
 to $H(b_0, b_1) = 0$. This parameterization is given explicitly by
 \begin{equation}\label{thetaparam}
 \begin{aligned}
-b_0( m_0, m_1, \theta) = \exp\left( -\frac{1}{\rho}(m_0 \pi + \theta^*(\theta, m_1 - m_0) \right), \quad
-b_1( m_0, m_1, \theta) = \exp\left( -\frac{1}{\rho}(m_1 \pi + \theta) \right),
+b_0( m_0, m_1, \theta) &= \exp\left( -\frac{1}{\rho}(m_0 \pi + \theta^*(\theta, m_1 - m_0) \right) \\
+b_1( m_0, m_1, \theta) &= \exp\left( -\frac{1}{\rho}(m_1 \pi + \theta) \right),
 \end{aligned}
 \end{equation}
 where the functions $\theta^*(\theta, m) : [-\pi + p^*, p^*] \rightarrow \R$ are smooth in $\theta$ for all nonnegative integers $m$ and have the following properties.
 \begin{enumerate}[(i)]
-\item $\theta^*(\theta; 0) = \theta $
-\item $\theta^*(0; m) = 0 \text{ for all } m$
-\item $|\theta^*(\theta; m)| \leq |\theta|$
-\item $\theta^*(p^*; m) = \theta^*(-\pi+p^*; m+1)$
-\item $|\theta^*(\theta; m)| \leq C \exp\left(-\frac{m \pi}{\rho} \right)$
+\item $\theta^*(\theta; 0) = \theta$.
+\item $\theta^*(0; m) = 0 \text{ for all } m$.
+\item $|\theta^*(\theta; m)| \leq |\theta|$.
+\item $\theta^*(p^*; m) = \theta^*(-\pi+p^*; m+1)$.
+\item $|\theta^*(\theta; m)| \leq C \exp\left(-\frac{m \pi}{\rho} \right)$.
 \end{enumerate}
 In particular, $\theta^*(p^*, 0) = \theta^*(\pi - p^*, 1) = p^*$.
 \begin{proof}
 We will substitute \cref{thetaparam} into $H(b_0, b_1) = 0$ and solve for $\theta^*$ in terms of $\theta$.
 \begin{enumerate}
-\item First, we show that $\theta^*$ only depends on the difference $m_1 - m_0$. Substituting \cref{thetaparam} into $H(b_0, b_1) = 0$ and simplifying,
-\begin{align*}
-e^{-\frac{1}{\rho}m_0 \pi} (-1)^{m_0} \left( e^{-\frac{1}{\rho}\theta^*}\sin \theta^* - e^{-\frac{1}{\rho}(m_1 - m_0) \pi} (-1)^{m_1 - m_0} e^{-\frac{1}{\rho}\theta}\sin \theta \right) = 0.
-\end{align*}
-Dividing by $e^{-\frac{1}{\rho}m_0 \pi} (-1)^{m_0}$ yields
+\item First, we show that $\theta^*$ only depends on the difference $m_1 - m_0$. Substituting \cref{thetaparam} into $H(b_0, b_1) = 0$ and simplifying, we obtain the equation
 \begin{equation}\label{thetaeq1}
 e^{-\frac{1}{\rho}\theta^*}\sin \theta^* = e^{-\frac{1}{\rho}(m_1 - m_0) \pi} (-1)^{m_1 - m_0} e^{-\frac{1}{\rho}\theta}\sin \theta = 0,
 \end{equation}
-which only depends on the difference $m_1 - m_0$. Letting $m = m_1 - m_0$, it suffices to solve
+which only depends on $m_1 - m_0$. Letting $m = m_1 - m_0$, it suffices to solve
 \begin{equation}\label{thetaeq2}
 g(\theta^*) = t(m) g(\theta)
 \end{equation}
-for all nonnegative integers $m$, where
-\begin{align*}
-g(\theta) = e^{-\frac{1}{\rho}\theta}\sin \theta, \quad t(m) = (-1)^m e^{-\frac{1}{\rho}m \pi} 
-\end{align*}
+for all nonnegative integers $m$, where $g(\theta) = e^{-\frac{1}{\rho}\theta}\sin \theta$ and $t(m) = (-1)^m e^{-\frac{1}{\rho}m \pi}$. 
 
 \item For $m = 0$, $t(0) = 1$, thus $\theta^*(\theta, 0) = \theta$.
 
@@ -1540,10 +1532,10 @@ g(\theta) = e^{-\frac{1}{\rho}\theta}\sin \theta, \quad t(m) = (-1)^m e^{-\frac{
 g'(\theta) = e^{ -\frac{1}{\rho} \theta } \left( \cos \theta - \frac{1}{\rho} \sin \theta \right),
 \end{equation}
 $g'(p^*) = 0$, $g'(-\pi+p^*) = 0$, and the only only critical point of $g'(\theta)$ on $I$ is a local maximum at $\theta = - \pi + 2 p^*$, $g(\theta)$ is strictly increasing, thus invertible, on $I$. Let
-\begin{equation}\label{grange}
+\begin{equation*}
 g(I) = [-e^{\frac{1}{\rho}\pi} T, T], \quad T = e^{-\frac{1}{\rho}p^*} \sin p^* = \frac{\rho}{\sqrt{1+\rho^2}}e^{-\frac{1}{\rho}\arctan \rho}.
-\end{equation}
-Then $g: I \rightarrow g(I)$ is a bijection and $g^{-1}: g(I) \rightarrow I$ is also strictly increasing. Since the only zero of $g(\theta)$ on $I$ occurs at $\theta = 0$, $g^{-1}(0) = 0$. We can now solve $g(\theta^*) = t(m) g(\theta)$. For all $\theta \in I$,
+\end{equation*}
+Then $g: I \rightarrow g(I)$ is a bijection and $g^{-1}: g(I) \rightarrow I$ is also strictly increasing. Since the only zero of $g(\theta)$ on $I$ occurs at $\theta = 0$, $g^{-1}(0) = 0$. We can now solve \cref{thetaeq2}. For all $\theta \in I$,
 \begin{equation}\label{RHSbounds}
 	t(m)g(\theta) \in
 	\begin{cases}
@@ -1553,20 +1545,20 @@ Then $g: I \rightarrow g(I)$ is a bijection and $g^{-1}: g(I) \rightarrow I$ is 
 \end{equation}
 Since $t(m)g(\theta) \subset g(I)$ for all $\theta \in I$, define
 \begin{align}\label{solvethetastar}
-\theta^*(\theta, m) &= g^{-1}\left( t(m) g(\theta) \right) && \theta \in I, m \geq 1
+\theta^*(\theta, m) &= g^{-1}\left( t(m) g(\theta) \right) && \theta \in I, m \geq 1.
 \end{align}
 Since $g(0) = 0$, $\theta^*(0, m) = 0$ for all $m$.
 
 \item Next, we show that $|\theta^*(\theta, m)| \leq |\theta|$. For $m = 0$, we have equality. For $m = 1$ and $\theta = -\pi + p^*$, $t(-\pi + p^*)g(-\pi + p^*) = T$, thus $\theta^*(-\pi + p^*, 1) = -\pi + p^*$. For any other $m$ and $\theta$, it follows from \cref{RHSbounds} that $t(m)g(\theta) \in [e^{-\frac{1}{\rho}\pi}T, T)$, which is strictly contained in $G(I)$. Since $g^{-1}$ is strictly increasing and $g(0) = 0$, $|\theta^*(\theta, m) \leq |\theta|$.
 
-\item We now show that the parameterizations match up at the endpoints. For $m \geq 0$, 
+\item We now show that consecutive parameterizations match up at the endpoints. For $m \geq 0$, 
 \begin{align*}
 \theta^*(p^*, m) &= g^{-1}\left( e^{-\frac{1}{\rho}m \pi} (-1)^m e^{-\frac{1}{\rho}p^*} \sin p^* \right)
 \end{align*}
 and
 \begin{align*}
 \theta^*(-\pi + p^*, m+1) &= g^{-1}\left( e^{-\frac{1}{\rho}(m+1) \pi} (-1)^{m+1} e^{-\frac{1}{\rho}(-\pi + p^*)} \sin (-\pi + p^*) \right) \\
-&=g^{-1}\left( e^{-\frac{1}{\rho}m \pi} (-1)^m e^{-\frac{1}{\rho}p^*} \sin p^* \right)
+&=g^{-1}\left( e^{-\frac{1}{\rho}m \pi} (-1)^m e^{-\frac{1}{\rho}p^*} \sin p^* \right),
 \end{align*}
 which are equal. In particular, $\theta^*(p^*, 0) = \theta^*(\pi - p^*, 1) = p^*$.
 
@@ -1580,7 +1572,7 @@ which are equal. In particular, $\theta^*(p^*, 0) = \theta^*(\pi - p^*, 1) = p^*
 By \cref{jumplemma3}, a periodic $n$-pulse exists if and only if $G_i(b_0, \dots, b_{n-1}, r) = 0$ for $i = 0, \dots, n-2$. When $r = 0$, $G_i(b_0, \dots, b_{n-1}, 0) = H(b_i, b_{n-1})$, and we can use the parameterization from \cref{thetaparamlemma}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ and define
 \begin{equation}\label{thetaparammulti}
 \begin{aligned}
-b_i( m_i, m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_i \pi + \theta^*(\theta, m_{n-1} - m_i) \right) && i = 0, \dots, n-2 \\
+b_i( m_i, m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_i \pi + \theta^*(\theta, m_{n-1} - m_i) \right) \qquad\qquad i = 0, \dots, n-2 \\
 b_{n-1}( m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_{n-1} \pi + \theta) \right),
 \end{aligned}
 \end{equation}
@@ -1590,7 +1582,7 @@ H(b_i( m_i, m_{n-1}, \theta), b_{n-1}( m_{n-1}, \theta) ) &= 0 && i = 0, \dots, 
 \end{align*}
 Substituting $b_{n-1}(m_{n-1}, \theta)$ for $b_{n-1}$ in \cref{Geq}, define $G: \R^{n-1} \times \mathcal{R} \rightarrow \R^{n-1}$ by $G = (G_0, \dots, G_{n-2})^T$, where 
 \begin{equation*}
-G_i(b, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1}(m_{n-1}, \theta) \sin \left( -\rho \log b_{n-1}(m_{n-1}, \theta) \right) + \mathcal{O}(r^{\gamma / 2 \alpha})
+G_i(b, r) = b_i \sin \left( -\rho \log b_i \right) - b_{n-1}(m_{n-1}, \theta) \sin \left( -\rho \log b_{n-1}(m_{n-1}, \theta) \right) + \mathcal{O}(r^{\gamma / 2 \alpha}),
 \end{equation*}
 and $b = (b_0, \dots, b_{n-1}) \in \R^{n-1}$. Let $b^* = (b_0( m_0, m_{n-1}, \theta), \dots, b_{n-2}( m_{n-2}, m_{n-1}, \theta) )$. Then $G(b^*, 0) = 0$, and the Jacobian matrix $D_b G(b^*,0)$ is diagonal, with
 \begin{align*}
@@ -1614,10 +1606,10 @@ First, we will show that that the pitchfork bifurcations along the diagonal pers
 \begin{lemma}\label{pitchpersist}
 There exists $r_2 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_2$, there is a non-degenerate pitchfork bifurcation in the zero set of $G(b_0, b_1, r)$ at $(b_{m_0}^*(r),b_{m_0}^*(r))$, and 
 \begin{equation*}
-b_{m_0}^*(r) \rightarrow b_{m_0}^* \text{ as } r \rightarrow 0
+b_{m_0}^*(r) \rightarrow b_{m_0}^* \text{ as } r \rightarrow 0.
 \end{equation*}
 \begin{proof}
-Take $m_0 = 0$. The proof is identical for $m_0 = 1$. First, we show the required odd symmetry relation. By \cref{solvewithjumps}, for an ordered pair $(X_0, X_1)$ with $X_i$ sufficiently large, there exists a unique piecewise solution $(U_0^-(x), U_0^+(x), U_1^-(x), U_1^+(x))$ which is continuous except for two jumps 
+Take $m_0 = 0$. The proof is identical for $m_0 = 1$. First, we show the required odd symmetry relation. By \cref{solvewithjumps}, for an ordered pair of pulse distances $(X_0, X_1)$ with $X_i$ sufficiently large, there exists a unique piecewise solution $(U_0^-(x), U_0^+(x), U_1^-(x), U_1^+(x))$ which is continuous except for two jumps 
 \begin{equation}\label{xijumps}
 \xi_0(X_0, X_1) = \langle \Psi(0), U_0^+(0) - U_0^-(0) \rangle, \quad
 \xi_1(X_0, X_1) = \langle \Psi(0), U_1^+(0) - U_1^-(0) \rangle 
@@ -1648,18 +1640,11 @@ As in the previous lemma, take $m_0 = 0$. The proof is identical for $m_0 = 1$. 
 \tilde{b}_1( m_1, \theta) = \exp\left( -\frac{1}{\rho}(m_1 \pi + \theta) \right),
 \end{aligned}
 \end{equation}
-where $\theta^*$ is defined in \cref{thetaparamlemma}. Since these families connect at their endpoints, define $b_1(s)$ by \cref{defb1}. For $s > p^*$, let
-\begin{equation}\label{defmsthetas}
-\begin{aligned}
-m(s) = \left\lceil \frac{s - p^*}{\pi} \right\rceil, \quad
-\theta(s) &= s - m(s) \pi,
-\end{aligned}
-\end{equation}
-and define $\tilde{b}_0(s)$ by
+where $\theta^*$ is defined in \cref{thetaparamlemma}. Since these families connect at their endpoints, define $b_1(s)$ by \cref{defb1}. For $s > p^*$, let $m(s) = \left\lceil \frac{s - p^*}{\pi} \right\rceil$ and $\theta(s) = s - m(s) \pi$, and define $\tilde{b}_0(s)$ by
 \begin{equation}\label{defb0}
 \tilde{b}_0(s) = b_0(m(s), \theta(s)),
 \end{equation}
-so that the continuous curve $(\tilde{b}_0(s), b_1(s))$, $s > p^*$, parameterizes the lower arm of the pitchfork when $r = 0$. For $\delta > 0$, define the Banach space $X = C_b([p^* + \delta, \infty), \R)$ of bounded continuous functions equipped with the uniform norm. For $b \in X$, define $\tilde{G}: X \times \mathcal{R} \rightarrow X$ by
+so that the continuous curve $(\tilde{b}_0(s), b_1(s))$, $s > p^*$, parameterizes the lower arm of the pitchfork when $r = 0$. Define the Banach space $X = C_b([p^* + \delta, \infty), \R)$ of bounded continuous functions equipped with the uniform norm. For $b \in X$, define $\tilde{G}: X \times \mathcal{R} \rightarrow X$ by
 \begin{align*}
 [\tilde{G}(b, r)](s) &= G(b(s), b_1(s), r) = b(s) \sin(-\log b(s) ) - e^{-\frac{1}{\rho}s} \sin s + \mathcal{O}(r^{\gamma/2\alpha}).
 \end{align*}
@@ -1691,13 +1676,9 @@ Let $r_* = r_4$, where $r_4$ is defined in \cref{pitchforkconnects}. From the pr
 b_0(m_0, s_0) = b_1(m_0, s_0) = 
 \exp\left( -\frac{1}{\rho}(m_0 \pi + s_0) \right)
 \]
-The pulse distances \cref{2psymmdist} are obtained by substituting this into \cref{Xiscale}. Let $p^*(m_0; r) = -\rho \log(b_{m_0}^*(r))$. Then the pitchfork bifurcation occurs when $s_0 = p^*(m_0; r)$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
+The pulse distances \cref{2psymmdist} are obtained by substituting this into \cref{Xiscale}. Let $p^*(m_0; r) = -\rho \log(b_{m_0}^*(r))$, where $b_{m_0}^*(r)$ is the pitchfork bifurcation point defined in \cref{pitchpersist}. Then the pitchfork bifurcation occurs when $s_0 = p^*(m_0; r)$, and $p^*(m_0; r) \rightarrow p^*$ as $r \rightarrow 0$.
 
-For asymmetric 2-pulses, taking $s_1 = s$ in \cref{pitchforkconnects}, the lower arms of the pitchforks are parameterized by $(b_0, b_1) = (b_0(s_1; m_0, r), b_1(s_1))$ for $s_1 \in [p^*, \infty)$. The formula for $X_1(r, s_1)$ in \cref{2pasymmdist} follows by substituting \cref{defb1} into \cref{Xiscale}. Let 
-\begin{equation}\label{deft0}
-t_0(r; m_0, s_1) = -\rho \log\left( b_0(s_1; m_0, r) \right),
-\end{equation}
-which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we obtain the formula for $X_0(r; m_0, s_1)$ in \cref{2pasymmdist}. From \cref{armpersists}, $t_0(0; m_0, s_1) = m_0 \pi + \theta^*(\theta(s_1); m(s_1) - m_0)$, where $m(s_1) = \lceil \frac{s_1 - p^*}{\pi} \rceil$ and $\theta(s_1) = s_1 - m(s_1) \pi$. Using the estimate for $\theta^*(\theta, m)$ from \cref{thetaparamlemma},
+For asymmetric periodic 2-pulses, taking $s_1 = s$ in \cref{pitchforkconnects}, the lower arms of the pitchforks are parameterized by $(b_0, b_1) = (b_0(s_1; m_0, r), b_1(s_1))$ for $s_1 \in [p^*, \infty)$. The formula for $X_1(r, s_1)$ in \cref{2pasymmdist} follows by substituting \cref{defb1} into \cref{Xiscale}. Let $t_0(r; m_0, s_1) = -\rho \log\left( b_0(s_1; m_0, r) \right)$, which is continuous in $r$ and $s_1$. Using this together with \cref{Xiscale} we obtain the formula for $X_0(r; m_0, s_1)$ in \cref{2pasymmdist}. From \cref{armpersists}, $t_0(0; m_0, s_1) = m_0 \pi + \theta^*(\theta(s_1); m(s_1) - m_0)$, where $m(s_1) = \lceil \frac{s_1 - p^*}{\pi} \rceil$ and $\theta(s_1) = s_1 - m(s_1) \pi$. Using the estimate for $\theta^*(\theta, m)$ from \cref{thetaparamlemma},
 \[
 \theta^*(\theta(s_1); m(s_1) - m_0) \leq C \exp\left(-\frac{1}{\rho} ( m(s_1) - m_0 )\pi \right) \leq C \exp\left(-\frac{1}{\rho} s_1 \right),
 \]
