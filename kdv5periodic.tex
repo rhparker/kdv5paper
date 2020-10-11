@@ -1701,27 +1701,22 @@ It follows from \cref{defAB} and the symmetry relations \cref{genODErev} that
 \begin{equation}\label{AQsymmetry}
 A(Q(x); \lambda) = -R A(Q(-x); -\lambda)R,
 \end{equation}
-where $R$ is standard reversor operator. Let $\alpha_0, \beta_0$ be defined as in \cref{hyp:hypeq}. Choose any $\eta > 0$ with $2 \eta < \alpha_0$, and let $\alpha = \alpha_0 - \eta$. Let $\delta_1$ be as in \cref{nulambdalemma}, and choose $\delta_2 \leq \delta_1$ sufficiently small so that for all $|\lambda| < \delta_2$,
-\begin{enumerate}[(i)]
-\item $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ is the simple eigenvalue of $A(\lambda)$ close to 0 which is defined in \cref{nulambdalemma}.
-\item $|\Re \nu| > \alpha$ for any other eigenvalue $\nu$ of $A(\lambda)$.
-\end{enumerate} 
-To greatly simplify our analysis, we place an additional assumption on the real part of $\lambda$
+where $R$ is standard reversor operator. Let $\alpha_0$ and $\beta_0$ be defined as in \cref{hyp:hypeq}. Choose any $\eta > 0$ with $2 \eta < \alpha_0$, and let $\alpha = \alpha_0 - \eta$. Let $\delta_1$ be as in \cref{nulambdalemma}, and choose $\delta_2 \leq \delta_1$ sufficiently small so that for all $|\lambda| < \delta_2$, $|\nu(\lambda)| < \eta$, where $\nu(\lambda)$ is the simple eigenvalue of $A(\lambda)$ close to 0 which is defined in \cref{nulambdalemma}, and $|\Re \nu| > \alpha$ for any other eigenvalue $\nu$ of $A(\lambda)$. To greatly simplify our analysis, we place the additional assumption on the real part of $\lambda$
 \begin{equation}\label{relambdabound}
-|\Re \lambda| \leq r^{1/4} = C e^{-\alpha X^* / 2},
+|\Re \lambda| \leq r^{1/4} = C e^{-\frac{1}{2}\alpha X^*},
 \end{equation}
 where the scaling parameter $r$ is defined in \cref{defr} and $X^*$ is defined in \cref{Xstar}. We will verify that this assumption is satisfied for sufficiently small $r$ when we consider applications of the theorem. It then follows from \cref{relambdabound} and \cref{nulambdalemma} that 
 \begin{equation}
-|e^{\nu(\lambda)X^*}| \leq e^{|\Re \nu(\lambda)| X^*} \leq \exp \left( C X^* e^{-\alpha_0 X^* / 2} \right) \leq C.
+|e^{\nu(\lambda)X^*}| \leq e^{|\Re \nu(\lambda)| X^*} \leq \exp \left( C X^* e^{-\frac{1}{2} \alpha_0 X^* } \right) \leq C.
 \end{equation}
-Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed, it follows that
+Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed,
 \begin{align}\label{expnubound}
 |e^{\nu(\lambda)X_i}| \leq C  && i = 0, \dots, n-1.
 \end{align}
 
 \subsection{Conjugation lemma}
 
-The conjugation lemma allows us to make a smooth change of coordinates to convert certain linear ODEs of the form $W'(x) = A(x) W(x)$ into a constant coefficient system. The statement of the lemma is identical to that in \cite{Zumbrun2009}, except that the parameter vector $\Lambda$ lives in an arbitrary Banach space. The proofs of \cref{conjlemma} and \cref{corr:adjconj} are straightforward modifications of the proof of \cite[Corollary 2.3]{Zumbrun2009}.
+The conjugation lemma allows us to make a smooth change of coordinates to convert certain linear ODEs of the form $W'(x) = A(x) W(x)$ into a constant coefficient system. The statement of the lemma is identical to that in \cite{Zumbrun2009}, except that the parameter vector $\Lambda$ here lives in an arbitrary Banach space. The proofs of \cref{conjlemma} and \cref{corr:adjconj} are straightforward modifications of the proof of \cite[Corollary 2.3]{Zumbrun2009}.
 
 % Conjugation lemma
 \begin{lemma}[Conjugation Lemma]\label{conjlemma}
@@ -1732,7 +1727,7 @@ V(x)' = A(x; \Lambda) V(x) + F(x),
 where $\Lambda \in \Omega$ is a parameter vector and $\Omega$ is a Banach space. Assume that
 \begin{enumerate}[(i)]
 	\item The map $\Lambda \mapsto A(\cdot; \Lambda)$ is analytic in $\Lambda$.
-	\item $A(x; \Lambda) \rightarrow A^\pm(\lambda)$ (independent of $\Lambda$) as $x \rightarrow \pm \infty$, and there exists $\delta > 0$ such that for $|\Lambda| < \delta$ we have the uniform exponential decay estimates 
+	\item $A(x; \Lambda) \rightarrow A^\pm(\lambda)$ (independent of $\Lambda$) as $x \rightarrow \pm \infty$, and there exists $\delta > 0$ such that for $|\Lambda| < \delta$, we have the uniform exponential decay estimates 
 	\begin{align}
 	\left| \frac{\partial^k}{\partial x^k} A(x; \Lambda) - A^\pm(\Lambda) \right| 
 	&\leq C e^{-\theta |x|} && 0 \leq k \leq K,
@@ -1784,7 +1779,7 @@ For $x \in \R^-$ and $|\lambda| < \delta_3$, define $P^-(x; \lambda)$ by
 \begin{equation}\label{defPminus}
 P^-(x; \lambda) = RP^+(-x; -\lambda)R.
 \end{equation}
-By a straightforward adaptation of the proof of the conjugation lemma in \cite{Zumbrun2009} and the symmetry relation \cref{AQsymmetry}, the change of coordinates $V(x) = P^-(x; \lambda) Z^-(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^-)'(x) = A(\lambda) Z^-(x)$.
+By a straightforward adaptation of the proof of the conjugation lemma in \cite{Zumbrun2009} and the symmetry relation \cref{AQsymmetry}, the change of coordinates $V(x) = P^-(x; \lambda) Z^-(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^-)'(x) = A(\lambda) Z^-(x)$ on $\R^-$.
 
 Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, and $P^{u/s/c}(0)$ be their respective eigenprojections. Let $E^{u/s/c}(\lambda)$ and $P^{u/s/c}(\lambda)$ be the corresponding eigenspaces and eigenprojections for $A(\lambda)$, which are smooth in $\lambda$. $E^s(\lambda)$ and $E^u(\lambda)$ are $m$-dimensional, and $E^c(\lambda)$ is 1-dimensional. In the next lemma, we prove some useful results about $A(\lambda)$.
 
@@ -1793,7 +1788,7 @@ Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, an
 	\item $A(-\lambda) = -R A(\lambda)R$, where $R$ is the standard reversor operator. In particular, $A(0) = -R A(0)R$.
 	\item If $V$ is an eigenvector of $A(0)$ corresponding to eigenvalue $\mu$, then $RV$ is an eigenvector of $A(0)$ corresponding to eigenvalue $-\mu$, and $\overline{V}$ is an eigenvector of $A(0)$ corresponding to eigenvalue $\overline{\mu}$. 
 	\item Let $P^{c,*}(0)$ be the center eigenprojection of $-A(0)^*$. Then $P^{c,*}(0) = [P^c(0)]^*$. 
-	\item Let $P^{s,*}(0)$ and $P^{u,*}$ be the stable and unstable eigenprojections of $-A(0)^*$. Then $P^{s,*}(0) = [P^u(0)]^*$ and $P^{u,*}(0) = [P^s(0)]^*$
+	\item Let $P^{s,*}(0)$ and $P^{u,*}(0)$ be the stable and unstable eigenprojections of $-A(0)^*$. Then $P^{s,*}(0) = [P^u(0)]^*$ and $P^{u,*}(0) = [P^s(0)]^*$
 \end{enumerate}	
 \begin{proof}
 Part (i) can be verified by multiplying out $R A(\lambda)R$. For part (ii), $A(0)V = \mu V$ implies $A(0)\overline{V} = \overline{\mu}\overline{V}$ since $A(0)$ is real. Using part (i), $-R A(0) R V = \mu V$, which rearranges to $A(0) (RV) = -\mu(RV)$. For part (iii), $\ker [P^c(0)]^* = (\ran P^c(0))^\perp = \spn\{V_0\}^\perp$  and $\ran [P^c(0)]^* = (\ker P^c(0))^\perp$. For any eigenvector $W$ of $-A(0)^*$ with nonzero eigenvalue $\mu$,
@@ -1812,19 +1807,19 @@ thus $\langle W, V \rangle = 0$ unless $\tilde{\mu} = -\overline{\mu}$. For the 
 \end{proof}
 \end{lemma}
 
-Let $\Phi(x, y; \lambda) = e^{A(\lambda)(x-y)}$ be the evolution of the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. Then the evolution of the unconjugated equation \cref{vareqlambda} on $\R^\pm$ is given by
+Let $\Phi(x, y; \lambda) = e^{A(\lambda)(x-y)}$ be the evolution operator of the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. Then the evolution operator of the unconjugated equation \cref{vareqlambda} on $\R^\pm$ is given by
 \begin{align}\label{deftildephi}
 \tilde{\Phi}^\pm(x, y; \lambda) &= P^\pm(x; \lambda) \Phi(x, y; \lambda) P^+(y; \lambda)^{-1} && x, y \in \R^\pm.
 \end{align}
-We can decompose the evolution \cref{deftildephi} in exponential trichotomies on $\R^\pm$ via the evolution operators
+We can decompose \cref{deftildephi} in exponential trichotomies on $\R^\pm$ via the operators
 \begin{align}\label{tildephitrich}
 \tilde{\Phi}^{s/u/c, \pm}(x, y; \lambda) &= P^\pm(x; \lambda) \Phi(x, y; \lambda) P^{s/u/c}(\lambda) P^\pm(x; \lambda)^{-1} && x, y \in \R^\pm,
 \end{align}
 where we have estimates
 \begin{equation}\label{stdtrichbounds}
 \begin{aligned}
-|\tilde{\Phi}^{s,\pm}(x, y; \lambda)| &\leq C e^{-\alpha(x - y)} && y \leq x \\
-|\tilde{\Phi}^{u,\pm}(x, y; \lambda)| &\leq C e^{-\alpha(y - x)} && x \leq y \\
+|\tilde{\Phi}^{s,\pm}(x, y; \lambda)| &\leq C e^{-\alpha(x - y)} \qquad\qquad y \leq x \\
+|\tilde{\Phi}^{u,\pm}(x, y; \lambda)| &\leq C e^{-\alpha(y - x)} \qquad\qquad x \leq y \\
 |\tilde{\Phi}^{c,\pm}(x, y; \lambda)| &\leq C e^{\eta|x - y|},
 \end{aligned}
 \end{equation}
@@ -1843,23 +1838,23 @@ Let $Z(x) = e^{\nu(\lambda)x}V_0(\lambda)$, and define
 \begin{equation}\label{defVplus}
 V^+(x; \lambda) = P^+(x; \lambda) Z(x) = e^{\nu(\lambda)x}P^+(x; \lambda)V_0(\lambda).
 \end{equation}
-By the expansion \cref{conjlemmaP}, $V^+(x; \lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + V_1^+(x; \lambda))$, where we define $V_1^+(x; \lambda) = \Theta_+(x; \lambda) V_0(\lambda)$. Similarly, define 
+By \cref{conjlemmaP}, $V^+(x; \lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + V_1^+(x; \lambda))$, where we define $V_1^+(x; \lambda) = \Theta^+(x; \lambda) V_0(\lambda)$. Similarly, define 
 \begin{align*}
 V^-(x; \lambda) &= P^-(x; \lambda) Z(x) = RP^+(-x; -\lambda)R e^{\nu(\lambda)x} V_0(\lambda) \\
-&= e^{\nu(\lambda)x} R(I + \Theta_+(-x; -\lambda))R V_0(\lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + R\Theta_+(-x; -\lambda) V_0(-\lambda) ),
+&= e^{\nu(\lambda)x} R(I + \Theta^+(-x; -\lambda))R V_0(\lambda) = e^{\nu(\lambda)x}( V_0(\lambda) + R\Theta^+(-x; -\lambda) V_0(-\lambda) ),
 \end{align*}
-and let $V_1^-(x; \lambda) = R\Theta_+(-x; -\lambda) V_0(-\lambda)$. The decay rate for $V_1^\pm(x; \lambda)$ comes from the conjugation lemma.
+and let $V_1^-(x; \lambda) = R\Theta^+(-x; -\lambda) V_0(-\lambda)$. The decay rate for $V_1^\pm(x; \lambda)$ comes from the conjugation lemma.
 \end{proof}
 \end{lemma}
 
-We use this result to prove the existence of $V^c(x)$ in part (i) of \cref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, so $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by \cref{nondegenlemma}, there exists $Y^0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$ with $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Define $V^\pm(x; 0)$ as in \cref{lemma:Vpm}. Since $V^-(0; 0) = R V^+(0; 0)$ and $V^\pm(0; 0) \in \Span \{Y^0 \}$, $V^+(0; 0) = V^-(0; 0)$, thus we define 
+We use this result to prove the existence of $V^c(x)$ in part (i) of \cref{varadjsolutions}. Using a dimension counting argument, $\dim W^{cs}(0) = m + 1$ and $\dim W^{cu}(0) = m + 1$. Since $\Psi(0) \perp T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0)$, $\dim T_{Q(0)}W^{cs}(0) + T_{Q(0)}W^{cu}(0) \leq 2m$, which implies that $\dim T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0) = 2$. Since $\dim T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0) = 1$ by \cref{nondegenlemma}, there exists $Y^0 \in T_{Q(0)}W^{cs}(0) \cap T_{Q(0)}W^{cu}(0)$ which is linearly independent from $Q'(0)$ with $Y^0 \notin T_{Q(0)}W^s(0) \cap T_{Q(0)}W^s(0)$. Define $V^\pm(x; 0)$ as in \cref{lemma:Vpm}. Since $V^-(0; 0) = R V^+(0; 0)$ and $V^\pm(0; 0) \in \Span \{Y^0 \}$, $V^+(0; 0) = V^-(0; 0)$, thus we define 
 \[
 V^c(x) = \begin{cases}
 V^+(x; 0) & x \geq 0 \\
 V^-(-x; 0) & x \leq 0,
 \end{cases}
 \]
-from which it follows that $V^c(-x) = R V^c(x)$. In addition, by reversibility and \cref{AQsymmetry}, $Y^- = R Y^+$, thus since $Y^+$ and $Y^-$ only have trivial intersection, $V^c(0)$ can contain no component in $Y^+ \oplus Y^-$. 
+from which it follows that $V^c(-x) = R V^c(x)$. In addition, by reversibility, $Y^- = R Y^+$, thus since $Y^+$ and $Y^-$ only have trivial intersection, $V^c(0)$ can contain no component in $Y^+ \oplus Y^-$. 
 
 The next lemma evaluates two important inner products involving $V^\pm(0; \lambda)$.
 
@@ -1867,7 +1862,7 @@ The next lemma evaluates two important inner products involving $V^\pm(0; \lambd
 \begin{equation}\label{VpmIPs}
 \begin{aligned}
 \langle W_0, V^\pm(0; \lambda) \rangle &= 1 \mp \frac{1}{2} \tilde{M}\lambda + \mathcal{O}(|\lambda|^2), \quad
-\langle \Psi(0), V^\pm(0; \lambda) \rangle = \mp \frac{1}{2} M_c \lambda + \mathcal{O}(|\lambda|^2)
+\langle \Psi(0), V^\pm(0; \lambda) \rangle = \mp \frac{1}{2} M_c \lambda + \mathcal{O}(|\lambda|^2),
 \end{aligned}
 \end{equation}
 where
@@ -1881,12 +1876,12 @@ Define $\tilde{V}^+(x; \lambda)$ by
 \begin{equation}\label{deftildeV}
 V^+(x; \lambda) = e^{\nu(\lambda)x}\tilde{V}^+(x; \lambda),
 \end{equation}
-so that $\tilde{V}^+(x, \lambda) \rightarrow V_0(\lambda)$ as $x \rightarrow \infty$. Differentiating with respect to $\lambda$ at $\lambda = 0$, and using $\tilde{V}^+(x; 0) = V^c(x)$ and $\nu'(0) = 1/c$,
+so that $\tilde{V}^+(x, \lambda) \rightarrow V_0(\lambda)$ as $x \rightarrow \infty$. Differentiating with respect to $\lambda$ at $\lambda = 0$, 
 \begin{equation}\label{VtildeVderiv}
 \partial_\lambda V^+(x; 0)
-= \partial_\lambda \tilde{V}^+(x; 0) + \frac{1}{c} x V^c(x).
+= \partial_\lambda \tilde{V}^+(x; 0) + \frac{1}{c} x V^c(x),
 \end{equation}
-Substituting \cref{deftildeV} into \cref{vareqlambda}, differentiating with respect to $\lambda$ at $\lambda = 0$, and simplifying, 
+since $\tilde{V}^+(x; 0) = V^c(x)$ and $\nu'(0) = 1/c$. Substituting \cref{deftildeV} into \cref{vareqlambda}, differentiating with respect to $\lambda$ at $\lambda = 0$, and simplifying, 
 \begin{align}\label{tildeVsolves}
 [\partial_\lambda \tilde{V}^+(x; 0)]' &= A(Q(x))\partial_\lambda \tilde{V}^+(x; 0) + \left( B - \frac{1}{c}I\right) V^c(x).
 \end{align}
@@ -1899,23 +1894,23 @@ Y(x) &= \tilde{\Phi}^{s,+}(x,0; 0)Y_0^s
 &+ \int_{\infty}^x \tilde{\Phi}^{u,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy + V^c(x) \int_{\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy 
 \end{aligned}
 \end{equation}
-The first and second integrals are finite for all $x$ since $V^c(x)$ is bounded and we have the exponentially decaying estimates \cref{stdtrichbounds}. To prove that \cref{Yintegform} is a valid expression for $Y(x)$, it remains to show that the third integral is finite for all $x$. Using the expression for $V^c(x)$ from \cref{varadjsolutions}, 
+Using the estimates \cref{stdtrichbounds}, the first and second integrals are finite for all $x$ since $V^c(x)$ is bounded. To prove that \cref{Yintegform} is a valid expression for $Y(x)$, it remains to show that the third integral is finite for all $x$. Using the expression for $V^c(x)$ from \cref{varadjsolutions}, 
 \[
-\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle = v^c(y) - \frac{1}{c},
+\left\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \right\rangle = v^c(y) - \frac{1}{c},
 \]
 where $v^c(x)$ is the first component of $V^c(y)$. Since $|V^c(y) - V_0|\leq C e^{-\alpha y}$, and the first component of $V_0$ is $1/c$, 
 \begin{align*}
-\left| \int_{-\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy \right| 
+\left| \int_{-\infty}^x \left\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \right\rangle dy \right| 
 \leq C \int_x^{\infty} e^{-\alpha y} dy = C \frac{e^{-\alpha x}}{\alpha},
 \end{align*}
-thus the formal expression \cref{Yintegform} is valid. 
+which is finite, thus the formal expression \cref{Yintegform} is valid. 
 
 Evaluating \cref{Yintegform} at $x = 0$ and taking the inner product with $W_0$, 
 \begin{equation}\label{W0IPwithtildeV}
 \langle W_0, \partial_\lambda \tilde{V}^+(x; 0) \rangle
 = \langle W_0, V^c(0) \rangle \int_{\infty}^0 \left(v^c(y) - \frac{1}{c}\right) dy = -\frac{1}{2} \tilde{M},
 \end{equation}
-since $v^c(y)$ is an even function and $\langle W_0, V^c(0) \rangle = 1$. Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equations \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle W_0, V^c(0)\rangle = 1$, we obtain the first equation in \cref{VpmIPs}.
+since $v^c(y)$ is an even function and $\langle W_0, V^c(0) \rangle = 1$. Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle W_0, V^c(0)\rangle = 1$, we obtain the first equation in \cref{VpmIPs}.
 
 Evaluating \cref{Yintegform} at $x = 0$ and taking the inner product with $\Psi(0)$, 
 \begin{align*}
@@ -1929,14 +1924,14 @@ since $\tilde{\Phi}^{u,+}(0,y; 0) V^c(y) = 0$. For the projection $\tilde{\Phi}^
 &= \int_{\infty}^0 \langle \tilde{\Phi}(0,y; 0)^* \tilde{\Phi}^{u,+}(0,0; 0)^* \Psi(0), B V^c(y) \rangle dy = -\int_0^\infty \langle \Psi(y), B V^c(y) \rangle dy \\
 &= \int_0^\infty q(y) v^c(y) dy = \frac{1}{2}\int_{-\infty}^\infty q(y) v^c(y) dy ,
 \end{align*}
-since the last component of $\Psi(y)$ is $-q(y)$, and both $v^c(y)$ and $q(y)$ are even functions. Since $\calL(q)v^c = 1$ and $\calL(q)$ is self-adjoint, using \cref{Lkernel} we have
+since the last component of $\Psi(y)$ is $-q(y)$, and both $v^c(y)$ and $q(y)$ are even functions. Since $\calL(q)v^c = 1$ and $\calL(q)$ is self-adjoint, it follows from \cref{Lkernel} that
 \begin{align*}
 \langle \Psi(0), \partial_\lambda \tilde{V}^+(x; 0) \rangle
 &= -\frac{1}{2} \int_{-\infty}^\infty \calL(q) \partial_c q(y) v^c(y) dy 
 = -\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) \calL(q) v^c(y) dy \\
 &= -\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) dy = -\frac{1}{2}M_c
 \end{align*}
-Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equations \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle \Psi(0), V^c(0)\rangle = 0$, we obtain the second equation in \cref{VpmIPs}. The formulas for $V^-(0; \lambda)$ are similarly obtained.
+Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle \Psi(0), V^c(0)\rangle = 0$, we obtain the second equation in \cref{VpmIPs}. The formulas for $V^-(0; \lambda)$ are similarly obtained.
 \end{proof}
 \end{lemma}
 
@@ -1945,41 +1940,39 @@ Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using equ
 As in \cite{Sandstede1998}, we will write the eigenvalue problem \cref{PDEeigsystemper3} as a piecewise system of equations. From \cref{th:perexist} and \cref{solvewithjumps}, the periodic $n$-pulse $Q_n(x)$ can be written piecewise as
 \begin{equation}\label{Qnppiece}
 \begin{aligned}
-Q_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) && x \in [-X_{i-1}, 0] \\
-Q_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) && x \in [0, X_i],
+Q_i^-(x) &= Q^-(x; \beta_i^-) + \tilde{Q}_i^-(x) \qquad\qquad x \in [-X_{i-1}, 0] \\
+Q_i^+(x) &= Q^+(x; \beta_i^+) + \tilde{Q}_i^+(x) \qquad\qquad x \in [0, X_i],
 \end{aligned}
 \end{equation}
 where $Q_i^-: [-X_{i-1}, 0] \rightarrow \R^{2m+1}$ and $Q_i^+: [0, X_i] \rightarrow \R^{2m+1}$ are continuous, and the pieces are joined together end-to-end in a loop. We extend $Q_i^-(x)$ smoothly to $(-\infty, 0]$ and $Q_i^+(x)$ smoothly to $[0, \infty)$, so that $|Q_i^\pm(x)| \leq C e^{-\alpha_0 |x|}$. Next, we use the conjugation lemma to simplify \cref{PDEeigsystemper3} and to construct our piecewise ansatz. We will apply the conjugation lemma on $\R^\pm$ to the equation
 \begin{equation}\label{Veqgeneral}
 V(x)' = ( A(U(x)) + \lambda B)  V(x),
 \end{equation}
-where $U(x) \in C_b([0, \infty), \R^{2m+1})$ or $U(x) \in C_b((-\infty, 0], \R^{2m+1})$. Let $\Lambda = (U(x), \lambda)$ and $\Lambda_0 = (Q(x), 0)$. Using the conjugation lemma, there exists $\delta_4 \leq \delta_3$ and invertible linear transformations
-\[
-P^\pm(x; U(x), \lambda) = I + \Theta^\pm(x; U(x), \lambda)
-\]
-such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the into the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. By \cref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
+where $U(x) \in C_b([0, \infty), \R^{2m+1})$ or $U(x) \in C_b((-\infty, 0], \R^{2m+1})$. Let $\Lambda = (U(x), \lambda)$ and $\Lambda_0 = (Q(x), 0)$. Using the conjugation lemma, there exists $\delta_4 \leq \delta_3$ and invertible linear transformations $P^\pm(x; U(x), \lambda) = I + \Theta^\pm(x; U(x), \lambda)$ such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the into the constant-coefficient equation $Z'(x) = A(\lambda) Z(x)$. By \cref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
 \begin{equation}\label{defPipm}
 P_i^\pm(x; \lambda) = I + \Theta_i^\pm(x; \lambda) = I + \Theta^\pm(x; Q_i^\pm(x), \lambda)).
 \end{equation}
 Expanding \cref{defPipm} in a Taylor series about $Q(x)$, and using \cref{conjthetadecay} and the estimates from \cref{solvewithjumps}, $\Theta_i^\pm(x; \lambda) = \Theta^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*})$, thus we have the uniform estimates
 \begin{equation}\label{Pipmest}
-P_i^\pm(x; \lambda) = P^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*}).
+P_i^\pm(x; \lambda) = P^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*}),
 \end{equation}
+where $P^\pm(x; \lambda)$ are the conjugation operators \cref{defPplus} and \cref{defPminus}.
 
-We note that when $\lambda = 0$, $W_0$ is a constant solution to $W'(x) = -A(Q_i^\pm(x); 0) W(x)$ for all $i$, thus by \cref{corr:adjconj}, $[P_i^\pm(x; \lambda)^{-1}]^* W_0$ is a solution to the constant coefficient equation $Z'(x) = -A(0) Z(x)$ for all $i$. Since $W_0$ is also a solution to this, and $[P_i^\pm(x; \lambda)^{-1}]^* W_0 \rightarrow W_0$ as $x \rightarrow \pm \infty$, we have for $i = 0, \dots, n-1$ and all $x \in \R^\pm$
+Next, we note that when $\lambda = 0$, $W_0$ is a constant solution to $W'(x) = -A(Q_i^\pm(x); 0)^* W(x)$ for all $i$, thus by \cref{corr:adjconj}, $[P_i^\pm(x; \lambda)^{-1}]^* W_0$ is a solution to the constant coefficient equation $Z'(x) = -A(0)^* Z(x)$ for all $i$. Since $W_0$ is also a solution to this equation, and $[P_i^\pm(x; \lambda)^{-1}]^* W_0 \rightarrow W_0$ as $x \rightarrow \pm \infty$,
 \begin{equation}\label{W0conjeq}
 [P_i^\pm(x; \lambda)^{-1}]^* W_0 = W_0
 \end{equation}
+for $i = 0, \dots, n-1$ and all $x \in \R^\pm$.
 
-As in \cref{lemma:Vpm}, define
+Similarly to \cref{lemma:Vpm}, define
 \begin{align}\label{defVipm}
 V_i^\pm(x; \lambda) &= e^{\nu(\lambda)x} P_i^\pm(x; \lambda)V_0(\lambda) && x \in \R^\pm,
 \end{align}
 so that $V_i^\pm(x; \lambda)$ solves the equation
-\begin{equation}\label{PDEeigcenter}
-[V_i^\pm(x; \lambda)]'(x) = A(Q_i^\pm(x); \lambda) V_i^\pm(x; \lambda)
-\end{equation}
-on $\R^\pm$. Using \cref{defVipm} and \cref{Pipmest}, we have the estimate
+\begin{align}\label{PDEeigcenter}
+[V_i^\pm(x; \lambda)]'(x) &= A(Q_i^\pm(x); \lambda) V_i^\pm(x; \lambda) && x \in \R^\pm.
+\end{align}
+Using \cref{defVipm} and \cref{Pipmest}, we have the estimate
 \begin{align}\label{Vipmest}
 V_i^\pm(x; \lambda) = V^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*}).
 \end{align}
@@ -2000,21 +1993,21 @@ We can now construct our ansatz. It follows from \cref{Ekernel} and \cref{defAB}
 {[\partial_c Q_n]}'(x) &= A(Q_n(x))\partial_c Q_n(x) - B \partial_x Q_n(x).
 \end{aligned}
 \end{equation}
-To exploit the relations \cref{PDEeigkernel} and \cref{PDEeigcenter}, we take the piecewise ansatz for the eigenfunction $V(x)$
+To exploit \cref{PDEeigkernel} and \cref{PDEeigcenter}, we take the piecewise ansatz for the eigenfunction $V(x)$
 \begin{equation}\label{Vpiecewise}
 \begin{aligned}
 &d_i (\partial_x Q_i^-(x) - \lambda \partial_c Q_i^-(x)) + c_{i-1} e^{\nu(\lambda)X_{i-1} }( V_i^-(x; \lambda) - k_i^-(\lambda) Q'(x) ) + W_i^-(x) && x \in [-X_{i-1}, 0] \\
 &d_i (\partial_x Q_i^+(x) - \lambda \partial_c Q_i^+(x)) + c_i e^{-\nu(\lambda)X_i }( V_i^+(x; \lambda) - k_i^+(\lambda) Q'(x) ) + W_i^+(x) && x \in [0, X_i],
 \end{aligned}
 \end{equation}
-for $i = 0, \dots, n-1$, where $W_i^-(x) \in C([-X_{i-1}, 0], \C^{2m+1})$, $W_i^+(x) \in C([0, X_i], \C^{2m+1})$, and $c_i, d_i \in \C$. The subscripts are taken $\Mod n$, and the pieces are joined together end-to-end as in \cite{Sandstede1998}. The factors $e^{-\nu(\lambda)X_i}$ and $e^{\nu(\lambda)X_{i-1}}$ are chosen to facilitate joining the pieces at $\pm X_i$. Next, we substitute \cref{Vpiecewise} into \cref{PDEeigsystemper3}. Since the eigenfunction $V(x)$ must be continuous, the $2n$ pieces \cref{Vpiecewise} must satisfy $n$ matching conditions at $x = \pm X_i$ and $n$ matching conditions at $x = 0$. This implies that the remainder functions $W_i^\pm(x)$ must satisfy the system of equations
+for $i = 0, \dots, n-1$, where $W_i^-(x) \in C([-X_{i-1}, 0], \C^{2m+1})$, $W_i^+(x) \in C([0, X_i], \C^{2m+1})$, and $c_i, d_i \in \C$. The subscripts are taken $\Mod n$, and the pieces are joined together end-to-end as in \cite{Sandstede1998}. The factors $e^{-\nu(\lambda)X_i}$ and $e^{\nu(\lambda)X_{i-1}}$ are chosen to facilitate joining the pieces at $\pm X_i$. Next, we substitute \cref{Vpiecewise} into \cref{PDEeigsystemper3}. Since the eigenfunction $V(x)$ must be continuous, the $2n$ pieces \cref{Vpiecewise} must satisfy $n$ matching conditions at $x = \pm X_i$ and $n$ matching conditions at $x = 0$. The remainder functions $W_i^\pm(x)$ must then satisfy the system of equations
 \begin{equation}\label{eigsystem0}
 \begin{aligned}
 &(W_i^-)'(x) = A(Q_i^-(x); \lambda) W_i^-(x) + c_{i-1} e^{\nu(\lambda)X_{i-1}}  G_i^-(x; \lambda) + d_i \lambda^2 \tilde{H}_i^-(x) \\
 &(W_i^+)'(x) = A(Q_i^+(x); \lambda) W_i^+(x) + c_i e^{-\nu(\lambda)X_i} G_i^+(x; \lambda) + d_i \lambda^2 \tilde{H}_i^+(x) \\
 &W_i^+(X_i) - W_{i+1}^-(-X_i) = D_i d + C_i c \\
 &W_i^+(0) - W_i^+(0) + c_i e^{-\nu(\lambda)X_i}(V_i^+(0; \lambda) - k_i^+(\lambda) Q'(0) )\\
-&\qquad\qquad\qquad - c_{i-1} e^{\nu(\lambda)X_{i-1}} ( V_i^-(0; \lambda) - k_i^-(\lambda) Q'(0) ) = 0
+&\qquad\qquad\qquad\qquad - c_{i-1} e^{\nu(\lambda)X_{i-1}} ( V_i^-(0; \lambda) - k_i^-(\lambda) Q'(0) ) = 0,
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$, where
@@ -2037,19 +2030,19 @@ As in \cite{Sandstede1998}, we will not be able to find a solution to this syste
 (W_i^+)'(x) &= A(Q_i^+(x); \lambda) W_i^+(x) + c_i e^{-\nu(\lambda)X_i}  G_i^+(x; \lambda) + d_i \lambda^2 \tilde{H}_i^+(x) \\
 W_i^+(X_i) &- W_{i+1}^-(-X_i) = D_i d + C_i c \\
 W_i^\pm(0) &\in \C \Psi(0) \oplus \C W_0 \oplus Y^+ \oplus Y^- \\
-W_i^+(0) - W_i^-(0) &+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0
+W_i^+(0) - W_i^-(0) &+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0,
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$. The fourth equation states that the remainder functions $W_i^\pm(x)$ have no component in $\C Q'(0)$. The other terms in the ansatz do not appear by \cref{klambdaIP}. The final equation states that the jumps can only be in the directions of $W_0$ and $\Psi(0)$. The terms involving $Q'(0)$ in the ansatz do not appear since $Q'(0) \perp W_0\oplus\Psi(0)$. A solution to \cref{eigsystem} solves \cref{eigsystem0} if and only if $n$ jump conditions at $x = 0$ in the direction of $\C \Psi(0) \oplus \C W_0$ are satisfied, i.e.  
 \begin{equation}\label{jumpxi1}
 \begin{aligned}
 \xi_i &= \langle \Psi(0), W_i^+(0) - W_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0  \\
-\xi_i^c &= \langle W_0, W_i^+(0) - W_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0 
+\xi_i^c &= \langle W_0, W_i^+(0) - W_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0,
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$, where the terms involving $Q'(0)$ in the ansatz again cancel.
 
-Finally, we apply the conjugation operators to the system \cref{eigsystem}. Making the substitution $W_i^\pm(x) = P_i^\pm(x; \lambda) Z_i^\pm(x)$, we obtain the equations
+Finally, we apply the conjugation operators \cref{defPipm} to the system \cref{eigsystem}. Making the substitution $W_i^\pm(x) = P_i^\pm(x; \lambda) Z_i^\pm(x)$, we obtain the equations
 \begin{equation}\label{systemZ}
 \begin{aligned}
 (Z_i^-)'(x) &= A(\lambda) Z_i^-(x) + c_{i-1} e^{\nu(\lambda)X_{i-1}}  P_i^-(x; \lambda)^{-1} G_i^-(x; \lambda) + \lambda^2 d_i P_i^-(x; \lambda)^{-1} \tilde{H}_i^-(x) \\
@@ -2078,16 +2071,16 @@ The jump conditions become
 \end{aligned}
 \end{equation}
 
-Finally, we collect some important estimates in the following lemma.
+To conclude this section, we collect some important estimates in the following lemma.
 
 \begin{lemma}\label{stabestimateslemma}We have the estimates
 \begin{enumerate}[(i)]
-\item $|H(x)|, |\tilde{H}_i^\pm(x)| \leq C e^{-\alpha_0 |x|}$
-\item $|\tilde{H}_i^-(x) - H(x)| \leq C e^{-\alpha_0 X_{i-1}} e^{-\alpha_0(X_{i-1} + x) } + e^{-2 \alpha_0 X_i} e^{\alpha_0 x}$
-\item $|\tilde{H}_i^+(x) - H(x)| \leq C e^{-\alpha_0 X_i} e^{-\alpha_0(X_i - x) } + e^{-2 \alpha_0 X_{i-1}} e^{-\alpha_0 x}$
+\item $|H(x)|, |\tilde{H}_i^\pm(x)| \leq C e^{-\alpha_0 |x|}$.
+\item $|\tilde{H}_i^-(x) - H(x)| \leq C e^{-\alpha_0 X_{i-1}} e^{-\alpha_0(X_{i-1} + x) } + e^{-2 \alpha_0 X_i} e^{\alpha_0 x}$.
+\item $|\tilde{H}_i^+(x) - H(x)| \leq C e^{-\alpha_0 X_i} e^{-\alpha_0(X_i - x) } + e^{-2 \alpha_0 X_{i-1}} e^{-\alpha_0 x}$.
 \item $|G_i^\pm(x; \lambda)| \leq C |\lambda|(e^{-\alpha_0 X_i}+ |\lambda|) e^{-\alpha_0 |x|}$.
-\item $D_i d = ( Q'(X_i) + Q'(-X_i))(d_{i+1} - d_i ) + \mathcal{O} ( e^{-\alpha_0 X_i} (e^{-\alpha_0 X^*} + |\lambda| )|d|)$
-\item $|C_i c| \leq C (e^{-\alpha_0 X_i} + |\lambda| ) |c|$
+\item $D_i d = ( Q'(X_i) + Q'(-X_i))(d_{i+1} - d_i ) + \mathcal{O} ( e^{-\alpha_0 X_i} (e^{-\alpha_0 X^*} + |\lambda| )|d|)$.
+\item $|C_i c| \leq C (e^{-\alpha_0 X_i} + |\lambda| ) |c|$.
 \end{enumerate}
 \begin{proof}
 Since $H(x) = -\partial_c Q(x)$, it follows from \cref{transverseint} that $|H(x)| \leq C e^{-\alpha_0|x|}$, where we can use $\alpha_0$ in place of $\alpha_0 - \epsilon$ since $DF(0)$ is hyperbolic. The result for $\tilde{H}(x) = -\partial_c Q_i^\pm(x)$ can be similarly obtained by using Lin's method as in \cite{SandstedeStrut,Sandstede1993}. The bounds (ii) and (iii) follow from Lin's method and an adaptation of \cref{solvewithjumps} to derivatives with respect to $c$. For the estimates on $G_i^\pm(x; \lambda)$, by reversibility, $\langle Q'(0), V^\pm(0, 0) \rangle = \langle Q'(0), V^c(0) \rangle = 0$, thus $k_i^\pm(\lambda) = \mathcal{O}(|\lambda|)$. Using this together with the estimates from \cref{solvewithjumps} gives us (iv). For the estimate (v), we use \cref{VQpm} and \cref{Qpmbounds} with the derivative with respect to $x$ to get
@@ -2096,21 +2089,17 @@ Since $H(x) = -\partial_c Q(x)$, it follows from \cref{transverseint} that $|H(x
 &= (Q^-)'(-X_i; \beta_{i+1}^-) + (Q^+)'(X_i; \beta_i^+) + \mathcal{O}(e^{-2 \alpha_0 X_i}) \\
 &= Q'(-X_i) + Q'(X_i) + \mathcal{O}(e^{-\alpha_0 X_i}e^{-\alpha_0 X^*}).
 \end{align*}
-Similarly,
-\begin{align*}
-(Q_i^+)'(X_i) &= Q'(-X_i) + Q'(X_i) + \mathcal{O}(e^{-\alpha_0 X_i}e^{-\alpha_0 X^*})
-\end{align*}
-Substitute these into \cref{defDid} and use (i) to get the estimate (v). For the estimate (vi), by \cref{lemma:Vpm}, $e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$ and $e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$. Subtracting these and using $k_i^\pm(\lambda) = \mathcal{O}(|\lambda|)$, we obtain the estimate (vi).
+Similarly, $(Q_i^+)'(X_i) = Q'(-X_i) + Q'(X_i) + \mathcal{O}(e^{-\alpha_0 X_i}e^{-\alpha_0 X^*})$. Substitute these into \cref{defDid} and use (i) to get the estimate (v). For the estimate (vi), by \cref{lemma:Vpm}, $e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$ and $e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) = V_0(\lambda) + \mathcal{O}(e^{-\alpha_0 X_i})$. Subtracting these and using $k_i^\pm(\lambda) = \mathcal{O}(|\lambda|)$, we obtain the estimate (vi).
 \end{proof}
 \end{lemma}
 
 \subsection{Exponential trichotomy}\label{sec:trichotomy}
 
-We will now define exponential trichotomies on $\R^\pm$ for the conjugated system. Since there is some freedom in choosing subspaces for the trichotomy, we will make a choice that allows us to best satisfy equation \cref{systemmiddle}. The range of the stable projection on $\R^+$ is unique and given by $E^s(\lambda)$, but we can choose any complement of $E^s(\lambda)$ to be the complement of the range of the stable projection at $X_i$. For sufficiently small $\lambda$, since the eigenvectors of $A(\lambda)$ are smooth in $\lambda$, $E^u(0)\oplus E^c(0)$ is a complement of $E^s(\lambda)$. Since $P_i^+(X_i; \lambda) = I + \mathcal{O}(e^{-\alpha_0 X_i})$, for sufficiently small $\lambda$ and sufficiently large $X_i$, $P_i^+(X_i, \lambda)^{-1} ( E^u(0)\oplus E^c(0) ) P_i^+(X_i, \lambda)$ is a complement of $E^s(\lambda)$. A similar result holds for the complement of the unstable projection on $\R^-$ at $-X_{i-1}$. Using these complements, there exists $\delta_5 \leq \delta_4$ such that for all $|\lambda| < \delta_5$, we can decompose the evolution operator $\Phi(x,y; \lambda)$ on $\R^\pm$ as
-\begin{equation}\label{Phidecomp}
-\Phi(x, y; \lambda) = \Phi_i^{s,\pm}(x, y; \lambda) + \Phi_i^{u,\pm}(x, y; \lambda) + \Phi_i^{c,\pm}(x, y; \lambda),
-\end{equation}
-for $i = 0, \dots, n-1$, where
+We will now define exponential trichotomies on $\R^\pm$ for the conjugated system. Since there is some freedom in choosing subspaces for the trichotomy, we will make a choice that allows us to best satisfy equation \cref{systemmiddle}. The range of the stable projection on $\R^+$ is unique and is given by $E^s(\lambda)$, but we can choose any complement of $E^s(\lambda)$ to be the complement of the range of the stable projection at $X_i$. For sufficiently small $\lambda$, since the eigenvectors of $A(\lambda)$ are smooth in $\lambda$, $E^u(0)\oplus E^c(0)$ is a complement of $E^s(\lambda)$. Since $P_i^+(X_i; \lambda) = I + \mathcal{O}(e^{-\alpha_0 X_i})$, for sufficiently small $\lambda$ and sufficiently large $X_i$, $P_i^+(X_i, \lambda)^{-1} ( E^u(0)\oplus E^c(0) ) P_i^+(X_i, \lambda)$ is a complement of $E^s(\lambda)$. A similar result holds for the complement of the unstable projection on $\R^-$ at $-X_{i-1}$. Using these complements, there exists $\delta_5 \leq \delta_4$ such that for all $|\lambda| < \delta_5$, we can decompose the evolution operator $\Phi(x,y; \lambda)$ on $\R^\pm$ as
+\begin{align}\label{Phidecomp}
+\Phi(x, y; \lambda) &= \Phi_i^{s,\pm}(x, y; \lambda) + \Phi_i^{u,\pm}(x, y; \lambda) + \Phi_i^{c,\pm}(x, y; \lambda) && i = 0, \dots, n-1,
+\end{align}
+where
 \begin{equation}\label{Zevolmod}
 \begin{aligned}
 \Phi_i^{s,+}(x, y; \lambda) &= \Phi(x, y; \lambda) P^s(\lambda) \\
@@ -2122,10 +2111,10 @@ P^c(0) P_i^+(X_i, \lambda) \Phi(X_i, y; \lambda)  \\
 P^s(0) P_i^-(-X_{i-1}, \lambda) \Phi(-X_{i-1}, y; \lambda) \\
 \Phi_i^{u,-}(x, y; \lambda) &= \Phi(x, y; \lambda) P^u(\lambda) \\
 \Phi_i^{c,-}(x, y; \lambda) &= \Phi(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1}
-P^c(0) P_i^-(-X_{i-1}, \lambda) \Phi(-X_{i-1}, y; \lambda).
+P^c(0) P_i^-(-X_{i-1}, \lambda) \Phi(-X_{i-1}, y; \lambda),
 \end{aligned}
 \end{equation}
-The stable evolution $\Phi_i^{s,+}(x, y; \lambda)$ on $\R^+$ and the unstable evolution $\Phi_i^{u,-}(x, y; \lambda)$ on $\R^-$ do not depend on $X_i$ or $i$. We have the estimates
+and we have the estimates
 \begin{equation}\label{Zevolbounds}
 \begin{aligned}
 |\Phi_i^{s,\pm}(x, y; \lambda)| &\leq C e^{-\alpha(x - y)} && y \leq x \\
@@ -2133,7 +2122,7 @@ The stable evolution $\Phi_i^{s,+}(x, y; \lambda)$ on $\R^+$ and the unstable ev
 |\Phi_i^{c,\pm}(x, y; \lambda)| &\leq C e^{\eta|x - y|},
 \end{aligned}
 \end{equation}
-which are uniform in $\lambda$ and are the same as the estimates \cref{stdtrichbounds} but with possibly different constants $C$. The evolution of the unconjugated system $W_i^\pm(x) = A(Q_i^\pm(x); \lambda) W_i^\pm(x)$ on $\R^\pm$ is given by
+which are uniform in $\lambda$, and are the same as the estimates \cref{stdtrichbounds} but with possibly different constants $C$. The stable evolution $\Phi_i^{s,+}(x, y; \lambda)$ on $\R^+$ and the unstable evolution $\Phi_i^{u,-}(x, y; \lambda)$ on $\R^-$ do not depend on $X_i$ or $i$. The evolution of the unconjugated system $W_i^\pm(x) = A(Q_i^\pm(x); \lambda) W_i^\pm(x)$ on $\R^\pm$ is given by
 \begin{equation}\label{unconjevol2}
 \tilde{\Phi}_i^\pm(x, y; \lambda) = P_i^\pm(y; \lambda) \Phi(y, x; \lambda) P_i^\pm(x; \lambda)^{-1},
 \end{equation}
