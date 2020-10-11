@@ -859,7 +859,7 @@ Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \
 
 	\item For
 	\[
-	s = s_\pm(r) = \pm \sqrt{T_1(r)} + \mathcal{O}\left(r^{5/4}|\log r|^{1/2} \right),
+	s = s_\pm(r) = \pm \sqrt{T_1(r)}\left( 1 +  \mathcal{O}\left(\frac{1}{|\log r} \right) \right),
 	\]
 	there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_*(r) + s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which occurs when 
 	\begin{equation}\label{KreinDeltaX}
@@ -2547,12 +2547,8 @@ For the periodic single pulse, there is one length parameter $X_0 = X$, and for 
 \end{equation}
 Equation \cref{1pblockmatrix} follows directly from \cref{blockmatrixtheorem}. The bounds for the remainder terms follow from \cref{blockmatrixtheorem} and the fact that $d$ only appears as $\lambda^2 d$ in \cref{eigsystemper1p}. 
 
-For symmetry, suppose that $(W^+(x; c, d, \lambda), W^-(x; c, d, \lambda))$ is a solution to \cref{eigsystemper1p}. Since the periodic single pulse is symmetric, $Q_0^-(x) = R Q_0^+(-x)$, from which it follows that $G_0^-(x; \lambda) = -R G_0^+(-x; -\lambda)R$. Since $\nu(-\lambda) = -\nu(\lambda)$, $V_0^-(x; \lambda) = R V_0^+(-x; -\lambda)$, $Y^+ = R Y^-$, $R \Psi(0) = \Psi(0)$, and $R W_0 = W_0$, if we replace $(c, d, \lambda)$ by $(-c, d, -\lambda)$, equations \cref{eigsystemper1p} are satisfied by $(-RW^-(-x; c, d, \lambda), -RW^+(-x; c, d, \lambda))$. Since \cref{eigsystemper1p} has a unique solution for a given $(c, d, \lambda)$, 
-\[
-\left(W^+(x; c, d, -\lambda), W^-(x; c, d, -\lambda)\right)
-= -\left(RW^-(-x; -c, d, \lambda), RW^+(-x; -c, d, \lambda)\right).
-\]
-The jump conditions then become
+To show symmetry, suppose that $(W^+(x; c, d, \lambda), W^-(x; c, d, \lambda))$ is a solution to \cref{eigsystemper1p}. Since the periodic single pulse is symmetric, $Q_0^-(x) = R Q_0^+(-x)$, from which it follows that $G_0^-(x; \lambda) = -R G_0^+(-x; -\lambda)R$. Since $\nu(-\lambda) = -\nu(\lambda)$, $V_0^-(x; \lambda) = R V_0^+(-x; -\lambda)$, $Y^+ = R Y^-$, $R \Psi(0) = \Psi(0)$, and $R W_0 = W_0$, if we replace $(c, d, \lambda)$ by $(-c, d, -\lambda)$, equations \cref{eigsystemper1p} are satisfied by $(-RW^-(-x; c, d, \lambda), -RW^+(-x; c, d, \lambda))$. Since \cref{eigsystemper1p} has a unique solution, $\left(W^+(x; c, d, -\lambda), W^-(x; c, d, -\lambda)\right)
+= -\left(RW^-(-x; -c, d, \lambda), RW^+(-x; -c, d, \lambda)\right)$. The jump conditions then become
 \begin{align*}
 \langle W_0, W^+(0; c, d, -\lambda) - W^-(0; c, d, -\lambda) \rangle &= \langle W_0, W^+(0; -c, d, \lambda) - W^-(0; -c, d, \lambda) \rangle \\
 \langle \Psi(0), W^+(0; c, d, -\lambda) - W^-(0; c, d, -\lambda) \rangle &= \langle \Psi(0), W^+(0; -c, d, \lambda) - W^-(0; -c, d, \lambda) \rangle .
@@ -2561,7 +2557,7 @@ Since $W(x; c, d; \lambda)$ is linear in $(c, d)$,
 \begin{align*}
 S(-\lambda) &= K S(\lambda), \quad K = \begin{pmatrix}-1 & 0 \\ 0 & 1 \end{pmatrix},
 \end{align*}
-thus $\det S(-\lambda) = \det K \det S(\lambda) = -\det S(\lambda)$. We compute the determinant directly to get \cref{1pblockmatrixdet}.
+thus $\det S(-\lambda) = \det K \det S(\lambda) = -\det S(\lambda)$. We compute the determinant directly with the aid of Wolfram Mathematica to get \cref{1pblockmatrixdet}.
 
 \subsection{Proof of Theorem \ref{theorem:1pess} }
 
@@ -2591,18 +2587,16 @@ Since $X = X(r) = \mathcal{O}(|\log r|)$ and $|\log r|^{-1}$ is lower order than
 G_m(h, r) = \left( 2M + \mathcal{O}\left( \frac{1}{|\log r|} \right)\right) h + \mathcal{O}\left( \frac{(m+h)^2}{|\log r|^2} \right) = 0.
 \end{align*}
 Since $G_m(0,0) = 0$ and $\partial_h G_m(0,0) = 2M \neq 0$, by the implicit function theorem, there exists $r_1^m \leq r_*$ and a unique smooth function $h_m(r)$ with $h_m(0) = 0$ such that for all $r \leq r_1^m$, $G_m(h_m(r),r) = 0$. Expanding $h_m(r)$ in a Taylor series about $r = 0$,
-\[
-h_m(r) = \mathcal{O}\left( \frac{m^2}{|\log r|^2} \right).
-\]
+$h_m(r) = \mathcal{O}\left( \frac{m^2}{|\log r|^2} \right)$.
 Let $r_1 = \min\{ r_1^1, \dots, r_1^N \}$. Substituting $h_m(r)$ into \cref{singlemu}, the essential spectrum eigenvalues are located at
 \begin{align*}
 \mu_m(r) &= \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right) & m = 1, \dots, N.
 \end{align*}
 Changing variables back to $\lambda$ and using \cref{lambdamu},
 \[
-\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{K}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right).
+\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{M \tilde{M} + M_c^2}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right).
 \]
-By Hamiltonian symmetry, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m^{\text{ess}}(r)$ is on the imaginary axis, and there is another essential spectrum eigenvalue at $-\lambda_m^{\text{ess}}(r)$. 
+By Hamiltonian symmetry (and the symmetry of $S(\lambda)$, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m^{\text{ess}}(r)$ is on the imaginary axis, and there is another essential spectrum eigenvalue at $-\lambda_m^{\text{ess}}(r)$. 
 
 \section{Proof of results for periodic double pulse}\label{sec:doublepulse}
 
@@ -2623,15 +2617,15 @@ As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambd
 \begin{aligned}
 \det &S(\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
 &+4 a c^3 \mu^3 M_c^2 \sinh(\mu X_1)\sinh(\mu X_0) 
-+ R_2 \mu^2 \sinh(\mu(X_1 - X_0)) + R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4,
++ R_2 \mu^2 \sinh(\mu(X_1 - X_0)) + R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4.
 \end{aligned}
 \end{equation}
-where the remainder terms have the same bounds as in \cref{lemma:2blockmatrix} with $\lambda$ replaced by $\mu$. Define
+The remainder terms have the same bounds as in \cref{lemma:2blockmatrix} with $\lambda$ replaced by $\mu$. Define
 \begin{align}
 \mu^*_{int} &= \sqrt{-\frac{2 a}{M c^2}} \label{defmustarint} \\
 \mu^*_m &= \frac{m \pi i}{X + c \frac{K}{M}}  && m = 1, \dots, N, \label{defmustaress}
 \end{align}
-where $K = M \tilde{M} + M_c^2$, and $a$ is defined in \cref{2pa}. For \cref{theorem:2peigsassym}, we will ensure that the interaction eigenvalues and essential spectrum eigenvalues do not interfere. Since $\mu^*_{int} = \mathcal{O}(r^{1/2})$ and $\mu^*_1 = \mathcal{O}(1/|\log r|)$, choose $r_0 \leq r_*$ sufficiently small so that $|\mu^*_{int}| \leq \frac{1}{2} |\mu^*_1|$ for all $r \leq r_0$. We can then simplify $\det S(\mu, r)$ to obtain 
+where $K = M \tilde{M} + M_c^2$, and $a$ is defined in \cref{2pa}. For \cref{theorem:2peigsassym}, we will ensure that the interaction eigenvalues and essential spectrum eigenvalues do not interfere. Since $\mu^*_{int} = \mathcal{O}(r^{1/2})$ and $\mu^*_1 = \mathcal{O}(|\log r|^{-1})$, choose $r_0 \leq r_*$ sufficiently small so that $|\mu^*_{int}| \leq \frac{1}{2} |\mu^*_1|$ for all $r \leq r_0$. We can then simplify $\det S(\mu, r)$ to obtain 
 \begin{equation}\label{2pdetmu2}
 \begin{aligned}
 \det S(\mu, r) &= -2 c^2 \mu^2 (2a + c^2 \mu^2 M) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
@@ -2658,9 +2652,9 @@ Define the functions $H: \R^+ \times \R^+ \rightarrow \R$ and $H_1: \R^+ \times 
 H(b_0, b_1) &= b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) \label{perdefH} \\
 H_1(b_0, b_1) &= b_0 \left[ \rho \cos \left( -\rho \log b_0 \right) - \sin \left( -\rho \log b_0 \right) \right] + b_1 \left[ \rho \cos \left( -\rho \log b_1 \right) - \sin \left( -\rho \log b_1 \right) \right] \label{perdefH1}
 \end{align}
-Then the zero sets of $H(b_0, b_1)$ and $H_1(b_0, b_1)$ intersect only at the discrete set of points $(b_0, b_1) = (b_k^*, b_k^*), k \in \Z$, where $b^*_k = e^{-\frac{1}{\rho} (k \pi + p^*) }$ are the pitchfork bifurcation points from \cref{2pulsebifurcation}.
+Then the zero sets of $H(b_0, b_1)$ and $H_1(b_0, b_1)$ intersect only at the discrete set of points $(b_0, b_1) = (b_k^*, b_k^*)$ for $k \in \Z$, where $b^*_k = e^{-\frac{1}{\rho} (k \pi + p^*) }$ are the pitchfork bifurcation points from \cref{2pulsebifurcation}.
 \begin{proof}
-Let $f(x) = x \sin \left( -\rho \log x \right)$. Then $H(b_0, b_1) = f(b_0) - f(b_1)$ and $H_1(b_0, b_1) = -b_0 f'(b_0) - b_1 f'(b_1)$. If $H(b_0, b_1) = 0$ then $f'(b_0) = f'(b_1)$, thus since $H_1(b_0, b_1) = 0$, $(b_0 + b_1) f'(b_0) = 0$. If $f'(b_0) = 0$, then by \cref{pitchforkH}, $b_0 = b_k^*$, and so $b_1 = b_k^*$ as well, thus the result holds. Otherwise, $b_0 = -b_1$, which is not possible since $b_0$ and $b_1$ are both positive.
+Let $f(x) = x \sin \left( -\rho \log x \right)$. Then $H(b_0, b_1) = f(b_0) - f(b_1)$ and $H_1(b_0, b_1) = -b_0 f'(b_0) - b_1 f'(b_1)$. If $H(b_0, b_1) = 0$ then $f'(b_0) = f'(b_1)$, thus since $H_1(b_0, b_1) = 0$, $(b_0 + b_1) f'(b_0) = 0$. If $f'(b_0) = 0$, then by \cref{pitchforkH}, $b_0 = b_k^*$, and so $b_1 = b_k^*$ as well. Otherwise, $b_0 = -b_1$, which is not possible since $b_0$ and $b_1$ are both positive.
 \end{proof}
 \end{lemma}
 
@@ -2691,12 +2685,7 @@ Using \cite[Lemma 6.1(ii)]{Sandstede1998}, rescaling as in \cref{jumplemma3}, an
 \langle \Psi(X_i), Q'(-X_i) \rangle &=
 -p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r b_i \left( \rho \cos\left(-\rho \log b_i \right) - \sin \left(-\rho \log b_i \right) \right) + \mathcal{O}(r^{1+\gamma/2\alpha_0}),
 \end{align*}
-from which it follows that
-\begin{align}\label{aform}
-a = -p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r H_1(b_0, b_1),
-\end{align}
-where $H_1$ is defined in \cref{perdefH1}. 
-For part (i), $a = r \tilde{a}(r; m_0, s_0)$, where
+from which it follows that $a = -p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r H_1(b_0, b_1)$, where $H_1$ is defined in \cref{perdefH1}. For part (i), $a = r \tilde{a}(r; m_0, s_0)$, where
 \begin{align*}
 \tilde{a}(r; m_0, s_0) &= -p_0 \alpha_0 e^{\alpha_0 \phi/\beta_0} r H_1(b_0, b_1) \\
 &= -2 p_0 \alpha_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho}(m_0 \pi + s_0)} (-1)^{m_0} \left( \rho \cos s_0 - \sin s_0 \right) + \mathcal{O}(r^{\gamma/2\alpha}).
@@ -2707,7 +2696,7 @@ For part (ii), $a = r \tilde{a}(r; m_0, s_1)$, where
 \begin{align*}
 \tilde{a}(r; m_0, s_1) &= -p_0 \alpha_0 e^{\alpha \phi/\beta_0} H_1( b_0(m_0, s_1), b_1(s_1) ) + \mathcal{O}(r^{\gamma/2\alpha}),
 \end{align*}
-and the parameterization $(b_0(m_0, s_1), b_1(s_1))$ is defined in \cref{armpersists}. $(b_0(m_0, s_1), b_1(s_1))$ is contained entirely within the zero set of $H(b_0, b_1)$, where $H$ is defined in \cref{perdefH}, thus it follows from \cref{lemma:Hoverlaplemma} that $\tilde{a}(0; m_0, s_1) = 0$ if and only if $s_1 = p^*$. By continuity in $s_1$, $\tilde{a}(0; m_0, s_1)$ must have the same sign for all $s_1 > p^*$. It only remains to determine that sign. Sending $s_1 \rightarrow \infty$,
+and the parameterization $(b_0(m_0, s_1), b_1(s_1))$ is defined in \cref{armpersists}. Since $(b_0(m_0, s_1), b_1(s_1))$ is contained entirely within the zero set of $H(b_0, b_1)$, where $H$ is defined in \cref{perdefH}, it follows from \cref{lemma:Hoverlaplemma} that $\tilde{a}(0; m_0, s_1) = 0$ if and only if $s_1 = p^*$. By continuity in $s_1$, $\tilde{a}(0; m_0, s_1)$ must have the same sign for all $s_1 > p^*$. Sending $s_1 \rightarrow \infty$,
 \begin{align*}
 \lim_{s_1 \rightarrow \infty}
 \tilde{a}(0; m_0, s_1) = -p_0 \beta_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho} m_0 \pi} \cos(m_0 \pi) = (-1)^{m_0+1} p_0 \beta_0 e^{\alpha \phi/\beta_0} e^{-\frac{1}{\rho} m_0 \pi},
@@ -2730,7 +2719,7 @@ By Hamiltonian symmetry, there is also an eigenvalue at $-\lambda(r)$. Since eig
 
 \subsection{Eigenvalues at 0}\label{sec:asymmeigcount0}
 
-In this section, we use Rouch\'{e}'s theorem to show that there are exactly three eigenvalues at 0. As in the previous section, let $\mu^*_{int} = r^{1/2} \tilde{\mu}^*(r)$ and let $\xi = \frac{1}{2}|\tilde{\mu}^*(0)|$. Let $\mu = r^{1/2} \tilde{\mu}$, and take $\tilde{\mu}$ on the circle $|\tilde{\mu}| = \xi$. Making these substitutions, dividing by $-2 c^2 r^{5/2} X$, and simplifying, equation \cref{2pdetmu2} is equivalent to
+In this section, we use Rouch\'{e}'s theorem to show that there are exactly three eigenvalues at 0. As in the previous section, let $\mu^*_{int} = r^{1/2} \tilde{\mu}^*(r)$, and let $\xi = \frac{1}{2}|\tilde{\mu}^*(0)|$. Let $\mu = r^{1/2} \tilde{\mu}$, and take $\tilde{\mu}$ on the circle $|\tilde{\mu}| = \xi$. Making these substitutions, dividing by $-2 c^2 r^{5/2} X$, and simplifying, equation \cref{2pdetmu2} is equivalent to
 \begin{equation}\label{def:eig0G}
 G(\tilde{\mu}, r) = M c^2 \tilde{\mu}^3 (\tilde{\mu} + \tilde{\mu}^*(r))(\tilde{\mu} - \tilde{\mu}^*(r))
 \left( M + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)
@@ -2750,7 +2739,7 @@ Let $G(\tilde{\mu}, r) = G(\tilde{\mu}, 0) + G_1(\tilde{\mu}, r)$, where $G_1(\t
 
 \subsection{Proof of Theorem \ref{theorem:2peigssym}}
 
-Let $\tilde{a}(r, s_0) = \tilde{a}(r; m_0, s_0)$ as in \cref{lemma:chara}, so that $\tilde{a}(0, p^*) = 0$ and $\tilde{a}(r, s_0) \rightarrow 0$ as $r \rightarrow 0$ and $s_0 \rightarrow p^*$. Using Rouch\'{e}'s as in \cref{sec:asymmeigcount0}, for sufficiently small $r$, there are five zeros of $S(\lambda, r)$ in a small ball around the origin. Since two of these eigenvalues correspond to the kernel eigenfunctions $\partial_x \tilde{Q}_2(x)$ and $\partial_c \tilde{Q}_2(x)$, and there is third kernel eigenfunction by \cref{qnkernel}, this leaves two eigenvalues unaccounted for. Let $s_0 = p^* + h$. Using the scaling $\mu = r^{1/2} \tilde{\mu}$, following the same steps as in \cref{sec:asymmeigcount0}, factoring out $\tilde{\mu}^3$ from \cref{def:eig0G} since we have already accounted for three eigenvalues at 0, and simplifying, the remaining eigenvalues must satisfy the equation
+Let $\tilde{a}(r, s_0) = \tilde{a}(r; m_0, s_0)$ as in \cref{lemma:chara}, so that $\tilde{a}(0, p^*) = 0$ and $\tilde{a}(r, s_0) \rightarrow 0$ as $r \rightarrow 0$ and $s_0 \rightarrow p^*$. Using Rouch\'{e}'s as in the previous section, for sufficiently small $r$, there are five zeros of $S(\lambda, r)$ in a small ball around the origin. Since two of these eigenvalues correspond to the kernel eigenfunctions $\partial_x \tilde{Q}_2(x)$ and $\partial_c \tilde{Q}_2(x)$, and there is third kernel eigenfunction by \cref{qnkernel}, this leaves two eigenvalues unaccounted for. Let $s_0 = p^* + h$. Using the scaling $\mu = r^{1/2} \tilde{\mu}$, following the same steps as in the previous section, factoring out $\tilde{\mu}^3$ from \cref{def:eig0G} since we have already accounted for three eigenvalues at 0, and simplifying, the remaining eigenvalues must satisfy the equation
 \begin{equation}\label{def:symmG}
 G(\tilde{\mu}, r, h) = \left( \tilde{\mu}^2 + \frac{2 \tilde{a}(r, p^* + h)}{M c^2} \right)
 \left( M + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)
@@ -2761,7 +2750,7 @@ When $r = 0$ and $h = 0$, $G(\tilde{\mu}, 0, 0)$ has a double root at $\tilde{\m
 K(\tilde{\mu}, r, h) = 
 \begin{pmatrix}G(\tilde{\mu}, r, h) \\ \partial_{\tilde{\mu}}G(\tilde{\mu}, r, h) \end{pmatrix}. 
 \end{equation*}
-For $r = 0$, $K(0, 0, 0) = 0$. Using the expression for $\tilde{a}(r; m_0, s_0)$ from \cref{lemma:chara}, $\tilde{a}(0, p^* + h) = c_0 h + \mathcal{O}(|h|^2)$ for some constant $c_0 \neq 0$, thus we have
+For $r = 0$, $K(0, 0, 0) = 0$. Using \cref{lemma:chara}, $\tilde{a}(0, p^* + h) = c_0 h + \mathcal{O}(|h|^2)$ for some constant $c_0 \neq 0$, thus we have
 \begin{equation*}
 D_{(\tilde{\mu}, h)}K(0, 0, 0) = 
 \begin{pmatrix}
@@ -2769,7 +2758,7 @@ D_{(\tilde{\mu}, h)}K(0, 0, 0) =
 2M & 0
 \end{pmatrix},
 \end{equation*}
-which is nonsingular. Using the implicit function theorem, there exists $r_1 \leq r_0$ and a unique smooth function $(\tilde{\mu}(r), h(r))$ with $(\tilde{\mu}(0), h(0)) = (0, 0)$ such that for all $r \leq r_1$, $K(\tilde{\mu}(r), h(r), r) = 0$. In other words, $\tilde{\mu}(r)$ is a double root of $G(\tilde{\mu}, r, h)$ when $h = h(r)$. By Hamiltonian symmetry, we must have $\tilde{\mu}(r) = 0$, thus for $r \leq r_1$, there are two more eigenvalues at 0 when $s_0 = p^* + h(r)$, which brings the total to five. Since the pitchfork bifurcation in the family of periodic 2-pulses occurs near $p^*$ at $p^*(r)$, it follows from standard PDE bifurcation theory that this quintuple zero must occur at the pitchfork bifurcation point, i.e. $p^* + h(r) = p^*(r)$.
+which is nonsingular. Using the implicit function theorem, there exists $r_1 \leq r_0$ and a unique smooth function $(\tilde{\mu}(r), h(r))$ with $(\tilde{\mu}(0), h(0)) = (0, 0)$ such that for all $r \leq r_1$, $K(\tilde{\mu}(r), h(r), r) = 0$. In other words, $\tilde{\mu}(r)$ is a double root of $G(\tilde{\mu}, r, h)$ when $h = h(r)$. By Hamiltonian symmetry, we must have $\tilde{\mu}(r) = 0$, thus for $r \leq r_1$, there are two more eigenvalues at 0 when $s_0 = p^* + h(r)$, which brings the total to five. Since the pitchfork bifurcation in the family of periodic 2-pulses occurs near $p^*$ at $p^*(r)$, it follows from standard PDE bifurcation theory that this quintuple zero must occur at the pitchfork bifurcation point.
 
 \subsection{Proof of Theorem \ref{th:Kreinbubble}}
 
@@ -2778,15 +2767,15 @@ Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s
 \mu_1(s_1, r) &= \frac{\pi i}{X(s_1,r) + c \frac{K}{M}} \\
 \mu_*(s_1, r) &= \sqrt{-\frac{ 2a(s_1,r) - R_1(r) }{M c^2}} = \sqrt{-\frac{2a(s_1,r)}{M c^2}} + \mathcal{O}(r),
 \end{align*}
-both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + L_0$, which is a nonzero constant. By the definition of $a$ in \cref{2pa}, $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$ we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let
+both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + L_0$, which is a nonzero constant. By the definition of $a$ in \cref{2pa}, $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$, we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let
 \begin{equation}\label{XstarKrein}
 X_*(r) = X(s_*(r), r) = \frac{\pi i}{\mu_*(s_*(r), r)} - c \frac{K}{M}.
 \end{equation}
 For $s_1$ close to $s_*(r)$, define the parameter $k(s_1, r)$ by 
 \[
-2 k(s_1, r) i = \mu_*(s_1, r) - \mu_1(s_1, r),
+2 k(s_1, r) i = \mu_*(s_1, r) - \mu_1(s_1, r).
 \]
-which measures the distance on the imaginary axis between $\mu_1$ and $\mu_*$, so that $k(s_*(r), r) = 0$. From this point forward, we will drop the dependence on $s_1$ and $r$ for convenience of notation.
+This measures the distance on the imaginary axis between $\mu_1$ and $\mu_*$, so that $k(s_*(r), r) = 0$. From this point forward, we will drop the dependence on $s_1$ and $r$ for convenience of notation.
 
 Let $\mu = \mu_* + h$, so that $\mu = \mu_1 + h + 2 k i$. As in \cref{singlemuTaylor}, we expand $\mu_1$ in a Taylor series to get
 \begin{align}\label{muTaylor2}
@@ -2796,7 +2785,7 @@ Anticipating what will follow, we take the rescaling
 \begin{align*}
 \mu_* &= r^{1/2} \tilde{\mu}, \quad h = r^{5/4} X_0 \tilde{h}, \quad k = r^{5/4} X_0 \tilde{k}.
 \end{align*}
-Using this rescaling and the fact that $1/X(r) = \mathcal{O}(r^{1/2})$, we substitute \cref{muTaylor2} into $\sinh \mu X$ and $\cosh \mu X$ to get
+Using this rescaling and the fact that $1/X(r) = \mathcal{O}(r^{1/2})$ in this case, we substitute \cref{muTaylor2} into $\sinh \mu X$ and $\cosh \mu X$ to get
 \begin{equation}\label{sinhcoshmuX}
 \begin{aligned}
 \sinh(\mu X) &= (-1)\left( - c \frac{K \pi i }{MX} + c^2 \frac{K^2 \pi i }{M^2 X^2} + (h + 2 k i)X \right) + \mathcal{O}\left( r^{3/2} \right) \\
@@ -2813,7 +2802,7 @@ and
 &\sinh(\mu(X_1 - X_0)) = \sinh(\mu X) \cosh(2 \mu X_0) - \cosh(\mu X)\sinh(2 \mu X_0)
 = \mathcal{O}\left( r^{1/2}|\log r| \right).
 \end{align*}
-Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ since $\mu \neq 0$, using the relation $a = -M c^2 \mu_*^2/2 + \mathcal{O}(r^{3/2})$, and simplifying, we obtain the equation
+Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ since $\mu \neq 0$, using the expression $a = -M c^2 \mu_*^2/2 + \mathcal{O}(r^{3/2})$, and simplifying, we obtain the equation
 \begin{equation}\label{det3}
 \begin{aligned}
 &M \tilde{\mu} \tilde{h} X_0 r^{7/4}
@@ -2829,7 +2818,7 @@ Since
 equation \cref{det3} simplifies to
 \begin{equation}\label{det4}
 \begin{aligned}
-2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) - 2 M M_c^2 c^3 | \tilde{\mu}|^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0
+2 \pi c M^2 X_0^2 r^{5/2} \tilde{h}( \tilde{h} + 2 \tilde{k} i) - 2 M M_c^2 c^3 | \tilde{\mu}|^5 r^{5/2} X_0^2 + \mathcal{O}( r^{5/2} |\log r| ) = 0.
 \end{aligned}
 \end{equation}
 Dividing by $X_0^2 r^{5/2}$ and noting that $X_0 = \mathcal{O}(|\log r|)$, we obtain the equation
@@ -2839,21 +2828,13 @@ G(\tilde{h}, \tilde{k}, r) = \tilde{h}^2 + 2 \tilde{k}  i \tilde{h}
 - T + \mathcal{O}\left( \frac{1}{|\log r|} \right) = 0, \quad T = \frac{M_c^2 }{2 \pi M^2 } c^2 |\tilde{\mu}|^5 > 0.
 \end{aligned}
 \end{equation}
-When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if 
-\begin{equation}
-\tilde{h} = \tilde{h}_0^\pm(\tilde{k}) = -\tilde{k}i \pm \sqrt{T - \tilde{k}^2}.
-\end{equation}
-When $|k| \leq \sqrt{T}$, this is a circle in the complex plane of radius $\sqrt{T}$. We will show this persists for small $r$. For $\tilde{h} = \tilde{h}_0^\pm(\tilde{k})$, $G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 0$ and
-\begin{equation}
-\partial_{\tilde{h}}G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 2 \sqrt{T - \tilde{k}^2},
-\end{equation}
-which is nonzero as long as $\tilde{k} \neq \pm \sqrt{T}$. Choose any $\epsilon > 0$. Then for $\tilde{k} \in K_\epsilon$, where
+When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if $\tilde{h} = \tilde{h}_0^\pm(\tilde{k}) = -\tilde{k}i \pm \sqrt{T - \tilde{k}^2}$. When $|k| \leq \sqrt{T}$, this is a circle in the complex plane of radius $\sqrt{T}$. We will show this persists for small $r$. For $\tilde{h} = \tilde{h}_0^\pm(\tilde{k})$, $G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 0$ and $\partial_{\tilde{h}}G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 2 \sqrt{T - \tilde{k}^2}$, which is nonzero as long as $\tilde{k} \neq \pm \sqrt{T}$. Choose any $\epsilon > 0$ and define
 \[
 K_\epsilon = [-2 \sqrt{T} -\sqrt{T} - \epsilon]
 \cup [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]
-\cup [\sqrt{T} + \epsilon, 2\sqrt{T}],
+\cup [\sqrt{T} + \epsilon, 2\sqrt{T}].
 \]
-$G_{\tilde{h}_0}(\tilde{h}_0(\tilde{k}), \tilde{k}, 0)$ is bounded away from 0, with bound dependent on $\epsilon$. By the uniform contraction mapping principle, there exists $r_1 \leq r_0$ and smooth functions $\tilde{h}_*^\pm(\tilde{k}, r)$ such that $h_*^\pm(\tilde{k}, 0) = \tilde{h}_0^\pm(\tilde{k})$, $h_*^\pm(\tilde{k}, r) = \tilde{h}_0^\pm(\tilde{k}) + \mathcal{O}\left(\frac{1}{|\log r|}\right)$, and for all $r \leq r_1$ and $\tilde{k} \in K_\epsilon$, $G(\tilde{h}_*^\pm(\tilde{k},r),\tilde{k},r) = 0$. For $k \in [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]$, $\tilde{h}_*^\pm(\tilde{k}, r)$ is real and is symmetric across the imaginary axis by Hamiltonian symmetry. All that remains is show there is a double zero on the imaginary axis when $\tilde{k}$ is close to $\pm \sqrt{T}$. Similar to the proof of \cref{theorem:2peigssym}, for $\tilde{h}$ to be a double root of \cref{det5}, it must satisfy $H(\tilde{h}, \tilde{k}, r)$, where
+Then for $\tilde{k} \in K_\epsilon$, $G_{\tilde{h}_0}(\tilde{h}_0(\tilde{k}), \tilde{k}, 0)$ is bounded away from 0, with bound dependent on $\epsilon$. By the uniform contraction mapping principle, there exists $r_1 \leq r_0$ and smooth functions $\tilde{h}_*^\pm(\tilde{k}, r)$ such that $h_*^\pm(\tilde{k}, 0) = \tilde{h}_0^\pm(\tilde{k})$, $h_*^\pm(\tilde{k}, r) = \tilde{h}_0^\pm(\tilde{k}) + \mathcal{O}\left(\frac{1}{|\log r|}\right)$, and for all $r \leq r_1$ and $\tilde{k} \in K_\epsilon$, $G(\tilde{h}_*^\pm(\tilde{k},r),\tilde{k},r) = 0$. For $k \in [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]$, $\tilde{h}_*^\pm(\tilde{k}, r)$ is real and is symmetric across the imaginary axis by Hamiltonian symmetry. All that remains is show there is a double zero on the imaginary axis when $\tilde{k}$ is close to $\pm \sqrt{T}$. Similar to the proof of \cref{theorem:2peigssym}, for $\tilde{h}$ to be a double root of \cref{det5}, it must satisfy $H(\tilde{h}, \tilde{k}, r)$, where
 \[
 H(\tilde{h}, \tilde{k}, r) = \begin{pmatrix} G(\tilde{h}, \tilde{k}, r) \\
 \partial_{\tilde{h}} G(\tilde{h}, \tilde{k}, r) \end{pmatrix}.
@@ -2870,16 +2851,9 @@ which is nonsingular. Using the implicit function theorem, there exists $r_2 \le
 
 Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r_2$ there is a pair of eigenvalues
 \begin{align*}
-\lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_1 -  s^2} + \mathcal{O}(r^{5/4}|\log r|^{1/2}), \quad T_1 = -\frac{M_c^2}{2 \pi M^2 c } \lambda_*^5 X_0^2,
+\lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_1 -  s^2} + \mathcal{O}(r^{5/4}|\log r|^{1/2}), \quad T_1 = -\frac{M_c^2}{2 \pi M^2 c } |\lambda_*^|5 X_0^2,
 \end{align*}
-which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_1}$. For $s = s_\pm(r) = \pm \sqrt{T_1}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)$, there are double eigenvalues at $\lambda = \lambda_* + s_\pm(r) + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_1}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when
-\begin{equation}
-X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} + \mathcal{O}(s^2).
-\end{equation}
-In particular, the Krein collision (and reverse collision) occur when 
-\[
-X(r) = X_*(r) \pm \frac{2 c \pi}{\lambda_*^2}\sqrt{T_1} + \mathcal{O}(s^2).
-\]
+which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_1}$. For $s = s_\pm(r) = \pm \sqrt{T_1}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)$, there are double eigenvalues at $\lambda = \lambda_* + s_\pm(r) + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_1}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when $X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} + \mathcal{O}(s^2)$. In particular, the Krein collision (and reverse collision) occur when $X(r)$ is given by \cref{KreinDeltaX}.
 
 \section{Conclusions}\label{sec:conclusions}
 
@@ -2887,7 +2861,7 @@ In this paper we use Lin's method to construct periodic multi-pulse solutions to
 
 In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions, but have to exclude certain periodic parameterizations to avoid bifurcation points. We only demonstrate the complete bifurcation structure for periodic 2-pulses (\cref{2pulsebifurcation}). It is likely that bifurcation structures exist for arbitrary periodic $m$-pulses, but that these become more complex as $m$ increases. As a first step to elucidating these bifurcations, it would be useful to study periodic 3-pulses by using AUTO for parameter continuation not only in the domain size $X$ but also in the parameters $c$ and $p$. This could suggest a theoretical result as well as a generalization to higher $m$. We could also extend the spectral results to arbitrary multi-pulses. As long as any Krein collisions are avoided, it should be possible to determine the interaction eigenvalue patten solely from the geometry of the periodic multi-pulse, as is the case with the periodic double pulse. It would also be worth looking at whether Krein bubbles occur for higher order periodic multi-pulses. As an initial step, we could construct periodic 3-pulses with two pairs of imaginary interaction eigenvalues as well as ``mixed'' periodic 3-pulses with one pair each of real and imaginary interaction eigenvalues. We could then determine numerically if Krein bubbles occur for either of these two periodic 3-pulses.
 
-Another avenue for future research is to investigate numerically the effect of Krein bubbles on the stability of periodic double pulse solutions. As a start, it would be useful to perform numerically timestepping for parameter regimes where the eigenvalues in the Krein bubble have maximum real part. (The main difficulty with timestepping for periodic multi-pulses is that the essential spectrum eigenmodes contribute oscillatory behavior of arbitrarily high frequency. Eliminating this behavior motivated the choice of separated boundary conditions for the simulations in \cref{fig:KdV5waterfall}.) Although we expect that solutions in the Krein bubble are unstable due to the presence of an eigenvalue with positive real part, it is unclear what form the instability would take. Finally, we note from \cref{remark:kreinbubbles} that, as the domain size $X$ increases, the centers of the Krein bubbles are approximately equally spaced in $X$, but their widths in $X$ grows with each subsequent bubble. At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}).
+Another avenue for future research is to investigate numerically the effect of Krein bubbles on the stability of periodic double pulse solutions. As a start, it would be useful to perform numerically timestepping for parameter regimes where the eigenvalues in the Krein bubble have maximum real part. (The main difficulty with timestepping for periodic multi-pulses is that the essential spectrum eigenmodes contribute oscillatory behavior of arbitrarily high frequency. Eliminating this behavior motivated the choice of separated boundary conditions for the simulations in \cref{fig:KdV5waterfall}.) Although we expect that solutions in the Krein bubble are unstable due to the presence of an eigenvalue with positive real part, it is unclear what form the instability would take. We also note that we obtained better error estimates for the Krein bubble size in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus there might be possible to obtain sharper error estimates analytically. Finally, we note from \cref{remark:kreinbubbles} that, as the domain size $X$ increases, the centers of the Krein bubbles are approximately equally spaced in $X$, but their widths in $X$ grows with each subsequent bubble. At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}).
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=12cm]{images/KreinBubbleCollision.eps}
