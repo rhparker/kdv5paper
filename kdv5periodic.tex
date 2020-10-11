@@ -2162,7 +2162,7 @@ Z_i^+(x) = \Phi_i^{u,+}&(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ + \Phi_
 &+ \Phi_i^{c,+}(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^c \\
 &+ \int_0^x \Phi_i^{s,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
 &+ \int_{X_i}^x \Phi_i^{u,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
-&+ \int_{X_i}^x \Phi_i^{c,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy 
+&+ \int_{X_i}^x \Phi_i^{c,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy.
 \end{aligned}
 \end{equation}
 As in \cite{Sandstede1998}, we will solve the eigenvalue problem in a series of inversion steps. Since the RHS of the fixed point equations \cref{Zfpeq} does not involve $Z_i^\pm$, these equations solve equation \cref{systemZ}. In the next lemma, we solve \cref{systemmiddle}, which are the matching conditions at the tails.
@@ -2229,7 +2229,7 @@ where $A_2(\lambda)_i^\pm(b, c, d)$ has bound \cref{A2bound}. For $a_i^c$, we ap
 \langle W_0, &e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) - e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) \rangle = \left( P^-(-X_i; \lambda) - P^+(X_i; \lambda) \right) V_0(\lambda) \\
 &= \langle W_0, R \Theta^+(X_i; 0) R - \Theta^+(X_i; 0), V_0 \rangle + \mathcal{O}(|\lambda|e^{-\alpha_0 X_i}) = \mathcal{O}(|\lambda|e^{-\alpha_0 X_i}),
 \end{align*}
-we have $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For a bound on $\langle W_0, L_3(\lambda)_i(b,c,d) \rangle$, using \cref{W0conjeq} we have
+$|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For a bound on $\langle W_0, L_3(\lambda)_i(b,c,d) \rangle$, using \cref{W0conjeq} we have
 \begin{align*}
 \langle W_0, &P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \rangle
 \\ 
@@ -2253,11 +2253,11 @@ In the next lemma, we solve equations \cref{systemcenter}, which are matching co
 &\qquad\qquad\qquad + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) ) = 0,
 \end{aligned}
 \end{equation}
-where the kernel of each projection is the remaining spaces in the direct sum decomposition \cref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \cref{centercond2} by \cref{klambdaIP} since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
+where the kernel of each projection is the remaining spaces in the direct sum decomposition \cref{DSdecomp}. We do not need to include $\C Q'(0)$ in the third equation of \cref{centercond2} by \cref{klambdaIP} and since we eliminated any component of $P_i^\pm(0; \lambda) Z_i^\pm(0)$ in $\C Q'(0)$ in the first two equations.
 
 % second inversion lemma
 \begin{lemma}\label{Zinv2}
-There is a unique set of initial conditions $(a_i^+, a_i^-, a_i^c)$ for $i = 0, \dots, n-1$ and an operator $B_1: V_\lambda \times V_c \times V_d \rightarrow V_b$ such that for $a = (a_i^+, a_i^-, a_i^c)$ and $b = B_1(\lambda)(c,d)$, equations \cref{systemmiddle} and \cref{systemcenter} are satisfied for any $(c, d)$. $B_1(\lambda)(c, d)$ is analytic in $\lambda$, linear in $(c, d)$, and has uniform bound
+There is a unique set of initial conditions $(a_i^+, a_i^-, a_i^c)$ for $i = 0, \dots, n-1$, and an operator $B_1: V_\lambda \times V_c \times V_d \rightarrow V_b$ such that for $a = (a_i^+, a_i^-, a_i^c)$ and $b = B_1(\lambda)(c,d)$, equations \cref{systemmiddle} and \cref{systemcenter} are satisfied for any $(c, d)$. $B_1(\lambda)(c, d)$ is analytic in $\lambda$, linear in $(c, d)$, and has uniform bound
 \begin{align}
 |B_1(\lambda)(c, d)| &\leq C\left( (e^{-\alpha_0 X^*} + |\lambda|)|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \right). \label{B1bound}
 \end{align} 
@@ -2343,25 +2343,12 @@ J_2: \left( \bigoplus_{j=1}^n \C Q'(0) \oplus \C Q'(0)  \right) \oplus
 \left( \bigoplus_{j=1}^n Y^+ \oplus Y^- \right) 
 \rightarrow \bigoplus_{j=1}^n \C Q'(0) \oplus \C Q'(0) \oplus (Y^+ \oplus Y^-)
 \]
-by 
-\[
-J_2( (x_i^+, x_i^-),(y_i^+, y_i^-))_i = ( x_i^+, x_i^-, y_i^+ - y_i^- ),
-\]
-which is an isomorphism by \cref{DSdecomp}. Since $b_i = (x_i^- + y_i^-, x_i^+ + y_i^+)$, we can write \cref{projxy} as
+by $J_2( (x_i^+, x_i^-),(y_i^+, y_i^-))_i = ( x_i^+, x_i^-, y_i^+ - y_i^- )$, which is an isomorphism by \cref{DSdecomp}. Since $b_i = (x_i^- + y_i^-, x_i^+ + y_i^+)$, we can write \cref{projxy} as
 \begin{equation}\label{projxy2}
 J_2( (x_i^+, x_i^-),(y_i^+, y_i^-))_i 
 + L_4(\lambda)_i(b_i, 0, 0) + L_4(\lambda)_i(0, c, d) = 0.
 \end{equation}
-Consider the map
-\begin{align*}
-S_2(b)_i &= J_2( (x_i^+, x_i^-),(y_i^+, y_i^-))_i 
-+ L_4(\lambda)_i(b_i, 0, 0).
-\end{align*}
-Substituting this into \cref{projxy2}, we obtain the equation
-\begin{align*}
-S_2(b) &= -L_4(\lambda)(0, c, d).
-\end{align*}
-Decreasing $\delta$ if necessary, the operator $S_2(b)$ is invertible, thus we can solve for $b$ to get
+Let $S_2(b)_i = J_2( (x_i^+, x_i^-),(y_i^+, y_i^-))_i + L_4(\lambda)_i(b_i, 0, 0)$. Substituting this into \cref{projxy2}, we obtain the equation $S_2(b) = -L_4(\lambda)(0, c, d)$. Decreasing $\delta$ if necessary, the operator $S_2(b)$ is invertible, thus we can solve for $b$ by using
 \begin{align}
 b = B_1(\lambda)(c,d) 
 = -S_2^{-1} L_4(\lambda)(0, c, d),
@@ -2372,7 +2359,7 @@ which has bound given by \cref{B1bound}. Substituting \cref{B1bound} into the bo
 
 \subsection{Jump Conditions}
 
-We have constructed a unique solution to \cref{eigsystem0} which will have $n$ jumps in the directions of $\Psi(0)$ and $W_0$. For this solution to be an eigenfunction, all $n$ jumps must be 0. In the next two lemmas, we compute the jump in the direction of $W_0$ and $\Psi(0)$. 
+We have constructed a unique solution to \cref{eigsystem0} which will have $n$ jumps in the directions of $\Psi(0)$ and $W_0$. For this solution to be an eigenfunction, all $n$ jumps must be 0. In the next two lemmas, we compute the jumps in the direction of $W_0$ and $\Psi(0)$. 
 
 % jump lemma : center adjoint
 \begin{lemma}\label{jumpcenteradj}
@@ -2405,40 +2392,37 @@ Using \cref{lemma:VpmPsiIP} and the bound \cref{expnubound},
 The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. The only leading order term involves the integral of $\tilde{H}_i^\pm$ in the center subspace. Using \cref{Zevolmod}, \cref{Pipmest}, \cref{deftildephi}, and \cref{lemma:Afacts},
 \begin{equation*}
 \begin{aligned}
-\langle W_0, &P_i^-(0; \lambda) \lambda^2 d_i \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \tilde{H}_i^-(y) dy \rangle \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle W_0, P_i^-(0; \lambda) \Phi(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} \\
-&\qquad \qquad
+&\left\langle W_0, P_i^-(0; \lambda) \lambda^2 d_i \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \tilde{H}_i^-(y) dy \right\rangle \\
+&\qquad = \lambda^2 d_i \int_{-X_{i-1}}^0 \langle W_0, P_i^-(0; \lambda) \Phi(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} \\
+&\qquad\qquad\qquad
 P^c(0) P_i^-(-X_{i-1}, \lambda) \Phi(-X_{i-1}, y; \lambda) P_i^-(y; \lambda)^{-1} \tilde{H}_i^-(y) \rangle dy \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle W_0, \tilde{\Phi}^-(0, -X_{i-1}; 0) 
-P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) H(y) \rangle dy \\
-& \qquad \qquad + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^c(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* W_0,
+&\qquad=\lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^c(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* W_0,
  H(y) \rangle dy \\
-& \qquad \qquad+ \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle W_0, H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
-&= \lambda^2 d_i \int_{-\infty}^0 \langle W_0, H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|)
+& \qquad\qquad\qquad+ \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|).
 \end{aligned}
 \end{equation*}
-since $W_0$ is a constant solution to \cref{adjvareq2}, and $P^c(0)^* W_0 = W_0$. Since $H(y) = -B \partial_c Q(y)$,
-\begin{align*}
-\langle W_0, &P_i^-(0; \lambda) \lambda^2 d_i \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \tilde{H}_i^-(y) dy \rangle \\
-&\qquad 
-= -\lambda^2 d_i \int_{-\infty}^0 \partial_c q(y)dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|)
-\end{align*}
+Since $W_0$ is a constant solution to \cref{adjvareq2}, $P^c(0)^* W_0 = W_0$, and $H(y) = -B \partial_c Q(y)$. 
+\begin{equation*}
+\begin{aligned}
+&\left\langle W_0, P_i^-(0; \lambda) \lambda^2 d_i \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \tilde{H}_i^-(y) dy \right\rangle \\
+&\qquad=\lambda^2 d_i \int_{-\infty}^0 \langle W_0, H(y) \rangle dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|) \\
+&\qquad= -\lambda^2 d_i \int_{-\infty}^0 \partial_c q(y)dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|).
+\end{aligned}
+\end{equation*}
 Similarly, 
 \begin{align*}
-\langle W_0, &P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) \tilde{H}_i^-(y)) dy  \rangle \\
-&\qquad = \lambda^2 d_i \int_0^{\infty} \partial_c q(y)dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|)
+&\left\langle W_0, P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) \tilde{H}_i^-(y)) dy  \right\rangle \\
+&\qquad= \lambda^2 d_i \int_0^{\infty} \partial_c q(y)dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|).
 \end{align*}
 
-The rest of the terms are higher order. For the terms involving $a_i^\pm$, we substitute the expressions from \cref{Zinv2} and use \cref{Zevolmod}, \cref{Zevolbounds}, and \cref{A4bound} to get
+The rest of the terms are higher order. For the terms involving $a_i^\pm$, we use \cref{Zinv2}, \cref{Zevolmod}, \cref{Zevolbounds}, and \cref{A4bound} to get
 \begin{align*}
 \langle W_0, &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ \rangle = \langle W_0, \tilde{\Phi}_i^+(0, X_i; \lambda) 
 P^u(0) \tilde{\Phi}_i^+(X_i, X_i; \lambda)a_i^+ \rangle \\
 &= \langle \tilde{\Phi}_i^+(X_i, 0; 0)^* W_0, P^u(0) a_i^+ \rangle + \mathcal{O}(|\lambda|e^{-\alpha X^*}|a_i^+|) = \langle W_0, P^u(0) a_i^+ \rangle + \mathcal{O}(|\lambda|e^{-\alpha X^*}|a_i^+|) \\
 &= \mathcal{O}\left(|\lambda|e^{-\alpha X^*} \left( (e^{-\alpha_0 X^*} + |\lambda|^2) |c| + |\lambda|^2 |d| + |D||d| \right) \right),
 \end{align*}
-since $W_0$ is a constant solution to $W'(x) = -A(Q_i^\pm(x)) W(x)$. For the terms involving $a_i^c$, we substitute the expressions from \cref{Zinv2} and use \cref{Zevolmod}, \cref{Zevolbounds}, \cref{tildeA4bound}, and the bound \cref{expnubound} to get
+since $W_0$ is a constant solution to $W'(x) = -A(Q_i^\pm(x))^* W(x)$. For the terms involving $a_i^c$, we use \cref{Zinv2}, \cref{Zevolmod}, \cref{Zevolbounds}, \cref{tildeA4bound}, and \cref{expnubound} to get
 \begin{align*}
 \langle W_0, &P_i^+(0; \lambda) \Phi_i^{c,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^c \rangle = \langle W_0, \tilde{\Phi}_{i,+}(0, X_i; \lambda) 
 P^c(0) \tilde{\Phi}_i^{+}(X_i, X_i; \lambda)a_i^c \rangle \\
@@ -2448,11 +2432,11 @@ For the terms involving $b$, $b_i^\pm = x_i^\pm + y_i^\pm$ vanishes when we take
 \begin{align*}
 |\langle W_0, R_i^+(\lambda) b_i^+ \rangle |\leq C \left(|\lambda| + e^{-2 \alpha_0 X^*}\right)\left((|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha_0 X^*})^2 |d| \right).
 \end{align*}
-For the center integral involving $G_i^\pm(y, \lambda)$, we use \cref{stabestimateslemma} as in \cref{Zinv2} as well as the bound \cref{expnubound} to get
+For the center integral involving $G_i^\pm(y, \lambda)$, we use \cref{stabestimateslemma} and \cref{expnubound} to get
 \begin{align*}
 \left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda)  dy \right| \leq C |\lambda| (e^{-\alpha_0 X^*} + |\lambda|) |c|.
 \end{align*}
-The non-center integral involving $G_i^\pm(y, \lambda)$ has a stronger bound. For the non-center integral involving $\tilde{H}_i^\pm$, we follow the same procedure as with the center integral $\tilde{H}_i^\pm$, replacing $P^c(0)$ by $P^u(0)$, to get
+The non-center integral involving $G_i^\pm(y, \lambda)$ has a stronger bound. For the non-center integral involving $\tilde{H}_i^\pm$, we follow the same procedure as above, replacing $P^c(0)$ by $P^u(0)$, to get
 \begin{align*}
 \left|  \langle W_0, P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^+(y) dy \rangle \right| \leq C |\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|.
 \end{align*}
@@ -2466,13 +2450,13 @@ The jumps in the direction of $\Psi(0)$ are given
 \begin{equation}\label{jumpPsi0}
 \begin{aligned}
 \xi_i = \langle \Psi&(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) - \langle \Psi(X_{i-1}), Q'(-X_{i-1}) \rangle (d_i - d_{i-1} ) - \lambda^2 d_i M  \\
-&-\frac{1}{2}\lambda M_c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_{i-1}}c_{i-1} \right) + \mathcal{O}\left( (e^{-\alpha_0 X^*} + |\lambda|)^2 |c| + (e^{-\alpha_0 X^*} + |\lambda|)^3 |d| \right).
+&-\frac{1}{2}\lambda M_c \left( e^{-\nu(\lambda)X_i}c_i + e^{\nu(\lambda)X_{i-1}}c_{i-1} \right) + \mathcal{O}\left( (e^{-\alpha_0 X^*} + |\lambda|)^2 |c| + (e^{-\alpha_0 X^*} + |\lambda|)^3 |d| \right),
 \end{aligned}
 \end{equation}
 for $i = 0, \dots, n-1$, where
 \[
 M = \int_{-\infty}^\infty q(y) \partial_c q(y) dy, \qquad
-M_c = \int_{-\infty}^\infty \partial_c q(y) dy.
+M_c = \int_{-\infty}^\infty \partial_c q(y) dy,
 \]
 and the remainder terms are analytic in $\lambda$.
 \begin{proof}
@@ -2488,62 +2472,54 @@ Using \cref{lemma:VpmPsiIP} and the bound \cref{expnubound},
 \end{align*}
 The terms $P_i^\pm(0; \lambda) Z_i^\pm(0)$ are given by \cref{PipmZ0}. As in \cref{jumpcenteradj}, we begin by computing the leading order terms. For the non-center integral involving $\tilde{H}_i^\pm$, following the same procedure as in \cref{jumpcenteradj},
 \begin{align*}
-&\langle \Psi(0), P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \rangle \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \Psi(0), \tilde{\Phi}^-(0, -X_{i-1}; 0) 
-P^s(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) H(y) \rangle dy \\
-&\qquad \qquad + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|) \\
-&= \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^s(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* \Psi(0), H(y) \rangle dy \\
-&\qquad \qquad + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|).
+&\left\langle \Psi(0), P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \right\rangle \\
+&\qquad = \lambda^2 d_i \int_{-X_{i-1}}^0 \langle \tilde{\Phi}^-(y, -X_{i-1}; 0)^* P^s(0)^* \tilde{\Phi}^-(-X_{i-1}, 0; 0)^* \Psi(0), H(y) \rangle dy \\
+&\qquad \qquad \qquad+ \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|).
 \end{align*}
-By \cref{lemma:Afacts}, $P^s(0)^* = P^{u,*}(0)$, and $P^{u,*}(0) \Psi(-X_{i-1}) = \Psi(-X_{i-1}) + \mathcal{O}(e^{-2\alpha_0 X_{i-1}})$. Since $\Psi(x)$ is a solution to \cref{adjvareq2}, this becomes
+By \cref{lemma:Afacts}, $P^s(0)^* = P^{u,*}(0)$, and $P^{u,*}(0) \Psi(-X_{i-1}) = \Psi(-X_{i-1}) + \mathcal{O}(e^{-2\alpha_0 X_{i-1}})$. Since $\Psi(x)$ is a solution to \cref{adjvareq2}, $H(y) = -B \partial_c Q(y)$, and the last component of $\Psi(y)$ is $-q(y)$, this becomes
 \begin{align*}
-&\langle \Psi(0), P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \rangle \\
-&\qquad = \lambda^2 d_i \int_{-\infty}^0 \langle \Psi(y), H(y) \rangle dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|)
-\end{align*}
-Substituting $H(y) = -B \partial_c Q(y)$, since the last component of $\Psi(y)$ is $-q(y)$, 
-\begin{align*}
-\langle \Psi(0), &P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \rangle \\
-&\qquad= \lambda^2 d_i \int_{-\infty}^0 q(y) \partial_c q(y) dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|)
+&\left\langle \Psi(0), P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy \right\rangle \\
+&\qquad\qquad = \lambda^2 d_i \int_{-\infty}^0 q(y) \partial_c q(y) dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|).
 \end{align*}
 Similarly,
 \begin{align*}
-\langle \Psi(0), &P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^+(y) dy \rangle \\
-&\qquad = -\lambda^2 d_i \int_0^\infty q(y) \partial_c q(y) dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|)
+&\left\langle \Psi(0), P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^+(y) dy \right\rangle \\
+&\qquad\qquad = -\lambda^2 d_i \int_0^\infty q(y) \partial_c q(y) dy + \mathcal{O}(|\lambda|^2( |\lambda| + {e^{-\alpha_0 X^*}})|d_i|).
 \end{align*}
-For the terms involving $a_i^\pm$, we substitute the expressions from \cref{Zinv2} and use \cref{Zevolmod} and \cref{A4bound} to get
+For the terms involving $a_i^\pm$, we use \cref{Zinv2}, \cref{Zevolmod}, and \cref{A4bound} to get
 \begin{align*}
 \langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ \rangle \\
 &= \langle \Psi(0), P_i^+(0; \lambda) \Phi^+(0, X_i; \lambda) P_i^+(X_i; \lambda)^{-1}
 P^u(0) a_i^+ \rangle \\
 &= \langle \Psi(0), \tilde{\Phi}^+(0, X_i; 0) P^u(0) a_i^+ \rangle + \mathcal{O}(e^{-\alpha_0 X^*}(|\lambda| + e^{-2 \alpha_0 X^*})|a_i^+|) \\
-&= \langle \Psi(X_i), P^u(0) D_i d \rangle + \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
+&= \langle \Psi(X_i), P^u(0) D_i d \rangle + \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right).
 \end{align*}
 By \cref{stabestimateslemma}, $P^u(0) D_i d = Q'(-X_i)(d_{i+1} - d_i ) + \mathcal{O}( e^{-\alpha_0 X_i} (e^{-\alpha_0 X^*} + |\lambda| )|d|)$, thus we have
 \begin{align*}
 \langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ = \langle \Psi(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) \\
-&+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
+&+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right).
 \end{align*}
 Similarly,
 \begin{align*}
 \langle \Psi(0), &P_i^-(0; \lambda) \Phi_i^{s,-}(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} a_{i-1}^- \rangle = -\langle \Psi(-X_{i-1}), Q'(X_{i-1}) \rangle (d_i - d_{i-1} ) \\
-&+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right)
+&+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d| \right).
 \end{align*}
 
-The remaining terms will be higher order. For the terms involving $a_i^c$, similar to \cref{jumpcenteradj}, we have
+The remaining terms will be higher order. For the terms involving $a_i^c$, similar to \cref{jumpcenteradj},
 \begin{align*}
 \langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{c,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^c \rangle = \mathcal{O}\left( |\lambda| (e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda^3 |d| \right).
 \end{align*}
-For the terms involving $b$, $b_i^\pm = x_i^\pm + y_i^\pm$ vanishes when we take the inner product with $\Psi(0)$. For the remaining terms, similar to \cref{jumpcenteradj}, we have
+For the terms involving $b$, $b_i^\pm = x_i^\pm + y_i^\pm$ vanishes when we take the inner product with $\Psi(0)$. For the remaining terms, similar to \cref{jumpcenteradj},
 \begin{align*}
-|\langle \Psi(0), R_i^+(\lambda) b_i^+ \rangle |\leq C \left(|\lambda| + e^{-2 \alpha X^*}\right)\left((|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha X^*})^2 |d| \right)
+|\langle \Psi(0), R_i^+(\lambda) b_i^+ \rangle |\leq C \left(|\lambda| + e^{-2 \alpha X^*}\right)\left((|\lambda|+e^{-\alpha_0 X^*})|c| + (|\lambda| + e^{-\alpha X^*})^2 |d| \right).
 \end{align*}
-For the center integral term, using the bounds from \cref{stabestimateslemma} we have
+For the center integral term, using the bounds from \cref{stabestimateslemma},
 \begin{align*}
-\langle \Psi(0), &P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \rangle \\
-&= \int_{-X_{i-1}}^0 \langle \Psi(-X_{i-1}), P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) 
+&\left\langle \Psi(0), P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \right\rangle \\
+&\qquad= \int_{-X_{i-1}}^0 \langle \Psi(-X_{i-1}), P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) 
  (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i H(y) \rangle dy \\
-&\qquad +\mathcal{O}\left( |\lambda| + e^{-2\alpha_0 X^*})(|\lambda|(|\lambda + e^{-\alpha_0 X^*})|c| + |\lambda|^2 |d| \right) \\
-&= \mathcal{O}\left( |\lambda|(|\lambda| + e^{-\alpha_0 X^*})^2|c| + |\lambda|^2 (|\lambda| + e^{-\alpha_0 X^*}) |d| \right) 
+&\qquad\qquad +\mathcal{O}\left( |\lambda| + e^{-2\alpha_0 X^*})(|\lambda|(|\lambda + e^{-\alpha_0 X^*})|c| + |\lambda|^2 |d| \right) \\
+&\qquad= \mathcal{O}\left( |\lambda|(|\lambda| + e^{-\alpha_0 X^*})^2|c| + |\lambda|^2 (|\lambda| + e^{-\alpha_0 X^*}) |d| \right).
 \end{align*}
 The non-center integral involving $G_i^\pm(x; \lambda)$ has a stronger bound. Bounds for the terms from $P_i^-(0; \lambda) Z_i^-(0)$ are similar. Combining all of these terms, using the reversibility relation
 \[
