@@ -96,38 +96,19 @@ which is the equation studied in \cite{Pelinovsky2007} written in a moving frame
 \caption{Left panel is schematic of construction of double pulse solution (solid line) from two single pulses (dotted lines). Oscillatory tails are exaggerated. Right panel shows first four double pulse solutions to \cref{KdV5example} for $c = 10$.}
 \label{fig:KdV5double}
 \end{figure} 
-\noi For the spectral problem, the essential spectrum is the entire imaginary axis, and depends only on the background state. 
-% In addition, there is a set of interaction eigenvalues, which must occur in one of the three patterns in \cref{fig:kdv5inteigpattern} since equation \cref{KdV5example} is Hamiltonian. 
-% \begin{figure}[H]
-% \begin{center}
-% \includegraphics[width=8cm]{images/KdV5eigpattern}
-% \end{center}
-% \caption{Possible interaction eigenvalue patterns for double pulse solutions to KdV5.}
-% \label{fig:kdv5inteigpattern}
-% \end{figure}
-\noi In addition, there is a pair of interaction eigenvalues which is symmetric about the origin and alternates between real (corresponding to double pulses with dashed lines in \cref{fig:KdV5double}, right panel) and imaginary with negative Krein signature (corresponding to double pulses with solid lines in \cref{fig:KdV5double}, right panel) \cite{Pelinovsky2007}. Numerical timestepping verifies that double pulses with real eigenvalues are unstable; when perturbed, the two peaks move away from each other with equal and opposite velocities (\cref{fig:KdV5waterfall}, left panel). For the remaining double pulses, numerical timestepping suggests that the two peaks exhibit oscillatory behavior when perturbed (\cref{fig:KdV5waterfall}, right panel). Similar timestepping results can be seen in \cite[Figure 9]{Pelinovsky2007}, as well as a reduction of the system to a two-dimensional phase plane \cite[Figure 10]{Pelinovsky2007}.
+\noi For the spectral problem, the essential spectrum is the entire imaginary axis, and depends only on the background state. In addition, there is a pair of interaction eigenvalues which is symmetric about the origin and alternates between real (corresponding to double pulses with dashed lines in \cref{fig:KdV5double}, right panel) and imaginary with negative Krein signature (corresponding to double pulses with solid lines in \cref{fig:KdV5double}, right panel) \cite{Pelinovsky2007}. Numerical timestepping verifies that double pulses with real eigenvalues are unstable; when perturbed, the two peaks move away from each other with equal and opposite velocities (\cref{fig:KdV5waterfall}, left panel). For the remaining double pulses, numerical timestepping suggests that the two peaks exhibit oscillatory behavior when perturbed (\cref{fig:KdV5waterfall}, right panel). Similar timestepping results can be seen in \cite[Figure 9]{Pelinovsky2007}, as well as a reduction of the system to a two-dimensional phase plane \cite[Figure 10]{Pelinovsky2007}.
 
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
-\includegraphics[width=7.5cm]{images/waterfallunstable.eps} &
-\includegraphics[width=7.5cm]{images/waterfallstable.eps}
+\includegraphics[width=8cm]{images/waterfallunstable.eps} &
+\includegraphics[width=8cm]{images/waterfallstable.eps}
+\vspace{-0.25cm}
 \end{tabular}
 \end{center}
-\caption{Results of numerical timestepping simulations for perturbations of double pulse solutions to \cref{KdV5example}. Crank-Nicolson/Adams-Bashforth 2 IMEX scheme in time with Chebyshev spectral discretization, Dirichlet and Neumann boundary conditions.}
+\caption{Results of numerical timestepping simulations for perturbations of double pulse solutions to \cref{KdV5example} with real eigenvalues (left panel) and imaginary eigenvalues (right panel). Crank-Nicolson/Adams-Bashforth 2 IMEX scheme in time with Chebyshev spectral discretization, Dirichlet and Neumann boundary conditions.}
 \label{fig:KdV5waterfall}
 \end{figure}
-
-% \noi This suggests that the dynamics of perturbed double pulses can be reduced to a 2-dimensional system, where the variables are the peak distance and peak relative velocity (\cref{fig:KdV5reduction}). The phase portrait resembles that of a harmonic oscillator with spatially varying restoring force. Double pulses with real eigenvalues correspond to saddle points, and the remaining double pulses correspond to centers. 
-% \begin{figure}[H]
-% \begin{center}
-% \begin{tabular}{c}
-% \includegraphics[width=7cm]{images/reduction.eps}
-% \end{tabular}
-% \end{center}
-% \caption{Plot of peak relative velocity versus peak distance for perturbed double pulses.}
-% \label{fig:KdV5reduction}
-% \end{figure}
 
 \noi Although these numerical results suggest that every other double pulse is neutrally stable, this remains an open question since the imaginary eigenvalues are embedded in the essential spectrum. Furthermore, the timestepping simulation in \cref{fig:KdV5waterfall} was performed with separated boundary conditions, which shifts the essential spectrum into the left half plane and thus could fundamentally alter the behavior of the system.
 
@@ -493,9 +474,9 @@ Let $v^c(x)$ be the first component of $V^c(x)$. Then $v^c$ is a formal solution
 In this section, we prove the existence of periodic multi-pulse solutions to \cref{genODE}, which are multi-modal periodic orbits that remain close to the primary homoclinic orbit. Heuristically, we construct a periodic multi-pulse by gluing together multiple copies of the primary pulse end-to-end in a loop (\cref{fig:permultipulse}).
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=9cm]{images/multipulseperiodic}
+\includegraphics[width=11cm]{images/multipulseperiodic}
 \end{center}
-\caption[Construction of a periodic $n$-pulse solution]{Construction of a periodic $n-$pulse solution from the primary pulse.}
+\caption{Cartoon showing the construction of a periodic $n-$pulse solution from the primary pulse.}
 \label{fig:permultipulse}
 \end{figure}
 \noi A periodic $n$-pulse can be described by $n$ pulse distances $2 X_0, \dots, 2 X_{n-1}$, as shown in \cref{fig:permultipulse}. The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more length parameter than an $n$-pulse on the real line, since we need one more connection to ``close the loop''.  Rather than describing a periodic multi-pulse by the ``physical'' pulse distances $X_i$, we will use a parameterization which is both more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
@@ -896,7 +877,7 @@ To construct a periodic double pulse $q_2(x)$, we discretize equation \cref{KdV5
 \includegraphics[width=8cm]{images/dp2spec.eps}
 \end{tabular}
 \end{center}
-\caption[Spectrum of periodic 2-pulse solutions]{Spectrum of periodic 2-pulse solutions for KdV5, showing interaction eigenvalues (red dots), essential spectrum eigenvalues (blue open circles), and double eignenvalue at origin (black square). Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 20$, $X = 30$.}
+\caption[Spectrum of periodic 2-pulse solutions]{Spectrum of periodic 2-pulse solutions for KdV5, showing interaction eigenvalues (red dots), essential spectrum eigenvalues (blue open circles), and double eigenvalue at origin (black square). Left panel ($m_0 = 0$) has real interaction eigenvalues, right panel ($m_0 = 1$) has imaginary eigenvalues. Fourier spectral methods with $N = 1024$ grid points, $p = -1$, $c = 20$, $X = 30$.}
 \label{fig:KdV5eigs1}
 \end{figure}
 For asymmetric periodic 2-pulses $(X_0 \neq X_1)$, the interaction eigenvalue pattern depends completely on the integer $m_0$ from the periodic parameterization. For $m_0 = 0$, the interaction eigenvalues are real, and for $m_0 = 1$, the interaction eigenvalues are purely imaginary (the real part of the eigenvalues computed with \texttt{eig} is less than $10^{-9}$). We can also compute the interaction eigenvalues for symmetric periodic 2-pulses (\cref{fig:periodiceigbif}, right panel), which shows that at each pitchfork bifurcation point, an eigenvalue bifurcation occurs, where a pair of interaction eigenvalues collides at 0 and switches from real to purely imaginary (or vice versa). The full interaction eigenvalue pattern (up to the first Krein bubble) is shown in the center panel of \cref{fig:KdV5periodicMP}.
@@ -915,14 +896,15 @@ Next, we compute the essential spectrum eigenvalues for periodic single and doub
 \includegraphics[width=8cm]{images/DP2esslogerror.eps} 
 \end{tabular}
 \end{center}
-\caption{Log of absolute error vs. $\log m$ for the first 15 essential spectrum eigenvalues with least squares linear regression line for periodic single pulse (left panel) and second periodic double pulse (right panel). Slopes of regression lines -3.02 (left) and -3.05 (right). $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 200$.}
+\caption{Log of absolute error vs. $\log m$ for the first 15 essential spectrum eigenvalues with least squares linear regression line for periodic single pulse (left panel) and second periodic double pulse (right panel). Slopes of regression lines 3.02 (left) and 3.05 (right). $N = 1024$ grid points, $p = -1$, $c = 10$, $X = 200$.}
 \label{fig:DP2esslogerror}
 \end{figure}
 
 Finally, we look at what happens when we increase the periodic domain parameter $X$. As predicted by \cref{th:Kreinbubble}, there is a brief instability bubble when the first essential spectrum eigenvalue collides with the imaginary interaction eigenvalue (\cref{fig:kreinbubble1}).
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=8cm]{images/kreinbubble1}
+\includegraphics[width=9cm]{images/kreinbubble1}
+\hspace{-0.75cm}
 \includegraphics[width=8cm]{images/kreinbubble1zoom.eps}
 \end{center}
 \caption{Left panel shows collision of first essential spectrum eigenvalue with purely imaginary interaction eigenvalue as $X$ is increased. Imaginary part of eigenvalues in top panel (red), real part of eigenvalues in bottom panel (blue). Right panel plots the imaginary part vs. the real part of the eigenvalues in the Krein bubble as $X$ varies. Parameter continuation with AUTO in periodic domain length $X$, $p = -1$, $c = 20$.}
@@ -930,9 +912,9 @@ Finally, we look at what happens when we increase the periodic domain parameter 
 \end{figure}
 \noi If $p$ and $c$ in \cref{KdV5eq4} are related by
 \begin{align}\label{KdVpabc}
-p &= -2(a+b), \quad c = (a+b)^2 && a, b > 0,
+p &= -2(a-b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid but do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence problem and the eigenvalue problem. 
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid but do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding the the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence and eigenvalue problems. 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=8cm]{images/KreinRadiusError.eps}
@@ -1220,7 +1202,7 @@ H_i(a_i^+, &a_i^-, \beta_i^+, \beta_{i+1}^-)
 &+ \int_0^{X_i} \Phi_+^s(X_i, y; \beta_i^+) G_i^+(y,\beta_i^+)dy
 - \int_0^{-X_i} \Phi_-^u(-X_i, y; \beta_{i+1}^-) G_{i+1}^-(y,\beta_{i+1}^-)dy,
 \end{align*}
-where we have substutited $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
+where we have substituted $\tilde{Q}_i^\pm(x)$ from \cref{solveforV} into $G_i^\pm$. Since $Q(x)$ satisfies \cref{genODE}, $H_i(0, 0, 0, 0) = 0$. Since $G_i^\pm$ is quadratic in $\tilde{Q}_i^\pm$, thus quadratic in $a_i^\pm$ by \cref{solveforV},
 \[
 \frac{\partial}{\partial a_i^\pm} H_i(0, 0, 0, 0) = \pm 1 + \mathcal{O} (e^{-\alpha X_i}),
 \]
@@ -1453,7 +1435,7 @@ After canceling terms, we obtain the equations \cref{Geq}, which are equivalent 
 \end{lemma}
 
 \begin{remark}
-In \cref{jumplemma3}, we rewrote \cref{jumpcond2} so that equation $i$ inolves $b_i$ and a common parameter $b_{n-1}$. Since we are on a periodic domain, that choice was arbitrary;  the final length parameter $b_{n-1}$ was chosen for notational convenience.
+In \cref{jumplemma3}, we rewrote \cref{jumpcond2} so that equation $i$ involves $b_i$ and a common parameter $b_{n-1}$. Since we are on a periodic domain, that choice was arbitrary;  the final length parameter $b_{n-1}$ was chosen for notational convenience.
 \end{remark}
 
 When $r = 0$, the equations \cref{Geq} all have the same form. Let
@@ -2434,11 +2416,11 @@ For the terms involving $b$, $b_i^\pm = x_i^\pm + y_i^\pm$ vanishes when we take
 \end{align*}
 For the center integral involving $G_i^\pm(y, \lambda)$, we use \cref{stabestimateslemma} and \cref{expnubound} to get
 \begin{align*}
-\left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda)  dy \right| \leq C |\lambda| (e^{-\alpha_0 X^*} + |\lambda|) |c|.
+\left| \left\langle W_0, P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda)  dy \right\rangle \right| \leq C |\lambda| (e^{-\alpha_0 X^*} + |\lambda|) |c|.
 \end{align*}
 The non-center integral involving $G_i^\pm(y, \lambda)$ has a stronger bound. For the non-center integral involving $\tilde{H}_i^\pm$, we follow the same procedure as above, replacing $P^c(0)$ by $P^u(0)$, to get
 \begin{align*}
-\left|  \langle W_0, P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^+(y) dy \rangle \right| \leq C |\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|.
+\left| \left\langle W_0, P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^+(y) dy \right\rangle \right| \leq C |\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|.
 \end{align*}
 Bounds for the terms from $P_i^-(0; \lambda) Z_i^-(0)$ are similar. Combining all of these terms and simplifying, we obtain the center jump expressions \cref{jumpW0}.
 \end{proof}
@@ -2727,16 +2709,6 @@ G(\tilde{\mu}, r) = M c^2 \tilde{\mu}^3 (\tilde{\mu} + \tilde{\mu}^*(r))(\tilde{
 \end{equation}
 Let $G(\tilde{\mu}, r) = G(\tilde{\mu}, 0) + G_1(\tilde{\mu}, r)$, where $G_1(\tilde{\mu}, r) = G(\tilde{\mu}, r) - G(\tilde{\mu}, 0)$. On the circle $|\tilde{\mu}| = \xi$, $|G(\tilde{\mu}, 0)| \geq \frac{Mc^2}{16}|\tilde{\mu}_*(0)|^5$. Since $|G_1(\tilde{\mu}, r)| \rightarrow 0$ as $r \rightarrow 0$ and $\tilde{\mu}_*(0) \neq 0$, there exists $r_2 \leq r_0$ such that for $r \leq r_2$, $|G_1(\tilde{\mu}, r)| < |G(\tilde{\mu}, 0)|$ on the circle $|\tilde{\mu}| = \tilde{\xi}$. By Rouch\'{e}'s theorem $G(\tilde{\mu}, r)$ and $G(\tilde{\mu}, 0)$ have the same number of zeros (counted with multiplicity) inside the circle of radius $\xi$. By the choice of $\tilde{\xi}$, $G_1(\tilde{\mu})$ has exactly 3 zeros inside the circle, thus $G(\tilde{\mu}, r)$ does as well. Undoing the scaling and changing variables back to $\lambda$, we obtain the result.
 
-% \subsection{Eigenvalue count}
-
-% Finally, we prove that we have accounted for all of the eigenvalues near 0. Let $N$ be as in part (i) and $\tilde{\mu}^*)(r)$ be as in part (ii). Let $\xi = \left( N + \frac{1}{2} \right) \pi$, and take $\mu$ on the circle $|\mu| = \xi/X$. We will use Rouch\'{e}'s theorem to show that there are no zeros of $\det S(\mu, r)$ inside the circle of radius $\xi$ besides the ones we have already found. Substituting $\mu = h/X$, dividing by $X^4$, and simplifying, equation \cref{2pdetmu2} is equivalent to 
-% \begin{equation}\label{Gcount3}
-% \begin{aligned}
-% G(h,r) &= -2 c^2 M h^2 \left( h - \tilde{\mu}^*(r)r^{1/2}X(r) \right)\left(h + \tilde{\mu}^*(r)r^{1/2}X(r) \right) \sinh(h) + \mathcal{O}\left(\frac{|h|^5}{|\log r| }\right),
-% \end{aligned}
-% \end{equation}
-% where $X(r) = \mathcal{O}(|\log r|)$. Let $G(h, r) = G(h, 0) + G_1(h, r)$, where $G_1(h, r) = G(h, r) - G(h, 0)$. On the circle $|h| = \xi$, $|\sinh h| \geq 1$, thus since $|h - \tilde{\mu}^*(r)r^{1/2}X|\geq \pi$ by our choice of $r_0$, $|G(h,0)| \geq \pi^2 \xi^2$. Since $|G_1(h,r)| \rightarrow 0$ as $r \rightarrow 0$, there exists $r_3 \leq r_0$ such that for all $r \leq r_3$, $|G_1(h,r)| < |G(h,0)|$ on the circle $|h| = \xi$. By Rouch\'{e}'s theorem, $G(h,r)$ and $G_1(h,r)$ have the same number of zeros (counted with multiplicity) inside the circle $|h| = \xi$. Thus by our choice of $\xi$, $G(h,r)$, has exactly $2N+ 5$ zeros inside this circle, which correspond to the three eigenvalues at 0, the two interaction eigenvalues, and the first $2 N$ nonzero essential spectrum eigenvalues, all of which we have already located. The result follows upon undoing the scaling and changing variables back to $\lambda$.
-
 \subsection{Proof of Theorem \ref{theorem:2peigssym}}
 
 Let $\tilde{a}(r, s_0) = \tilde{a}(r; m_0, s_0)$ as in \cref{lemma:chara}, so that $\tilde{a}(0, p^*) = 0$ and $\tilde{a}(r, s_0) \rightarrow 0$ as $r \rightarrow 0$ and $s_0 \rightarrow p^*$. Using Rouch\'{e}'s as in the previous section, for sufficiently small $r$, there are five zeros of $S(\lambda, r)$ in a small ball around the origin. Since two of these eigenvalues correspond to the kernel eigenfunctions $\partial_x \tilde{Q}_2(x)$ and $\partial_c \tilde{Q}_2(x)$, and there is third kernel eigenfunction by \cref{qnkernel}, this leaves two eigenvalues unaccounted for. Let $s_0 = p^* + h$. Using the scaling $\mu = r^{1/2} \tilde{\mu}$, following the same steps as in the previous section, factoring out $\tilde{\mu}^3$ from \cref{def:eig0G} since we have already accounted for three eigenvalues at 0, and simplifying, the remaining eigenvalues must satisfy the equation
@@ -2861,7 +2833,7 @@ In this paper we use Lin's method to construct periodic multi-pulse solutions to
 
 In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions, but have to exclude certain periodic parameterizations to avoid bifurcation points. We only demonstrate the complete bifurcation structure for periodic 2-pulses (\cref{2pulsebifurcation}). It is likely that bifurcation structures exist for arbitrary periodic $m$-pulses, but that these become more complex as $m$ increases. As a first step to elucidating these bifurcations, it would be useful to study periodic 3-pulses by using AUTO for parameter continuation not only in the domain size $X$ but also in the parameters $c$ and $p$. This could suggest a theoretical result as well as a generalization to higher $m$. We could also extend the spectral results to arbitrary multi-pulses. As long as any Krein collisions are avoided, it should be possible to determine the interaction eigenvalue patten solely from the geometry of the periodic multi-pulse, as is the case with the periodic double pulse. It would also be worth looking at whether Krein bubbles occur for higher order periodic multi-pulses. As an initial step, we could construct periodic 3-pulses with two pairs of imaginary interaction eigenvalues as well as ``mixed'' periodic 3-pulses with one pair each of real and imaginary interaction eigenvalues. We could then determine numerically if Krein bubbles occur for either of these two periodic 3-pulses.
 
-Another avenue for future research is to investigate numerically the effect of Krein bubbles on the stability of periodic double pulse solutions. As a start, it would be useful to perform numerically timestepping for parameter regimes where the eigenvalues in the Krein bubble have maximum real part. (The main difficulty with timestepping for periodic multi-pulses is that the essential spectrum eigenmodes contribute oscillatory behavior of arbitrarily high frequency. Eliminating this behavior motivated the choice of separated boundary conditions for the simulations in \cref{fig:KdV5waterfall}.) Although we expect that solutions in the Krein bubble are unstable due to the presence of an eigenvalue with positive real part, it is unclear what form the instability would take. We also note that we obtained better error estimates for the Krein bubble size in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus there might be possible to obtain sharper error estimates analytically. Finally, we note from \cref{remark:kreinbubbles} that, as the domain size $X$ increases, the centers of the Krein bubbles are approximately equally spaced in $X$, but their widths in $X$ grows with each subsequent bubble. At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}).
+Another avenue for future research is to investigate numerically the effect of Krein bubbles on the stability of periodic double pulse solutions. As a start, it would be useful to perform numerically timestepping for parameter regimes where the eigenvalues in the Krein bubble have maximum real part. (The main difficulty with timestepping for periodic multi-pulses is that the essential spectrum eigenmodes contribute oscillatory behavior of arbitrarily high frequency. Eliminating this behavior motivated the choice of separated boundary conditions for the simulations in \cref{fig:KdV5waterfall}.) Although we expect that solutions in the Krein bubble are unstable due to the presence of an eigenvalue with positive real part, it is unclear what form the instability would take. We also note that we obtained better error estimates for the Krein bubble size in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus there might be possible to obtain sharper error estimates analytically. Finally, we note from \cref{remark:kreinbubbles} that as the domain size $X$ increases, the centers of the Krein bubbles are approximately equally spaced in $X$, but their widths in $X$ grows with each subsequent bubble. At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}).
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=12cm]{images/KreinBubbleCollision.eps}
@@ -2873,9 +2845,9 @@ Another avenue for future research is to investigate numerically the effect of K
 
 \paragraph{Acknowledgments}
 
-This material is based upon work supported by the U.S. National Science Foundation under grant DMS-1148284 (R.P. and B.S.).
+This material is based upon work supported by the U.S. National Science Foundation under grants DMS-1148284 (R.P. and B.S.) and DMS-1714429 (B.S.).
 
-\bibliographystyle{amsplain}
-\bibliography{kdv5.bib}
+\bibliographystyle{elsarticle-num.bst}
+\bibliography{kdv5periodic}
 
 \end{document}
