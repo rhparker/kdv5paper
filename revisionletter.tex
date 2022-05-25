@@ -18,29 +18,40 @@ Dallas, TX 75275 \\
 
 \opening{Dear Editor,}
 
-On behalf of my co-author, Bj\"orn Sandstede, I would like to submit revisions to the article ``Periodic multi-pulses and spectral stability in Hamiltonian PDEs with symmetry''. We are grateful to the referees for their careful reading of the original manuscript, and their comments and suggestions regarding how we could improve it. All the suggestions for improvement have been systematically taken into careful consideration and incorporated into the revision, as noted below. The portions of the manuscript which have been revised or added are indicated using red text.
+On behalf of my co-author, Bj\"orn Sandstede, I would like to submit revisions to the article ``Periodic multi-pulses and spectral stability in Hamiltonian PDEs with symmetry''. We have made the following two modifications to the paper:
+\begin{enumerate}
+    \item We have added results for numerical timestepping experiments which illustrate the effect of the Krein bubble eigenvalues on the PDE dynamics of perturbations of periodic double pulses (page 28 and Figure 13).
+    \item The discussion in the last paragraph of the conclusions section (page 78) has been revised.
+\end{enumerate}
+
+We are grateful to the referees for their careful reading of the original manuscript, and their comments and suggestions regarding how we could improve it. All the suggestions for improvement have been systematically taken into careful consideration and incorporated into the revision, as noted below. The portions of the manuscript which have been revised or added are indicated using red text.
 
 Reviewer 2:
 \begin{enumerate}
     \item \emph{In the discussion of parameters for Figure 3 (top of p.4), it is better to state that the speed parameter $c$ is fixed and is not accounted here.} We now mention that the wavespeed $c$ is fixed on pages 2 and 3, as well as the caption of Figure 3.
     \vspace{4mm}
 
-    \item \emph{For the branches bifurcating from the symmetry line on Fig. 3, one can mention that the double-pulse solitons correspond to the formal limit $X_1 \rightarrow \infty$ with uniquely prescribed values of $X_0$ to which the red and blue lines are supposed to converge asymptotically.} This is now discussed on page 3.
+    \item \emph{For the branches bifurcating from the symmetry line on Fig. 3, one can mention that the double-pulse solitons correspond to the formal limit $X_1 \rightarrow \infty$ with uniquely prescribed values of $X_0$ to which the red and blue lines are supposed to converge asymptotically.} This is now discussed on page 4.
     \vspace{4mm}
 
-    \item \emph{The presentation with general $m$ is too abstract. The authors are interested in the case $m = 2$, for which some objects are just empty sets. For instance, Lemma 3.9 mentions a quartet of eigenvalues and some other eigenvalues. However, the case with $m = 2$ gives only the quartet and no other eigenvalues.} Although the case $m=2$ is of primary interest, since it corresponds to the Kawahara equation, the case of larger $m$ is relevant to discussions of, for example, higher order KdV equations. We have added Remark 3.2 and Remark 3.6 to clarify this point and to justify the analysis for general $m$.
+    \item \emph{The presentation with general $m$ is too abstract. The authors are interested in the case $m = 2$, for which some objects are just empty sets. For instance, Lemma 3.9 mentions a quartet of eigenvalues and some other eigenvalues. However, the case with $m = 2$ gives only the quartet and no other eigenvalues.} Although the case $m=2$ is of primary interest, since it corresponds to the Kawahara equation, the case of larger $m$ is relevant to discussions of, for example, higher order KdV equations. In particular, we note that higher order KdV equations are considered in Chardard, Dias, and Bridges (2011) (see citation on page 3). We have added Remark 3.2 and Remark 3.6 to clarify this point and to provide a specific example (7th order KdV) to justify the analysis for general $m$. 
     \vspace{4mm}
 
-    \item \emph{In Figure 7 or earlier, one can mention that the symmetry line $X_0 = X_1$ corresponds to the periodic single-pulse solution with the period $X_0$ repeated twice on the period $X$. Such periodic multi-pulse solutions are derived from the existence of the periodic single-pulse solutions; an important point, which is not mentioned to the best of reviewer’s knowledge.} This is now mentioned on page 5 as well as page 17. On page 17, we also reference Corollary 8.10, which proves the existence of periodic single pulse solutions).
+    \item \emph{In Figure 7 or earlier, one can mention that the symmetry line $X_0 = X_1$ corresponds to the periodic single-pulse solution with the period $X_0$ repeated twice on the period $X$. Such periodic multi-pulse solutions are derived from the existence of the periodic single-pulse solutions; an important point, which is not mentioned to the best of reviewer's knowledge.} This is now mentioned on page 4, as well as on page 17. On page 17, we also reference Corollary 8.10, which proves the existence of periodic single pulse solutions).
     \vspace{4mm}
 
-    \item \emph{In (5.1) and below, the authors use confusing notations. $A(Qn)$ is not the same as $A(\lambda)$ with $\lambda = Q_n$. Two matrices $A$ in (5.5)-(5.6) are different from the two other instances. Different matrices can be denoted by different letters.}
+    \item \emph{In (5.1) and below, the authors use confusing notations. $A(Qn)$ is not the same as $A(\lambda)$ with $\lambda = Q_n$. Two matrices $A$ in (5.5)-(5.6) are different from the two other instances. Different matrices can be denoted by different letters.} We have made the following changes to clarify the notation:
+    \begin{itemize}
+        \item $A(U^*(x))$ is defined in (3.22). $A(0)$ is the linearization about the zero solution, which is consistent notation (see Lemma 3.11 for where this is used).
+        \item In Theorem 5.3, the matrix $A$ has been renamed $S$ (equations (5.5) and (5.6)), and the matrix $S(\lambda)$ has been renamed $E(\lambda)$.
+        \item The statement of Lemma 5.2 involves the constant matrix $A(0)+\lambda B$. The notation $A(\lambda)$ is no longer used.
+    \end{itemize}
     \vspace{4mm}
 
-    \item \emph{The relevant work [1, 2] is not mentioned. Recently, F. Chardard gave a conference presentation where he extended these results with more precise characterization of the spectrum of $E''(\phi) + c$.}
+    \item \emph{The relevant work [1, 2] is not mentioned. Recently, F. Chardard gave a conference presentation where he extended these results with more precise characterization of the spectrum of $E''(\phi) + c$.} We now cite these papers on pages 2 and 3 of the introduction.
     \vspace{4mm}
 
-    \item \emph{The authors should provide a better work with their references. [1] does not list the three authors of this paper. [2-4] are all prepared in different standards with first names of the authors either appearing behind or before the last names and either initialized or written in full. All references should be transformed to the same uniform standard. [33] lists authors in a wrong, non-alphabetic order.} All bibliography information for all references has been checked. In particular, in the bibtex file, author names are given exactly as in the original sources. We have verified that all authors are now listed. The bibliography style \texttt{elsarticle-num.bst} has been used to standardize the bibliography entries. In particular, we note that the author order has been corrected for M. Chugunova, D. Pelinovsky (2007), which is now reference [21].
+    \item \emph{The authors should provide a better work with their references. [1] does not list the three authors of this paper. [2-4] are all prepared in different standards with first names of the authors either appearing behind or before the last names and either initialized or written in full. All references should be transformed to the same uniform standard. [33] lists authors in a wrong, non-alphabetic order.} All bibliography information for all references has been checked. In particular, in the bibtex file, author names are given exactly as in the original sources. We have verified that all authors are now listed. The bibliography style \texttt{elsarticle-num.bst} has been used to standardize the bibliography entries. In particular, we note that the author order has been corrected for M. Chugunova and D. Pelinovsky (2007), which is now reference [24].
 \end{enumerate}
 
 
