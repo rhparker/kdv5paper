@@ -553,7 +553,7 @@ A periodic $n$-pulse can be described by the $n$ pulse distances $X_0, X_1, \dot
 The distances between consecutive pulses is $2X_i$, as shown in \cref{fig:permultipulse}. 
 The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more length parameter than an $n$-pulse on the real line, since we need one more connection to ``close the loop''.  Rather than describing a periodic multi-pulse by the ``physical'' pulse distances $X_i$, we will use a parameterization which is more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
 \begin{equation}\label{defrho}
-\rho = \frac{\beta_0}{\alpha_0}, \quad p^* = \arctan \rho
+\rho = \frac{\beta_0}{\alpha_0}, \quad p^* = \arctan \rho,
 \end{equation}
 where $\alpha_0$ and $\beta_0$ are defined in \cref{hyp:hypeq}. Define the set
 \begin{align}
@@ -599,7 +599,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 For any $r \in \mathcal{R}$ with $r \leq r_*$, there exists a periodic $n$-pulse solution $U(x) = U(x; m_0, \dots, m_{n-1}, \theta, r)$ to \cref{genODE}. The distances between consecutive copies of $Q_1(x)$ in $U(x)$ are given by $2X_i$, where the pulse distances $X_i$ are
 \begin{equation}\label{Xi}
 \begin{aligned}
-	X_i(r; m_i, m_{n-1},\theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_i(r; m_i,m_{n-1}, \theta) + L_0 && i = 0, \dots, n-2 \\
+	X_i(r; m_i, m_{n-1},\theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_i(r; m_i,m_{n-1}, \theta) + L_0 &&\qquad i = 0, \dots, n-2 \\
 	X_{n-1}(r; m_{n-1}, \theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2 \beta_0}\big( m_{n-1}\pi + \theta \big) + L_0.
 \end{aligned}
 \end{equation}
@@ -1852,9 +1852,9 @@ V'(x) = A(Q(x); \lambda) V'(x).
 \end{equation}
 For all $\lambda$, $A(Q(x); \lambda)$ decays exponentially to the constant-coefficient matrix $A(0; \lambda)$. Since $DF(0)$ is hyperbolic, $|A(Q(x); \lambda) - A(0; \lambda)| \leq C e^{-(\alpha_0 + \epsilon) |x|}$ for small $\epsilon$; the price to pay is a larger constant $C$. Using the conjugation lemma on $\R^+$ with $\Lambda = \lambda$ and $\Lambda_0 = 0$, there exists $\delta_3 \leq \delta_2$ and an invertible linear transformation 
 \begin{equation}\label{defPplus}
-P^+(x; \lambda) = I + \Theta^+(x; \Lambda)
+P^+(x; \lambda) = I + \Theta^+(x; \Lambda),
 \end{equation}
-such that for all $|\lambda| < \delta_3$, the change of coordinates $V(x) = P^+(x; \lambda) Z^+(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^+)'(x) = A(0; \lambda) Z^+(x)$. $\Theta^+(x; \lambda)$ has the uniform decay rate
+such that for all $|\lambda| < \delta_3$, the change of coordinates $V(x) = P^+(x; \lambda) Z^+(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^+)'(x) = A(0; \lambda) Z^+(x)$. The function $\Theta^+(x; \lambda)$ has the uniform decay rate
 \begin{equation}\label{Thetadecay}
 |\Theta^+(x; \lambda)| \leq C e^{-\alpha_0 |x|},
 \end{equation}
@@ -1866,7 +1866,7 @@ P^-(x; \lambda) = RP^+(-x; -\lambda)R.
 \end{equation}
 By a straightforward adaptation of the proof of the conjugation lemma in \cite{Zumbrun2009} and the symmetry relation \cref{AQsymmetry}, the change of coordinates $V(x) = P^-(x; \lambda) Z^-(x)$ conjugates \cref{vareqlambda} into the constant-coefficient equation $(Z^-)'(x) = A(0; \lambda) Z^-(x)$ on $\R^-$.
 
-Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, and $P^{u/s/c}(0)$ be their respective eigenprojections. Let $E^{u/s/c}(\lambda)$ and $P^{u/s/c}(\lambda)$ be the corresponding eigenspaces and eigenprojections for $A(0; \lambda)$, which are smooth in $\lambda$. $E^s(\lambda)$ and $E^u(\lambda)$ are $m$-dimensional, and $E^c(\lambda)$ is 1-dimensional. In the next lemma, we prove some useful results about $A(0; \lambda)$.
+Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, and $P^{u/s/c}(0)$ be their respective eigenprojections. Let $E^{u/s/c}(\lambda)$ and $P^{u/s/c}(\lambda)$ be the corresponding eigenspaces and eigenprojections for $A(0; \lambda)$, which are smooth in $\lambda$. $E^s(\lambda)$ and $E^u(\lambda)$ are $m$-dimensional, and $E^c(\lambda)$ is 1-dimensional. In the next lemma, we collect some useful results about $A(0; \lambda)$.
 
 \begin{lemma}\label{lemma:Afacts}\leavevmode
 \begin{enumerate}[(i)]
@@ -1944,10 +1944,11 @@ from which it follows that $V^c(-x) = R V^c(x)$. In addition, by reversibility, 
 The next lemma evaluates two important inner products involving $V^\pm(0; \lambda)$.
 
 \begin{lemma}\label{lemma:VpmPsiIP}
+We have the following inner products
 \begin{equation}\label{VpmIPs}
 \begin{aligned}
-\langle W_0, V^\pm(0; \lambda) \rangle &= 1 \mp \frac{1}{2} \tilde{M}\lambda + \mathcal{O}(|\lambda|^2), \quad
-\langle \Psi(0), V^\pm(0; \lambda) \rangle = \mp \frac{1}{2} M_c \lambda + \mathcal{O}(|\lambda|^2),
+\langle W_0, V^\pm(0; \lambda) \rangle &= 1 \mp \frac{1}{2} \tilde{M}\lambda + \mathcal{O}(|\lambda|^2) \\
+\langle \Psi(0), V^\pm(0; \lambda) \rangle &= \mp \frac{1}{2} M_c \lambda + \mathcal{O}(|\lambda|^2),
 \end{aligned}
 \end{equation}
 where
@@ -1976,7 +1977,7 @@ For convenience, let $Y(x) = \partial_\lambda \tilde{V}^+(x; 0)$. Using the expo
 \begin{aligned}
 Y(x) &= \tilde{\Phi}^{s,+}(x,0; 0)Y_0^s 
 + \int_0^x \tilde{\Phi}^{s,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy \\
-&+ \int_{\infty}^x \tilde{\Phi}^{u,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy + V^c(x) \int_{\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy 
+&+ \int_{\infty}^x \tilde{\Phi}^{u,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy + V^c(x) \int_{\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy.
 \end{aligned}
 \end{equation}
 Using the estimates \cref{stdtrichbounds}, the first and second integrals are finite for all $x$ since $V^c(x)$ is bounded. To prove that \cref{Yintegform} is a valid expression for $Y(x)$, it remains to show that the third integral is finite for all $x$. Using the expression for $V^c(x)$ from \cref{varadjsolutions}, 
@@ -2014,7 +2015,7 @@ since the last component of $\Psi(y)$ is $-q(y)$, and both $v^c(y)$ and $q(y)$ a
 \langle \Psi(0), \partial_\lambda \tilde{V}^+(x; 0) \rangle
 &= -\frac{1}{2} \int_{-\infty}^\infty \calL(q) \partial_c q(y) v^c(y) dy 
 = -\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) \calL(q) v^c(y) dy \\
-&= -\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) dy = -\frac{1}{2}M_c
+&= -\frac{1}{2} \int_{-\infty}^\infty \partial_c q(y) dy = -\frac{1}{2}M_c.
 \end{align*}
 Expanding $V^+(0; \lambda)$ in a Taylor series about $\lambda = 0$ and using \cref{VtildeVderiv}, \cref{W0IPwithtildeV}, and $\langle \Psi(0), V^c(0)\rangle = 0$, we obtain the second equation in \cref{VpmIPs}. The formulas for $V^-(0; \lambda)$ are similarly obtained.
 \end{proof}
@@ -2118,14 +2119,14 @@ W_i^\pm(0) &\in \C \Psi(0) \oplus \C W_0 \oplus Y^+ \oplus Y^- \\
 W_i^+(0) - W_i^-(0) &+ c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \in \C \Psi(0) \oplus \C W_0,
 \end{aligned}
 \end{equation}
-for $i = 0, \dots, n-1$. The fourth equation states that the remainder functions $W_i^\pm(x)$ have no component in $\C Q'(0)$. The other terms in the ansatz do not appear by \cref{klambdaIP}. The final equation states that the jumps can only be in the directions of $W_0$ and $\Psi(0)$. The terms involving $Q'(0)$ in the ansatz do not appear since $Q'(0) \perp W_0\oplus\Psi(0)$. A solution to \cref{eigsystem} solves \cref{eigsystem0} if and only if $n$ jump conditions at $x = 0$ in the direction of $\C \Psi(0) \oplus \C W_0$ are satisfied, i.e.  
+for $i = 0, \dots, n-1$. The fourth equation states that the remainder functions $W_i^\pm(x)$ have no component in $\C Q'(0)$. The other terms in the ansatz do not appear in this equation by \cref{klambdaIP}. The final equation states that the jumps can only be in the directions of $W_0$ and $\Psi(0)$. The terms involving $Q'(0)$ in the ansatz do not appear in this equation since $Q'(0) \perp W_0\oplus\Psi(0)$. A solution to \cref{eigsystem} solves \cref{eigsystem0} if and only if $n$ jump conditions at $x = 0$ in the direction of $\C \Psi(0) \oplus \C W_0$ are satisfied, i.e.  
 \begin{equation}\label{jumpxi1}
 \begin{aligned}
 \xi_i &= \langle \Psi(0), W_i^+(0) - W_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0  \\
 \xi_i^c &= \langle W_0, W_i^+(0) - W_i^-(0) + c_i e^{-\nu(\lambda)X_i}V_i^+(0; \lambda) - c_{i-1} e^{\nu(\lambda)X_{i-1}} V_i^-(0; \lambda) \rangle = 0,
 \end{aligned}
 \end{equation}
-for $i = 0, \dots, n-1$, where the terms involving $Q'(0)$ in the ansatz again cancel.
+for $i = 0, \dots, n-1$, where the terms involving $Q'(0)$ in the ansatz again do not appear.
 
 Finally, we apply the conjugation operators \cref{defPipm} to the system \cref{eigsystem}. Making the substitution $W_i^\pm(x) = P_i^\pm(x; \lambda) Z_i^\pm(x)$, we obtain the equations
 \begin{equation}\label{systemZ}
@@ -2209,9 +2210,9 @@ and we have the estimates
 \end{equation}
 which are uniform in $\lambda$, and are the same as the estimates \cref{stdtrichbounds} but with possibly different constants $C$. The stable evolution $\Phi_i^{s,+}(x, y; \lambda)$ on $\R^+$ and the unstable evolution $\Phi_i^{u,-}(x, y; \lambda)$ on $\R^-$ do not depend on $X_i$ or $i$. The evolution of the unconjugated system $W_i^\pm(x) = A(Q_i^\pm(x); \lambda) W_i^\pm(x)$ on $\R^\pm$ is given by
 \begin{equation}\label{unconjevol2}
-\tilde{\Phi}_i^\pm(x, y; \lambda) = P_i^\pm(y; \lambda) \Phi(y, x; \lambda) P_i^\pm(x; \lambda)^{-1},
+\tilde{\Phi}_i^\pm(x, y; \lambda) = P_i^\pm(y; \lambda) \Phi(y, x; \lambda) P_i^\pm(x; \lambda)^{-1}.
 \end{equation}
-and for $i = 0, \dots, n-1$, equations \cref{Zevolmod} induce an exponential trichotomy for the unconjugated system via the evolution operators
+For $i = 0, \dots, n-1$, equations \cref{Zevolmod} induce an exponential trichotomy for the unconjugated system via the evolution operators
 \begin{equation}\label{trichunconj}
 \tilde{\Phi}_i^{s/u/c,\pm}(x, y; \lambda) = P_i^\pm(y; \lambda) \Phi_i^{s/u/c,\pm}(y, x; \lambda) P_i^\pm(x; \lambda)^{-1}.
 \end{equation}
@@ -2233,7 +2234,7 @@ V_a &= \bigoplus_{i=0}^{n-1} E^u(0) \oplus E^s(0) \oplus E^c(0) \\
 V_b &= \bigoplus_{i=0}^{n-1} (\C Q'(0)\oplus Y^-)\oplus(\C Q'(0)\oplus Y^+)\\
 V_c &= \bigoplus_{i=0}^{n-1} \C \\
 V_d &= \bigoplus_{i=0}^{n-1} \C \\
-V_\lambda &= B_\delta(0) \subset \C
+V_\lambda &= B_\delta(0) \subset \C,
 \end{align*}
 where the subscripts are taken $\Mod n$, since we are on a periodic domain, and the product spaces are endowed with the maximum norm. Using the variation of constants formula and splitting the evolution operator via the exponential trichotomy \cref{Zevolmod}, we write \cref{systemZ} in integrated form as
 \begin{equation}\label{Zfpeq}
@@ -2314,7 +2315,7 @@ where $A_2(\lambda)_i^\pm(b, c, d)$ has bound \cref{A2bound}. For $a_i^c$, we ap
 \langle W_0, &e^{\nu(\lambda) X_i} V^-(-X_i; \lambda) - e^{-\nu(\lambda) X_i} V^+(X_i; \lambda) \rangle = \left( P^-(-X_i; \lambda) - P^+(X_i; \lambda) \right) V_0(\lambda) \\
 &= \langle W_0, R \Theta^+(X_i; 0) R - \Theta^+(X_i; 0), V_0 \rangle + \mathcal{O}(|\lambda|e^{-\alpha_0 X_i}) = \mathcal{O}(|\lambda|e^{-\alpha_0 X_i}),
 \end{align*}
-$|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For a bound on $\langle W_0, L_3(\lambda)_i(b,c,d) \rangle$, using \cref{W0conjeq} we have
+we have $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For a bound on $\langle W_0, L_3(\lambda)_i(b,c,d) \rangle$, using \cref{W0conjeq} we obtain
 \begin{align*}
 \langle W_0, &P_i^+(X_i; \lambda)\Phi^s(X_i, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \rangle
 \\ 
@@ -2323,7 +2324,7 @@ $|\langle W_0, C_i c\rangle| \leq |\lambda|e^{-\alpha_0 X_i}|c_i|$. For a bound 
 \end{align*}
 Bounding the other terms in $L_3(\lambda)_i(b, c, d)$ in a similar fashion, we obtain the estimate
 \begin{equation}\label{W0L3bound}
-|\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |\lambda|(e^{-\alpha_0 X_i} + |\lambda|) |c| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right)
+|\langle W_0, L_3(\lambda)_i(b, c, d) \rangle| \leq C |\lambda| \left( e^{-\alpha X_i} |b| + e^{-\alpha_0 X_i} |\lambda|(e^{-\alpha_0 X_i} + |\lambda|) |c| + e^{-\alpha_0 X_i} |\lambda|^2 |d| \right).
 \end{equation}
 Combining the above bounds and dividing by 2, $a_i^c = \tilde{A}_2(\lambda)_i(b, c, d)$, where $\tilde{A}_2(\lambda)_i(b, c, d)$ has bound \cref{tildeA2bound}.
 \end{proof}
@@ -2410,7 +2411,7 @@ The term involving $b_i^-$ is similar. For the terms involving $c$ in the third 
 where we also used the estimate \cref{expnubound}. The bound on the integral terms is determined by the integral involving the center subspace, since the other integral has a stronger bound. Using the bounds from \cref{stabestimateslemma} together with the trichotomy bound \cref{Zevolbounds} and the bound \cref{expnubound}, 
 \begin{align*}
 &\left| P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy  \right| \\
-&\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| \right)
+&\qquad \leq C \left( |\lambda|(e^{-\alpha_0 X^*} + |\lambda|)|c| + |\lambda|^2 |d| \right).
 \end{align*}
 The integral terms from $P_i^-(0; \lambda) Z_i^-(0)$ have similar bounds. Combining these and simplifying, we obtain the bound
 \begin{align*}
@@ -2646,7 +2647,7 @@ thus $\det E(-\lambda) = \det K \det E(\lambda) = -\det E(\lambda)$. We compute 
 
 \subsection{Proof of Theorem \ref{theorem:1pess} }
 
-First, we make a change of variables to simplify the problem. Since $\nu(0) = 0$ and $\nu'(0) = 1/c$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in Taylor series about $\mu = 0$,
+First, we make a change of variables to simplify the problem. Since $\nu(0) = 0$ and $\nu'(0) = 1/c$, $\nu(\lambda)$ is invertible near 0. Let $\lambda = \nu^{-1}(\mu)$. Expanding in a Taylor series about $\mu = 0$,
 \begin{equation}\label{lambdamu}
 \lambda = \nu^{-1}(\mu) = c \mu + \mathcal{O}(\mu^3).
 \end{equation}
@@ -2679,9 +2680,9 @@ Let $r_1 = \min\{ r_1^1, \dots, r_1^N \}$. Substituting $h_m(r)$ into \cref{sing
 \end{align*}
 Changing variables back to $\lambda$ and using \cref{lambdamu},
 \[
-\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{M \tilde{M} + M_c^2}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right).
+\lambda_m^{\text{ess}}(r) = c  \frac{m \pi i}{X + c \frac{M \tilde{M} + M_c^2}{2 M}} + \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right),
 \]
-By Hamiltonian symmetry (and the symmetry of $E(\lambda)$, eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m^{\text{ess}}(r)$ is on the imaginary axis, and there is another essential spectrum eigenvalue at $-\lambda_m^{\text{ess}}(r)$. 
+from which we obtain \cref{1pess} by factoring out $X$ from the denominator. By Hamiltonian symmetry (and the symmetry of $E(\lambda)$), eigenvalues must come in quartets. Since there is nothing else above the real axis with similar magnitude, $\lambda_m^{\text{ess}}(r)$ is on the imaginary axis, and there is another essential spectrum eigenvalue at $-\lambda_m^{\text{ess}}(r)$. 
 
 \section{Proof of results for periodic double pulse}\label{sec:doublepulse}
 
@@ -2702,7 +2703,8 @@ As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambd
 \begin{aligned}
 \det E(&\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
 &+4 a c^3 \mu^3 M_c^2 \sinh(\mu X_1)\sinh(\mu X_0) 
-+ R_2 \mu^2 \sinh(\mu(X_1 - X_0)) + R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4.
++ R_2 \mu^2 \sinh(\mu(X_1 - X_0)) \\
+&+ R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4.
 \end{aligned}
 \end{equation}
 The remainder terms have the same bounds as in \cref{lemma:2blockmatrix} with $\lambda$ replaced by $\mu$. Define
@@ -2735,7 +2737,7 @@ The interaction eigenvalues will be at approximately $\mu = \pm \mu_{int}^*$, wh
 Define the functions $H: \R^+ \times \R^+ \rightarrow \R$ and $H_1: \R^+ \times \R^+ \rightarrow \R$ by 
 \begin{align}
 H(b_0, b_1) &= b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) \label{perdefH} \\
-H_1(b_0, b_1) &= b_0 \left[ \rho \cos \left( -\rho \log b_0 \right) - \sin \left( -\rho \log b_0 \right) \right] + b_1 \left[ \rho \cos \left( -\rho \log b_1 \right) - \sin \left( -\rho \log b_1 \right) \right] \label{perdefH1}
+H_1(b_0, b_1) &= b_0 \left[ \rho \cos \left( -\rho \log b_0 \right) - \sin \left( -\rho \log b_0 \right) \right] + b_1 \left[ \rho \cos \left( -\rho \log b_1 \right) - \sin \left( -\rho \log b_1 \right) \right]. \label{perdefH1}
 \end{align}
 Then the zero sets of $H(b_0, b_1)$ and $H_1(b_0, b_1)$ intersect only at the discrete set of points $(b_0, b_1) = (b_k^*, b_k^*)$ for $k \in \Z$, where $b^*_k = e^{-\frac{1}{\rho} (k \pi + p^*) }$ are the pitchfork bifurcation points from \cref{2pulsebifurcation}.
 \begin{proof}
@@ -2905,9 +2907,9 @@ G(\tilde{h}, \tilde{k}, r) = \tilde{h}^2 + 2 \tilde{k}  i \tilde{h}
 \end{equation}
 When $r = 0$, $G(\tilde{h}, \tilde{k}, 0) = 0$ if and only if $\tilde{h} = \tilde{h}_0^\pm(\tilde{k}) = -\tilde{k}i \pm \sqrt{T - \tilde{k}^2}$. When $|k| \leq \sqrt{T}$, this is a circle in the complex plane of radius $\sqrt{T}$. We will show this persists for small $r$. For $\tilde{h} = \tilde{h}_0^\pm(\tilde{k})$, $G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 0$ and $\partial_{\tilde{h}}G(\tilde{h}_0^\pm(\tilde{k}), \tilde{k}, 0) = 2 \sqrt{T - \tilde{k}^2}$, which is nonzero as long as $\tilde{k} \neq \pm \sqrt{T}$. Choose any $\epsilon > 0$ and define
 \[
-K_\epsilon = [-2 \sqrt{T} -\sqrt{T} - \epsilon]
-\cup [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]
-\cup [\sqrt{T} + \epsilon, 2\sqrt{T}].
+K_\epsilon = \left[-2 \sqrt{T} -\sqrt{T} - \epsilon\right]
+\cup \left[-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon\right]
+\cup \left[\sqrt{T} + \epsilon, 2\sqrt{T}\right].
 \]
 Then for $\tilde{k} \in K_\epsilon$, $G_{\tilde{h}_0}(\tilde{h}_0(\tilde{k}), \tilde{k}, 0)$ is bounded away from 0, with bound dependent on $\epsilon$. By the uniform contraction mapping principle, there exists $r_1 \leq r_0$ and smooth functions $\tilde{h}_*^\pm(\tilde{k}, r)$ such that $h_*^\pm(\tilde{k}, 0) = \tilde{h}_0^\pm(\tilde{k})$, $h_*^\pm(\tilde{k}, r) = \tilde{h}_0^\pm(\tilde{k}) + \mathcal{O}\left(\frac{1}{|\log r|}\right)$, and for all $r \leq r_1$ and $\tilde{k} \in K_\epsilon$, $G(\tilde{h}_*^\pm(\tilde{k},r),\tilde{k},r) = 0$. For $k \in [-\sqrt{T} + \epsilon, \sqrt{T} - \epsilon]$, $\tilde{h}_*^\pm(\tilde{k}, r)$ is real and is symmetric across the imaginary axis by Hamiltonian symmetry. All that remains is show there is a double zero on the imaginary axis when $\tilde{k}$ is close to $\pm \sqrt{T}$. Similar to the proof of \cref{theorem:2peigssym}, for $\tilde{h}$ to be a double root of \cref{det5}, it must satisfy $H(\tilde{h}, \tilde{k}, r)$, where
 \[
@@ -2928,16 +2930,18 @@ Undoing the scaling and change of variables and letting $s = k/c$, for $r \leq r
 \begin{align*}
 \lambda(r) = \lambda_*(r) - s i \pm \sqrt{ T_1 -  s^2} + \mathcal{O}(r^{5/4}|\log r|^{1/2}), \quad T_1 = -\frac{M_c^2}{2 \pi M^2 c } |\lambda_*|^5 X_0^2,
 \end{align*}
-which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_1}$. For $s = s_\pm(r) = \pm \sqrt{T_1}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)$, there are double eigenvalues at $\lambda = \lambda_* + s_\pm(r) + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_1}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this eigenvalue pattern occurs when $X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} + \mathcal{O}(s^2)$. In particular, the Krein collision (and reverse collision) occur when $X(r)$ is given by \cref{KreinDeltaX}.
+which is approximately a circle centered at $\lambda_*$ in the complex plane of radius $\sqrt{T_1}$. For $s = s_\pm(r) = \pm \sqrt{T_1}\left( 1 + \mathcal{O}\left(\frac{1}{|\log r|} \right) \right)$, there are double eigenvalues at $\lambda = \lambda_* + s_\pm(r) + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which is on the imaginary axis by Hamiltonian symmetry. Again by Hamiltonian symmetry, the eigenvalues $\lambda$ are symmetric about the imaginary axis for $s_-(r) < s < s_+(r)$ and are purely imaginary for $s < s_-(r)$ and $s > s_+(r)$. The maximum real part of $\lambda$ occurs when $s = 0$, and is approximately $\sqrt{T_1}$. Expanding $\mu_1$ in a Taylor series about $X = X_*$, this occurs when $X(r) = X_*(r) + \frac{2 c \pi s}{\lambda_*^2} + \mathcal{O}(s^2)$. In particular, the Krein collision (and reverse collision) occur when $X(r)$ is given by \cref{KreinDeltaX}.
 
 \section{Conclusions}\label{sec:conclusions}
 
-In this paper we use Lin's method to construct periodic multi-pulse solutions to KdV5 and to determine the spectrum near the origin associated with these solutions. The results hold more generally for Hamiltonian systems which are both reversible and translation invariant. This technique allows us to compute both the eigenvalues resulting from interactions between neighboring pulses in the periodic multi-pulse structure and the essential spectrum eigenvalues resulting from the background state. Of note, we show that as the domain size is increased, brief instability bubbles form when interaction eigenvalues and essential spectrum eigenvalues collide on the imaginary axis. These Krein bubbles can be found numerically, and their location and size agree with the theoretical results.
+In this paper we use Lin's method to construct periodic multi-pulse solutions to KdV5 and to determine the spectrum near the origin associated with these solutions. The results hold more generally for Hamiltonian systems which are both reversible and translation invariant,
+\revised{including higher order KdV equations.} 
+This technique allows us to compute both the eigenvalues resulting from interactions between neighboring pulses in the periodic multi-pulse structure and the essential spectrum eigenvalues resulting from the background state. Of note, we show that as the domain size is increased, brief instability bubbles form when interaction eigenvalues and essential spectrum eigenvalues of opposite Krein signature collide on the imaginary axis. These Krein bubbles can be found numerically, and their location and size agree with the theoretical results.
 \revised{
 Numerical timestepping experiments show that these Krein bubbles correspond to slowing growing, oscillatory instabilities.
 }
 
-In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions, but have to exclude certain periodic parameterizations to avoid bifurcation points. We only demonstrate the complete bifurcation structure for periodic 2-pulses (\cref{2pulsebifurcation}). It is likely that bifurcation structures exist for arbitrary periodic $m$-pulses, but that these become more complex as $m$ increases. As a first step to elucidating these bifurcations, it would be useful to study periodic 3-pulses by using AUTO for parameter continuation not only in the domain size $X$ but also in the parameters $c$ and $p$. This could suggest a theoretical result as well as a generalization to higher $m$. We could also extend the spectral results to arbitrary multi-pulses. As long as any Krein collisions are avoided, it should be possible to determine the interaction eigenvalue patten solely from the geometry of the periodic multi-pulse, as is the case with the periodic double pulse. It would also be worth looking at whether Krein bubbles occur for higher order periodic multi-pulses. As an initial step, we could construct periodic 3-pulses with two pairs of imaginary interaction eigenvalues as well as ``mixed'' periodic 3-pulses with one pair each of real and imaginary interaction eigenvalues. We could then determine numerically if Krein bubbles occur for either of these two periodic 3-pulses. We also note that we obtained better error estimates for the Krein bubble size in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus there might be possible to obtain sharper error estimates analytically. 
+In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions, but have to exclude certain periodic parameterizations to avoid bifurcation points. We only demonstrate the complete bifurcation structure for periodic 2-pulses (\cref{2pulsebifurcation}). It is likely that bifurcation structures exist for arbitrary periodic $n$-pulses, but that these become more complex as $m$ increases. As a first step to elucidating these bifurcations, it would be useful to study periodic 3-pulses by using AUTO for parameter continuation not only in the domain size $X$ but also in the parameters $c$ and $p$. This could suggest a theoretical result as well as a generalization to higher $n$. We could also extend the spectral results to arbitrary multi-pulses. As long as any Krein collisions are avoided, it should be possible to determine the interaction eigenvalue patten solely from the geometry of the periodic multi-pulse, as is the case with the periodic double pulse. It would also be worth looking at whether Krein bubbles occur for higher order periodic multi-pulses. As an initial step, we could construct periodic 3-pulses with two pairs of imaginary interaction eigenvalues as well as ``mixed'' periodic 3-pulses with one pair each of real and imaginary interaction eigenvalues. We could then determine numerically if Krein bubbles occur for either of these two periodic 3-pulses. We also note that we obtained better error estimates for the Krein bubble size in the numerical computations in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus it might be possible to obtain sharper error estimates analytically. 
 
 \revised{
 Finally, we note from \cref{remark:kreinbubbles} that as the domain size $X$ increases, the centers of subsequent Krein bubbles (indexed by increasing $m$) are approximately equally spaced in $X$. However, their widths in $X$ scale with $\sqrt{m}$, so that they grow with each subsequent bubble (\cref{fig:KreinBubbleCollision}, left panel). At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}, right panel). After this occurs, we expect that there will always be an eigenvalue with positive real part, thus the periodic double pulses should all be unstable for $X > X_c$. As $X$ is further increased, we expect that more than two Krein bubbles will interact, and that the eigenvalue behavior will become increasing complicated. (This is very difficult to simulate numerically, as it involves extremely large domain sizes). At the same time, the radius in the complex plane of subsequent Krein bubbles scales with $1/\sqrt{m}$ (\cref{fig:KreinBubbleCollision}, left panel), which suggests that the maximum real part of the corresponding interaction eigenvalue approaches 0 as $X\rightarrow \infty$. Although we cannot generalize the periodic case to obtain the behavior on $\R$ by taking $X\rightarrow \infty$, this suggests that the spectrum of the double pulse on the real line, which is the formal limit of the periodic double pulse as $X\rightarrow \infty$, may in fact be purely imaginary.
