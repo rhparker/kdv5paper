@@ -416,7 +416,7 @@ This can be computed numerically, and we take this stability criterion as a hypo
 For each $c \in (c_0 - \delta_0, c_0 + \delta_0)$, where $\delta_0$ is defined in \cref{transverseint}, $d''(c) > 0$.
 \end{hypothesis}
 
-\noi From this point on, we will fix a speed $c \in (c_0 - \delta_0, c_0 + \delta_0)$ and suppress the dependence on $c$ for notational simplicity.
+\noi From this point on, we will fix a speed $c \in (c_0 - \delta_0, c_0 + \delta_0)$ and suppress the dependence on $c$ for simplicity of notation.
 
 \subsection{Eigenvalue problem}\label{sec:EVP}
 
@@ -568,7 +568,7 @@ For $n \geq 2$, a \emph{periodic parameterization} of a periodic $n$-pulse is a 
 \item $m_{n-1} \geq m_i$ for $i = 0, \dots, n-2$.
 \end{enumerate}
 \end{definition}
-\noi The selection of $m_{n-1}$ as the largest of the nonnegative integers $m_i$ is made for notational convenience, and to allow the periodic parameterization to be unique. Since we are on a periodic domain, there is no loss of generality. The physical pulse distances $X_i$ are determined by the periodic parameterization and by the scaling parameter $r$. If $r = \exp\left(-\frac{2 m \pi}{\rho}\right)$, then
+\noi The selection of $m_{n-1}$ as the largest of the nonnegative integers $m_i$ is made for convenience of notation, and to allow the periodic parameterization to be unique. Since we are on a periodic domain, there is no loss of generality. The physical pulse distances $X_i$ are determined by the periodic parameterization and by the scaling parameter $r$. If $r = \exp\left(-\frac{2 m \pi}{\rho}\right)$, then
 \begin{align*}
 X_i &= \frac{1}{2 \beta_0}\big( (2 m + m_i)\pi + \theta^*(\theta; m_{n-1} - m_i)\big) + L_0 \qquad\qquad i = 0, \dots, n-2  \\
 X_{n-1} &= \frac{1}{2 \beta_0}\big( (2 m + m_{n-1})\pi + \theta \big) + L_0,
@@ -990,17 +990,17 @@ If $p$ and $c$ in \cref{KdV5eq4} are related by
 p &= -2(a-b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
 then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid but do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding to the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence and eigenvalue problems. 
+\cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane ($\sqrt{T_1}$ from \cref{defT0}) and the log of the absolute error of the Krein bubble size in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha_0 X_0$. The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha_0 X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha_0 X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=8cm]{images/KreinRadiusError.eps}
 \includegraphics[width=8cm]{images/KreinRadiusXError.eps}
 \end{center}
-\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) vs. $\alpha_0 X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Slopes of regression lines -3.0319 (left) and -1.0332 (right). Parameters $p = 5.3$, $c = 11.2225$.
+\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) vs. $\alpha_0 X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Slopes of regression lines -3.0319 (left) and -1.0332 (right). Parameters $a = 0.25$ and $b = 3$ in \cref{KdVpabc}, which corresponds to $p = 5.5$and $c = 10.5625$.
 }
 \label{fig:kreinerrors}
 \end{figure}
-\cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane ($\sqrt{T_1}$ from \cref{defT0}) and the log of the absolute error of the Krein bubble size in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha_0 X_0$. The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha_0 X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha_0 X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \revised{
 Finally, we present results of numerical timestepping experiments to illustrate the effects of the Krein bubble on the PDE dynamics of perturbations of periodic double pulses. Let $u_1(x)$ be the periodic single pulse solution to \cref{KdV5eq4}. The initial condition for the timestepping is the sum of two well-separated copies of the periodic single pulse,
@@ -2959,7 +2959,7 @@ Finally, we note from \cref{remark:kreinbubbles} that as the domain size $X$ inc
 
 \paragraph{Acknowledgments}
 
-This material is based upon work supported by the U.S. National Science Foundation under grants DMS-1148284 (R.P. and B.S.) and DMS-1714429 (B.S.).
+This material is based upon work supported by the U.S. National Science Foundation under grants DMS-1148284 (R.P. and B.S.), DMS-1840260 (R.P.), and DMS-1714429 (B.S.).
 
 \bibliographystyle{elsarticle-num.bst}
 \bibliography{kdv5periodic}
