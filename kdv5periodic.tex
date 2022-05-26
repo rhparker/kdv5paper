@@ -260,7 +260,7 @@ which was introduced to study the KdV equation under singular perturbations (see
 
 Differentiating the reversibility relation $\calE(u) = \calE(\rho(u))$ with respect to $u$,
 \[
-\calE'(u) = \rho^*( \calE'(\rho(u) ) = \rho( \calE'(\rho(u) ),
+\calE'(u) = \rho^*( \calE'(\rho(u) ) ) = \rho( \calE'(\rho(u) ) ),
 \]
 since $\rho$ is self-adjoint. Differentiating the symmetry relation $\calE(T(s)u) = \calE(u)$ with respect to $u$,
 \begin{align}
@@ -792,7 +792,7 @@ In addition, $\det E(-\lambda) = -\det E(\lambda)$, and
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
 \det E(\lambda) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} + M_c^2 )\cosh(\nu(\lambda)X) \\
-&\qquad+ \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} ) \Big).
+&\qquad+ \mathcal{O}\left(|\lambda|(|\lambda| + r^{1/2} )\right) \Big).
 \end{aligned}
 \end{equation}
 \end{lemma}
@@ -849,7 +849,7 @@ In addition, $\det E(-\lambda) = -\det E(\lambda)$, and
 \det E(&\lambda) = -2 \lambda^2 (2a + \lambda^2 M + R_1) \left( M \sinh(\nu(\lambda)X) + \lambda (M \tilde{M} + M_c^2 ) \cosh(\nu(\lambda)X) \right) \\
 &+4 a \lambda^3 M_c^2 \sinh(\nu(\lambda)X_1)\sinh(\nu(\lambda)X_0) 
 + R_2 \lambda^2 \sinh(\nu(\lambda)(X_1 - X_0)) \\
-&+ \lambda^2 R_3 \sinh(\nu(\lambda)X)) + \lambda^3 R_4,
+&+ \lambda^2 R_3 \sinh(\nu(\lambda)X) + \lambda^3 R_4,
 \end{aligned}
 \end{equation}
 where the $R_i$ are scalars with bounds 
@@ -926,7 +926,7 @@ Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \
 	X(s, r) = X_*(r) \pm \Delta X(r) + \mathcal{O}(s^2), \qquad \Delta X(r) = \frac{2 c \pi}{|\lambda_*(r)|^2}\sqrt{T_1(r)}.
 	\end{equation}
 \item For $s \in (s_-, s+)$, equation \cref{Kreineigs} describes, to leading order, a circle of radius $\sqrt{T_1(r)}$ in the complex plane, which is the Krein bubble. The pair of eigenvalues is symmetric across the imaginary axis.
-\item For $s \in \left[-2\sqrt{T_1(r)}, s_-) \cup (s_+, 2 \sqrt{T_1(r)}\right]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
+\item For $s \in \Big[-2\sqrt{T_1(r)}, s_-\Big) \cup \Big(s_+, 2 \sqrt{T_1(r)}\Big]$, the eigenvalues \cref{Kreineigs} are on the imaginary axis.
 \end{enumerate}
 \end{theorem}
 
@@ -1438,8 +1438,8 @@ Evaluating the fixed point equations \cref{FPequations} at $x=0$ and substitutin
 where we have substituted our expressions for $\tilde{Q}_i^\pm$, $a_i^\pm$, and $\beta_i^\pm$ from \cref{solveforV}, \cref{solvefora}, and \cref{solveforbeta}. Using \cref{dichotomy1}, smooth dependence on initial conditions, and the bound \cref{betaest},
 \begin{equation}\label{phibetaest}
 \begin{aligned}
-|(\Phi_+^u(0, x; \beta_i^+) - \Phi_+^u(0, x; 0)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x} && x \geq 0\\
-|(\Phi_-^s(0, x; \beta_i^-) - \Phi_-^s(0, x; 0)| &\leq C e^{-2 \alpha X_i}e^{\alpha x} &&  x \leq 0.
+|\Phi_+^u(0, x; \beta_i^+) - \Phi_+^u(0, x; 0)| &\leq C e^{-2 \alpha X_{i-1}} e^{-\alpha x} && x \geq 0\\
+|\Phi_-^s(0, x; \beta_i^-) - \Phi_-^s(0, x; 0)| &\leq C e^{-2 \alpha X_i}e^{\alpha x} &&  x \leq 0.
 \end{aligned}
 \end{equation}
 For the term involving $a_i^+$ in \cref{PZmatch2}, we substitute \cref{aiformula} from \cref{solvefora} and use \cref{phibetaest}, the estimate \cref{Qpmbounds}, and \cref{eigadjoint}(iii) to obtain
@@ -1582,8 +1582,8 @@ For any nonnegative integers $m_0$, $m_1$ with $m_1 \geq m_0$, there is a smooth
 to $H(b_0, b_1) = 0$. This parameterization is given explicitly by
 \begin{equation}\label{thetaparam}
 \begin{aligned}
-b_0( m_0, m_1, \theta) &= \exp\left( -\frac{1}{\rho}(m_0 \pi + \theta^*(\theta; m_1 - m_0) \right) \\
-b_1( m_0, m_1, \theta) &= \exp\left( -\frac{1}{\rho}(m_1 \pi + \theta) \right),
+b_0( m_0, m_1, \theta) &= \exp\left( -\frac{1}{\rho}\left(m_0 \pi + \theta^*(\theta; m_1 - m_0) \right) \right) \\
+b_1( m_0, m_1, \theta) &= \exp\left( -\frac{1}{\rho}\left(m_1 \pi + \theta \right) \right),
 \end{aligned}
 \end{equation}
 where the functions $\theta^*(\theta; m) : [-\pi + p^*, p^*] \rightarrow \R$ are smooth in $\theta$ for all nonnegative integers $m$ and have the following properties:
@@ -1655,8 +1655,8 @@ which are equal. In particular, $\theta^*(p^*; 0) = \theta^*(\pi - p^*; 1) = p^*
 By \cref{jumplemma3}, a periodic $n$-pulse exists if and only if $G_i(b_0, \dots, b_{n-1}, r) = 0$ for $i = 0, \dots, n-2$. When $r = 0$, $G_i(b_0, \dots, b_{n-1}, 0) = H(b_i, b_{n-1})$, and we can use the parameterization from \cref{thetaparamlemma}. Choose any periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ and define
 \begin{equation}\label{thetaparammulti}
 \begin{aligned}
-b_i( m_i, m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_i \pi + \theta^*(\theta; m_{n-1} - m_i) \right) \qquad\qquad i = 0, \dots, n-2 \\
-b_{n-1}( m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}(m_{n-1} \pi + \theta) \right),
+b_i( m_i, m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}\left(m_i \pi + \theta^*(\theta; m_{n-1} - m_i) \right) \right) \qquad\qquad i = 0, \dots, n-2 \\
+b_{n-1}( m_{n-1}, \theta) &= \exp\left( -\frac{1}{\rho}\left(m_{n-1} \pi + \theta \right) \right),
 \end{aligned}
 \end{equation}
 so that by \cref{thetaparamlemma},
@@ -2036,7 +2036,7 @@ V(x)' = ( A(U(x)) + \lambda B)  V(x),
 \end{equation}
 where $U(x) \in C_b([0, \infty), \R^{2m+1})$ or $U(x) \in C_b((-\infty, 0], \R^{2m+1})$. Let $\Lambda = (U(x), \lambda)$ and $\Lambda_0 = (Q(x), 0)$. Using the conjugation lemma, there exists $\delta_4 \leq \delta_3$ and invertible linear transformations $P^\pm(x; U(x), \lambda) = I + \Theta^\pm(x; U(x), \lambda)$ such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the into the constant-coefficient equation $Z'(x) = A(0; \lambda) Z(x)$. By \cref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
 \begin{equation}\label{defPipm}
-P_i^\pm(x; \lambda) = I + \Theta_i^\pm(x; \lambda) = I + \Theta^\pm(x; Q_i^\pm(x), \lambda)).
+P_i^\pm(x; \lambda) = I + \Theta_i^\pm(x; \lambda) = I + \Theta^\pm(x; Q_i^\pm(x), \lambda).
 \end{equation}
 Expanding \cref{defPipm} in a Taylor series about $Q(x)$, and using \cref{conjthetadecay} and the estimates from \cref{solvewithjumps}, $\Theta_i^\pm(x; \lambda) = \Theta^\pm(x; \lambda) + \mathcal{O}(e^{-2 \alpha_0 X^*})$, thus we have the uniform estimates
 \begin{equation}\label{Pipmest}
@@ -2242,8 +2242,8 @@ where the subscripts are taken $\Mod n$, since we are on a periodic domain, and 
 Z_i^-(x) = \Phi_i^{s,-}&(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^- + \Phi_i^{u,-}(x, 0; \lambda) P_i^-(0; \lambda)^{-1} b_i^- \\
 &- \Phi_i^{c,-}(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^c \\
 &+ \int_0^x \Phi_i^{u,-}(x, y; \lambda)P_i^-(y; \lambda)^{-1}(c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\
-&+ \int_{-X_{i-1}}^x \Phi_i^{s,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) \tilde{H}_i^-(y)) dy \\
-&+ \int_{-X_{i-1}}^x \Phi_i^{c,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) \tilde{H}_i^-(y)) dy  \\ 
+&+ \int_{-X_{i-1}}^x \Phi_i^{s,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\
+&+ \int_{-X_{i-1}}^x \Phi_i^{c,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y))  \\ 
 Z_i^+(x) = \Phi_i^{u,+}&(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ + \Phi_i^{s,+}(x, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \\
 &+ \Phi_i^{c,+}(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^c \\
 &+ \int_0^x \Phi_i^{s,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
@@ -2367,9 +2367,9 @@ Using the decomposition \cref{TQ0decomp}, we can write $b_i^\pm$ uniquely as $b_
 P_i^-&(0; \lambda) Z_i^-(0) = x_i^- + y_i^- + R_i^-(\lambda) b_i^- + P_i^-(0; \lambda) \Phi_i^{s,-}(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} a_{i-1}^- \\
 &- P_i^-(0; \lambda) \Phi_i^{c,-}(0, -X_{i-1}; \lambda) P_i^-(-X_{i-1}, \lambda)^{-1} a_{i-1}^c \\
 &+ P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{s,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}}
- G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) \tilde{H}_i^-(y)) dy \\
+ G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\
 &+ P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}}
- G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) \tilde{H}_i^-(y)) dy  \\ 
+ G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy  \\ 
 P_i^+&(0; \lambda) Z_i^+(0) = x_i^+ + y_i^+ + R_i^+(\lambda) b_i^+ + P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ \\
 &+ P_i^+(0; \lambda) \Phi_i^{c,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^c \\
 &+ P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{u,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
@@ -2497,7 +2497,7 @@ Since $W_0$ is a constant solution to \cref{adjvareq2}, $P^c(0)^* W_0 = W_0$, an
 \end{equation*}
 Similarly, 
 \begin{align*}
-&\left\langle W_0, P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) \tilde{H}_i^-(y)) dy  \right\rangle \\
+&\left\langle W_0, P_i^-(0; \lambda) \int_{-X_{i-1}}^0 \Phi_i^{c,-}(0, y; \lambda) P_i^-(y; \lambda)^{-1} \lambda^2 d_i \tilde{H}_i^-(y) dy  \right\rangle \\
 &\qquad= \lambda^2 d_i \int_0^{\infty} \partial_c q(y)dy + \mathcal{O}(|\lambda|^2 (|\lambda| + e^{- \alpha_0 X^*}) |d|).
 \end{align*}
 
@@ -2582,7 +2582,7 @@ P^u(0) a_i^+ \rangle \\
 \end{align*}
 By \cref{stabestimateslemma}, $P^u(0) D_i d = Q'(-X_i)(d_{i+1} - d_i ) + \mathcal{O}( e^{-\alpha_0 X_i} (e^{-\alpha_0 X^*} + |\lambda| )|d|)$, thus we have
 \begin{align*}
-\langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ = \langle \Psi(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) \\
+\langle \Psi(0), &P_i^+(0; \lambda) \Phi_i^{u,+}(0, X_i; \lambda) P_i^+(X_i, \lambda)^{-1} a_i^+ \rangle = \langle \Psi(X_i), Q'(-X_i) \rangle (d_{i+1} - d_i ) \\
 &+ \mathcal{O}\left(e^{-\alpha_0 X^*} (e^{-\alpha_0 X^*} + |\lambda|)|c| + e^{-\alpha_0 X^*}(|\lambda| + e^{-\alpha_0 X^*})^2 |d|  \right).
 \end{align*}
 Similarly,
@@ -2603,8 +2603,8 @@ For the center integral term, using the bounds from \cref{stabestimateslemma},
 \begin{align*}
 &\left\langle \Psi(0), P_i^+(0; \lambda) \int_{X_i}^0 \Phi_i^{c,+}(0, y; \lambda) P_i^+(y; \lambda)^{-1}( c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \right\rangle \\
 &\qquad= \int_{-X_{i-1}}^0 \langle \Psi(-X_{i-1}), P^c(0) \tilde{\Phi}^-(-X_{i-1}, y; 0) 
- (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i H(y) \rangle dy \\
-&\qquad\qquad +\mathcal{O}\left( |\lambda| + e^{-2\alpha_0 X^*})(|\lambda|(|\lambda + e^{-\alpha_0 X^*})|c| + |\lambda|^2 |d| \right) \\
+ (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i H(y)) \rangle dy \\
+&\qquad\qquad +\mathcal{O}\left( (|\lambda| + e^{-2\alpha_0 X^*}) \left(|\lambda|(|\lambda + e^{-\alpha_0 X^*})|c| + |\lambda|^2 |d| \right) \right) \\
 &\qquad= \mathcal{O}\left( |\lambda|(|\lambda| + e^{-\alpha_0 X^*})^2|c| + |\lambda|^2 (|\lambda| + e^{-\alpha_0 X^*}) |d| \right).
 \end{align*}
 The non-center integral involving $G_i^\pm(x; \lambda)$ has a stronger bound. Bounds for the terms from $P_i^-(0; \lambda) Z_i^-(0)$ are similar. Combining all of these terms, using the reversibility relation
@@ -2653,7 +2653,7 @@ First, we make a change of variables to simplify the problem. Since $\nu(0) = 0$
 \end{equation}
 Substituting this into \cref{1pblockmatrixdet}, dividing by $c \mu^2$ since we are looking for the nonzero essential spectrum eigenvalues, and simplifying, we wish to solve
 \begin{equation}\label{1pdetmu2}
-2 M \sinh(\mu X) + c K \mu \cosh(\mu X) + \mathcal{O}(|\mu|(|\mu| + r^{1/2} X ) = 0,
+2 M \sinh(\mu X) + c K \mu \cosh(\mu X) + \mathcal{O}\left(|\mu|(|\mu| + r^{1/2} X )\right) = 0,
 \end{equation}
 where $K = M \tilde{M} + M_c^2$. Choose any positive integer $m \leq N$, and take the ansatz
 \begin{equation}\label{singlemu}
@@ -2704,7 +2704,7 @@ As in the proof of \cref{theorem:1pess}, we make the change of variables $\lambd
 \det E(&\mu, r) = -2 \mu^2 c^2 (2a + \mu^2 c^2 + R_1) \left( M \sinh(\mu X) + c \mu (M \tilde{M} + M_c^2 ) \cosh(\mu X) \right) \\
 &+4 a c^3 \mu^3 M_c^2 \sinh(\mu X_1)\sinh(\mu X_0) 
 + R_2 \mu^2 \sinh(\mu(X_1 - X_0)) \\
-&+ R_3 \mu^2 \sinh(\mu X)) + \mu^3 R_4.
+&+ R_3 \mu^2 \sinh(\mu X) + \mu^3 R_4.
 \end{aligned}
 \end{equation}
 The remainder terms have the same bounds as in \cref{lemma:2blockmatrix} with $\lambda$ replaced by $\mu$. Define
