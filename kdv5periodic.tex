@@ -1,10 +1,8 @@
 % \documentclass[12pt,reqno]{amsart}
 \documentclass[12pt]{elsarticle}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}%
-\usepackage{setspace}
 \usepackage[utf8]{inputenc}
 \usepackage[usenames,dvipsnames]{xcolor}
-
 
 % AMS packages
 \usepackage{amsmath}
@@ -68,14 +66,11 @@ Dallas, TX 75275, USA}
 \address[2]{Division of Applied Mathematics, Brown University, Providence, RI 02912, USA}
 
 \begin{abstract}
-We consider the existence and spectral stability of periodic multi-pulse solutions in Hamiltonian systems which are translation invariant and reversible, for which the fifth-order Korteweg-de Vries equation is a prototypical example. We use Lin's method to construct multi-pulses on a periodic domain, and in particular demonstrate a pitchfork bifurcation structure for periodic double pulses. We also use Lin's method to reduce the spectral problem for periodic multi-pulses to computing the determinant of a block matrix, which encodes both eigenvalues resulting from interactions between neighboring pulses and eigenvalues associated with the essential spectrum. We then use this matrix to compute the spectrum associated with periodic single and double pulses. Most notably, we prove that brief instability bubbles form when eigenvalues collide on the imaginary axis as the periodic domain size is altered. These analytical results are all in good agreement with numerical computations,
-\revised{
-and numerical timestepping experiments demonstrate that these instability bubbles correspond to oscillatory instabilities.
-}
+We consider the existence and spectral stability of periodic multi-pulse solutions in Hamiltonian systems which are translation invariant and reversible, for which the fifth-order Korteweg-de Vries equation is a prototypical example. We use Lin's method to construct multi-pulses on a periodic domain, and in particular demonstrate a pitchfork bifurcation structure for periodic double pulses. We also use Lin's method to reduce the spectral problem for periodic multi-pulses to computing the determinant of a block matrix, which encodes both eigenvalues resulting from interactions between neighboring pulses and eigenvalues associated with the essential spectrum. We then use this matrix to compute the spectrum associated with periodic single and double pulses. Most notably, we prove that brief instability bubbles form when eigenvalues collide on the imaginary axis as the periodic domain size is altered. These analytical results are all in good agreement with numerical computations, and numerical timestepping experiments demonstrate that these instability bubbles correspond to oscillatory instabilities.
 \end{abstract}
 
 \begin{keyword}
-multi-pulse solutions \sep periodic solutions \sep fifth-order Korteweg de-Vries equation \sep nonlinear waves \sep Hamiltonian partial differential equations \sep Lin's method \MSC{37K40, 37K45, 74J30}
+multi-pulse solutions \sep periodic solutions \sep fifth-order Korteweg-de Vries equation \sep nonlinear waves \sep Hamiltonian partial differential equations \sep Lin's method \MSC{37K40, 37K45, 74J30}
 \end{keyword}
 
 \end{frontmatter}
@@ -87,13 +82,12 @@ The entire multi-pulse travels as a unit, and it maintains its shape unless pert
 The study of multi-pulses goes back to at least the early 1980s, where Evans, Fenichel, and Faroe proved the existence of a double pulse traveling wave in nerve axon equations \cite{Evans1982}. The stability of these double pulses was shown in \cite{Yanagida1989}, and the existence result was extended to arbitrary multi-pulses in \cite{Feroe1986}. The existence of multi-pulse traveling wave solutions to semilinear parabolic equations, which includes reaction-diffusion systems, was established in \cite{Alexander1994}, and the stability of these solutions was determined using the Evans function, an analytic function whose zeros coincide with the point spectrum of a linear operator \cite{KapitulaSandstede2004}.
 Existence of multi-pulse solutions to a family of Hamiltonian equations was shown in \cite{Buffoni1996} using the dynamics on the Smale horseshoe set, and a spatial dynamics approach to the same problem is found in \cite{SandstedeStrut}. Multi-pulses have since been studied in diverse systems, including a pair of nonlinearly coupled Schr\"{o}dinger equations \cite{Yew2001,Yew2000}, coupled nonlinear Schr\"{o}dinger equations \cite{Pelinovsky2001,Pelinovsky2005}, the vector nonlinear Schr\"{o}dinger equation \cite{Kapitula2007}, and lattice systems such as the discrete nonlinear Schr\"{o}dinger equation \cite{parkerlattice} and the discrete sine-Gordon equation \cite{ParkerSineGordon}. In general, the spectrum of the linearization of the underlying PDE about a multi-pulse contains a finite set of eigenvalues close to 0 \cite{Alexander1990,Sandstede1998}. Since these result from nonlinear interactions between the tails of neighboring pulses, we call them interaction eigenvalues. Under the assumption that the essential spectrum lies in the left half plane, spectral stability of multi-pulses depends on these interaction eigenvalues. For semilinear parabolic equations, these eigenvalues are computed in \cite{Sandstede1998} by using Lin's method, an implementation of the Lyapunov-Schmidt technique, to reduce the eigenvalue problem to a matrix equation. An extension of this technique was used to study the existence and spectral stability of multi-pulses in systems with both reflection and phase symmetries, such as the complex cubic-quintic Ginzburg-Landau equation \cite{Manukian2009}. This was further adapted to multi-pulses in certain Hamiltonian systems with two continuous symmetries, such as a fourth order nonlinear Schr\"{o}dinger equation \cite{ParkerAceves2021}.
 
-A much more difficult problem concerns the spectral stability of multi-pulses in Hamiltonian PDEs in the case where the essential spectrum consists of the entire imaginary axis. (If the essential spectrum is imaginary but bounded away from the origin, the spectral problem is considerably easier; see, for example, applications to a fourth-order beam equation \cite[Secton 6]{Kapitula2020} and a fourth-order nonlinear Schr\"{o}dinger equation \cite{ParkerAceves2021}). As a concrete example, we consider solitary wave solutions to the fifth-order Korteweg-de Vries equation (KdV5)
+A much more difficult problem concerns the spectral stability of multi-pulses in Hamiltonian PDEs in the case where the essential spectrum consists of the entire imaginary axis. (If the essential spectrum is imaginary but bounded away from the origin, the spectral problem is considerably easier; see, for example, applications to a fourth-order beam equation \cite[Section 6]{Kapitula2020} and a fourth-order nonlinear Schr\"{o}dinger equation \cite{ParkerAceves2021}.) As a concrete example, we consider solitary wave solutions to the fifth-order Korteweg-de Vries equation (KdV5)
 \begin{align}\label{KdV5example}
 u_t &= \partial_x\left( u_{xxxx} - u_{xx} + c u - u^2\right) && c > 1/4,
 \end{align}
 which is the equation studied in \cite{Pelinovsky2007} written in a moving frame with speed $c$. 
-\revised{For the remainder of this paper, we will consider the wavespeed $c$ to be a fixed parameter. For $c>1/4$, the solitary wave solutions will have oscillatory, exponentially decaying tails (see \cref{hyp:hypeq} and \cref{remark:hypsatisfied} below).
-}
+For the remainder of this paper, we will consider the wavespeed $c$ to be a fixed parameter. For $c>1/4$, the solitary wave solutions will have oscillatory, exponentially decaying tails (see \cref{hyp:hypeq} and \cref{remark:hypsatisfied} below).
 A double pulse solution resembles two well-separated copies of the primary solitary wave which are joined together in such a way that the tail oscillations ``match up'' (\cref{fig:KdV5double}, left panel). The distance between the two peaks takes values in a discrete set (\cref{fig:KdV5double}, right panel) \cite{Pelinovsky2007,SandstedeStrut}. This constraint is a consequence of a specific alignment of the stable and unstable manifolds which is a necessary condition for multi-pulses to occur, and these discrete values represent the number of twists made by the manifolds near the equilibrium at the origin \cite{Sandstede1998}. 
 \begin{figure}
 \begin{center}
@@ -106,9 +100,7 @@ A double pulse solution resembles two well-separated copies of the primary solit
 \label{fig:KdV5double}
 \end{figure} 
 \noi For the spectral problem, the essential spectrum is the entire imaginary axis, and depends only on the background state. In addition, there is a pair of interaction eigenvalues which is symmetric about the origin and alternates between real (corresponding to double pulses with dashed lines in the right panel of \cref{fig:KdV5double}) and imaginary with negative Krein signature (corresponding to double pulses with solid lines in the right panel of \cref{fig:KdV5double}) \cite{Pelinovsky2007}. Numerical timestepping verifies that double pulses with real eigenvalues are unstable; when perturbed, the two peaks move away from each other with equal and opposite velocities (\cref{fig:KdV5waterfall}, left panel). For the remaining double pulses, numerical timestepping suggests that the two peaks exhibit oscillatory behavior when perturbed (\cref{fig:KdV5waterfall}, right panel). Similar timestepping results can be seen in \cite[Figure 9]{Pelinovsky2007}, as well as a reduction of the system to a two-dimensional phase plane \cite[Figure 10]{Pelinovsky2007}. 
-\revised{
 A different argument that half of the double pulses are stable can be found in \cite{Buryak1997}, which uses the asymptotic method of \cite{Gorshkov1981}. Stability of double pulses in KdV5 is also discussed in terms of the Maslov index, an integer-valued topological invariant associated with homoclinic orbits in a finite-dimensional Hamiltonian system, in \cite[Section 15.1]{Chardard1}. The methods in \cite{Chardard1} are extended to Hamiltonian systems with phase space of dimension greater than four in \cite{Chardard2}; a specific example is the 7th order KdV model considered in \cite[Section 8]{Chardard2}.
-}
 
 \begin{figure}
 \begin{center}
@@ -122,29 +114,25 @@ A different argument that half of the double pulses are stable can be found in \
 \label{fig:KdV5waterfall}
 \end{figure}
 
-Although these numerical results suggest that every other double pulse is neutrally stable, this remains an open question, since the imaginary eigenvalues are embedded in the essential spectrum. Furthermore, the timestepping simulation in \cref{fig:KdV5waterfall} was performed with separated boundary conditions, which shifts the essential spectrum into the left half plane, and thus could fundamentally alter the behavior of the system. As an alternative, we will look at multi-pulse solutions on a periodic domain subject to co-periodic perturbations. The advantage is that the essential spectrum becomes a discrete set of points on the imaginary axis; by analogy to the problem on the real line, we will refer to this set as essential spectrum eigenvalues, even though they are elements of the point spectrum. Purely imaginary interaction eigenvalues can then lie between essential spectrum eigenvalues. Periodic traveling waves were described by Korteweg and de Vries in their 1895 paper \cite{KdVoriginal}, and the stability of these cnoidal waves is shown in \cite{Pava2006,Bottman2009}. Since then, stability of periodic solutions has been investigated for many other systems, including the generalized KdV equation \cite{Johnson2009}, the generalized Kuramoto-Sivashinsky equation \cite{Barker2013}, the Boussinesq equation \cite{Hakkaev2014}, the Klein-Gordon equation \cite{Demirkaya2015}, a generalized class of nonlinear dispersive equations \cite{Hur2015}, and the regularized short pulse and Ostrovsky equations \cite{Hakkaev2017}, and the Lugiato-Lefever model of optical fibers \cite{Delcey2018,Milena2018,Hakkaev2019}.
+Although these numerical results suggest that every other double pulse is neutrally stable, this remains an open question, since the imaginary eigenvalues are embedded in the essential spectrum. Furthermore, the timestepping simulation in \cref{fig:KdV5waterfall} was performed with separated boundary conditions, which shifts the essential spectrum into the left half plane, and thus could fundamentally alter the behavior of the system. As an alternative, we will look at multi-pulse solutions on a periodic domain subject to co-periodic perturbations. The advantage is that the essential spectrum becomes a discrete set of points on the imaginary axis; by analogy to the problem on the real line, we will refer to this set as essential spectrum eigenvalues, even though they are elements of the point spectrum. Purely imaginary interaction eigenvalues can then lie between essential spectrum eigenvalues. Periodic traveling waves were described by Korteweg and de Vries in their 1895 paper \cite{KdVoriginal}, and the stability of these cnoidal waves is shown in \cite{Pava2006,Bottman2009}. Since then, stability of periodic solutions has been investigated for many other systems, including the generalized KdV equation \cite{Johnson2009}, the generalized Kuramoto-Sivashinsky equation \cite{Barker2013}, the Boussinesq equation \cite{Hakkaev2014}, the Klein-Gordon equation \cite{Demirkaya2015}, a generalized class of nonlinear dispersive equations \cite{Hur2015}, the regularized short pulse and Ostrovsky equations \cite{Hakkaev2017}, and the Lugiato-Lefever model of optical fibers \cite{Delcey2018,Milena2018,Hakkaev2019}.
 
 As in \cite{SandstedeStrut,Sandstede1998}, we will use a spatial dynamics approach. 
-\revised{
-We note that since the wavespeed $c$ is a fixed parameter, all solutions obtained this way will be traveling waves with speed $c$.} From this perspective, the primary solitary wave is a homoclinic orbit connecting the unstable and stable manifolds of a saddle equilibrium point at the origin. A multi-pulse is a multi-loop homoclinic orbit which remains close to the primary homoclinic orbit, and a periodic multi-pulse is a multi-loop periodic orbit. Unlike multi-pulses on the real line, which exist in discrete families (see \cref{fig:KdV5double}, right panel), periodic multi-pulses exist in continuous families, since there is an additional degree of freedom in their construction. Consider, for example, a 2-pulse. Whereas a 2-pulse on the real line can be described by a single length parameter representing the distance between the two peaks, the characterization of a periodic 2-pulse requires two length parameters $X_0$ and $X_1$ (\cref{fig:KdV5periodicMP}, left panel). The length of the periodic domain is $2X = 2X_0 + 2X_1$. 
-\revised{
-Double pulse solutions on the real line correspond to the formal limit $X_1 \rightarrow \infty$. The length parameter $X_0$ (represented by the red and blue horizontal lines in \cref{fig:KdV5periodicMP}) formally converges to the distance between the two peaks in the double pulse solution on the real line (these solutions are shown in the right panel of \cref{fig:KdV5double}).} As a consequence of this additional degree of freedom and the reversibility of the system, symmetric periodic 2-pulses $(X_0 = X_1)$ exist for all sufficiently large $X_0$, and asymmetric periodic 2-pulses $(X_0 \neq X_1)$ bifurcate from these symmetric periodic 2-pulses in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel).
-\revised{
+We note that since the wavespeed $c$ is a fixed parameter, all solutions obtained this way will be traveling waves with speed $c$. From this perspective, the primary solitary wave is a homoclinic orbit connecting the unstable and stable manifolds of a saddle equilibrium point at the origin. A multi-pulse is a multi-loop homoclinic orbit which remains close to the primary homoclinic orbit, and a periodic multi-pulse is a multi-loop periodic orbit. Unlike multi-pulses on the real line, which exist in discrete families (see \cref{fig:KdV5double}, right panel), periodic multi-pulses exist in continuous families, since there is an additional degree of freedom in their construction. Consider, for example, a 2-pulse. Whereas a 2-pulse on the real line can be described by a single length parameter representing the distance between the two peaks, the characterization of a periodic 2-pulse requires two length parameters $X_0$ and $X_1$ (\cref{fig:KdV5periodicMP}, left panel). The length of the periodic domain is $2X = 2X_0 + 2X_1$. 
+Double pulse solutions on the real line correspond to the formal limit $X_1 \rightarrow \infty$. The length parameter $X_0$ (represented by the red solid and blue dotted horizontal lines in \cref{fig:KdV5periodicMP}) formally converges to the distance between the two peaks in the double pulse solution on the real line (these solutions are shown in the right panel of \cref{fig:KdV5double}). As a consequence of this additional degree of freedom and the reversibility of the system, symmetric periodic 2-pulses $(X_0 = X_1)$ exist for all sufficiently large $X_0$, and asymmetric periodic 2-pulses $(X_0 \neq X_1)$ bifurcate from these symmetric periodic 2-pulses in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel).
 The symmetric periodic 2-pulse solutions ($X_0 = X_1$) correspond to periodic single-pulse solutions with the period $2X_0$ repeated twice on the period $2X$. 
-}
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=8cm]{images/DPperiodic.eps} \hspace{-1cm}
 \includegraphics[width=9cm]{images/2pitchforkcoloreig2.eps}
 \end{center}
-\caption{Left panel is an illustration of a periodic 2-pulse showing the two length parameters $X_0$ and $X_1$. Center panel shows the pitchfork bifurcation structure for periodic 2-pulses as these length parameters are varied. Pitchfork bifurcation points are indicated with black dots. Blue dotted lines correspond to solutions with real interaction eigenvalues, and red solid lines correspond to solutions with imaginary interaction eigenvalues. Right panel is a schematic of the eigenvalue pattern for a periodic 2-pulse with a pair of imaginary interaction eigenvalues, corresponding to the solid red line in the center panel. The spectrum comprises an imaginary pair of interaction eigenvalues (red dots), a double eigenvalue at the origin from translation invariance (black square), and essential spectrum eigenvalues (blue open circles). \revised{The wavespeed $c$ is fixed.}}
+\caption{Left panel is an illustration of a periodic 2-pulse showing the two length parameters $X_0$ and $X_1$. Center panel shows the pitchfork bifurcation structure for periodic 2-pulses as these length parameters are varied. Pitchfork bifurcation points are indicated with black dots. Blue dotted lines correspond to solutions with real interaction eigenvalues, and red solid lines correspond to solutions with imaginary interaction eigenvalues. Right panel is a schematic of the eigenvalue pattern for a periodic 2-pulse with a pair of imaginary interaction eigenvalues, corresponding to the solid red line in the center panel. The spectrum comprises an imaginary pair of interaction eigenvalues (red dots), a double eigenvalue at the origin from translation invariance (black square), and essential spectrum eigenvalues (blue open circles). The wavespeed $c$ is fixed.}
 \label{fig:KdV5periodicMP}
 \end{figure}
 
 To compute the spectrum of the linearization of the underlying PDE about a periodic multi-pulse, we use Lin's method to reduce the eigenvalue problem to a block matrix equation; the block matrix encodes the interaction eigenvalues, the essential spectrum eigenvalues, and the translational eigenvalues (which are in the kernel of the linearization). For a periodic 2-pulse, the block matrix is $4\times4$, and the resulting equation can be solved. This yields the interaction eigenvalue pattern in the center panel of \cref{fig:KdV5periodicMP}, which corresponds exactly to the pitchfork bifurcation structure. The arms of the pitchforks alternate between solutions with a pair of real interaction eigenvalues and solutions with a pair of imaginary interaction eigenvalues; stability changes at the pitchfork bifurcation points, when the interaction eigenvalues collide at the origin. 
 
-The right panel of \cref{fig:KdV5periodicMP} is a schematic of the eigenvalue pattern of a periodic double pulse with imaginary interaction eigenvalues. The schematic also shows the first two essential spectrum eigenvalues. The essential spectrum eigenvalues are approximately equally spaced on the imaginary axis, and, to leading order, their location depends only on the domain length parameter $X$. As long as the interaction eigenvalues and the essential spectrum eigenvalues do not get too close, which we can guarantee by choosing the length parameters $X_0$ and $X_1$ sufficiently large, the interaction eigenvalue pattern is as shown in \cref{fig:KdV5periodicMP}. As the domain size $X$ is increased (moving to the right along the red arm of the pitchfork in \cref{fig:KdV5periodicMP}), however, the essential spectrum eigenvalues move along the imaginary axis towards the origin. At a critical value of $X$, there is a collision between one of the essential spectrum eigenvalues and a purely imaginary interaction eigenvalue. Since the two eigenvalues have opposite Krein signatures, we expect them to leave the imaginary axis upon collision. In fact, what occurs is that a brief instability bubble is formed, where the two eigenvalues collide, move off the imaginary axis, trace an approximate circle in the complex plane, and recombine on the imaginary axis in a ``reverse'' Krein collision. This brief instability bubble, which we call a Krein bubble, is also a consequence of the block matrix reduction, and is shown in schematic form in \cref{fig:KreinBubbleCartoon}. The radius of the Krein bubble in the complex plane and the value of $X$ at which the Krein bubble occurs can also be computed using the block matrix reduction. Similar instability bubbles have been observed in other systems. As one example, they are found for dark soliton solutions of the discrete nonlinear Schr{\"o}dinger equation on a finite lattice as the coupling parameter is increased \cite{Johansson1999}; in that case, however, the instability bubbles disappear after a critical value of the coupling parameter is reached (\cite[Figure 2]{Johansson1999}).
+The right panel of \cref{fig:KdV5periodicMP} is a schematic of the eigenvalue pattern of a periodic double pulse with imaginary interaction eigenvalues. The schematic also shows the first two essential spectrum eigenvalues. The essential spectrum eigenvalues are approximately equally spaced on the imaginary axis, and, to leading order, their location depends only on the domain length parameter $X$. As long as the interaction eigenvalues and the essential spectrum eigenvalues do not get too close, which we can guarantee by choosing the length parameters $X_0$ and $X_1$ sufficiently large, the interaction eigenvalue pattern is as shown in \cref{fig:KdV5periodicMP}. As the domain size $X$ is increased (moving to the right along the arm of the pitchfork corresponding to the red solid line in \cref{fig:KdV5periodicMP}), however, the essential spectrum eigenvalues move along the imaginary axis towards the origin. At a critical value of $X$, there is a collision between one of the essential spectrum eigenvalues and a purely imaginary interaction eigenvalue. Since the two eigenvalues have opposite Krein signatures, we expect them to leave the imaginary axis upon collision. In fact, what occurs is that a brief instability bubble is formed, where the two eigenvalues collide, move off the imaginary axis, trace an approximate circle in the complex plane, and recombine on the imaginary axis in a ``reverse'' Krein collision. This brief instability bubble, which we call a Krein bubble, is also a consequence of the block matrix reduction, and is shown in schematic form in \cref{fig:KreinBubbleCartoon}. The radius of the Krein bubble in the complex plane and the value of $X$ at which the Krein bubble occurs can be computed using the block matrix reduction. Similar instability bubbles have been observed in other systems. As one example, they are found for dark soliton solutions of the discrete nonlinear Schr{\"o}dinger equation on a finite lattice as the coupling parameter is increased \cite{Johansson1999}; in that case, however, the instability bubbles disappear after a critical value of the coupling parameter is reached (\cite[Figure 2]{Johansson1999}).
 
 \begin{figure}
 \begin{center}
@@ -153,16 +141,15 @@ The right panel of \cref{fig:KdV5periodicMP} is a schematic of the eigenvalue pa
 \includegraphics[width=15cm]{images/KreinBubbleBottom.eps}
 % \end{tabular}
 \end{center}
-\caption{Schematic showing brief instability bubble which forms as the imaginary interaction eigenvalue and the first essential spectrum eigenvalue collide on the imaginary axis. Eigenvalues are shown in red dots, Krein bubble is dotted circle, and center of instability bubble is marked with blue X.}
+\caption{Schematic showing brief instability bubble which forms as the imaginary interaction eigenvalue and the first essential spectrum eigenvalue collide on the imaginary axis. Domain size $X$ increases from left to right, and top to bottom.
+Eigenvalues are shown in red dots, Krein bubble is dotted circle, and center of instability bubble is marked with blue X.}
 \label{fig:KreinBubbleCartoon}
 \end{figure}
 
 This paper is organized as follows. In \cref{sec:KdV5}, we introduce a generalization of KdV5 as our motivating example. In \cref{sec:setup}, we set up the problem of interest in general terms as a Hamiltonian system in $2m$ dimensions which is reversible and translation invariant,
-\revised{
 for which KdV5 (corresponding to $m=2$) is a special case. We also comment on extensions to higher order models, for which $m>2$.
-}
 We then present the main results of this paper, which concern the existence (\cref{sec:perexist}) and spectrum (\cref{sec:perstab}) of periodic multi-pulse solutions. This is then applied to the periodic single pulse and the periodic double pulse. In particular, we prove that Krein bubbles occur, and we give a formula for their radius in terms of fundamental constants associated with the system. In \cref{sec:numerics}, we present numerical results which provide verification for our theoretical work,
-\revised{including timestepping simulations to demonstrate the dynamical consequence of the Krein bubble.} 
+including timestepping simulations to demonstrate the dynamical consequence of the Krein bubble. 
 The next sections contain proofs of the main results, after which we discuss our findings in \cref{sec:conclusions} and offer some directions for future work. 
 
 \section{Background and motivation}\label{sec:KdV5}
@@ -248,7 +235,6 @@ where $f: \R^{2m} \rightarrow \R$ is smooth.
 
 \noi \cref{hyp:E}(ii) is reversibility, and \cref{hyp:E}(iii) is translation invariance. \cref{hyp:E}(iv) holds in applications such as KdV5, and lets us write the $2m$-th order ODE $\calE'(u) = 0$ as a first order system in $\R^{2m}$. 
 
-\revised{
 \begin{remark}\label{remark:largerm}
 Although we are most interested in the case where $m=2$, for which the Kawahara equation \cref{kawahara} and the fifth-order KdV model \cref{KdV5example} are specific examples, the theory is developed for general $m\geq 2$ so that it applies to higher order models as well. An example for $m=3$ is the seventh-order KdV equation (\cite[Chapter 15.10]{Wazwaz2009} and \cite[Section 8]{Chardard2})
 \begin{align}\label{KdV7}
@@ -256,7 +242,6 @@ u_t &= \partial_x\left( -a u_{xxxxxx} + u_{xxxx} - u_{xx} + c u - 3 u^2\right),
 \end{align}
 which was introduced to study the KdV equation under singular perturbations (see also equation (24) in \cite{Pomeau1988}). The ninth-order KdV equation \cite[Chapter 15.10]{Wazwaz2009} corresponds to $m=4$. There has also been recent interest in nonlinear Schr\"{o}dinger models incorporating higher order dispersion terms \cite{Runge2020}.
 \end{remark}
-}
 
 Differentiating the reversibility relation $\calE(u) = \calE(\rho(u))$ with respect to $u$,
 \[
@@ -350,7 +335,6 @@ For a specific $c_0 > 0$, $U = 0$ is a hyperbolic equilibrium of \cref{genODE}. 
 
 We note that localized pulse solutions will have tails which are exponentially decaying with approximate rate $\alpha_0$, and are oscillatory with approximate frequency $\beta_0$.
 
-\revised{
 \begin{remark}\label{remark:hypsatisfied}
 For the 5th order KdV equation \cref{KdV5example}, corresponding to $m=2$, the spectrum of $DF(0; c)$ is the quartet of eigenvalues 
 \[
@@ -358,7 +342,6 @@ For the 5th order KdV equation \cref{KdV5example}, corresponding to $m=2$, the s
 \] 
 For $c > 1/4$, this is a complex quartet $\pm \alpha_0 \pm \beta_0 i$, thus \cref{hyp:hypeq} is satisfied. For the 7th order KdV equation \cref{KdV7}, corresponding to $m=3$, the spectrum of $DF(0; c)$ comprises six eigenvalues, one pair of which is always real (see \cref{fig:KdV7spec}, as well as the first quadrant of \cite[Figure 3]{Chardard2}). \cref{hyp:hypeq} is satisfied in the upper region of \cref{fig:KdV7spec}. Note that in the lower right region of \cref{fig:KdV7spec}, there is a complex quartet of eigenvalues, but since the real pair of eigenvalues lies inside this complex quartet, \cref{hyp:hypeq} is not satisfied.
 \end{remark}
-}
 
 \begin{figure}
 \begin{center}
@@ -381,7 +364,7 @@ For the same $c_0$ as in \cref{hyp:hypeq}, there exists a homoclinic orbit solut
 \end{enumerate}
 \end{hypothesis}
 
-\noi It follows from \cref{Qexistshyp} that the first component $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution solution to \cref{genPDE}. In order to prove the  existence of homoclinic orbits $Q_1(x; c)$ for $c$ near $c_0$, we take the following additional hypothesis.
+\noi It follows from \cref{Qexistshyp} that the first component $q(x; c_0)$ is a symmetric, exponentially localized traveling wave solution to \cref{genPDE}. In order to prove the  existence of homoclinic orbits $Q_1(x; c)$ for $c$ near $c_0$, we take the following additional hypothesis.
 
 \begin{hypothesis}\label{hyp:transverse}
 The stable manifold $\tilde{W}^s(0; c_0)$ and the unstable manifold $\tilde{W}^u(0; c_0)$ intersect transversely in $H^{-1}(0; c_0)$ at $Q_1(0; c_0)$.
@@ -550,7 +533,7 @@ In this section, we prove the existence of periodic multi-pulse solutions to \cr
 \end{figure}
 
 A periodic $n$-pulse can be described by the $n$ pulse distances $X_0, X_1, \dots, X_{n-1}$.
-The distances between consecutive pulses is $2X_i$, as shown in \cref{fig:permultipulse}. 
+The distances between consecutive pulses are $2X_i$, as shown in \cref{fig:permultipulse}. 
 The period of the orbit is $2X$, where $X = X_0 + \dots + X_{n-1}$. A periodic $n$-pulse requires one more length parameter than an $n$-pulse on the real line, since we need one more connection to ``close the loop''.  Rather than describing a periodic multi-pulse by the ``physical'' pulse distances $X_i$, we will use a parameterization which is more mathematically convenient and captures the underlying geometry necessary for a periodic $n$-pulse to exist. This parameterization is an adaptation of that in \cite{SandstedeStrut,Sandstede1998} to the periodic case. Let
 \begin{equation}\label{defrho}
 \rho = \frac{\beta_0}{\alpha_0}, \quad p^* = \arctan \rho,
@@ -570,10 +553,10 @@ For $n \geq 2$, a \emph{periodic parameterization} of a periodic $n$-pulse is a 
 \end{definition}
 \noi The selection of $m_{n-1}$ as the largest of the nonnegative integers $m_i$ is made for convenience of notation, and to allow the periodic parameterization to be unique. Since we are on a periodic domain, there is no loss of generality. The physical pulse distances $X_i$ are determined by the periodic parameterization and by the scaling parameter $r$. If $r = \exp\left(-\frac{2 m \pi}{\rho}\right)$, then
 \begin{align*}
-X_i &= \frac{1}{2 \beta_0}\big( (2 m + m_i)\pi + \theta^*(\theta; m_{n-1} - m_i)\big) + L_0 \qquad\qquad i = 0, \dots, n-2  \\
-X_{n-1} &= \frac{1}{2 \beta_0}\big( (2 m + m_{n-1})\pi + \theta \big) + L_0,
+X_i &= \frac{1}{2 \beta_0}\big( (2 m + m_i)\pi + \theta^*(\theta; m_{n-1} - m_i)\big) + \tilde{L} \qquad\qquad i = 0, \dots, n-2  \\
+X_{n-1} &= \frac{1}{2 \beta_0}\big( (2 m + m_{n-1})\pi + \theta \big) + \tilde{L},
 \end{align*}
-where $L_0$ is a constant. 
+where $\tilde{L}$ is a constant. 
 The functions $\theta^*(\theta; m): [-\pi + p^*, p^*] \rightarrow \R$ are defined for all nonnegative integers $m$, are continuous in $\theta$, and have the following properties:
 \begin{enumerate}[(i)]
 \item $\theta^*(0; m) = 0 \text{ for all } m$.
@@ -599,15 +582,15 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 For any $r \in \mathcal{R}$ with $r \leq r_*$, there exists a periodic $n$-pulse solution $U(x) = U(x; m_0, \dots, m_{n-1}, \theta, r)$ to \cref{genODE}. The distances between consecutive copies of $Q_1(x)$ in $U(x)$ are given by $2X_i$, where the pulse distances $X_i$ are
 \begin{equation}\label{Xi}
 \begin{aligned}
-	X_i(r; m_i, m_{n-1},\theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_i(r; m_i,m_{n-1}, \theta) + L_0 &&\qquad i = 0, \dots, n-2 \\
-	X_{n-1}(r; m_{n-1}, \theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2 \beta_0}\big( m_{n-1}\pi + \theta \big) + L_0.
+	X_i(r; m_i, m_{n-1},\theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_i(r; m_i,m_{n-1}, \theta) + \tilde{L} &&\qquad i = 0, \dots, n-2 \\
+	X_{n-1}(r; m_{n-1}, \theta) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2 \beta_0}( m_{n-1}\pi + \theta ) + \tilde{L}.
 \end{aligned}
 \end{equation}
 The functions $t_i(r; m_i, m_{n-1}, \theta): \mathcal{R} \rightarrow \R$ are continuous in $r$ with 
 \[
 t_i(0; m_i, \theta) = m_i \pi + \theta^*(\theta; m_{n-1} - m_i) = m_i \pi + \mathcal{O}\left( e^{-\frac{\pi}{\rho}(m_{n-1} - m_i)} \right),
 \]
-and $L_0$ is a constant. Estimates for $U(x)$ in terms of the primary pulse $Q_1(x)$ are given below in \cref{solvewithjumps}.
+and $\tilde{L}$ is a constant. Estimates for $U(x)$ in terms of the primary pulse $Q_1(x)$ are given below in \cref{solvewithjumps}.
 \end{theorem}
 
 \begin{remark}
@@ -616,16 +599,14 @@ These are single-loop periodic orbits which lie close to the primary homoclinic 
 \end{remark}
 
 The condition that $\theta \notin \{-\pi + p^*, p^* \}$ in \cref{th:perexist} is used to avoid bifurcation points which arise in the construction. For periodic 2-pulses, we can use the symmetry of the solutions and the reversibility of the system to give a complete bifurcation picture. In the next theorem, we show that for periodic 2-pulses, asymmetric solutions ($X_0 \neq X_1$) bifurcate from symmetric solutions ($X_0 = X_1$) in a series of pitchfork bifurcations (\cref{fig:KdV5periodicMP}, center panel). 
-\revised{
 The symmetric 2-pulse solutions ($X_0 = X_1$) correspond to periodic single-pulse solutions with the period $2X_0$ repeated twice.
-}
 The parameterization in \cref{2pulsebifurcation}, which is shown in \cref{fig:2pitch}, is different from that in \cref{th:perexist}. The proof is given in \cref{sec:existproof}. 
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=9cm]{images/2pitchparam}
 \end{center}
-\caption[Parameterization for periodic 2-pulses]{Parameterization for periodic 2-pulses (left panel). Red dashed line represents symmetric periodic 2-pulses, and blue solid line represents asymmetric periodic 2-pulses. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
+\caption[Parameterization for periodic 2-pulses]{Parameterization for periodic 2-pulses. Red dashed line represents symmetric periodic 2-pulses, and blue solid line represents asymmetric periodic 2-pulses. Parameters $s_0$ and $s_1$ increase in the direction of the arrow.}
 \label{fig:2pitch}
 \end{figure} 
 
@@ -634,16 +615,16 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 \begin{enumerate}[(i)]
 	\item There exists a family of symmetric periodic 2-pulses $\tilde{Q}_2(x; m_0, s_0, r)$ parameterized by $s_0 \in [0, \pi)$. The pulse distances $\tilde{X}_i$ are given by
 	\begin{equation}\label{2psymmdist}
-		\tilde{X}_0(r, s_0) = \tilde{X}_1(r, s_0) = \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} (m_0 \pi + s_0) + L_0.
+		\tilde{X}_0(r, s_0) = \tilde{X}_1(r, s_0) = \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} (m_0 \pi + s_0) + \tilde{L}.
 	\end{equation}
 	\item There exists a family of asymmetric periodic 2-pulses $Q_2(x; m_0, s_1, r)$ with pulse distances $X_1 > X_0$ parameterized by $s_1 \in [p^*, \infty)$. The pulse distances $X_i$ are given by
 	\begin{equation}\label{2pasymmdist}
 	\begin{aligned}
-		X_0(r, m_0, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_0(r; m_0, s_1) + L_0 \\
-		X_1(r, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} s_1 + L_0, 
+		X_0(r, m_0, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} t_0(r; m_0, s_1) + \tilde{L} \\
+		X_1(r, s_1) &= \frac{1}{2 \alpha_0} |\log r| + \frac{1}{2\beta_0} s_1 + \tilde{L}, 
 	\end{aligned}
 	\end{equation}
-	where $L_0$ is a constant, $t_0(r; m_0, s_1)$ is continuous in $r$ and $s_1$, $t_0(0; m_0, k \pi) = m_0 \pi$ for all nonnegative integers $k$, and 
+	where $\tilde{L}$ is a constant, $t_0(r; m_0, s_1)$ is continuous in $r$ and $s_1$, $t_0(0; m_0, k \pi) = m_0 \pi$ for all nonnegative integers $k$, and 
 	\begin{align}\label{t0est}
 	t_0(0; m_0, s_1) = m_0 \pi + \mathcal{O}\left(e^{-\frac{1}{\rho} s_1 }\right).
 	\end{align}
@@ -681,10 +662,10 @@ V'(x) &= A(Q_n(x))V(x) + \lambda B V(x) \\
 V(-X) &= V(X),
 \end{aligned}
 \end{equation}
-where $V(x) \in C^0(\R,\C^{2m+1})$. In next lemma, we show that for small $\lambda$, \revised{the constant matrix $A(0) + \lambda B$} has a simple eigenvalue $\nu(\lambda)$ near 0.
+where $V(x) \in C^0(\R,\C^{2m+1})$. In next lemma, we show that for small $\lambda$, the constant matrix $A(0) + \lambda B$ has a simple eigenvalue $\nu(\lambda)$ near 0.
 
 \begin{lemma}\label{nulambdalemma}
-There exists $\delta_1 > 0$ such that for $|\lambda| < \delta_1$, the matrix \revised{$A(0) + \lambda B$} has a simple eigenvalue $\nu(\lambda)$. Furthermore, $\nu(\lambda)$ is smooth in $\lambda$, $\nu(0) = 0$, $\nu'(0) = 1/c$, and for $|\lambda| < \delta_1$,
+There exists $\delta_1 > 0$ such that for $|\lambda| < \delta_1$, the matrix $A(0) + \lambda B$ has a simple eigenvalue $\nu(\lambda)$. Furthermore, $\nu(\lambda)$ is smooth in $\lambda$, $\nu(0) = 0$, $\nu'(0) = 1/c$, and for $|\lambda| < \delta_1$,
 \begin{equation}\label{nulambda}
 \nu(\lambda) = \frac{1}{c} \lambda + \mathcal{O}(|\lambda|^3).
 \end{equation}
@@ -694,7 +675,7 @@ Let $p(\nu; \lambda)$ be the characteristic polynomial of $A(0) + \lambda B$. Si
 \end{proof}
 \end{lemma}
 
-We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allow us to find the PDE eigenvalues near the origin. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix. The proof is given in \cref{sec:blockmatrixproof}.
+We can now state the main theorem of this section, which provides a condition for \cref{PDEeigsystemper3} to have a solution. Since the spatial dynamics formulation \cref{PDEeigsystemper3} is equivalent to the PDE eigenvalue problem, this allows us to find the PDE eigenvalues near the origin. This theorem is analogous to \cite[Theorem 2]{Sandstede1998}, with the $n\times n$ matrix in that theorem replaced by a $2n\times 2n$ block matrix. The proof is given in \cref{sec:blockmatrixproof}.
 
 % block matrix theorem
 \begin{theorem}\label{blockmatrixtheorem}
@@ -702,7 +683,7 @@ Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, a
 \begin{equation}\label{blockmatrixcond}
 \det E(\lambda) = 0,
 \end{equation}
-where \revised{$E(\lambda)$ is the $2n \times 2n$ block matrix}
+where $E(\lambda)$ is the $2n \times 2n$ block matrix
 \begin{equation}\label{blockeq}
 E(\lambda) = 
 \begin{pmatrix}
@@ -732,7 +713,7 @@ e^{-\nu(\lambda)X_1} & & & & & -e^{\nu(\lambda)X_0} \\
 \end{align*}
 where $\nu(\lambda)$ is defined in \cref{nulambdalemma}. $K^+(\lambda)$ is the same matrix with all terms positive.
 
-\item \revised{$S$ is the symmetric banded matrix}
+\item $S$ is the symmetric banded matrix
 \begin{align}\label{Asymm}
 S &= \begin{pmatrix}
 -a_1 - a_0 & a_1 + a_0 \\
@@ -792,15 +773,15 @@ In addition, $\det E(-\lambda) = -\det E(\lambda)$, and
 \begin{equation}\label{1pblockmatrixdet}
 \begin{aligned}
 \det E(\lambda) &= \lambda^2 \Big( 2 M \sinh(\nu(\lambda)X)(1 + \mathcal{O}(|\lambda| + r^{1/2} )) + \lambda(M \tilde{M} + M_c^2 )\cosh(\nu(\lambda)X) \\
-&\qquad+ \mathcal{O}\left(|\lambda|(|\lambda| + r^{1/2} )\right) \Big).
+&\qquad+ \mathcal{O}(|\lambda|(|\lambda| + r^{1/2} )) \Big).
 \end{aligned}
 \end{equation}
 \end{lemma}
 
-\noi Using this lemma, we can compute the nonzero essential spectrum eigenvalues for the periodic single pulse.
+\noi Using this lemma, we can compute the nonzero essential spectrum eigenvalues close to the origin for the periodic single pulse. We emphasize that this does not locate all of the essential spectrum eigenvalues, but only those near the origin, i.e. those of sufficiently small magnitude.
 
 \begin{theorem}\label{theorem:1pess}
-Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_1$ and $\delta$ be as in \cref{blockmatrixtheorem}. Then there exists $r_2 \leq r_1$ such that for any $r \in \mathcal{R}$ with $r \leq r_2$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $N c \pi/X < \delta$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
+Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_1$ and $\delta$ be as in \cref{blockmatrixtheorem}. Then there exists $r_2 \leq r_1$ such that for any $r \in \mathcal{R}$ with $r \leq r_2$, the following holds regarding the nonzero essential spectrum eigenvalues. Let $N$ be any positive integer such that $N c \pi/X < \delta$. Then the first $2N$ nonzero essential spectrum eigenvalues are given by $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{1pess}
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X} \left( \frac{1}{1 + c \frac{M\tilde{M} + M_c^2 }{2 M X}}\right) +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
@@ -864,7 +845,7 @@ We will first consider the case where the interaction eigenvalues are ``out of t
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Let $r_1$ and $\delta$ be as in \cref{blockmatrixtheorem}. Then for every $m_0 \in \{0, 1\}$ and $s_1 > p^*$ there exists $r_2 = r_2(m_0, s_1) \leq r_1$ such that for any $r \in \mathcal{R}$ with $r \leq r_2$, the following hold regarding the spectrum associated with the asymmetric periodic 2-pulse $Q_2(x; m_0, s_1, r)$.
 
 \begin{enumerate}[(i)]
-\item Let $N$ be any positive integer such that $N c \pi/X < \delta$. Then there are $2N$ nonzero essential spectrum eigenvalues $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
+\item Let $N$ be any positive integer such that $N c \pi/X < \delta$. Then the first $2N$ nonzero essential spectrum eigenvalues are given by $\lambda = \{ \pm \lambda_m^{\text{ess}} : m = 1, \dots, N \}$, where
 \begin{align}\label{2pess}
 \lambda_m^{\text{ess}}(r) = c \frac{m \pi i}{X}\left( \frac{1}{1 + c \frac{M\tilde{M} + M_c^2}{MX}} \right) +  \mathcal{O}\left( \frac{m^3}{|\log r|^3} \right)
 \end{align}
@@ -874,7 +855,7 @@ is on the imaginary axis.
 \begin{align*}
 \lambda^{\text{int}}(r) = \sqrt{-\frac{2a}{M}} + \mathcal{O}\left( r \right),
 \end{align*}
-$a$ is defined in \cref{2pa} and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambda_1^{\text{ess}}(r)|$. These are real when $m_0 = 0$ and purely imaginary when $m_0 = 1$.
+$a$ is defined in \cref{2pa}, and $|\lambda^{\text{int}}(r)| < \frac{1}{2}|\lambda_1^{\text{ess}}(r)|$. These are real when $m_0 = 0$ and purely imaginary when $m_0 = 1$.
 \item There is an eigenvalue at 0 with algebraic multiplicity 3. 
 % \item There are no other eigenvalues inside a circle with radius slightly larger than $|\lambda_{N}^{\text{ess}}(r)|$.
 \end{enumerate}
@@ -897,7 +878,7 @@ Finally, we consider what happens when an essential spectrum eigenvalue collides
 Assume Hypotheses \ref{hyp:E}, \ref{hyp:H}, \ref{hyp:hypeq}, \ref{Qexistshyp}, and \ref{hyp:transverse}, and \ref{hyp:dccpos}. Choose $m_0 = 1$, and let $r_1$ be as in \cref{blockmatrixtheorem}. Let 
 \begin{align}\label{deflambdastar}
 \lambda_*(r) &= \sqrt{ \frac{-2a(r) - R_1 }{M} } = \sqrt{ \frac{-2a(r)}{M} } + \mathcal{O}(r),
-\end{align},
+\end{align}
 where $R_1$ is defined in \cref{lemma:2blockmatrix}, and let $Q_2^*(x; r)$ be the periodic 2-pulse solution from \cref{2pulsebifurcation} with domain size $X = X_*(r)$, where
 \begin{align}\label{defXstar}
 X_*(r) &= c \left( \frac{\pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right).
@@ -919,9 +900,13 @@ Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \
 
 	\item For
 	\[
-	s = s_\pm(r) = \pm \sqrt{T_1(r)}\left( 1 +  \mathcal{O}\left(\frac{1}{|\log r} \right) \right),
+	s = s_\pm(r) = \pm \sqrt{T_1(r)}\left( 1 +  \mathcal{O}\left(\frac{1}{|\log r|} \right) \right),
 	\]
-	there is a double eigenvalue on the imaginary axis at $\lambda = \lambda_*(r) + s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right)$, which occurs when 
+	there is a double eigenvalue on the imaginary axis at 
+    \[
+    \lambda = \lambda_*(r) + s_\pm(r) i + \mathcal{O}\left(\frac{1}{|\log r|} \right),
+    \]
+    which occurs when 
 	\begin{equation}\label{KreinDeltaX}
 	X(s, r) = X_*(r) \pm \Delta X(r) + \mathcal{O}(s^2), \qquad \Delta X(r) = \frac{2 c \pi}{|\lambda_*(r)|^2}\sqrt{T_1(r)}.
 	\end{equation}
@@ -935,7 +920,7 @@ Then there exists $r_2 \leq r_1$ such that for all $r \in \mathcal{R}$ with $r \
 \begin{remark}\label{remark:kreinbubbles}
 It is straightforward to adapt \cref{th:Kreinbubble} to locate subsequent Krein bubbles. For any positive integer $N$, there exists $r_2 = r_2(N)$ with $r_2 \leq r_1$ such that for $r \leq r_2$ and $m = 1, \dots, N$, a Krein bubble occurs when the $m$-th essential spectrum eigenvalue collides with the interaction eigenvalue on the imaginary axis. The radius of $m$-th Krein bubble in the complex plane is approximately $\sqrt{T_1(r) / m}$, and the Krein collisions occur at approximately $X = X^m_*(r) \pm \Delta X^m(r)$, where 
 \begin{equation}\label{eq:Kreinradiusm}
-X^m_*(r) = c \left( \frac{m \pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right), \qquad \Delta X^m(r) = \sqrt{m} \Delta X_1(r).
+X^m_*(r) = c \left( \frac{m \pi i}{\lambda_*(r)} - \frac{M \tilde{M} + M_c^2 }{M}\right), \qquad \Delta X^m(r) = \sqrt{m} \Delta X(r).
 \end{equation}
 Note that this requires $N$ to be chosen first, and $r_2$ depends on $N$. See \cref{sec:conclusions} for a discussion on what occurs with subsequent Krein bubbles when $r$ is fixed.
 \end{remark}
@@ -989,7 +974,7 @@ If $p$ and $c$ in \cref{KdV5eq4} are related by
 \begin{align}\label{KdVpabc}
 p &= -2(a-b), \quad c = (a+b)^2 && a, b > 0,
 \end{align}
-then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid but do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding to the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that that AUTO converges for both the existence and eigenvalue problems. 
+then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. Choosing $a = 0.25$ and $b = 3$, so that the tail oscillations of the primary pulse are sufficiently rapid but do not decay too quickly, we can construct the first four periodic double pulses with $m_0 = 1$, together with the eigenfunctions corresponding to the imaginary interaction eigenvalue, to a sufficient degree of accuracy so that AUTO converges for both the existence and eigenvalue problems. 
 \cref{fig:kreinerrors} plots the log of the absolute error of the Krein bubble radius in the complex plane ($\sqrt{T_1}$ from \cref{defT0}) and the log of the absolute error of the Krein bubble size in $X$ ($\Delta X$ from \cref{KreinDeltaX}) versus $\alpha_0 X_0$. The slopes of the least squares linear regression lines suggest that the Krein bubble radius in the complex plane is given by $\sqrt{T_1} + \mathcal{O}(e^{-3 \alpha_0 X_0})$ and that the Krein bubble radius in $X$ is given by $\Delta X + \mathcal{O}(e^{-\alpha_0 X_0})$, with relative errors in the exponent less than 0.01 and 0.03 (respectively). The leading order terms agree with \cref{th:Kreinbubble}, while the error term is higher order than predicted. The results for subsequent Krein bubbles discussed in \cref{remark:kreinbubbles} can similarly be verified numerically.
 
 \begin{figure}
@@ -997,22 +982,18 @@ then the eigenvalues of $DF(0)$ are the quartet $\pm \sqrt{a} \pm \sqrt{b} i$. C
 \includegraphics[width=8cm]{images/KreinRadiusError.eps}
 \includegraphics[width=8cm]{images/KreinRadiusXError.eps}
 \end{center}
-\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) vs. $\alpha_0 X_0$ with least-square linear regression lines for first four double pulses with $m_0 = 1$. Slopes of regression lines -3.0319 (left) and -1.0332 (right). Parameters $a = 0.25$ and $b = 3$ in \cref{KdVpabc}, which corresponds to $p = 5.5$and $c = 10.5625$.
+\caption{Plot of log of absolute error for Krein bubble radius in the complex plane (left panel) and Krein bubble size in $X$ (right panel) vs. $\alpha_0 X_0$, with least squares linear regression lines for first four periodic double pulses with $m_0 = 1$. Slopes of regression lines -3.0319 (left) and -1.0332 (right). Parameters $a = 0.25$ and $b = 3$ in \cref{KdVpabc}, which corresponds to $p = 5.5$and $c = 10.5625$.
 }
 \label{fig:kreinerrors}
 \end{figure}
 
-\revised{
 Finally, we present results of numerical timestepping experiments to illustrate the effects of the Krein bubble on the PDE dynamics of perturbations of periodic double pulses. Let $u_1(x)$ be the periodic single pulse solution to \cref{KdV5eq4}. The initial condition for the timestepping is the sum of two well-separated copies of the periodic single pulse,
 \begin{equation}\label{eq:timestepIC}
 u(x) = u_1(x-L) + u_1(x+L).
 \end{equation}
-The two pulses are separated by a distance $2L$, which is chosen to be close to the pulse separation distance $2 L_0$ for a periodic double pulse. Timestepping was performed using a pseudo-spectral method for spatial discretization and a fourth-order Runge-Kutta method for time evolution, as in \cite{Pelinovsky2007}. High frequency oscillations resulting from large essential spectrum eigenmodes were damped using a lowpass filter.
-}
+The two pulses are separated by a distance $2L$, which is chosen to be close to the pulse separation distance for a periodic double pulse. Timestepping was performed using a pseudo-spectral method for spatial discretization and a fourth-order Runge-Kutta method for time evolution, as in \cite{Pelinovsky2007}. High frequency oscillations resulting from large essential spectrum eigenmodes were damped using a lowpass filter.
 
-\revised{
 The top panel of \cref{fig:timestepbubble} plots phase portraits $(L, dL/dt)$ for two different parameter configurations (see \cite[Figure 10]{Pelinovsky2007} for similar phase portraits). Neutrally stable periodic double pulses ($m_0$ odd) are marked with a black dot, and unstable periodic double pulses ($m_0$ even) are marked with black X. The top left panel of \cref{fig:timestepbubble} is the phase portrait corresponding to a parameter configuration outside the Krein bubble. The interaction eigenvalues for both periodic doubles pulses with $m_0$ odd are purely imaginary. These correspond to neutrally stable centers in the phase portrait, and the frequency of oscillation about these equilibria is within 5\% of the imaginary part of the corresponding interaction eigenvalue. The interaction eigenvalue for the periodic double pulse with $m_0$ even is real, which corresponds to an unstable saddle equilibrium in the phase portrait. The top right panel of \cref{fig:timestepbubble} is the phase portrait corresponding to a parameter configuration inside the Krein bubble. Since the interaction eigenvalue for the first periodic double pulse (leftmost equilibrium point) has a small, positive real part, trajectories starting near this unstable equilibrium slowly spiral outward (\cref{fig:timestepbubble}, bottom left). The average frequency of these oscillations is 0.2380, which is within 5\% of the imaginary part of the Krein bubble eigenvalue, and the exponential growth rate of the maxima of this solution (\cref{fig:timestepbubble}, bottom right) is 0.0119, which is within 5\% of the real part of the Krein bubble eigenvalue.
-}
 
 \begin{figure}
 \begin{center}
@@ -1023,8 +1004,7 @@ The top panel of \cref{fig:timestepbubble} plots phase portraits $(L, dL/dt)$ fo
 \includegraphics[width=8cm]{images/phase36growth.eps}
 \end{tabular}
 \end{center}
-\caption{\revised{Phase plane showing $dL/dt$ vs. $L$ for timestepping simulations, where the two peaks are separated by a distance $2L$. Top left (outside Krein bubble): parameters $p=1.1$ and $c=2.1025$, domain size $X=40$, and interaction eigenvalues $0.1120i$, $0.0384$, and $0.0134i$ (from left to right). Top right (inside Krein bubble), parameters $p=1.7$ and $c=2.7225$, domain size $X=36$, and interaction eigenvalues $0.0124 + 0.2498i$, $0.0968$, and $0.0398i$ (from left to right). Bottom left: $L-L_0$ vs. $t$ for solution starting near leftmost equilibrium point in top right phase portrait. Bottom right: $\log(L-L_0)$ vs. $t$ at maxima of this solution.}
-}
+\caption{Phase plane showing $dL/dt$ vs. $L$ for timestepping simulations, where the two peaks are separated by a distance $2L$. Top left (outside Krein bubble): parameters $p=1.1$ and $c=2.1025$, domain size $X=40$, and interaction eigenvalues $0.1120i$, $0.0384$, and $0.0134i$ (from left to right). Top right (inside Krein bubble), parameters $p=1.7$ and $c=2.7225$, domain size $X=36$, and interaction eigenvalues $0.0124 + 0.2498i$, $0.0968$, and $0.0398i$ (from left to right). Bottom left: $L-L_0$ vs. $t$ for solution starting near leftmost equilibrium point in top right phase portrait, where the two peaks in the unperturbed periodic double pulse are separated by a distance $2 L_0$. Bottom right: $\log(L-L_0)$ vs. $t$ at maxima of this solution.}
 \label{fig:timestepbubble}
 \end{figure}
 
@@ -1046,7 +1026,7 @@ To show that $\partial_c Q(x; c)$ is exponentially localized, we reformulate equ
 \begin{equation}\label{defQZ}
 Q(x; c) = Z(x; c) e^{-(\alpha_0 - \epsilon)r(x)},
 \end{equation}
-where $r(x) = \eta(x) * |x|$ is smooth, and for $|x| > 1$, $r(x) = |x|$ and $r'(x) = 1$. Substituting \cref{defQZ} into \cref{Qcprime} and simplifying, we obtain the weighted equation
+where $r(x) = \eta(x) * |x|$ is smooth, and for $|x| > 1$, $r(x) = |x|$ and $r'(x) = \pm 1$. Substituting \cref{defQZ} into \cref{Qcprime} and simplifying, we obtain the weighted equation
 \begin{equation}\label{Zcprime}
 [\partial_c Z(x; c)]' = [D_U F(Q(x;c); c) + (\alpha_0 - \epsilon) r'(x) ] Z(x; c) - e^{(\alpha_0 - \epsilon)r(x)} B Q(x;c),
 \end{equation}
@@ -1081,7 +1061,7 @@ and that there exists a unique bounded solution $\Psi(x)$ to the adjoint variati
 \begin{equation}\label{adjvareq1}
 W' = -DF(Q(x))^* W.
 \end{equation}
-(In both cases, uniqueness is up to scalar multiple). Since we have a conserved quantity $H$, the following lemma gives the exact form of $\Psi(x)$.
+(In both cases, uniqueness is up to scalar multiple.) Since we have a conserved quantity $H$, the following lemma gives the exact form of $\Psi(x)$.
 
 \begin{lemma}\label{psiform}
 $\Psi(x) = \nabla H(Q(x))$, where $H$ is the conserved quantity from \cref{hyp:H}. In addition, $\Psi(-x) = R \Psi(x)$, where $R$ is the standard reversor operator, and the last component of $\Psi(x)$ is $q'(x)$.
@@ -1219,7 +1199,7 @@ Since $DF(0)$ is hyperbolic by \cref{hyp:hypeq}, and $|\Re \nu| \geq \alpha_0$ f
 
 Next, we formulate equation \cref{exsystem1} as a fixed point problem. Substituting the piecewise ansatz \cref{Upiecewise} into \cref{exsystem1}, and using the fact that $Q^\pm(x; \beta_i^\pm)$ solves \cref{exsystem1} on $\R^\pm$,
 \begin{align*}
-(\tilde{Q}_i^\pm(x))' &= F\left(Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x) \right) - F(Q^\pm(x; \beta_i^\pm)) && i = 0, \dots, n-1.
+(\tilde{Q}_i^\pm(x))' &= F(Q^\pm(x; \beta_i^\pm) + \tilde{Q}_i^\pm(x)) - F(Q^\pm(x; \beta_i^\pm)) && i = 0, \dots, n-1.
 \end{align*}
 Expanding the RHS in a Taylor series about $Q^\pm(x; \beta_i^\pm)$, this becomes
 \begin{align}\label{Vpiecewise1}
@@ -1276,14 +1256,14 @@ The third term is similarly bounded. Thus the RHS of the fixed point equation \c
 H_i^+(\tilde{Q}_i^+(x), &a_i^+, \beta_i^+) = \tilde{Q}_i^+(x) - \Phi^u_+(x, X_i; \beta_i^+) a_i^+ - \int_{X_i}^x \Phi_+^u(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy \\
 &- \int_0^x \Phi_+^s(x, y; \beta_i^+) G_i^+(y; \beta_i^+)dy.
 \end{align*}
-Since $Q(x)$ satisfies \cref{genODE}, $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \cref{FPequations}, since the remaining terms are are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from \cref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
+Since $Q(x)$ satisfies \cref{genODE}, $H_i^+(0, 0, 0) = 0$, and since $G_i^+$ is quadratic in $\tilde{Q}_i^+(x)$, the Fr\'echet derivative of $H_i^+$ with respect to $\tilde{Q}_i^+(x)$ at $(\tilde{Q}_i^+(x), a_i^+, \beta_i^+) = (0, 0, 0)$ is the identity. Using the implicit function theorem, we can solve for $\tilde{Q}_i^+(x)$ in terms of $(a_i^+, \beta_i^+)$ for sufficiently small $|a_i^+|$ and $|\beta_i^+|$. Since the map $H_i^+$ is smooth, this dependence is smooth. The estimate on $\tilde{Q}_i^+$ comes from the first term on the RHS of \cref{FPequations}, since the remaining terms are quadratic in $\tilde{Q}_i^+$. Since the exponential dichotomy estimates from \cref{dichotomy1} hold for derivatives with respect to $\beta_i^+$, these estimates do as well. We can similarly solve for $\tilde{Q}_i^-$ in terms of $(a_{i-1}^-, \beta_i^-)$.
 \end{proof}
 \end{lemma}
 
 Next, we will solve equation \cref{exsystem2} to match the pieces \cref{Upiecewise} at $\pm X_i$ and obtain the initial conditions $a_i^\pm$.
 
 \begin{lemma}\label{solvefora}
-For $X_i$ chosen as in \cref{solveforV}, and for $i = 0, \dots, n-1$, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
+For $X_i$ chosen as in \cref{solveforV}, and for $i = 0, \dots, n-1$, there is a unique pair of initial conditions $(a_i^+, a_i^-) \in E_0^s \times E_0^u$ such that $U_i^+(X_i) - U_{i+1}^-(-X_i) = 0$. The pair $(a_i^+, a_i^-)$ depends smoothly on $(\beta_i^+, \beta_{i+1}^-)$, and we have the estimate
 \begin{equation}\label{aest}
 |a_i^\pm| \leq C e^{-\alpha X_i},
 \end{equation}
@@ -1291,7 +1271,7 @@ which holds as well for derivatives with respect to $\beta_i^\pm$. In addition,
 \begin{equation}\label{aiformula}
 \begin{aligned}
 a_i^+ &= -P^u_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}( e^{-2 \alpha X_i} ) \\
-a_i^- &= P^s_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}\left( e^{-2 \alpha X_i} \right).
+a_i^- &= P^s_0 \left( Q^+(X_i; \beta_i^+) - Q^-(-X_i; \beta_{i+1}^-) \right) + \mathcal{O}( e^{-2 \alpha X_i}).
 \end{aligned}
 \end{equation}
 
@@ -1575,7 +1555,7 @@ Now that we have located the pitchfork bifurcations, we will construct a natural
 is in the zero set of $H$. We will use these points to anchor our parameterization, and will use a phase parameter $\theta$ to connect these anchor points. 
 
 \begin{lemma}\label{thetaparamlemma}
-For any nonnegative integers $m_0$, $m_1$ with $m_1 \geq m_0$, there is a smooth family of solutions
+For any nonnegative integers $m_0$ and $m_1$ with $m_1 \geq m_0$, there is a smooth family of solutions
 \begin{align*}
 \left( b_0( m_0, m_1, \theta), b_1( m_0, m_1, \theta) \right) && \theta \in [-\pi + p^*, p^*]
 \end{align*}
@@ -1686,7 +1666,7 @@ For the periodic 2-pulse, we have a single jump condition
 \begin{equation}\label{2pulsedefG}
 G(b_0, b_1, r) = b_0 \sin \left( -\rho \log b_0 \right) - b_1 \sin \left( -\rho \log b_1 \right) + \mathcal{O}(r^{\gamma / 2 \alpha}) = 0.
 \end{equation}
-First, we will show that that the pitchfork bifurcations along the diagonal persist for small $r$. Recall that by \cref{def:perparam}, $m_0 \in \{0, 1\}$ for a periodic 2-pulse.
+First, we will show that the pitchfork bifurcations along the diagonal persist for small $r$. Recall that by \cref{def:perparam}, $m_0 \in \{0, 1\}$ for a periodic 2-pulse.
 
 \begin{lemma}\label{pitchpersist}
 There exists $r_2 > 0$ such that for $m_0 \in \{0, 1\}$ and $r \leq r_2$, there is a non-degenerate pitchfork bifurcation in the zero set of $G(b_0, b_1, r)$ at $(b_{m_0}^*(r),b_{m_0}^*(r))$, and 
@@ -1804,7 +1784,7 @@ Since the periodic parameterization $(m_0, \dots, m_{n-1}, \theta)$ is fixed,
 The conjugation lemma allows us to make a smooth change of coordinates to convert certain linear ODEs of the form $W'(x) = A(x) W(x)$ into a constant coefficient system. The statement of the lemma is identical to that in \cite{Zumbrun2009}, except that the parameter vector $\Lambda$ here lives in an arbitrary Banach space. The proofs of \cref{conjlemma} and \cref{corr:adjconj} are straightforward modifications of the proof of \cite[Corollary 2.3]{Zumbrun2009}.
 
 % Conjugation lemma
-\begin{lemma}[Conjugation Lemma]\label{conjlemma}
+\begin{lemma}[Conjugation lemma]\label{conjlemma}
 Let $V \in \C^N$, and consider the family of ODEs on $\R$
 \begin{equation}\label{EVPconj}
 V(x)' = A(x; \Lambda) V(x) + F(x),
@@ -1868,9 +1848,10 @@ By a straightforward adaptation of the proof of the conjugation lemma in \cite{Z
 
 Let $E^{u/s/c}(0)$ be the stable, unstable, and center eigenspaces of $A(0)$, and $P^{u/s/c}(0)$ be their respective eigenprojections. Let $E^{u/s/c}(\lambda)$ and $P^{u/s/c}(\lambda)$ be the corresponding eigenspaces and eigenprojections for $A(0; \lambda)$, which are smooth in $\lambda$. $E^s(\lambda)$ and $E^u(\lambda)$ are $m$-dimensional, and $E^c(\lambda)$ is 1-dimensional. In the next lemma, we collect some useful results about $A(0; \lambda)$.
 
-\begin{lemma}\label{lemma:Afacts}\leavevmode
+\begin{lemma}\label{lemma:Afacts}
+We have the following results concerning $A(0; \lambda)$.
 \begin{enumerate}[(i)]
-	\item $A(-\lambda) = -R A(0; \lambda)R$, where $R$ is the standard reversor operator. In particular, $A(0) = -R A(0)R$.
+	\item $A(0; -\lambda) = -R A(0; \lambda)R$, where $R$ is the standard reversor operator. In particular, $A(0) = -R A(0)R$.
 	\item If $V$ is an eigenvector of $A(0)$ corresponding to eigenvalue $\mu$, then $RV$ is an eigenvector of $A(0)$ corresponding to eigenvalue $-\mu$, and $\overline{V}$ is an eigenvector of $A(0)$ corresponding to eigenvalue $\overline{\mu}$. 
 	\item Let $P^{c,*}(0)$ be the center eigenprojection of $-A(0)^*$. Then $P^{c,*}(0) = [P^c(0)]^*$. 
 	\item Let $P^{s,*}(0)$ and $P^{u,*}(0)$ be the stable and unstable eigenprojections of $-A(0)^*$. Then $P^{s,*}(0) = [P^u(0)]^*$ and $P^{u,*}(0) = [P^s(0)]^*$
@@ -1977,7 +1958,7 @@ For convenience, let $Y(x) = \partial_\lambda \tilde{V}^+(x; 0)$. Using the expo
 \begin{aligned}
 Y(x) &= \tilde{\Phi}^{s,+}(x,0; 0)Y_0^s 
 + \int_0^x \tilde{\Phi}^{s,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy \\
-&+ \int_{\infty}^x \tilde{\Phi}^{u,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy + V^c(x) \int_{\infty}^x \langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \rangle dy.
+&+ \int_{\infty}^x \tilde{\Phi}^{u,+}(x,y; 0)\left( B - \frac{1}{c}I \right) V^c(y) dy + V^c(x) \int_{\infty}^x \left\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \right\rangle dy.
 \end{aligned}
 \end{equation}
 Using the estimates \cref{stdtrichbounds}, the first and second integrals are finite for all $x$ since $V^c(x)$ is bounded. To prove that \cref{Yintegform} is a valid expression for $Y(x)$, it remains to show that the third integral is finite for all $x$. Using the expression for $V^c(x)$ from \cref{varadjsolutions}, 
@@ -1986,7 +1967,7 @@ Using the estimates \cref{stdtrichbounds}, the first and second integrals are fi
 \]
 where $v^c(x)$ is the first component of $V^c(y)$. Since $|V^c(y) - V_0|\leq C e^{-\alpha y}$, and the first component of $V_0$ is $1/c$, 
 \begin{align*}
-\left| \int_{-\infty}^x \left\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \right\rangle dy \right| 
+\left| \int_{\infty}^x \left\langle W_0, \left( B - \frac{1}{c}I \right) V^c(y) \right\rangle dy \right| 
 \leq C \int_x^{\infty} e^{-\alpha y} dy = C \frac{e^{-\alpha x}}{\alpha},
 \end{align*}
 which is finite, thus the formal expression \cref{Yintegform} is valid. 
@@ -2034,7 +2015,7 @@ where $Q_i^-: [-X_{i-1}, 0] \rightarrow \R^{2m+1}$ and $Q_i^+: [0, X_i] \rightar
 \begin{equation}\label{Veqgeneral}
 V(x)' = ( A(U(x)) + \lambda B)  V(x),
 \end{equation}
-where $U(x) \in C_b([0, \infty), \R^{2m+1})$ or $U(x) \in C_b((-\infty, 0], \R^{2m+1})$. Let $\Lambda = (U(x), \lambda)$ and $\Lambda_0 = (Q(x), 0)$. Using the conjugation lemma, there exists $\delta_4 \leq \delta_3$ and invertible linear transformations $P^\pm(x; U(x), \lambda) = I + \Theta^\pm(x; U(x), \lambda)$ such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the into the constant-coefficient equation $Z'(x) = A(0; \lambda) Z(x)$. By \cref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
+where $U(x) \in C_b([0, \infty), \R^{2m+1})$ or $U(x) \in C_b((-\infty, 0], \R^{2m+1})$. Let $\Lambda = (U(x), \lambda)$ and $\Lambda_0 = (Q(x), 0)$. Using the conjugation lemma, there exists $\delta_4 \leq \delta_3$ and invertible linear transformations $P^\pm(x; U(x), \lambda) = I + \Theta^\pm(x; U(x), \lambda)$ such that for all $|\lambda| < \delta_4$ and $U(x)$ with $\| U(x) - Q(x) \| < \delta_4$, the change of coordinates $V = P^\pm(x; U(x), \lambda)$ on $\R^\pm$ conjugates \cref{Veqgeneral} into the constant-coefficient equation $Z'(x) = A(0; \lambda) Z(x)$. By \cref{solvewithjumps}, $\| Q_i^\pm(x) - Q(x) \| \leq C e^{-\alpha_0 X^*}$, thus we can choose $X^*$ sufficiently large so that $\| Q_i^\pm(x) - Q(x) \| \leq \delta_4$ for $i = 0, \dots, n-1$. Define
 \begin{equation}\label{defPipm}
 P_i^\pm(x; \lambda) = I + \Theta_i^\pm(x; \lambda) = I + \Theta^\pm(x; Q_i^\pm(x), \lambda).
 \end{equation}
@@ -2243,7 +2224,7 @@ Z_i^-(x) = \Phi_i^{s,-}&(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{
 &- \Phi_i^{c,-}(x, -X_{i-1}; \lambda) P_i^-(-X_{i-1}; \lambda)^{-1} a_{i-1}^c \\
 &+ \int_0^x \Phi_i^{u,-}(x, y; \lambda)P_i^-(y; \lambda)^{-1}(c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\
 &+ \int_{-X_{i-1}}^x \Phi_i^{s,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\
-&+ \int_{-X_{i-1}}^x \Phi_i^{c,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y))  \\ 
+&+ \int_{-X_{i-1}}^x \Phi_i^{c,-}(x, y; \lambda) P_i^-(y; \lambda)^{-1} (c_{i-1} e^{\nu(\lambda)X_{i-1}} G_i^-(y; \lambda) + \lambda^2 d_i \tilde{H}_i^-(y)) dy \\ 
 Z_i^+(x) = \Phi_i^{u,+}&(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^+ + \Phi_i^{s,+}(x, 0; \lambda) P_i^+(0; \lambda)^{-1} b_i^+ \\
 &+ \Phi_i^{c,+}(x, X_i; \lambda) P_i^+(X_i; \lambda)^{-1} a_i^c \\
 &+ \int_0^x \Phi_i^{s,+}(x, y; \lambda) P_i^+(y; \lambda)^{-1} (c_i e^{-\nu(\lambda)X_i} G_i^+(y; \lambda) + \lambda^2 d_i \tilde{H}_i^+(y)) dy \\
@@ -2844,7 +2825,7 @@ Choose $m_0 = 1$, let $r_*$ be as in \cref{2pulsebifurcation}, and let $Q_2(x; s
 \mu_1(s_1, r) &= \frac{\pi i}{X(s_1,r) + c \frac{K}{M}} \\
 \mu_*(s_1, r) &= \sqrt{-\frac{ 2a(s_1,r) - R_1(r) }{M c^2}} = \sqrt{-\frac{2a(s_1,r)}{M c^2}} + \mathcal{O}(r),
 \end{align*}
-both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + L_0$, which is a nonzero constant. By the definition of $a$ in \cref{2pa}, $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$, we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let
+both of which lie on the imaginary axis. Note that we have included the remainder term $R_1(r)$, which independent of $\mu$, in the definition of $\mu_*$. As $s_1 \rightarrow \infty$, $X_1(r, s_1) \rightarrow \infty$ and $X_0(r, s_1) \rightarrow \frac{1}{2 \alpha_0}|\log r| + \frac{\pi}{2\beta_0} + \tilde{L}$, which is a nonzero constant. By the definition of $a$ in \cref{2pa}, $a(s_1,r)$ approaches a nonzero constant as $s_1 \rightarrow \infty$. Thus there exists $r_0 \leq r_*$ such that for all $r \leq r_0$, we can find $s_*(r)$ such that $\mu_1(s_*(r), r) = \mu_*(s_*(r), r)$. Let
 \begin{equation}\label{XstarKrein}
 X_*(r) = X(s_*(r), r) = \frac{\pi i}{\mu_*(s_*(r), r)} - c \frac{K}{M}.
 \end{equation}
@@ -2879,7 +2860,7 @@ and
 &\sinh(\mu(X_1 - X_0)) = \sinh(\mu X) \cosh(2 \mu X_0) - \cosh(\mu X)\sinh(2 \mu X_0)
 = \mathcal{O}\left( r^{1/2}|\log r| \right).
 \end{align*}
-Substituting all of these these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ since $\mu \neq 0$, using the expression $a = -M c^2 \mu_*^2/2 + \mathcal{O}(r^{3/2})$, and simplifying, we obtain the equation
+Substituting all of these into \cref{2pdetmu}, dividing by $-2 \mu^2 c^2$ since $\mu \neq 0$, using the expression $a = -M c^2 \mu_*^2/2 + \mathcal{O}(r^{3/2})$, and simplifying, we obtain the equation
 \begin{equation}\label{det3}
 \begin{aligned}
 &M \tilde{\mu} \tilde{h} X_0 r^{7/4}
@@ -2934,18 +2915,13 @@ which is approximately a circle centered at $\lambda_*$ in the complex plane of 
 
 \section{Conclusions}\label{sec:conclusions}
 
-In this paper we use Lin's method to construct periodic multi-pulse solutions to KdV5 and to determine the spectrum near the origin associated with these solutions. The results hold more generally for Hamiltonian systems which are both reversible and translation invariant,
-\revised{including higher order KdV equations.} 
-This technique allows us to compute both the eigenvalues resulting from interactions between neighboring pulses in the periodic multi-pulse structure and the essential spectrum eigenvalues resulting from the background state. Of note, we show that as the domain size is increased, brief instability bubbles form when interaction eigenvalues and essential spectrum eigenvalues of opposite Krein signature collide on the imaginary axis. These Krein bubbles can be found numerically, and their location and size agree with the theoretical results.
-\revised{
-Numerical timestepping experiments show that these Krein bubbles correspond to slowing growing, oscillatory instabilities.
-}
+In this paper, we use Lin's method to construct periodic multi-pulse solutions to KdV5 and to determine the spectrum near the origin associated with these solutions. The results hold more generally for Hamiltonian systems which are both reversible and translation invariant,
+including higher order KdV equations.
+This technique allows us to compute both the eigenvalues resulting from interactions between neighboring pulses in the periodic multi-pulse structure and the essential spectrum eigenvalues resulting from the background state. Of note, we show that as the domain size is increased, brief instability bubbles form when interaction eigenvalues and essential spectrum eigenvalues of opposite Krein signature collide on the imaginary axis. These Krein bubbles can be found numerically, and their location and size agree with the theoretical results. Numerical timestepping experiments show that these Krein bubbles correspond to slowly growing, oscillatory instabilities.
 
-In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions, but have to exclude certain periodic parameterizations to avoid bifurcation points. We only demonstrate the complete bifurcation structure for periodic 2-pulses (\cref{2pulsebifurcation}). It is likely that bifurcation structures exist for arbitrary periodic $n$-pulses, but that these become more complex as $m$ increases. As a first step to elucidating these bifurcations, it would be useful to study periodic 3-pulses by using AUTO for parameter continuation not only in the domain size $X$ but also in the parameters $c$ and $p$. This could suggest a theoretical result as well as a generalization to higher $n$. We could also extend the spectral results to arbitrary multi-pulses. As long as any Krein collisions are avoided, it should be possible to determine the interaction eigenvalue patten solely from the geometry of the periodic multi-pulse, as is the case with the periodic double pulse. It would also be worth looking at whether Krein bubbles occur for higher order periodic multi-pulses. As an initial step, we could construct periodic 3-pulses with two pairs of imaginary interaction eigenvalues as well as ``mixed'' periodic 3-pulses with one pair each of real and imaginary interaction eigenvalues. We could then determine numerically if Krein bubbles occur for either of these two periodic 3-pulses. We also note that we obtained better error estimates for the Krein bubble size in the numerical computations in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus it might be possible to obtain sharper error estimates analytically. 
+In \cref{th:perexist}, we prove the existence of periodic multi-pulse solutions, but have to exclude certain periodic parameterizations to avoid bifurcation points. We only demonstrate the complete bifurcation structure for periodic 2-pulses (\cref{2pulsebifurcation}). It is likely that bifurcation structures exist for arbitrary periodic $n$-pulses, but that these become more complex as $n$ increases. As a first step to elucidating these bifurcations, it would be useful to study periodic 3-pulses by using AUTO for parameter continuation not only in the domain size $X$ but also in the parameters $c$ and $p$. This could suggest a theoretical result as well as a generalization to higher $n$. We could also extend the spectral results to arbitrary multi-pulses. As long as any Krein collisions are avoided, it should be possible to determine the interaction eigenvalue patten solely from the geometry of the periodic multi-pulse, as is the case with the periodic double pulse. It would also be worth looking at whether Krein bubbles occur for higher order periodic multi-pulses. As an initial step, we could construct periodic 3-pulses with two pairs of imaginary interaction eigenvalues as well as ``mixed'' periodic 3-pulses with one pair each of real and imaginary interaction eigenvalues. We could then determine numerically if Krein bubbles occur for either of these two periodic 3-pulses. We also note that we obtained better error estimates for the Krein bubble size in the numerical computations in \cref{sec:numerics} than were predicted by \cref{th:Kreinbubble}, thus it might be possible to obtain sharper error estimates analytically. 
 
-\revised{
-Finally, we note from \cref{remark:kreinbubbles} that as the domain size $X$ increases, the centers of subsequent Krein bubbles (indexed by increasing $m$) are approximately equally spaced in $X$. However, their widths in $X$ scale with $\sqrt{m}$, so that they grow with each subsequent bubble (\cref{fig:KreinBubbleCollision}, left panel). At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}, right panel). After this occurs, we expect that there will always be an eigenvalue with positive real part, thus the periodic double pulses should all be unstable for $X > X_c$. As $X$ is further increased, we expect that more than two Krein bubbles will interact, and that the eigenvalue behavior will become increasing complicated. (This is very difficult to simulate numerically, as it involves extremely large domain sizes). At the same time, the radius in the complex plane of subsequent Krein bubbles scales with $1/\sqrt{m}$ (\cref{fig:KreinBubbleCollision}, left panel), which suggests that the maximum real part of the corresponding interaction eigenvalue approaches 0 as $X\rightarrow \infty$. Although we cannot generalize the periodic case to obtain the behavior on $\R$ by taking $X\rightarrow \infty$, this suggests that the spectrum of the double pulse on the real line, which is the formal limit of the periodic double pulse as $X\rightarrow \infty$, may in fact be purely imaginary.
-}
+Finally, we note from \cref{remark:kreinbubbles} that as the domain size $X$ increases, the centers of subsequent Krein bubbles (indexed by increasing $m$) are approximately equally spaced in $X$. However, their widths in $X$ scale with $\sqrt{m}$, so that they grow with each subsequent bubble (\cref{fig:KreinBubbleCollision}, left panel). At some critical value $X = X_c$, the Krein bubbles will start overlapping (\cref{fig:KreinBubbleCollision}, right panel). After this occurs, we expect that there will always be an eigenvalue with positive real part, thus the periodic double pulses should all be unstable for $X > X_c$. As $X$ is further increased, we expect that more than two Krein bubbles will interact, and that the eigenvalue behavior will become increasing complicated. (This is very difficult to simulate numerically, as it involves extremely large domain sizes.) At the same time, the radius in the complex plane of subsequent Krein bubbles scales with $1/\sqrt{m}$ (\cref{fig:KreinBubbleCollision}, left panel), which suggests that the maximum real part of the corresponding interaction eigenvalue approaches 0 as $X\rightarrow \infty$. Although we cannot generalize the periodic case to obtain the behavior on $\R$ by taking $X\rightarrow \infty$, this suggests that the spectrum of the double pulse on the real line, which is the formal limit of the periodic double pulse as $X\rightarrow \infty$, may in fact be purely imaginary.
 
 \begin{figure}
 \begin{center}
